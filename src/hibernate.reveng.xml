@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
+<!--
+DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright (c) 2008, 2016 Oracle and/or its affiliates. All rights reserved.
+
+Oracle and Java are registered trademarks of Oracle and/or its affiliates.
+Other names may be trademarks of their respective owners.
+
+The contents of this file are subject to the terms of either the GNU
+General Public License Version 2 only ("GPL") or the Common
+Development and Distribution License("CDDL") (collectively, the
+"License"). You may not use this file except in compliance with the
+License. You can obtain a copy of the License at
+http://www.netbeans.org/cddl-gplv2.html
+or nbbuild/licenses/CDDL-GPL-2-CP. See the License for the
+specific language governing permissions and limitations under the
+License.  When distributing the software, include this License Header
+Notice in each file and include the License file at
+nbbuild/licenses/CDDL-GPL-2-CP.  Oracle designates this
+particular file as subject to the "Classpath" exception as provided
+by Oracle in the GPL Version 2 section of the License file that
+accompanied this code. If applicable, add the following below the
+License Header, with the fields enclosed by brackets [] replaced by
+your own identifying information:
+"Portions Copyrighted [year] [name of copyright owner]"
+
+If you wish your version of this file to be governed by only the CDDL
+or only the GPL Version 2, indicate your decision by adding
+"[Contributor] elects to include this software in this distribution
+under the [CDDL or GPL Version 2] license." If you do not indicate a
+single choice of license, a recipient has the option to distribute
+your version of this file under either the CDDL, the GPL Version 2 or
+to extend the choice of license to its licensees as provided above.
+However, if you add GPL Version 2 code and therefore, elected the GPL
+Version 2 license, then the option applies only if the new code is
+made subject to such option by the copyright holder.
+
+Contributor(s):
+-->
+<hibernate-reverse-engineering>
+  <schema-selection match-catalog="ultimate2"/>
+  <table-filter match-name="bop_payment_vote"/>
+  <table-filter match-name="customer"/>
+  <table-filter match-name="wb_m_division"/>
+  <table-filter match-name="customer_has_sr_shop"/>
+  <table-filter match-name="mixdata"/>
+  <table-filter match-name="ass_nature"/>
+  <table-filter match-name="approval_by_has_action"/>
+  <table-filter match-name="sl_yes_no_details3"/>
+  <table-filter match-name="user_has_otheritiscat"/>
+  <table-filter match-name="doccat"/>
+  <table-filter match-name="doc_hand_oder_path"/>
+  <table-filter match-name="account_receipt_title"/>
+  <table-filter match-name="sms_getting_setting"/>
+  <table-filter match-name="ass_discription"/>
+  <table-filter match-name="user_has_catagory"/>
+  <table-filter match-name="sr_flow"/>
+  <table-filter match-name="mixincome"/>
+  <table-filter match-name="cheque_process"/>
+  <table-filter match-name="customer_has_cus_cat"/>
+  <table-filter match-name="sl_arr_load_location"/>
+  <table-filter match-name="program_subtitle"/>
+  <table-filter match-name="area"/>
+  <table-filter match-name="version"/>
+  <table-filter match-name="book"/>
+  <table-filter match-name="bophascommettee"/>
+  <table-filter match-name="otheritiscat"/>
+  <table-filter match-name="program_title"/>
+  <table-filter match-name="bop"/>
+  <table-filter match-name="do_on_action_has_attributes"/>
+  <table-filter match-name="ass_update_histry"/>
+  <table-filter match-name="xxx"/>
+  <table-filter match-name="sl_side"/>
+  <table-filter match-name="sr_shop_cashflow"/>
+  <table-filter match-name="do_on_action"/>
+  <table-filter match-name="department"/>
+  <table-filter match-name="uploads"/>
+  <table-filter match-name="ass_subowner"/>
+  <table-filter match-name="catagory"/>
+  <table-filter match-name="sl_yes_no_details2"/>
+  <table-filter match-name="user"/>
+  <table-filter match-name="bop_has_assessment"/>
+  <table-filter match-name="referenceno"/>
+  <table-filter match-name="vehiclepass"/>
+  <table-filter match-name="ribill"/>
+  <table-filter match-name="ass_allocation"/>
+  <table-filter match-name="shoprental"/>
+  <table-filter match-name="ass_payment"/>
+  <table-filter match-name="ui"/>
+  <table-filter match-name="sl_distance"/>
+  <table-filter match-name="watter"/>
+  <table-filter match-name="bop_reg_con"/>
+  <table-filter match-name="sabha_details"/>
+  <table-filter match-name="user_has_privilage"/>
+  <table-filter match-name="building_has_assessment"/>
+  <table-filter match-name="sl_yes_no_details"/>
+  <table-filter match-name="sr_building"/>
+  <table-filter match-name="sr_shop_payment"/>
+  <table-filter match-name="sr_paid_status"/>
+  <table-filter match-name="gali"/>
+  <table-filter match-name="sl_load_arrears_panels"/>
+  <table-filter match-name="vort"/>
+  <table-filter match-name="gotoeng"/>
+  <table-filter match-name="receipt_code_create"/>
+  <table-filter match-name="privilage"/>
+  <table-filter match-name="gali_has_employe"/>
+  <table-filter match-name="ass_qstart"/>
+  <table-filter match-name="adv_position"/>
+  <table-filter match-name="sms_details"/>
+  <table-filter match-name="interest"/>
+  <table-filter match-name="user_has_dipartment"/>
+  <table-filter match-name="userhasdivition"/>
+  <table-filter match-name="status"/>
+  <table-filter match-name="sr_shop_fine_prc_detail"/>
+  <table-filter match-name="account_ps_three"/>
+  <table-filter match-name="office"/>
+  <table-filter match-name="de"/>
+  <table-filter match-name="user_has_approval_cat"/>
+  <table-filter match-name="adv_vote"/>
+  <table-filter match-name="fixcharge"/>
+  <table-filter match-name="book_place"/>
+  <table-filter match-name="application_catagory"/>
+  <table-filter match-name="grade"/>
+  <table-filter match-name="sl_yes_no_details6"/>
+  <table-filter match-name="user_log"/>
+  <table-filter match-name="application"/>
+  <table-filter match-name="login"/>
+  <table-filter match-name="referenceno_tbl"/>
+  <table-filter match-name="program_copy"/>
+  <table-filter match-name="sl_payment_amount"/>
+  <table-filter match-name="action_has_do_on_action"/>
+  <table-filter match-name="bank"/>
+  <table-filter match-name="privilage_copy"/>
+  <table-filter match-name="action"/>
+  <table-filter match-name="customer_has_trade_license"/>
+  <table-filter match-name="ass_vote"/>
+  <table-filter match-name="sr_shop_before_add_amount"/>
+  <table-filter match-name="tax_rate"/>
+  <table-filter match-name="receipt"/>
+  <table-filter match-name="contact"/>
+  <table-filter match-name="employe"/>
+  <table-filter match-name="fxkeyvalue"/>
+  <table-filter match-name="approve_types"/>
+  <table-filter match-name="user_signatuer"/>
+  <table-filter match-name="approval_by"/>
+  <table-filter match-name="processtype"/>
+  <table-filter match-name="adv_bords"/>
+  <table-filter match-name="assessment"/>
+  <table-filter match-name="sr_shop_has_customer"/>
+  <table-filter match-name="doc_hand_details"/>
+  <table-filter match-name="person_title"/>
+  <table-filter match-name="vote"/>
+  <table-filter match-name="sl_arrears_panel_name"/>
+  <table-filter match-name="aha"/>
+  <table-filter match-name="approval_cat"/>
+  <table-filter match-name="weel_paid_amount_vote"/>
+  <table-filter match-name="user_has_application_catagory"/>
+  <table-filter match-name="trade_nature"/>
+  <table-filter match-name="ass_history"/>
+  <table-filter match-name="sl_la_type"/>
+  <table-filter match-name="adv_advertising"/>
+  <table-filter match-name="sub_nature"/>
+  <table-filter match-name="doc_hand_approve"/>
+  <table-filter match-name="values"/>
+  <table-filter match-name="obsaloot"/>
+  <table-filter match-name="cash_flow"/>
+  <table-filter match-name="sl_sabha_type"/>
+  <table-filter match-name="sr_shop_values"/>
+  <table-filter match-name="building"/>
+  <table-filter match-name="ass_creditdebit"/>
+  <table-filter match-name="sr_status"/>
+  <table-filter match-name="interest_copy1"/>
+  <table-filter match-name="trade_type"/>
+  <table-filter match-name="sr_shop_has_vote"/>
+  <table-filter match-name="applications"/>
+  <table-filter match-name="aplication_payment"/>
+  <table-filter match-name="commetteemembers"/>
+  <table-filter match-name="ass_payhistry"/>
+  <table-filter match-name="sl_arrears_type"/>
+  <table-filter match-name="payment"/>
+  <table-filter match-name="cheack"/>
+  <table-filter match-name="cheque_bank"/>
+  <table-filter match-name="interest_copy"/>
+  <table-filter match-name="program"/>
+  <table-filter match-name="trade_license"/>
+  <table-filter match-name="sr_shop_votes_category"/>
+  <table-filter match-name="sl_yes_no_details4"/>
+  <table-filter match-name="tradelicens"/>
+  <table-filter match-name="adv_board_type"/>
+  <table-filter match-name="environment"/>
+  <table-filter match-name="bank_info"/>
+  <table-filter match-name="employe_has_application_catagory"/>
+  <table-filter match-name="systemdate"/>
+  <table-filter match-name="atachmant_env"/>
+  <table-filter match-name="user_has_department"/>
+  <table-filter match-name="sr_print_vote_bill_name"/>
+  <table-filter match-name="needdoc"/>
+  <table-filter match-name="gnd"/>
+  <table-filter match-name="ass_payto"/>
+  <table-filter match-name="street_copy"/>
+  <table-filter match-name="water_cus"/>
+  <table-filter match-name="mixintype"/>
+  <table-filter match-name="book_date"/>
+  <table-filter match-name="attributes"/>
+  <table-filter match-name="ward"/>
+  <table-filter match-name="sr_shop"/>
+  <table-filter match-name="keys_values"/>
+  <table-filter match-name="user_login"/>
+  <table-filter match-name="user_copy"/>
+  <table-filter match-name="street"/>
+  <table-filter match-name="ribill_list"/>
+  <table-filter match-name="assessment_has_processtype"/>
+  <table-filter match-name="sl_details"/>
+  <table-filter match-name="sr_shop_payment_cross_tbl"/>
+  <table-filter match-name="sl_yes_no_details5"/>
+  <table-filter match-name="sr_shop_has_value"/>
+  <table-filter match-name="streetline"/>
+  <table-filter match-name="send_to_approve"/>
+  <table-filter match-name="user_level"/>
+  <table-filter match-name="sr_shop_proc"/>
+  <table-filter match-name="approve_details"/>
+  <table-filter match-name="cheque_status"/>
+  <table-filter match-name="sr_shop_type"/>
+  <table-filter match-name="sl_upload_images"/>
+  <table-filter match-name="areacal"/>
+  <table-filter match-name="apprualstatues"/>
+  <table-filter match-name="cus_cat"/>
+  <table-filter match-name="program_title_copy"/>
+  <table-filter match-name="book_reson"/>
+  <table-filter match-name="customer_has_application_catagory"/>
+  <table-filter match-name="program_subtitle_copy"/>
+  <table-filter match-name="sl_payment_vote"/>
+  <table-filter match-name="dipartment"/>
+</hibernate-reverse-engineering>

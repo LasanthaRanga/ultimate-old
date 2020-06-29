@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 3, 2019 9:57:03 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.WbMTax" table="wb_m_tax" catalog="kuliuc" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="taxName" type="string">
+            <column name="tax_name" length="50" />
+        </property>
+        <property name="percentage" type="java.lang.Double">
+            <column name="percentage" precision="22" scale="0" />
+        </property>
+        <property name="status" type="string">
+            <column name="status" length="3">
+                <comment>ACT/INA</comment>
+            </column>
+        </property>
+        <property name="taxAmountToTakeVat" type="java.lang.Double">
+            <column name="tax_amount_to_take_vat" precision="22" scale="0" />
+        </property>
+        <property name="vattakeAmountActiveNot" type="java.lang.Integer">
+            <column name="vattake_amount_active_not" />
+        </property>
+    </class>
+</hibernate-mapping>

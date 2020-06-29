@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 6, 2019 4:30:22 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.SrShopPayment" table="sr_shop_payment" catalog="ultimate2" optimistic-lock="version">
+        <id name="srShopPaidId" type="java.lang.Integer">
+            <column name="sr_shop_paid_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="srShop" class="pojo.SrShop" fetch="select">
+            <column name="sr_shop_shop_id" />
+        </many-to-one>
+        <many-to-one name="srShopProc" class="pojo.SrShopProc" fetch="select">
+            <column name="sr_shop_proc_id1" not-null="true" />
+        </many-to-one>
+        <property name="srShopProcYear" type="java.lang.Integer">
+            <column name="sr_shop_proc_year" />
+        </property>
+        <property name="srShopProcMonth" type="java.lang.Integer">
+            <column name="sr_shop_proc_month" />
+        </property>
+        <property name="srShopPaidArrearsAmount" type="java.lang.Double">
+            <column name="sr_shop_paid_arrears_amount" precision="22" scale="0" />
+        </property>
+        <property name="srShopPaidArrearsBal" type="java.lang.Double">
+            <column name="sr_shop_paid_arrears_bal" precision="22" scale="0" />
+        </property>
+        <property name="srShopPaidFine" type="java.lang.Double">
+            <column name="sr_shop_paid_fine" precision="22" scale="0" />
+        </property>
+        <property name="srShopPaidFineBal" type="java.lang.Double">
+            <column name="sr_shop_paid_fine_bal" precision="22" scale="0" />
+        </property>
+        <property name="srShopPaidRentalTot" type="java.lang.Double">
+            <column name="sr_shop_paid_rental_tot" precision="22" scale="0" />
+        </property>
+        <property name="srShopPaidRentalTotBal" type="java.lang.Double">
+            <column name="sr_shop_paid_rental_tot_bal" precision="22" scale="0" />
+        </property>
+        <property name="srShopPaidOverPay" type="java.lang.Double">
+            <column name="sr_shop_paid_over_pay" precision="22" scale="0" />
+        </property>
+        <property name="srShopPaidOverPayBal" type="java.lang.Double">
+            <column name="sr_shop_paid_over_pay_bal" precision="22" scale="0" />
+        </property>
+        <property name="srShopPaidVat" type="java.lang.Double">
+            <column name="sr_shop_paid_vat" precision="22" scale="0" />
+        </property>
+        <property name="srShopPaidNbt" type="java.lang.Double">
+            <column name="sr_shop_paid_nbt" precision="22" scale="0" />
+        </property>
+        <property name="srShopPaidStamp" type="java.lang.Double">
+            <column name="sr_shop_paid_stamp" precision="22" scale="0" />
+        </property>
+        <property name="srShopPaidSc1" type="java.lang.Double">
+            <column name="sr_shop_paid_sc1" precision="22" scale="0" />
+        </property>
+        <property name="srShopPaidSc2" type="java.lang.Double">
+            <column name="sr_shop_paid_sc2" precision="22" scale="0" />
+        </property>
+        <property name="srShopPaidSc3" type="java.lang.Double">
+            <column name="sr_shop_paid_sc3" precision="22" scale="0" />
+        </property>
+        <property name="srShopPaidRent" type="java.lang.Double">
+            <column name="sr_shop_paid_rent" precision="22" scale="0" />
+        </property>
+        <property name="srShopPaidProcComplete" type="string">
+            <column name="sr_shop_paid_proc_complete" length="11" />
+        </property>
+        <property name="srReceiptNo" type="string">
+            <column name="sr_receipt_no" length="50" />
+        </property>
+        <property name="srPaidDate" type="date">
+            <column name="sr_paid_date" length="10" />
+        </property>
+        <property name="srCreatePaymentTime" type="time">
+            <column name="sr_create_payment_time" length="8" />
+        </property>
+        <property name="srShopPaymentCompleteOrNot" type="java.lang.Integer">
+            <column name="sr_shop_payment_complete_or_not" />
+        </property>
+        <property name="srShopPaidUser" type="java.lang.Integer">
+            <column name="sr_shop_paid_user" />
+        </property>
+        <property name="srShopReceiptOrder" type="java.lang.Integer">
+            <column name="sr_shop_receipt_order" />
+        </property>
+    </class>
+</hibernate-mapping>

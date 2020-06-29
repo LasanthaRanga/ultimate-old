@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 3, 2019 9:57:03 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.BaPersonalInformation" table="ba_personal_information" catalog="kuliuc" optimistic-lock="version">
+        <id name="baPersonalDetailsId" type="java.lang.Integer">
+            <column name="BA_Personal_details_Id" />
+            <generator class="identity" />
+        </id>
+        <property name="baApplicationNumber" type="string">
+            <column name="BA_Application_Number" />
+        </property>
+        <property name="baBopId" type="java.lang.Integer">
+            <column name="BA_Bop_Id" />
+        </property>
+        <property name="baUdaAreaOrNot" type="string">
+            <column name="BA_Uda_area_or_not" />
+        </property>
+        <property name="baLaId" type="java.lang.Integer">
+            <column name="BA_La_Id" />
+        </property>
+        <property name="baApplicationDate" type="date">
+            <column name="BA_Application_Date" length="10" />
+        </property>
+        <property name="baElectoralDistricId" type="java.lang.Integer">
+            <column name="BA_Electoral_Distric_Id" />
+        </property>
+        <property name="baGnDivisionId" type="java.lang.Integer">
+            <column name="BA_Gn_Division_Id" />
+        </property>
+        <property name="baTypeofApplicant" type="string">
+            <column name="BA_Typeof_Applicant" />
+        </property>
+        <property name="baConstrctionType" type="string">
+            <column name="BA_Constrction_Type" />
+        </property>
+        <property name="baLandAcres" type="java.lang.Double">
+            <column name="BA_land_acres" precision="22" scale="0" />
+        </property>
+        <property name="baLandRoods" type="java.lang.Double">
+            <column name="BA_land_roods" precision="22" scale="0" />
+        </property>
+        <property name="baSurveyorsName" type="string">
+            <column name="BA_Surveyors_Name" />
+        </property>
+        <property name="baSurveyorsNo" type="string">
+            <column name="BA_Surveyors_No" />
+        </property>
+        <property name="baSurveyorsDate" type="date">
+            <column name="BA_Surveyors_Date" length="10" />
+        </property>
+        <property name="baLotNo" type="string">
+            <column name="BA_lot_no" />
+        </property>
+        <property name="baLandCurrentDescription" type="string">
+            <column name="BA_Land_current_description" />
+        </property>
+        <property name="baFloorCount" type="string">
+            <column name="BA_Floor_count" />
+        </property>
+        <property name="baBuildingHeight" type="string">
+            <column name="BA_Building_height" />
+        </property>
+        <property name="baVehicleParkDescription" type="string">
+            <column name="BA_Vehicle_park_description" />
+        </property>
+        <property name="baWaterVolume" type="string">
+            <column name="BA_water_volume" />
+        </property>
+        <property name="baElectricityCapacity" type="string">
+            <column name="BA_Electricity_capacity" />
+        </property>
+        <property name="baNumberOfEmp" type="string">
+            <column name="BA_Number_of_emp" />
+        </property>
+        <property name="baStartingDate" type="date">
+            <column name="BA_starting_date" length="10" />
+        </property>
+        <property name="baEndDate" type="date">
+            <column name="BA_end_date" length="10" />
+        </property>
+        <property name="baRdaAreaOrNot" type="java.lang.Integer">
+            <column name="BA_Rda_area_or_not" />
+        </property>
+        <set name="baUserDetailses" table="ba_user_details" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="BA_Personal_details_Id" />
+            </key>
+            <one-to-many class="pojo.BaUserDetails" />
+        </set>
+        <set name="baDrafmanDetailses" table="ba_drafman_details" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="BA_Personal_details_Id" />
+            </key>
+            <one-to-many class="pojo.BaDrafmanDetails" />
+        </set>
+    </class>
+</hibernate-mapping>

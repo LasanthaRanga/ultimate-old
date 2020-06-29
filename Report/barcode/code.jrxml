@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.3.1.final using JasperReports Library version 6.3.1  -->
+<!-- 2019-06-18T13:57:55 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="code" pageWidth="226" pageHeight="104" columnWidth="226" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="cab7dc42-ceb9-441a-a7a3-2372af9692ab">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Ultimate2.xml"/>
+	<property name="com.jaspersoft.studio.unit." value="cm"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<parameter name="cusname" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{cusname}]]></defaultValueExpression>
+	</parameter>
+	<parameter name="code" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{code}]]></defaultValueExpression>
+	</parameter>
+	<parameter name="total" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{total}]]></defaultValueExpression>
+	</parameter>
+	<parameter name="subject" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{subject}]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+receipt.idReceipt,
+receipt.Application_Catagory_idApplication_Catagory,
+receipt.recept_applicationId,
+receipt.receipt_print_no,
+receipt.cheack,
+receipt.cesh,
+receipt.receipt_total,
+receipt.receipt_day,
+receipt.receipt_status,
+receipt.receipt_syn,
+receipt.chque_no,
+receipt.chque_date,
+receipt.chque_bank,
+receipt.oder,
+receipt.office_idOffice
+FROM
+receipt
+WHERE
+receipt.idReceipt =  $P{code} ]]>
+	</queryString>
+	<field name="idReceipt" class="java.lang.Integer"/>
+	<field name="Application_Catagory_idApplication_Catagory" class="java.lang.Integer"/>
+	<field name="recept_applicationId" class="java.lang.Integer"/>
+	<field name="receipt_print_no" class="java.lang.String"/>
+	<field name="cheack" class="java.lang.Double"/>
+	<field name="cesh" class="java.lang.Double"/>
+	<field name="receipt_total" class="java.lang.Double"/>
+	<field name="receipt_day" class="java.sql.Date"/>
+	<field name="receipt_status" class="java.lang.Integer"/>
+	<field name="receipt_syn" class="java.lang.Integer"/>
+	<field name="chque_no" class="java.lang.String"/>
+	<field name="chque_date" class="java.sql.Date"/>
+	<field name="chque_bank" class="java.lang.String"/>
+	<field name="oder" class="java.lang.Integer"/>
+	<field name="office_idOffice" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="103" splitType="Stretch">
+			<textField>
+				<reportElement x="13" y="8" width="123" height="40" uuid="9f8649e4-a075-4b7c-9d6e-6bf8c222deac"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{cusname}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="13" y="68" width="50" height="20" uuid="65732f95-a48a-4304-b2ea-c131ca8a2382"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{code}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="63" y="68" width="73" height="20" uuid="ee64290e-26e9-47ee-a9c7-62a12adb1bb4"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Rs."+$P{total}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="13" y="48" width="123" height="20" uuid="da5fd23b-0cfe-4fea-862e-59792b9b5f05"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{subject}]]></textFieldExpression>
+			</textField>
+			<componentElement>
+				<reportElement x="136" y="8" width="80" height="82" uuid="4f855c47-6f53-4662-82ba-2da1483f55a8"/>
+				<jr:DataMatrix xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<jr:codeExpression><![CDATA[$P{code}]]></jr:codeExpression>
+				</jr:DataMatrix>
+			</componentElement>
+		</band>
+	</detail>
+</jasperReport>

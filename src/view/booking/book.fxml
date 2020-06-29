@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXRadioButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXTimePicker?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="625.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.booking.Book">
+   <children>
+      <JFXButton fx:id="btn_book" layoutX="1031.0" layoutY="565.0" onMouseClicked="#clickOnBook" prefHeight="43.0" prefWidth="209.0" style="-fx-background-color: #FF9800;" text="Book This" textFill="#003090">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></JFXButton>
+      <HBox layoutX="79.0" layoutY="33.0" prefHeight="60.0" prefWidth="1197.0">
+         <children>
+            <JFXTextField fx:id="txt_nic" labelFloat="true" onKeyReleased="#keyReleaseOnNic" promptText="NIC">
+               <HBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField fx:id="txt_name" labelFloat="true" promptText="Name">
+               <HBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField fx:id="txt_mobile" labelFloat="true" promptText="Mobile Number">
+               <HBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField fx:id="txt_address1" labelFloat="true" promptText="Address Line 1">
+               <HBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField fx:id="txt_address2" labelFloat="true" promptText="Address Line 2">
+               <HBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField fx:id="txt_address3" labelFloat="true" promptText="Address Line 3">
+               <HBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </JFXTextField>
+         </children>
+      </HBox>
+      <HBox layoutX="79.0" layoutY="117.0" prefHeight="51.0" prefWidth="1197.0">
+         <children>
+            <JFXComboBox fx:id="com_place" labelFloat="true" onAction="#placeOnAction" prefHeight="31.0" prefWidth="369.0" promptText="Place">
+               <HBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="20.0" top="5.0" />
+               </HBox.margin>
+            </JFXComboBox>
+            <JFXComboBox fx:id="com_reson" labelFloat="true" onAction="#resonOnAction" prefHeight="31.0" prefWidth="494.0" promptText="Reason">
+               <HBox.margin>
+                  <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
+               </HBox.margin>
+            </JFXComboBox>
+            <JFXRadioButton fx:id="radio_full" onAction="#radioOnAction" text="Full Day">
+               <toggleGroup>
+                  <ToggleGroup fx:id="type" />
+               </toggleGroup>
+               <HBox.margin>
+                  <Insets bottom="5.0" left="20.0" right="5.0" top="10.0" />
+               </HBox.margin>
+            </JFXRadioButton>
+            <JFXRadioButton fx:id="radio_hours" onAction="#radioOnAction" text="Hours" toggleGroup="$type">
+               <HBox.margin>
+                  <Insets bottom="5.0" left="20.0" right="20.0" top="10.0" />
+               </HBox.margin>
+            </JFXRadioButton>
+         </children>
+      </HBox>
+      <TableView fx:id="tbl_book" layoutX="79.0" layoutY="203.0" onMouseClicked="#selectFromTable" prefHeight="281.0" prefWidth="910.0">
+        <columns>
+          <TableColumn fx:id="col_day" prefWidth="164.0" text="DAY" />
+          <TableColumn fx:id="col_type" prefWidth="168.0" text="Type" />
+            <TableColumn fx:id="col_from" prefWidth="120.0" text="From" />
+            <TableColumn fx:id="col_to" prefWidth="153.0" text="To" />
+            <TableColumn fx:id="col_amount" prefWidth="164.0" text="Amount" />
+            <TableColumn fx:id="col_diposit" prefWidth="125.0" text="Deposit" />
+        </columns>
+      </TableView>
+      <JFXDatePicker fx:id="dp_day" layoutX="1025.0" layoutY="203.0" onAction="#dayOnAction" onMouseClicked="#clickOnCalander" />
+      <HBox layoutX="80.0" layoutY="506.0" prefHeight="31.0" prefWidth="1184.0">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Deposit Total" textAlignment="RIGHT" wrappingWidth="110.9999982714653">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+               <HBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </HBox.margin>
+            </Text>
+            <Text fx:id="txt_dipo" fill="#003fa4" strokeMiterLimit="12.0" strokeType="OUTSIDE" strokeWidth="0.0" text="00" wrappingWidth="83.0">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+               <HBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </HBox.margin>
+            </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Amount Total" textAlignment="RIGHT" wrappingWidth="111.9999982714653">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+               <HBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </HBox.margin>
+            </Text>
+            <Text fx:id="txt_total" fill="#003fa4" strokeMiterLimit="12.0" strokeType="OUTSIDE" strokeWidth="0.0" text="00" wrappingWidth="90.0">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+               <HBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </HBox.margin>
+            </Text>
+            <JFXCheckBox fx:id="ch_vat" onAction="#checkOnAction" text="VAT">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <HBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </HBox.margin>
+            </JFXCheckBox>
+            <Text fx:id="txt_vat" fill="#003fa4" strokeMiterLimit="12.0" strokeType="OUTSIDE" strokeWidth="0.0" text="00" wrappingWidth="90.0">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <HBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </HBox.margin>
+            </Text>
+            <JFXCheckBox fx:id="ch_nbt" onAction="#checkOnAction" text="NBT">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <HBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </HBox.margin>
+            </JFXCheckBox>
+            <Text fx:id="txt_nbt" fill="#003fa4" strokeMiterLimit="12.0" strokeType="OUTSIDE" strokeWidth="0.0" text="00" wrappingWidth="90.0">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <HBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </HBox.margin>
+            </Text>
+            <JFXCheckBox fx:id="ch_stamp" onAction="#checkOnAction" text="STAMP">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <HBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </HBox.margin>
+            </JFXCheckBox>
+            <Text fx:id="txt_stamp" fill="#003fa4" strokeMiterLimit="12.0" strokeType="OUTSIDE" strokeWidth="0.0" text="00" wrappingWidth="90.0">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <HBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </HBox.margin>
+            </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Full Total" textAlignment="RIGHT" wrappingWidth="83.9999982714653">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <HBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </HBox.margin>
+            </Text>
+            <Text fx:id="txt_fulltotal" fill="#003fa4" strokeMiterLimit="12.0" strokeType="OUTSIDE" strokeWidth="0.0" text="00" wrappingWidth="100.0">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <HBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </HBox.margin>
+            </Text>
+         </children>
+      </HBox>
+      <JFXButton fx:id="btn_remove" layoutX="1025.0" layoutY="450.0" onMouseClicked="#clickOnRemove" prefHeight="31.0" prefWidth="209.0" style="-fx-background-color: #FF5722;" text="Remove" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></JFXButton>
+      <JFXTimePicker fx:id="time_form" layoutX="1025.0" layoutY="257.0" onAction="#timeFromOnAction" prefHeight="30.0" prefWidth="209.0" promptText="From" />
+      <JFXTimePicker fx:id="time_to" layoutX="1025.0" layoutY="319.0" onAction="#timeToOnAction" prefHeight="30.0" prefWidth="209.0" promptText="To" />
+      <JFXButton fx:id="btn_add" layoutX="1025.0" layoutY="390.0" onMouseClicked="#clickOnAdd" prefHeight="31.0" prefWidth="209.0" style="-fx-background-color: #4CAF50;" text="Add" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></JFXButton>
+      <JFXRadioButton fx:id="radio_cheque" layoutX="231.0" layoutY="574.0" onAction="#radioPayBy" text="CHEQUE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+         <toggleGroup>
+            <ToggleGroup fx:id="paytype" />
+         </toggleGroup>
+      </JFXRadioButton>
+      <JFXRadioButton fx:id="radio_cash" layoutX="68.0" layoutY="574.0" onAction="#radioPayBy" text="CASH" toggleGroup="$paytype">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </JFXRadioButton>
+      <JFXTextField fx:id="txt_chequeNo" labelFloat="true" layoutX="392.0" layoutY="572.0" prefHeight="29.0" prefWidth="147.0" promptText="Cheque No" />
+      <JFXDatePicker fx:id="dp_chque" layoutX="599.0" layoutY="572.0" prefHeight="30.0" prefWidth="177.0" promptText="Cheque Date" />
+      <JFXComboBox fx:id="com_bank" labelFloat="true" layoutX="822.0" layoutY="571.0" onAction="#selectBank" prefHeight="31.0" prefWidth="177.0" promptText="Bank" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXProgressBar?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="625.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.payment.PayByIdController">
+   <children>
+      <JFXTextField fx:id="txt_cash" layoutX="688.0" layoutY="90.0" onKeyReleased="#onKeyRelesed" />
+      <JFXTextField fx:id="txt_check" layoutX="1042.0" layoutY="90.0" onKeyReleased="#onKeyRelesed" />
+      <JFXCheckBox fx:id="cash" layoutX="688.0" layoutY="43.0" onAction="#cbOnAction" text="Cash" />
+      <JFXCheckBox fx:id="check" layoutX="1042.0" layoutY="43.0" onAction="#cbOnAction" text="Cheque" />
+      <JFXTextField fx:id="txt_chq_no" labelFloat="true" layoutX="1042.0" layoutY="159.0" onKeyReleased="#chequeNoReleased" promptText="Cheque No" />
+      <JFXDatePicker fx:id="check_date" layoutX="1042.0" layoutY="241.0" onAction="#chequeOnAction" prefHeight="30.0" prefWidth="169.0" promptText="Cheque Date" />
+      <JFXComboBox fx:id="combo_bank" layoutX="1042.0" layoutY="325.0" onAction="#chequeOnAction" prefHeight="31.0" prefWidth="169.0" promptText="Bank" />
+      <JFXButton fx:id="btn_pay" layoutX="1042.0" layoutY="410.0" onMouseClicked="#clickOnPay" prefHeight="64.0" prefWidth="169.0" style="-fx-background-color: #FF5722;" text="PAY" textFill="WHITE" />
+      <VBox layoutX="90.0" layoutY="143.0" prefHeight="353.0" prefWidth="414.0" style="-fx-border-color: #2196F3;">
+         <children>
+            <HBox prefHeight="46.0" prefWidth="390.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Rs." wrappingWidth="53.73046875">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="txt_amount" strokeType="OUTSIDE" strokeWidth="0.0" text="00" wrappingWidth="335.6708984375">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Text>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="20.0" top="10.0" />
+               </VBox.margin>
+            </HBox>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Customer Name">
+               <VBox.margin>
+                  <Insets bottom="10.0" top="10.0" />
+               </VBox.margin>
+            </Text>
+            <Text fx:id="txt_cusname" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="393.6709046959877">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin>
+            </Text>
+            <JFXTextArea fx:id="txt_dis" labelFloat="true" prefHeight="217.0" prefWidth="394.0" promptText="Description">
+               <VBox.margin>
+                  <Insets bottom="20.0" top="20.0" />
+               </VBox.margin>
+            </JFXTextArea>
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+      </VBox>
+      <JFXTextField fx:id="txt_id" focusColor="#1242d0" labelFloat="true" layoutX="90.0" layoutY="69.0" onKeyReleased="#keyReleasedOnID" prefHeight="43.0" prefWidth="240.0" promptText="ID">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </JFXTextField>
+      <JFXButton fx:id="btn_print" layoutX="1042.0" layoutY="498.0" onMouseClicked="#clickOnPrintBill" prefHeight="43.0" prefWidth="169.0" style="-fx-background-color: #2196F3;" text="Print Bill" textFill="WHITE" />
+      <JFXProgressBar layoutX="1027.0" layoutY="384.0" opacity="0.0" />
+   </children>
+</AnchorPane>

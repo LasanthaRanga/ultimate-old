@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="625.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.booking.BookCreate">
+   <children>
+      <JFXTextField fx:id="txt_place" layoutX="81.0" layoutY="26.0" prefHeight="26.0" prefWidth="388.0">
+         <font>
+            <Font name="Iskoola Pota" size="15.0" />
+         </font>
+      </JFXTextField>
+      <JFXButton fx:id="btn_place" layoutX="498.0" layoutY="26.0" onMouseClicked="#clickOnCreatePlace" style="-fx-background-color: #4CAF50;" text="Create Place" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></JFXButton>
+      <JFXComboBox fx:id="com_place" layoutX="81.0" layoutY="129.0" prefHeight="31.0" prefWidth="187.0" />
+      <JFXTextField fx:id="txt_reson" layoutX="82.0" layoutY="210.0" promptText="Reason" />
+      <JFXTextField fx:id="txt_day" layoutX="329.0" layoutY="210.0" promptText="Full Day Price" />
+      <JFXTextField fx:id="txt_hout" layoutX="566.0" layoutY="210.0" promptText="Hour Price" />
+      <JFXComboBox fx:id="com_account" layoutX="312.0" layoutY="129.0" prefHeight="31.0" prefWidth="148.0" promptText="Account" />
+      <JFXComboBox fx:id="com_vote" labelFloat="true" layoutX="492.0" layoutY="129.0" prefHeight="31.0" prefWidth="148.0" promptText="Amount Vote" />
+      <TableView fx:id="tbl_reson" layoutX="81.0" layoutY="267.0" prefHeight="291.0" prefWidth="1191.0">
+        <columns>
+          <TableColumn fx:id="col_place" prefWidth="239.0" text="Place" />
+          <TableColumn fx:id="col_reson" prefWidth="255.0" text="Reason" />
+            <TableColumn fx:id="col_account" prefWidth="126.0" text="Account" />
+            <TableColumn fx:id="col_avot" prefWidth="129.0" text="Amount Vote" />
+            <TableColumn fx:id="col_day" prefWidth="110.0" text="Full Day" />
+            <TableColumn fx:id="col_hour" prefWidth="110.0" text="Hour" />
+            <TableColumn fx:id="col_dvot" prefWidth="113.0" text="Deposit Vote" />
+            <TableColumn fx:id="col_dip" prefWidth="96.0" text="Deposit" />
+        </columns>
+      </TableView>
+      <JFXButton fx:id="btn_reson" layoutX="1103.0" layoutY="209.0" onMouseClicked="#clickOnReson" prefHeight="31.0" prefWidth="169.0" style="-fx-background-color: #4CAF50;" text="Create Reason" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></JFXButton>
+      <JFXTextField fx:id="txt_diposit" labelFloat="true" layoutX="921.0" layoutY="130.0" promptText="Diposit Value" text="0" />
+      <JFXComboBox fx:id="com_vote_dip" labelFloat="true" layoutX="1113.0" layoutY="129.0" prefHeight="31.0" prefWidth="148.0" promptText="Deposit Vote" />
+   </children>
+</AnchorPane>

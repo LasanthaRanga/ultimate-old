@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 3, 2019 9:57:03 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.WbTVoteCategory" table="wb_t_vote_category" catalog="kuliuc" optimistic-lock="version">
+        <id name="wbTVoteId" type="java.lang.Integer">
+            <column name="wb_t_vote_id" />
+            <generator class="identity" />
+        </id>
+        <property name="wbTVoteName" type="string">
+            <column name="wb_t_vote_name" length="20" />
+        </property>
+        <property name="wbTLyaVote" type="java.lang.Integer">
+            <column name="wb_t_LYA_vote" />
+        </property>
+        <property name="wbTLmaVote" type="java.lang.Integer">
+            <column name="wb_t_LMA_vote" />
+        </property>
+        <property name="wbTTmaVote" type="java.lang.Integer">
+            <column name="wb_t_TMA_vote" />
+        </property>
+        <property name="wbTOpVote" type="java.lang.Integer">
+            <column name="wb_t_OP_vote" />
+        </property>
+        <property name="wbTVat" type="java.lang.Integer">
+            <column name="wb_t_VAT" />
+        </property>
+        <property name="wbTCash" type="java.lang.Integer">
+            <column name="wb_t_cash" />
+        </property>
+        <property name="wbTCheque" type="java.lang.Integer">
+            <column name="wb_t_cheque" />
+        </property>
+        <property name="wbTAccountId" type="java.lang.Integer">
+            <column name="wb_t_account_id" />
+        </property>
+        <set name="wbTConnectionHasVotes" table="wb_t_connection_has_vote" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="wb_t_con_has_vote" />
+            </key>
+            <one-to-many class="pojo.WbTConnectionHasVote" />
+        </set>
+    </class>
+</hibernate-mapping>

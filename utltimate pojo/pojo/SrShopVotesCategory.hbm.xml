@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 6, 2019 4:30:22 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.SrShopVotesCategory" table="sr_shop_votes_category" catalog="ultimate2" optimistic-lock="version">
+        <id name="srShopVoteCategoryId" type="java.lang.Integer">
+            <column name="sr_shop_vote_category_id" />
+            <generator class="identity" />
+        </id>
+        <property name="srShopVoteCategoryName" type="string">
+            <column name="sr_shop_vote_category_name" length="50" />
+        </property>
+        <property name="srShopVotePayment" type="java.lang.Integer">
+            <column name="sr_shop_vote_payment" />
+        </property>
+        <property name="srShopVoteArrears" type="java.lang.Integer">
+            <column name="sr_shop_vote_arrears" />
+        </property>
+        <property name="srShopVoteFine" type="java.lang.Integer">
+            <column name="sr_shop_vote_fine" />
+        </property>
+        <property name="srShopVoteOverpayment" type="java.lang.Integer">
+            <column name="sr_shop_vote_overpayment" />
+        </property>
+        <property name="srShopVoteServiceCharge1" type="java.lang.Integer">
+            <column name="sr_shop_vote_service_charge_1" />
+        </property>
+        <property name="srShopVoteServiceCharge2" type="java.lang.Integer">
+            <column name="sr_shop_vote_service_charge_2" />
+        </property>
+        <property name="srShopVoteServiceCharge3" type="java.lang.Integer">
+            <column name="sr_shop_vote_service_charge_3" />
+        </property>
+        <property name="srShopVoteAccountId" type="java.lang.Integer">
+            <column name="sr_shop_vote_account_id" />
+        </property>
+        <property name="srShopVoteVat" type="java.lang.Integer">
+            <column name="sr_shop_vote_vat" />
+        </property>
+        <property name="srShopVoteStamp" type="java.lang.Integer">
+            <column name="sr_shop_vote_stamp" />
+        </property>
+        <property name="srShopVoteNbt" type="java.lang.Integer">
+            <column name="sr_shop_vote_nbt" />
+        </property>
+        <property name="srShopVoteVatVoteId" type="java.lang.Integer">
+            <column name="sr_shop_vote_vat_vote_id" />
+        </property>
+        <property name="srShopVoteStampVoteId" type="java.lang.Integer">
+            <column name="sr_shop_vote_stamp_vote_id" />
+        </property>
+        <property name="srShopVoteNbtVoteId" type="java.lang.Integer">
+            <column name="sr_shop_vote_nbt_vote_id" />
+        </property>
+        <property name="srCashVote" type="java.lang.Integer">
+            <column name="sr_cash_vote" />
+        </property>
+        <property name="srChequeVote" type="java.lang.Integer">
+            <column name="sr_cheque_vote" />
+        </property>
+        <set name="srShopHasVotes" table="sr_shop_has_vote" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="sr_shop_vote_category_id" />
+            </key>
+            <one-to-many class="pojo.SrShopHasVote" />
+        </set>
+    </class>
+</hibernate-mapping>

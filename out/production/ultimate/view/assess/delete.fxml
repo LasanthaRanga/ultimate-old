@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="625.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.assess.Delete">
+   <children>
+      <JFXTextField fx:id="idAssessment" labelFloat="true" layoutX="78.0" layoutY="73.0" onKeyReleased="#idKeyReleas" promptText="Assessment ID" />
+      <Text fx:id="txt_ass" layoutX="78.0" layoutY="156.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="337.9999876022339" />
+      <Text fx:id="txt_customer" layoutX="78.0" layoutY="206.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="337.9999876022339" />
+      <JFXTextArea fx:id="txt_comment" labelFloat="true" layoutX="78.0" layoutY="268.0" prefHeight="219.0" prefWidth="338.0" promptText="Comment" />
+      <JFXButton fx:id="btn_delete" buttonType="RAISED" layoutX="247.0" layoutY="515.0" onMouseClicked="#clickOnDelete" prefHeight="38.0" prefWidth="169.0" style="-fx-background-color: #f44336;" text="Delete" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </JFXButton>
+      <TableView fx:id="tbl_assess" layoutX="437.0" layoutY="26.0" prefHeight="528.0" prefWidth="831.0">
+         <columns>
+            <TableColumn fx:id="col_order" prefWidth="60.0" text="Order" />
+            <TableColumn fx:id="col_nature" prefWidth="100.0" text="Nature" />
+            <TableColumn fx:id="col_ward" minWidth="0.0" text="Ward" />
+            <TableColumn fx:id="col_street" prefWidth="103.0" text="Street" />
+            <TableColumn fx:id="col_assess" prefWidth="103.0" text="Assessment NO." />
+            <TableColumn fx:id="col_obsalut" prefWidth="96.0" text="Obsolete NO." />
+            <TableColumn fx:id="col_allocation" prefWidth="81.0" style="-fx-alignment: CENTER-RIGHT;" text="Allocation" />
+            <TableColumn fx:id="col_owner" prefWidth="149.0" text="Owner Name" />
+            <TableColumn fx:id="col_status" prefWidth="53.0" text="Status" />
+         </columns>
+      </TableView>
+   </children>
+</AnchorPane>

@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 6, 2019 4:30:22 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.Environment" table="environment" catalog="ultimate2" optimistic-lock="version">
+        <id name="idEnvironment" type="java.lang.Integer">
+            <column name="idEnvironment" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="customer" class="pojo.Customer" fetch="select">
+            <column name="Customer_idCustomer" not-null="true" />
+        </many-to-one>
+        <property name="appNoEnv" type="string">
+            <column name="app_no_env" length="45" />
+        </property>
+        <property name="addressEnv" type="string">
+            <column name="address_env" length="65535" />
+        </property>
+        <property name="dateEnv" type="date">
+            <column name="date_env" length="10" />
+        </property>
+        <property name="contactEnv" type="string">
+            <column name="Contact_env" length="45" />
+        </property>
+        <property name="discription" type="string">
+            <column name="discription" length="65535" />
+        </property>
+        <property name="statusEnv" type="java.lang.Integer">
+            <column name="status_env" />
+        </property>
+        <property name="synEnv" type="string">
+            <column name="syn_env" length="45" />
+        </property>
+        <set name="atachmantEnvs" table="atachmant_env" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Environment_idEnvironment" not-null="true" />
+            </key>
+            <one-to-many class="pojo.AtachmantEnv" />
+        </set>
+    </class>
+</hibernate-mapping>

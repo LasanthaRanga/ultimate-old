@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 6, 2019 4:30:22 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.ReferencenoTbl" table="referenceno_tbl" catalog="ultimate2" optimistic-lock="version">
+        <id name="idReferenceNoTbl" type="java.lang.Integer">
+            <column name="idReferenceNo_tbl" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="applicationCatagory" class="pojo.ApplicationCatagory" fetch="select">
+            <column name="application_catagory_idApplication_Catagory" not-null="true" />
+        </many-to-one>
+        <many-to-one name="office" class="pojo.Office" fetch="select">
+            <column name="office_idOffice" not-null="true" />
+        </many-to-one>
+        <property name="refno" type="string">
+            <column name="refno" length="45" />
+        </property>
+    </class>
+</hibernate-mapping>

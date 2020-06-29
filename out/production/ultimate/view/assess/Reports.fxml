@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="625.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.assess.ReportsController">
+   <children>
+      <AnchorPane layoutX="245.0" layoutY="252.0" prefHeight="84.0" prefWidth="810.0" style="-fx-border-color: #7B1FA2;">
+         <children>
+            <JFXDatePicker fx:id="from_date" layoutX="238.0" layoutY="28.0" prefHeight="30.0" prefWidth="130.0" promptText="From" />
+            <JFXDatePicker fx:id="to_date" layoutX="389.0" layoutY="27.0" prefHeight="30.0" prefWidth="130.0" promptText="To" />
+            <JFXButton fx:id="btn_reports" layoutX="676.0" layoutY="23.0" onMouseClicked="#clickOnRiReports" prefHeight="39.0" prefWidth="120.0" style="-fx-background-color: #4CAF50;" text="Completed" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </JFXButton>
+            <JFXComboBox fx:id="com_ri" layoutX="11.0" layoutY="27.0" prefHeight="31.0" prefWidth="204.0" promptText="Select RI" />
+            <JFXButton fx:id="btn_befor" layoutX="535.0" layoutY="24.0" onMouseClicked="#clickOnBefor" prefHeight="39.0" prefWidth="120.0" style="-fx-background-color: FF5722;" text="Before" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="245.0" layoutY="129.0" prefHeight="84.0" prefWidth="810.0" style="-fx-border-color: #7B1FA2;">
+         <children>
+            <JFXDatePicker fx:id="date_cuser" layoutX="266.0" layoutY="28.0" onAction="#onActionDate" prefHeight="30.0" prefWidth="139.0" promptText="Day" />
+            <JFXButton fx:id="btn_dayEnd" layoutX="610.0" layoutY="23.0" onMouseClicked="#clickOnDayEnd" prefHeight="32.0" prefWidth="171.0" style="-fx-background-color: #4CAF50;" text="Day End Report" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </JFXButton>
+            <Text fx:id="txt_date" layoutX="413.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="00" textAlignment="CENTER" wrappingWidth="171.00002467632294">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Text>
+            <JFXComboBox fx:id="com_office" layoutX="14.0" layoutY="27.0" prefHeight="31.0" prefWidth="204.0" promptText="Office" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="247.0" layoutY="375.0" prefHeight="84.0" prefWidth="810.0" style="-fx-border-color: #7B1FA2;">
+         <children>
+            <JFXDatePicker fx:id="from_awd" layoutX="237.0" layoutY="28.0" prefHeight="30.0" prefWidth="130.0" promptText="From" />
+            <JFXDatePicker fx:id="to_awd" layoutX="386.0" layoutY="27.0" prefHeight="30.0" prefWidth="130.0" promptText="To" />
+            <JFXButton fx:id="btn_awpay" layoutX="540.0" layoutY="23.0" onMouseClicked="#clickOnAWPay" prefHeight="39.0" prefWidth="256.0" style="-fx-background-color: #4CAF50;" text="Arrears Waran Pay Report" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </JFXButton>
+            <JFXComboBox fx:id="com_office1" layoutX="14.0" layoutY="28.0" prefHeight="31.0" prefWidth="204.0" promptText="Office" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

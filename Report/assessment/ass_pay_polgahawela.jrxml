@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.3.1.final using JasperReports Library version 6.3.1  -->
+<!-- 2019-08-15T17:57:16 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ass_pay45" pageWidth="540" pageHeight="432" columnWidth="468" leftMargin="36" rightMargin="36" topMargin="0" bottomMargin="0" uuid="8c1402c1-b980-4fa2-b5dd-5435501eecd6">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Ultimate2.xml"/>
+	<property name="com.jaspersoft.studio.unit." value="inch"/>
+	<property name="net.sf.jasperreports.awt.ignore.missing.font" value="true"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="inch"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="inch"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="inch"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="inch"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="inch"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="inch"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="inch"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="inch"/>
+	<parameter name="pid" class="java.lang.String"/>
+	<parameter name="tya" class="java.lang.Double">
+		<defaultValueExpression><![CDATA[$P{tya}]]></defaultValueExpression>
+	</parameter>
+	<parameter name="tyw" class="java.lang.Double">
+		<defaultValueExpression><![CDATA[$P{tyw}]]></defaultValueExpression>
+	</parameter>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+	ass_payment.cd_balance,
+	ass_payment.idass_Payment,
+	ass_payment.ass_Payment_Q_Number,
+	ass_payment.ass_Payment_ThisYear,
+	ass_payment.ass_Payment_date,
+	ass_payment.ass_Payment_LY_Arrears,
+	ass_payment.ass_Payment_LY_Warrant,
+	ass_payment.ass_Payment_fullTotal,
+	ass_payment.ass_Payment_idUser,
+	ass_payment.Assessment_idAssessment,
+	ass_payment.Receipt_idReceipt,
+	ass_payment.ass_nature_idass_nature,
+	ass_payment.ass_allocation_idass_allocation,
+	ass_payment.ass_Payment_goto_debit,
+	ass_payment.ass_Payment_Status,
+	ass_payment.ass_cash,
+	ass_payment.ass_check,
+	ass_payment.ass_check_no,
+	ass_payment.ass_bank,
+	assessment.assessment_no,
+	customer.cus_name,
+	ward.ward_name,
+	street.street_name,
+	receipt.idReceipt,
+	receipt.receipt_print_no,
+	ass_nature.ass_nature_name,
+	ass_allocation.ass_allocation,
+	ass_payto.idass_payto,
+	receipt.office_idOffice,
+	office.office_name
+FROM
+	ass_payment
+LEFT JOIN assessment ON ass_payment.Assessment_idAssessment = assessment.idAssessment
+LEFT JOIN customer ON assessment.Customer_idCustomer = customer.idCustomer
+LEFT JOIN ward ON assessment.Ward_idWard = ward.idWard
+LEFT JOIN street ON street.Ward_idWard = ward.idWard
+AND assessment.Street_idStreet = street.idStreet
+LEFT JOIN receipt ON ass_payment.Receipt_idReceipt = receipt.idReceipt
+LEFT JOIN ass_nature ON ass_payment.ass_nature_idass_nature = ass_nature.idass_nature
+AND assessment.ass_nature_idass_nature = ass_nature.idass_nature
+LEFT JOIN ass_allocation ON ass_allocation.Assessment_idAssessment = assessment.idAssessment
+AND ass_payment.ass_allocation_idass_allocation = ass_allocation.idass_allocation
+LEFT JOIN ass_payto ON ass_payto.ass_Payment_idass_Payment = ass_payment.idass_Payment
+INNER JOIN office ON office.idOffice = receipt.office_idOffice
+WHERE
+	ass_allocation.ass_allocation_status = 1
+AND ass_payment.idass_Payment =  $P{pid} 
+GROUP BY
+	ass_payment.idass_Payment]]>
+	</queryString>
+	<field name="cd_balance" class="java.lang.Double"/>
+	<field name="idass_Payment" class="java.lang.Integer"/>
+	<field name="ass_Payment_Q_Number" class="java.lang.Integer"/>
+	<field name="ass_Payment_ThisYear" class="java.lang.Integer"/>
+	<field name="ass_Payment_date" class="java.sql.Date"/>
+	<field name="ass_Payment_LY_Arrears" class="java.lang.Double"/>
+	<field name="ass_Payment_LY_Warrant" class="java.lang.Double"/>
+	<field name="ass_Payment_fullTotal" class="java.lang.Double"/>
+	<field name="ass_Payment_idUser" class="java.lang.Integer"/>
+	<field name="Assessment_idAssessment" class="java.lang.Integer"/>
+	<field name="Receipt_idReceipt" class="java.lang.Integer"/>
+	<field name="ass_nature_idass_nature" class="java.lang.Integer"/>
+	<field name="ass_allocation_idass_allocation" class="java.lang.Integer"/>
+	<field name="ass_Payment_goto_debit" class="java.lang.Double"/>
+	<field name="ass_Payment_Status" class="java.lang.Integer"/>
+	<field name="ass_cash" class="java.lang.Double"/>
+	<field name="ass_check" class="java.lang.Double"/>
+	<field name="ass_check_no" class="java.lang.String"/>
+	<field name="ass_bank" class="java.lang.Integer"/>
+	<field name="assessment_no" class="java.lang.String"/>
+	<field name="cus_name" class="java.lang.String"/>
+	<field name="ward_name" class="java.lang.String"/>
+	<field name="street_name" class="java.lang.String"/>
+	<field name="idReceipt" class="java.lang.Integer"/>
+	<field name="receipt_print_no" class="java.lang.String"/>
+	<field name="ass_nature_name" class="java.lang.String"/>
+	<field name="ass_allocation" class="java.lang.Double"/>
+	<field name="idass_payto" class="java.lang.Integer"/>
+	<field name="office_idOffice" class="java.lang.Integer"/>
+	<field name="office_name" class="java.lang.String"/>
+	<variable name="assessment" class="java.lang.String">
+		<variableExpression><![CDATA[$F{ward_name} +"  "+ $F{street_name}+"  "+$F{assessment_no}]]></variableExpression>
+		<initialValueExpression><![CDATA[$F{ward_name} +"  "+ $F{street_name}+"  "+$F{assessment_no}]]></initialValueExpression>
+	</variable>
+	<variable name="dcdouble" class="java.lang.Double">
+		<variableExpression><![CDATA[$F{cd_balance}!=null?$F{cd_balance}:0.0]]></variableExpression>
+		<initialValueExpression><![CDATA[$F{cd_balance}!=null?$F{cd_balance}:0.0]]></initialValueExpression>
+	</variable>
+	<variable name="day" class="java.lang.String">
+		<variableExpression><![CDATA[new SimpleDateFormat("yyyy-MM-dd").format($F{ass_Payment_date})]]></variableExpression>
+		<initialValueExpression><![CDATA[new SimpleDateFormat("yyyy-MM-dd").format($F{ass_Payment_date})]]></initialValueExpression>
+	</variable>
+	<variable name="lywarrant" class="java.lang.String">
+		<variableExpression><![CDATA[String.format("%.2f", (double)$F{ass_Payment_LY_Warrant}+$P{tyw} )]]></variableExpression>
+		<initialValueExpression><![CDATA[String.format("%.2f", (double)$F{ass_Payment_LY_Warrant}+$P{tyw} )]]></initialValueExpression>
+	</variable>
+	<variable name="lyarrears" class="java.lang.String">
+		<variableExpression><![CDATA[String.format("%.2f", (double)$F{ass_Payment_LY_Arrears}+$P{tya})]]></variableExpression>
+		<initialValueExpression><![CDATA[String.format("%.2f", (double)$F{ass_Payment_LY_Arrears}+$P{tya})]]></initialValueExpression>
+	</variable>
+	<variable name="fullTotal" class="java.lang.String">
+		<variableExpression><![CDATA[String.format("%.2f", (double)    $F{ass_Payment_fullTotal} +$F{ass_Payment_goto_debit}+($V{dcdouble}))]]></variableExpression>
+		<initialValueExpression><![CDATA[String.format("%.2f", (double)    $F{ass_Payment_fullTotal} +$F{ass_Payment_goto_debit}+($V{dcdouble}))]]></initialValueExpression>
+	</variable>
+	<variable name="chech" class="java.lang.String">
+		<variableExpression><![CDATA[String.format("%.2f", (double)$F{ass_check})]]></variableExpression>
+		<initialValueExpression><![CDATA[String.format("%.2f", (double)$F{ass_check})]]></initialValueExpression>
+	</variable>
+	<variable name="cash" class="java.lang.String">
+		<variableExpression><![CDATA[String.format("%.2f", (double)$F{ass_cash})]]></variableExpression>
+		<initialValueExpression><![CDATA[String.format("%.2f", (double)$F{ass_cash})]]></initialValueExpression>
+	</variable>
+	<variable name="overNext" class="java.lang.String">
+		<variableExpression><![CDATA[String.format("%.2f", (double) $F{ass_Payment_goto_debit})]]></variableExpression>
+		<initialValueExpression><![CDATA[String.format("%.2f", (double) $F{ass_Payment_goto_debit})]]></initialValueExpression>
+	</variable>
+	<variable name="cdString" class="java.lang.String">
+		<variableExpression><![CDATA[String.format("%.2f", (double)$V{dcdouble})]]></variableExpression>
+		<initialValueExpression><![CDATA[String.format("%.2f", (double)$V{dcdouble})]]></initialValueExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="431" splitType="Stretch">
+			<textField>
+				<reportElement x="65" y="72" width="235" height="14" uuid="e0b992e6-af0a-4623-bc18-66f48cebdaaa"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{receipt_print_no}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="65" y="86" width="235" height="14" uuid="6a29dac4-7ea7-4eb0-b9ab-e64a7cb00827"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Iskoola Pota" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cus_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="65" y="58" width="235" height="14" uuid="5925d7e6-33eb-4d0a-a60f-7c1bcd0862bc"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Iskoola Pota" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{assessment}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="52" y="145" width="199" height="18" uuid="1faaa847-2e98-45b8-87f8-a8c166c63a19">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Aditional Credit Or Debit :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="71" y="165" width="180" height="18" uuid="41014e42-7cd6-4079-b3be-fbebd8a7d330">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Warrant :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="71" y="185" width="180" height="18" uuid="ccc7ab35-9a8e-4a5b-b50d-640f67bfe889">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Arrears :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="253" y="145" width="84" height="18" uuid="4e3f1104-b90e-4bb5-8dff-8677ba994a25"/>
+				<textElement textAlignment="Right">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{cdString}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="253" y="165" width="84" height="18" uuid="d3edf4c2-1600-4297-8f26-401c98b209c8">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{lywarrant}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="253" y="185" width="84" height="18" uuid="67711eb6-cd18-48fe-baca-152e32f06b56">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{lyarrears}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="261" y="278" width="75" height="18" uuid="ecc36144-454d-4dd1-9303-d0f1d0f21708">
+					<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{overNext}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="130" y="278" width="120" height="18" uuid="aeb35707-7ed3-43cf-83ee-5812f5fa9401">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Next Year Paid :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="319" width="44" height="15" uuid="1f047ab4-1ad2-4e4c-b7f8-e47b75cc26b4"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Cheque :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="45" y="319" width="85" height="15" uuid="0c32daaf-7595-488e-bd04-ef9a50fd8b5c">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{chech}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="136" y="319" width="40" height="15" uuid="c1744ffd-9999-4768-a994-0e7cb3314d84"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Cash :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="176" y="319" width="75" height="15" uuid="19941023-bf58-47cc-88a8-4e85c3deb192"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{cash}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="253" y="317" width="84" height="18" uuid="49d59abe-b76b-4375-905b-dbaace164ac8"/>
+				<textElement textAlignment="Right">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{fullTotal}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="110" y="340" width="141" height="20" uuid="d3209ae3-a301-475f-b565-a08d0f7ff643">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ass_check_no}]]></textFieldExpression>
+			</textField>
+			<subreport>
+				<reportElement x="-1" y="205" width="451" height="71" uuid="c5a5f923-7ec8-44ca-a88f-f02636839d4d">
+					<property name="com.jaspersoft.studio.unit.width" value="inch"/>
+				</reportElement>
+				<subreportParameter name="pid">
+					<subreportParameterExpression><![CDATA[$P{pid}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA["C:/Ultimate/Report/assessment/pay_sub_polgahawela.jasper"]]></subreportExpression>
+			</subreport>
+			<textField>
+				<reportElement x="370" y="57" width="80" height="16" uuid="15da9129-6395-4105-be3a-d11960cd564b"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new SimpleDateFormat("yyyy-MM-dd").format($F{ass_Payment_date})]]></textFieldExpression>
+			</textField>
+			<textField pattern="HH:mm">
+				<reportElement x="370" y="74" width="70" height="16" uuid="bdd30d39-1349-43f6-8122-e56275159213"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="332" y="30" width="118" height="16" uuid="ce0836f3-cfae-4496-889c-1f364a65078b"/>
+				<textElement textAlignment="Center">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="34" y="34" width="173" height="15" uuid="ebd37eae-7aa9-4c31-94b1-f5f6a768db8f"/>
+				<textElement textAlignment="Center">
+					<font fontName="Iskoola Pota" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{office_name}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

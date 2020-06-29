@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 6, 2019 4:30:22 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.ReceiptCodeCreate" table="receipt_code_create" catalog="ultimate2" optimistic-lock="version">
+        <id name="receiptCodeId" type="java.lang.Integer">
+            <column name="receipt_code_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="applicationCatagory" class="pojo.ApplicationCatagory" fetch="select">
+            <column name="application_id" />
+        </many-to-one>
+        <many-to-one name="office" class="pojo.Office" fetch="select">
+            <column name="receipt_code_office_id" />
+        </many-to-one>
+        <property name="receiptCode" type="string">
+            <column name="receipt_code" length="20" />
+        </property>
+        <property name="chequeCode" type="string">
+            <column name="cheque_code" length="20" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.2.0.final using JasperReports Library version 6.2.0  -->
+<!-- 2018-12-05T12:22:39 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="B2" pageWidth="1672" pageHeight="850" orientation="Landscape" columnWidth="1616" leftMargin="28" rightMargin="28" topMargin="28" bottomMargin="28" uuid="1223b1f7-c039-4f43-bcfa-823d1fc4bff0">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.unit." value="cm"/>
+	<parameter name="w" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{w}]]></defaultValueExpression>
+	</parameter>
+	<parameter name="s" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{s}]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+book.ward,
+book.street,
+book.obsalote,
+book.assessment,
+book.`owner`,
+book.description,
+book.allocation
+FROM
+book
+WHERE
+book.ward = $P{w}  AND
+book.street = $P{s}]]>
+	</queryString>
+	<field name="ward" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="street" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="obsalote" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="assessment" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="owner" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="description" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="allocation" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="1" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="137" splitType="Stretch">
+			<textField>
+				<reportElement x="220" y="50" width="430" height="30" uuid="7becd1dd-408c-4d7b-a304-a93b07fff45a"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Iskoola Pota" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{street}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="710" y="50" width="310" height="30" uuid="b3e48bdc-23d1-4df7-8ed1-78d21a338cdb"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Iskoola Pota" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ward}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1380" y="50" width="100" height="30" uuid="0617cb31-fb07-4019-8845-d060c332d351"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[2019]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="9" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="146" splitType="Stretch">
+			<textField>
+				<reportElement x="280" y="0" width="40" height="140" uuid="bb395714-fb40-4611-b822-dd23740db496"/>
+				<textElement>
+					<font fontName="Iskoola Pota"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{obsalote}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="324" y="0" width="40" height="140" uuid="d99195fc-4718-46d9-a0d2-0097363fc3e4"/>
+				<textElement>
+					<font fontName="Iskoola Pota"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{assessment}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="880" y="0" width="80" height="140" uuid="e50eca14-b427-4cf9-850e-557037926fa1"/>
+				<textElement textAlignment="Right">
+					<font fontName="Iskoola Pota"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{allocation}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="660" y="0" width="210" height="140" uuid="a1b6af47-ba20-4b7a-a7fc-654832927b51"/>
+				<textElement>
+					<font fontName="Iskoola Pota"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{description}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="370" y="0" width="280" height="140" uuid="442aa066-5e4e-437d-9d89-b4d8672e0e93"/>
+				<textElement>
+					<font fontName="Iskoola Pota" pdfEncoding="Identity-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{owner}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

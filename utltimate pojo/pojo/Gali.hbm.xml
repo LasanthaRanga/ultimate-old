@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 6, 2019 4:30:22 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.Gali" table="gali" catalog="ultimate2" optimistic-lock="version">
+        <id name="idGali" type="java.lang.Integer">
+            <column name="idGali" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="customer" class="pojo.Customer" fetch="select">
+            <column name="Customer_idCustomer" not-null="true" />
+        </many-to-one>
+        <property name="addressGali" type="string">
+            <column name="address_gali" />
+        </property>
+        <property name="howToGo" type="string">
+            <column name="how_to_go" length="65535" />
+        </property>
+        <property name="dateGali" type="date">
+            <column name="date_gali" length="10" />
+        </property>
+        <property name="contactGali" type="string">
+            <column name="contact_gali" length="45" />
+        </property>
+        <property name="distanceGali" type="java.lang.Double">
+            <column name="distance_gali" precision="22" scale="0" />
+        </property>
+        <property name="loadGali" type="java.lang.Double">
+            <column name="load_gali" precision="22" scale="0" />
+        </property>
+        <property name="priceGali" type="java.lang.Double">
+            <column name="Price_gali" precision="22" scale="0" />
+        </property>
+        <property name="vatGali" type="java.lang.Double">
+            <column name="VAT_gali" precision="22" scale="0" />
+        </property>
+        <property name="nbtGali" type="java.lang.Double">
+            <column name="NBT_gali" precision="22" scale="0" />
+        </property>
+        <property name="stampGali" type="java.lang.Double">
+            <column name="Stamp_gali" precision="22" scale="0" />
+        </property>
+        <property name="othersGali" type="java.lang.Double">
+            <column name="Others_gali" precision="22" scale="0" />
+        </property>
+        <property name="statusGali" type="java.lang.Integer">
+            <column name="Status_gali" />
+        </property>
+        <property name="synGali" type="java.lang.Integer">
+            <column name="syn_gali" />
+        </property>
+        <set name="galiHasEmployes" table="gali_has_employe" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Gali_idGali" not-null="true" />
+            </key>
+            <one-to-many class="pojo.GaliHasEmploye" />
+        </set>
+    </class>
+</hibernate-mapping>

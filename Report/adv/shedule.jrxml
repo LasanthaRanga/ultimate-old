@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.3.1.final using JasperReports Library version 6.3.1  -->
+<!-- 2019-07-31T11:06:06 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="shedule" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="855448b7-deb0-4ced-906b-80b5f474c572">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Server"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<parameter name="day" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{day}]]></defaultValueExpression>
+	</parameter>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+adv_advertising.idAdv_Advertising,
+adv_advertising.adv_start_date,
+adv_advertising.adv_end_date,
+adv_advertising.adv_board_no,
+adv_advertising.adv_discription,
+adv_advertising.adv_qr,
+adv_advertising.adv_pt,
+adv_advertising.adv_total,
+adv_advertising.adv_vat,
+adv_advertising.adv_nbt,
+adv_advertising.adv_stamp,
+adv_advertising.adv_diposit,
+adv_advertising.adv_ground_total,
+adv_advertising.adv_visiting_price,
+adv_advertising.adv_others,
+adv_advertising.adv_full_total,
+adv_advertising.adv_current_date,
+adv_advertising.adv_paid_notpaid,
+adv_advertising.adv_status,
+adv_advertising.adv_remove_comment,
+adv_advertising.adv_syn,
+adv_advertising.Customer_idCustomer,
+adv_advertising.adv_cheque,
+adv_advertising.adv_cash,
+adv_advertising.adv_cheque_date,
+adv_advertising.adv_cheque_bank,
+adv_advertising.adv_cheque_no,
+adv_advertising.receipt_idReceipt,
+adv_advertising.adv_diposit_status,
+adv_advertising.adv_diposit_back,
+adv_advertising.adv_diposit_back_date,
+adv_advertising.user_idUser,
+receipt.idReceipt,
+receipt.receipt_print_no,
+receipt.cheack,
+receipt.cesh
+FROM
+adv_advertising
+INNER JOIN receipt ON receipt.idReceipt = adv_advertising.receipt_idReceipt
+WHERE
+receipt.receipt_status = 1 AND
+receipt.receipt_day =  $P{day}]]>
+	</queryString>
+	<field name="idAdv_Advertising" class="java.lang.Integer"/>
+	<field name="adv_start_date" class="java.sql.Date"/>
+	<field name="adv_end_date" class="java.sql.Date"/>
+	<field name="adv_board_no" class="java.lang.String"/>
+	<field name="adv_discription" class="java.lang.String"/>
+	<field name="adv_qr" class="java.lang.String"/>
+	<field name="adv_pt" class="java.lang.String"/>
+	<field name="adv_total" class="java.lang.Double"/>
+	<field name="adv_vat" class="java.lang.Double"/>
+	<field name="adv_nbt" class="java.lang.Double"/>
+	<field name="adv_stamp" class="java.lang.Double"/>
+	<field name="adv_diposit" class="java.lang.Double"/>
+	<field name="adv_ground_total" class="java.lang.Double"/>
+	<field name="adv_visiting_price" class="java.lang.Double"/>
+	<field name="adv_others" class="java.lang.Double"/>
+	<field name="adv_full_total" class="java.lang.Double"/>
+	<field name="adv_current_date" class="java.sql.Date"/>
+	<field name="adv_paid_notpaid" class="java.lang.Integer"/>
+	<field name="adv_status" class="java.lang.Integer"/>
+	<field name="adv_remove_comment" class="java.lang.String"/>
+	<field name="adv_syn" class="java.lang.Integer"/>
+	<field name="Customer_idCustomer" class="java.lang.Integer"/>
+	<field name="adv_cheque" class="java.lang.Double"/>
+	<field name="adv_cash" class="java.lang.Double"/>
+	<field name="adv_cheque_date" class="java.sql.Date"/>
+	<field name="adv_cheque_bank" class="java.lang.Integer"/>
+	<field name="adv_cheque_no" class="java.lang.String"/>
+	<field name="receipt_idReceipt" class="java.lang.Integer"/>
+	<field name="adv_diposit_status" class="java.lang.Integer"/>
+	<field name="adv_diposit_back" class="java.lang.Double"/>
+	<field name="adv_diposit_back_date" class="java.lang.Double"/>
+	<field name="user_idUser" class="java.lang.Integer"/>
+	<field name="idReceipt" class="java.lang.Integer"/>
+	<field name="receipt_print_no" class="java.lang.String"/>
+	<field name="cheack" class="java.lang.Double"/>
+	<field name="cesh" class="java.lang.Double"/>
+	<variable name="vtot" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{adv_total}]]></variableExpression>
+		<initialValueExpression><![CDATA[$F{adv_total}]]></initialValueExpression>
+	</variable>
+	<variable name="vattot" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{adv_vat}]]></variableExpression>
+		<initialValueExpression><![CDATA[$F{adv_vat}]]></initialValueExpression>
+	</variable>
+	<variable name="nbttot" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{adv_nbt}]]></variableExpression>
+		<initialValueExpression><![CDATA[$F{adv_nbt}]]></initialValueExpression>
+	</variable>
+	<variable name="stamptot" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{adv_stamp}]]></variableExpression>
+		<initialValueExpression><![CDATA[$F{adv_stamp}]]></initialValueExpression>
+	</variable>
+	<variable name="diposittot" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{adv_diposit}]]></variableExpression>
+		<initialValueExpression><![CDATA[$F{adv_diposit}]]></initialValueExpression>
+	</variable>
+	<variable name="groundtot" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{adv_ground_total}]]></variableExpression>
+		<initialValueExpression><![CDATA[$F{adv_ground_total}]]></initialValueExpression>
+	</variable>
+	<variable name="visttot" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{adv_visiting_price}]]></variableExpression>
+		<initialValueExpression><![CDATA[$F{adv_visiting_price}]]></initialValueExpression>
+	</variable>
+	<variable name="othertot" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{adv_others}]]></variableExpression>
+		<initialValueExpression><![CDATA[$F{adv_others}]]></initialValueExpression>
+	</variable>
+	<variable name="fultot" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{adv_full_total}]]></variableExpression>
+		<initialValueExpression><![CDATA[$F{adv_full_total}]]></initialValueExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="56" splitType="Stretch">
+			<staticText>
+				<reportElement x="264" y="5" width="291" height="21" uuid="f1931359-31c0-4158-b9c2-ace25aab2067"/>
+				<textElement textAlignment="Center">
+					<font size="16"/>
+				</textElement>
+				<text><![CDATA[Advertising Schedule Report]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="336" y="30" width="140" height="20" uuid="210992a2-26ce-4925-9bac-9515511ac49e"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{day}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="32" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+			<staticText>
+				<reportElement x="0" y="0" width="48" height="30" uuid="7b23af1a-6534-43c6-bd33-2b26e7698cdd"/>
+				<textElement textAlignment="Left"/>
+				<text><![CDATA[Receipt ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="48" y="0" width="75" height="30" uuid="647c3418-64d6-4c8e-a597-e7ca38d2a4e4"/>
+				<textElement textAlignment="Left"/>
+				<text><![CDATA[Receipt NO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="125" y="0" width="60" height="30" uuid="388e422f-cc56-42ac-a6f8-ad827eb7df12"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Value 
+10336]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="187" y="0" width="60" height="30" uuid="b0f5530e-4912-4c15-a843-a1ca462148d2"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[VAT]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="249" y="0" width="60" height="30" uuid="948a212b-ebaf-4290-9794-d1454b640477"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[NBT]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="311" y="0" width="60" height="30" uuid="536810d4-1e03-4263-99d0-bb2819c6d696"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[STAMP]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="373" y="0" width="60" height="30" uuid="62727ee5-11b8-46a5-b29f-5b8129431824"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Diposit 
+7000]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="435" y="0" width="60" height="30" uuid="4581a69a-0085-44d4-be50-7574032c9877"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Ground 30324]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="497" y="0" width="60" height="30" uuid="42355c43-2c4a-4c4d-803f-a07a13be1b4d"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Visiting]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="559" y="0" width="60" height="30" uuid="8ad82608-5031-4bc1-8150-bcc0d6008d0a"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Others]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="660" y="0" width="80" height="30" uuid="555ffdf3-fbcc-4eba-b4dc-1939ed48d3a3"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="30" width="800" height="1" uuid="64946c73-155e-4637-829d-9b5a9ed10323"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="32" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+			<textField>
+				<reportElement x="0" y="0" width="48" height="30" uuid="f1f9c724-efe4-4afb-bf0f-c641608b47e6"/>
+				<textElement textAlignment="Left"/>
+				<textFieldExpression><![CDATA[$F{receipt_idReceipt}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="48" y="0" width="75" height="30" uuid="642b6407-c747-43dc-b473-88b513693947"/>
+				<textElement textAlignment="Left"/>
+				<textFieldExpression><![CDATA[$F{receipt_print_no}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="125" y="0" width="60" height="30" uuid="5a80d7a6-7371-4915-ab3a-4608bc5bf034"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[String.format("%.2f", $F{adv_total})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="187" y="0" width="60" height="30" uuid="068a2593-6bb4-448e-8310-a1f047f2ef6f"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[String.format("%.2f", $F{adv_vat})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="249" y="0" width="60" height="30" uuid="8803be6a-ed96-47d9-bc3f-dd435ae53b43"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[String.format("%.2f", $F{adv_nbt})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="311" y="0" width="60" height="30" uuid="4fc89bbf-6aff-4b22-a7af-3e32323917f3"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[String.format("%.2f", $F{adv_stamp})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="373" y="0" width="60" height="30" uuid="ca3b0fb4-0645-43b7-9ba8-a07e049edae1"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[String.format("%.2f", $F{adv_diposit})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="435" y="0" width="60" height="30" uuid="2b7b3e6f-39ad-41b4-8c22-e9a458757b5c"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[String.format("%.2f", $F{adv_ground_total})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="497" y="0" width="60" height="30" uuid="47078388-8855-41e0-91ea-f538b1163bc7">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[String.format("%.2f", $F{adv_visiting_price})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="559" y="0" width="60" height="30" uuid="3c581498-daa0-4b3f-8737-29faf8c22349"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[String.format("%.2f", $F{adv_others})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="660" y="0" width="80" height="30" uuid="3d4e1b37-5652-497b-86ff-3cac99b63641"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[String.format("%.2f", $F{adv_full_total})]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+			<textField>
+				<reportElement x="350" y="0" width="100" height="19" uuid="10d4f6c4-c080-44c4-b0bc-0b4b413fbb9d"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="50" splitType="Stretch">
+			<textField>
+				<reportElement x="126" y="9" width="60" height="20" uuid="33e40ac6-92c4-402a-9ec2-8f47fd8eb779"/>
+				<textElement textAlignment="Right">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[String.format("%.2f", $V{vtot})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="187" y="9" width="60" height="20" uuid="cb71fa71-a2d4-4cba-9e2c-5c250a355770"/>
+				<textElement textAlignment="Right">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[String.format("%.2f", $V{vattot})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="249" y="9" width="60" height="20" uuid="71347e0f-83af-4fa7-a93a-5f10063224ed"/>
+				<textElement textAlignment="Right">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[String.format("%.2f", $V{nbttot})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="311" y="9" width="60" height="20" uuid="cb1d1e0c-6767-4942-9de0-934ff9d5bdf9"/>
+				<textElement textAlignment="Right">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[String.format("%.2f", $V{stamptot})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="373" y="9" width="60" height="20" uuid="9314c0a6-4355-447e-8ec5-868029422d75"/>
+				<textElement textAlignment="Right">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[String.format("%.2f", $V{diposittot})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="435" y="9" width="60" height="20" uuid="e5b08d51-2041-47ab-9416-a12cac6f5c00"/>
+				<textElement textAlignment="Right">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[String.format("%.2f", $V{groundtot})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="497" y="9" width="60" height="20" uuid="21451b85-f19a-4a0d-b707-8ca48854150f"/>
+				<textElement textAlignment="Right">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[String.format("%.2f", $V{visttot})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="559" y="9" width="60" height="20" uuid="e95cd39b-40ce-4f00-989f-1b9f14971bd4"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[String.format("%.2f", $V{othertot})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="630" y="9" width="110" height="20" uuid="307bd1ad-8a24-4e76-885e-74155e6ade08"/>
+				<textElement textAlignment="Right">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[String.format("%.2f", $V{fultot})]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="0" width="800" height="1" uuid="8f2b5547-a12c-46d2-87d4-1274729890d5"/>
+			</line>
+			<line>
+				<reportElement x="0" y="33" width="800" height="1" uuid="c8345f9a-c243-4290-af7e-a76e27bb19b0"/>
+			</line>
+			<line>
+				<reportElement x="0" y="37" width="800" height="1" uuid="0c512ea3-6276-4876-b904-879a266f216a"/>
+			</line>
+		</band>
+	</summary>
+</jasperReport>

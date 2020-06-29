@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 6, 2019 4:30:22 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.AccountReceiptTitle" table="account_receipt_title" catalog="ultimate2" optimistic-lock="version">
+        <id name="idAccountReceiptTitle" type="java.lang.Integer">
+            <column name="idAccount_receipt_title" />
+            <generator class="identity" />
+        </id>
+        <property name="artVoteAndBal" type="string">
+            <column name="ART_vote_and_bal" length="45" />
+        </property>
+        <property name="artProNameEng" type="string">
+            <column name="ART_Pro_name_eng" />
+        </property>
+        <property name="artProCode" type="java.lang.Integer">
+            <column name="ART_Pro_code" />
+        </property>
+        <property name="artTitleNameEng" type="string">
+            <column name="ART_Title_name_eng" />
+        </property>
+        <property name="atrTitleCode" type="java.lang.Integer">
+            <column name="ATR_Title_code" />
+        </property>
+        <property name="artSubtitleNameEng" type="string">
+            <column name="ART_Subtitle_name_eng" />
+        </property>
+        <property name="artSubtitleCode" type="java.lang.Integer">
+            <column name="ART_Subtitle_code" />
+        </property>
+        <property name="artType1Id" type="java.lang.Integer">
+            <column name="ART_Type1_Id" />
+        </property>
+        <property name="artType1Name" type="string">
+            <column name="ART_Type1_Name" length="45" />
+        </property>
+        <property name="artType2Id" type="java.lang.Integer">
+            <column name="ART_Type2_Id" />
+        </property>
+        <property name="artType2Name" type="string">
+            <column name="ART__Type2_Name" length="45" />
+        </property>
+        <property name="artVoteOrBal" type="java.lang.Integer">
+            <column name="ART_vote_or_bal" />
+        </property>
+        <property name="artOrder" type="java.lang.Integer">
+            <column name="ART_Order" />
+        </property>
+        <property name="artVBId" type="java.lang.Integer">
+            <column name="ART_V_B_Id" />
+        </property>
+        <property name="artProNameSinhala" type="string">
+            <column name="ART_Pro_name_sinhala" />
+        </property>
+        <property name="artTitleNameSinhala" type="string">
+            <column name="ART_Title_name_sinhala" />
+        </property>
+        <property name="artSubtitleNameSinhala" type="string">
+            <column name="ART_Subtitle_name_sinhala" />
+        </property>
+        <set name="mixintypes" table="mixintype" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="account_receipt_title_idAccount_receipt_title" />
+            </key>
+            <one-to-many class="pojo.Mixintype" />
+        </set>
+    </class>
+</hibernate-mapping>

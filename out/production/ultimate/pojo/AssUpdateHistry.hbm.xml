@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 6, 2019 4:30:22 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.AssUpdateHistry" table="ass_update_histry" catalog="ultimate2" optimistic-lock="version">
+        <id name="idAssUpdate" type="java.lang.Integer">
+            <column name="idAss_Update" />
+            <generator class="identity" />
+        </id>
+        <property name="idAssessment" type="java.lang.Integer">
+            <column name="idAssessment" />
+        </property>
+        <property name="auDate" type="date">
+            <column name="au_date" length="10" />
+        </property>
+        <property name="auOldAllocation" type="java.lang.Double">
+            <column name="au_old_allocation" precision="22" scale="0" />
+        </property>
+        <property name="auNewAllocation" type="java.lang.Double">
+            <column name="au_new_allocation" precision="22" scale="0" />
+        </property>
+        <property name="auOldNature" type="java.lang.Integer">
+            <column name="au_old_nature" />
+        </property>
+        <property name="auNewNature" type="java.lang.Integer">
+            <column name="au_new_nature" />
+        </property>
+        <property name="auComment" type="string">
+            <column name="au_comment" length="65535" />
+        </property>
+        <property name="auCd" type="java.lang.Double">
+            <column name="au_cd" precision="22" scale="0" />
+        </property>
+        <property name="auIdUseer" type="java.lang.Integer">
+            <column name="au_idUseer" />
+        </property>
+    </class>
+</hibernate-mapping>

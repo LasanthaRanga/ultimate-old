@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 6, 2019 4:30:22 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.AssAllocation" table="ass_allocation" catalog="ultimate2" optimistic-lock="version">
+        <id name="idassAllocation" type="java.lang.Integer">
+            <column name="idass_allocation" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="assessment" class="pojo.Assessment" fetch="select">
+            <column name="Assessment_idAssessment" not-null="true" />
+        </many-to-one>
+        <property name="assAllocation" type="java.lang.Double">
+            <column name="ass_allocation" precision="22" scale="0" />
+        </property>
+        <property name="assAllocationStatus" type="java.lang.Integer">
+            <column name="ass_allocation_status" />
+        </property>
+        <property name="assAllocationChangeDate" type="date">
+            <column name="ass_allocation_change_date" length="10" />
+        </property>
+        <property name="assAllocationDiscription" type="string">
+            <column name="ass_allocation_discription" length="65535" />
+        </property>
+        <property name="assAllocationIdUser" type="java.lang.Integer">
+            <column name="ass_allocation_idUser" />
+        </property>
+        <set name="assPayments" table="ass_payment" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ass_allocation_idass_allocation" not-null="true" />
+            </key>
+            <one-to-many class="pojo.AssPayment" />
+        </set>
+    </class>
+</hibernate-mapping>

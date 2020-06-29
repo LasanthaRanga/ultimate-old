@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 6, 2019 4:30:22 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.TradeLicense" table="trade_license" catalog="ultimate2" optimistic-lock="version">
+        <id name="idTradeLicense" type="java.lang.Integer">
+            <column name="idTrade_License" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="application" class="pojo.Application" fetch="select">
+            <column name="Application_idApplication" not-null="true" />
+        </many-to-one>
+        <many-to-one name="payment" class="pojo.Payment" fetch="select">
+            <column name="Payment_idPayment" not-null="true" />
+        </many-to-one>
+        <property name="licenNo" type="string">
+            <column name="licen_no" length="45" />
+        </property>
+        <property name="tradeLicenseDate" type="date">
+            <column name="trade_license_date" length="10" />
+        </property>
+        <property name="status" type="java.lang.Integer">
+            <column name="status" />
+        </property>
+        <property name="syn" type="java.lang.Integer">
+            <column name="syn" />
+        </property>
+        <set name="customerHasTradeLicenses" table="customer_has_trade_license" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Trade_License_idTrade_License" not-null="true" />
+            </key>
+            <one-to-many class="pojo.CustomerHasTradeLicense" />
+        </set>
+    </class>
+</hibernate-mapping>

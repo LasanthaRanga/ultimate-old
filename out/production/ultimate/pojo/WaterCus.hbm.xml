@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 6, 2019 4:30:22 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.WaterCus" table="water_cus" catalog="ultimate2" optimistic-lock="version">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <property name="customerId" type="java.lang.Integer">
+            <column name="customer_id" />
+        </property>
+        <property name="waterId" type="java.lang.Integer">
+            <column name="water_id" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 6, 2019 4:30:22 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.SrShopBeforeAddAmount" table="sr_shop_before_add_amount" catalog="ultimate2" optimistic-lock="version">
+        <id name="srShopBeforeAddAmountId" type="int">
+            <column name="sr_shop_before_add_amount_id" />
+            <generator class="assigned" />
+        </id>
+        <property name="srShopBeforeAddAmount" type="java.lang.Double">
+            <column name="sr_shop_before_add_amount" precision="22" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

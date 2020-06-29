@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 6, 2019 4:30:22 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.ApprovalCat" table="approval_cat" catalog="ultimate2" optimistic-lock="version">
+        <id name="idApprovalCat" type="java.lang.Integer">
+            <column name="idApproval_cat" />
+            <generator class="identity" />
+        </id>
+        <property name="approvalName" type="string">
+            <column name="approval_name" length="45" />
+        </property>
+        <property name="statusAppCat" type="java.lang.Integer">
+            <column name="status_app_cat" />
+        </property>
+        <property name="synAppCat" type="java.lang.Integer">
+            <column name="syn_app_cat" />
+        </property>
+        <set name="userHasApprovalCats" table="user_has_approval_cat" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Approval_cat_idApproval_cat" not-null="true" />
+            </key>
+            <one-to-many class="pojo.UserHasApprovalCat" />
+        </set>
+        <set name="approvalBies" table="approval_by" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Approval_cat_idApproval_cat" />
+            </key>
+            <one-to-many class="pojo.ApprovalBy" />
+        </set>
+    </class>
+</hibernate-mapping>

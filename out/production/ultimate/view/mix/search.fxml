@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="395.0" prefWidth="992.0" style="-fx-background-color: #B0BEC5;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.mix.Search">
+   <children>
+      <TableView fx:id="tbl" layoutX="44.0" layoutY="140.0" onMouseClicked="#clickOnRow" prefHeight="214.0" prefWidth="900.0">
+        <columns>
+          <TableColumn fx:id="col_number" prefWidth="259.0" text="Number" />
+          <TableColumn fx:id="col_customer" prefWidth="297.0" text="Customer Name" />
+            <TableColumn fx:id="col_nic" prefWidth="229.0" text="NIC" />
+            <TableColumn fx:id="col_amount" prefWidth="100.0" text="Amount" />
+        </columns>
+      </TableView>
+      <JFXTextField fx:id="txt_number" labelFloat="true" layoutX="44.0" layoutY="76.0" onKeyReleased="#keyReleased" prefHeight="25.0" prefWidth="268.0" promptText="Search With Number" />
+      <Text fx:id="txt_selected" layoutX="328.0" layoutY="93.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="505.13671875" />
+      <JFXButton fx:id="select" layoutX="848.0" layoutY="76.0" onAction="#clickOnUsethis" prefHeight="25.0" prefWidth="96.0" style="-fx-background-color: #4CAF50;" text="Use This ">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></JFXButton>
+      <JFXButton fx:id="btn_close" layoutX="954.0" layoutY="3.0" onAction="#close" style="-fx-background-color: #f44336;" text="X" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>

@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 6, 2019 4:30:22 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.CusCat" table="cus_cat" catalog="ultimate2" optimistic-lock="version">
+        <id name="idCusCat" type="java.lang.Integer">
+            <column name="idCus_cat" />
+            <generator class="identity" />
+        </id>
+        <property name="category" type="string">
+            <column name="Category" length="45" />
+        </property>
+        <property name="status" type="java.lang.Integer">
+            <column name="status" />
+        </property>
+        <property name="syn" type="java.lang.Integer">
+            <column name="syn" />
+        </property>
+        <set name="customerHasCusCats" table="customer_has_cus_cat" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Cus_cat_idCus_cat" not-null="true" />
+            </key>
+            <one-to-many class="pojo.CustomerHasCusCat" />
+        </set>
+    </class>
+</hibernate-mapping>

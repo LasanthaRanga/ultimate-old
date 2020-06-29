@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import java.net.URL?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" onKeyReleased="#btn_onclick" prefHeight="625.0" prefWidth="1300.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.assess.DeactiveController">
+    <stylesheets>
+        <URL value="@deactive.css" />
+    </stylesheets>
+   <children>
+      <JFXTextField fx:id="txt_id" layoutX="204.0" layoutY="104.0" onKeyReleased="#onKeyReleased" prefHeight="25.0" prefWidth="120.0" promptText="ID Assessment">
+         <font>
+            <Font size="14.0" />
+         </font></JFXTextField>
+      <JFXButton fx:id="btn_remove" layoutX="192.0" layoutY="534.0" onMouseClicked="#clickOnRemove" style="-fx-background-color: f44336;" text="Deactive" textFill="WHITE" />
+      <Text fx:id="txt_ward" layoutX="200.0" layoutY="166.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="411.13671875" />
+      <Text fx:id="txt_street" layoutX="200.0" layoutY="205.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="411.13671875" />
+      <Text fx:id="txt_assessmant" layoutX="200.0" layoutY="242.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="411.13671875" />
+      <Text fx:id="txt_oder" layoutX="200.0" layoutY="279.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="411.13671875" />
+      <Text fx:id="txt_customer" layoutX="200.0" layoutY="318.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="411.13671875" />
+      <Text fx:id="txt_allocation" layoutX="200.0" layoutY="355.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="411.13671875" />
+      <JFXTextArea fx:id="txt_comment" labelFloat="true" layoutX="192.0" layoutY="398.0" prefHeight="96.0" prefWidth="302.0" promptText="Deactive Comment">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </JFXTextArea>
+   </children>
+</AnchorPane>

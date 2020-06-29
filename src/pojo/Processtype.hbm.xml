@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 6, 2019 4:30:22 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.Processtype" table="processtype" catalog="ultimate2" optimistic-lock="version">
+        <id name="idProcesstype" type="java.lang.Integer">
+            <column name="idProcesstype" />
+            <generator class="identity" />
+        </id>
+        <property name="processtypeName" type="string">
+            <column name="Processtype_name" length="45" />
+        </property>
+        <set name="assessmentHasProcesstypes" table="assessment_has_processtype" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Processtype_idProcesstype" not-null="true" />
+            </key>
+            <one-to-many class="pojo.AssessmentHasProcesstype" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<AnchorPane id="AnchorPane" prefHeight="625.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.sr.BuildingController">
+    <children>
+      <Pane layoutX="64.0" layoutY="14.0" prefHeight="281.0" prefWidth="1219.0">
+         <children>
+              <TableView fx:id="tbl_Building" layoutX="571.0" layoutY="20.0" onMouseClicked="#selectFromTable" prefHeight="247.0" prefWidth="633.0">
+                  <columns>
+                      <TableColumn fx:id="col_b_name" prefWidth="374.0" text="Building Name" />
+                      <TableColumn fx:id="col_b_code" prefWidth="255.0" text="Building Code" />
+                  </columns>
+              </TableView>
+            <Pane fx:id="pane_building" layoutX="14.0" layoutY="20.0" prefHeight="200.0" prefWidth="397.0">
+               <children>
+                    <JFXTextField fx:id="txt_building_name" labelFloat="true" layoutX="14.0" layoutY="34.0" prefHeight="29.0" prefWidth="380.0" promptText="Building Name" />
+                    <JFXTextField fx:id="txt_building_code" labelFloat="true" layoutX="14.0" layoutY="84.0" prefHeight="25.0" prefWidth="255.0" promptText="Building Code" />
+                    <JFXButton fx:id="btn_buildingSave" buttonType="RAISED" layoutX="14.0" layoutY="142.0" onMouseClicked="#onCickSave" prefHeight="25.0" prefWidth="100.0" ripplerFill="#8bc34a" text="Save" />
+                  <JFXButton layoutX="283.0" layoutY="142.0" onAction="#resetBuildingForm" prefHeight="25.0" prefWidth="100.0" text="Reset" />
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+      <Pane fx:id="pane_flows" disable="true" layoutX="64.0" layoutY="313.0" prefHeight="281.0" prefWidth="1219.0">
+         <children>
+            <TableView fx:id="tbl_Building_flow" layoutX="571.0" layoutY="20.0" onMouseClicked="#selectFromFlowTable" prefHeight="247.0" prefWidth="633.0">
+               <columns>
+                  <TableColumn fx:id="col_f_name" prefWidth="300.0" text="Flow Name" />
+                  <TableColumn fx:id="col_f_code" minWidth="0.0" prefWidth="171.0" text="Flow Code" />
+                  <TableColumn fx:id="col_f_no" prefWidth="161.0" text="Flow Number" />
+               </columns>
+            </TableView>
+            <Pane fx:id="pane_flow" layoutX="14.0" layoutY="20.0" prefHeight="265.0" prefWidth="397.0">
+               <children>
+                  <JFXTextField fx:id="txt_flow_name" layoutX="14.0" layoutY="62.0" prefHeight="25.0" prefWidth="313.0" promptText="Flow Name" />
+                  <JFXTextField fx:id="txt_flow_number" layoutX="14.0" layoutY="105.0" prefHeight="25.0" prefWidth="313.0" promptText="Flow Number" />
+                  <JFXTextField fx:id="txt_flow_code" layoutX="14.0" layoutY="149.0" prefHeight="25.0" prefWidth="313.0" promptText="Flow Code" />
+                  <JFXButton fx:id="btn_flowSave" buttonType="RAISED" layoutX="14.0" layoutY="210.0" onAction="#saveFlow" prefHeight="25.0" prefWidth="100.0" text="Save" />
+                  <JFXButton layoutX="272.0" layoutY="210.0" onAction="#resetFlowForm" prefHeight="25.0" prefWidth="100.0" text="Reset" />
+                  <Label fx:id="lbl_selected_building" layoutX="14.0" layoutY="23.0" prefHeight="25.0" prefWidth="313.0">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+    </children>
+</AnchorPane>

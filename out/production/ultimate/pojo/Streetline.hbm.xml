@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 6, 2019 4:30:22 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.Streetline" table="streetline" catalog="ultimate2" optimistic-lock="version">
+        <id name="idStreetLine" type="java.lang.Integer">
+            <column name="idStreetLine" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="assessment" class="pojo.Assessment" fetch="select">
+            <column name="assessment_idAssessment" />
+        </many-to-one>
+        <many-to-one name="customer" class="pojo.Customer" fetch="select">
+            <column name="customer_idCustomer" not-null="true" />
+        </many-to-one>
+        <property name="streetLineDate" type="date">
+            <column name="StreetLine_date" length="10" />
+        </property>
+        <property name="assessmentStatus" type="java.lang.Integer">
+            <column name="assessment_status" />
+        </property>
+        <property name="waterStatus" type="java.lang.Integer">
+            <column name="water_status" />
+        </property>
+        <property name="tradetaxStatus" type="java.lang.Integer">
+            <column name="tradetax_status" />
+        </property>
+        <property name="partsNo" type="string">
+            <column name="parts_no" />
+        </property>
+        <property name="streetLineDescription" type="string">
+            <column name="StreetLine_description" length="65535" />
+        </property>
+        <property name="deposit" type="java.lang.Double">
+            <column name="deposit" precision="22" scale="0" />
+        </property>
+        <property name="amount" type="java.lang.Double">
+            <column name="amount" precision="22" scale="0" />
+        </property>
+        <property name="vat" type="java.lang.Double">
+            <column name="vat" precision="22" scale="0" />
+        </property>
+        <property name="nbt" type="java.lang.Double">
+            <column name="nbt" precision="22" scale="0" />
+        </property>
+        <property name="approveTopPayStatus" type="java.lang.Integer">
+            <column name="approve_top_pay_status" />
+        </property>
+        <property name="survyOfficer" type="string">
+            <column name="survy_officer" />
+        </property>
+        <property name="surveyDate" type="string">
+            <column name="survey_date" length="11" />
+        </property>
+        <property name="distance" type="java.lang.Double">
+            <column name="distance" precision="22" scale="0" />
+        </property>
+        <property name="planNo" type="string">
+            <column name="plan_no" />
+        </property>
+        <property name="soTitle" type="string">
+            <column name="so_title" />
+        </property>
+        <property name="yesNo" type="java.lang.Integer">
+            <column name="yes_no" />
+        </property>
+        <property name="price" type="java.lang.Double">
+            <column name="price" precision="10" scale="0" />
+        </property>
+        <set name="applicationses" table="applications" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Street_line" />
+            </key>
+            <one-to-many class="pojo.Applications" />
+        </set>
+    </class>
+</hibernate-mapping>

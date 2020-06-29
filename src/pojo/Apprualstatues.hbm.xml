@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 6, 2019 4:30:22 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.Apprualstatues" table="apprualstatues" catalog="ultimate2" optimistic-lock="version">
+        <id name="idApprualStatues" type="java.lang.Integer">
+            <column name="idApprualStatues" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="application" class="pojo.Application" fetch="select">
+            <column name="Application_idApplication" not-null="true" />
+        </many-to-one>
+        <many-to-one name="user" class="pojo.User" fetch="select">
+            <column name="User_idUser" not-null="true" />
+        </many-to-one>
+        <property name="description" type="string">
+            <column name="description" length="65535" />
+        </property>
+        <property name="sendDate" type="date">
+            <column name="SendDate" length="10" />
+        </property>
+        <property name="approveDate" type="date">
+            <column name="approveDate" length="10" />
+        </property>
+        <property name="idOtheritisCat" type="java.lang.Integer">
+            <column name="idOtheritisCat" />
+        </property>
+        <property name="statues" type="java.lang.Integer">
+            <column name="statues" />
+        </property>
+        <property name="resiveUser" type="java.lang.Integer">
+            <column name="ResiveUser" />
+        </property>
+        <property name="syn" type="java.lang.Integer">
+            <column name="syn" />
+        </property>
+    </class>
+</hibernate-mapping>

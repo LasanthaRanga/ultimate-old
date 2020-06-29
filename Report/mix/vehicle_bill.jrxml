@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.3.1.final using JasperReports Library version 6.3.1  -->
+<!-- 2019-06-11T11:40:34 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="mixbill" pageWidth="515" pageHeight="433" columnWidth="505" leftMargin="5" rightMargin="5" topMargin="5" bottomMargin="5" uuid="71cdc9cc-03e1-484c-b660-cfe156f8beef">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Ultimate2.xml"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="cm"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<parameter name="idReceipt" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{idReceipt}]]></defaultValueExpression>
+	</parameter>
+	<parameter name="cusname" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{cusname}]]></defaultValueExpression>
+	</parameter>
+	<parameter name="receipt_print_no" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{receipt_print_no}]]></defaultValueExpression>
+	</parameter>
+	<parameter name="receipt_day" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{receipt_day}]]></defaultValueExpression>
+	</parameter>
+	<parameter name="receipt_total" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{receipt_total}]]></defaultValueExpression>
+	</parameter>
+	<parameter name="dis1" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{dis1}]]></defaultValueExpression>
+	</parameter>
+	<parameter name="dis1val" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{dis1val}]]></defaultValueExpression>
+	</parameter>
+	<parameter name="dis2" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{dis2}]]></defaultValueExpression>
+	</parameter>
+	<parameter name="dis2val" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{dis2val}]]></defaultValueExpression>
+	</parameter>
+	<parameter name="dis3" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{dis3}]]></defaultValueExpression>
+	</parameter>
+	<parameter name="dis3val" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{dis3val}]]></defaultValueExpression>
+	</parameter>
+	<parameter name="dis4" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{dis4}]]></defaultValueExpression>
+	</parameter>
+	<parameter name="dis4val" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{dis4val}]]></defaultValueExpression>
+	</parameter>
+	<parameter name="vat" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{vat}]]></defaultValueExpression>
+	</parameter>
+	<parameter name="nbt" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{nbt}]]></defaultValueExpression>
+	</parameter>
+	<parameter name="stamp" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{stamp}]]></defaultValueExpression>
+	</parameter>
+	<parameter name="acno" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{acno}]]></defaultValueExpression>
+	</parameter>
+	<parameter name="vno" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{vno}]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT *
+FROM `receipt` WHERE idReceipt =  $P{idReceipt}]]>
+	</queryString>
+	<field name="idReceipt" class="java.lang.Integer"/>
+	<field name="Application_Catagory_idApplication_Catagory" class="java.lang.Integer"/>
+	<field name="recept_applicationId" class="java.lang.Integer"/>
+	<field name="receipt_print_no" class="java.lang.String"/>
+	<field name="cheack" class="java.lang.Double"/>
+	<field name="cesh" class="java.lang.Double"/>
+	<field name="receipt_total" class="java.lang.Double"/>
+	<field name="receipt_day" class="java.sql.Date"/>
+	<field name="receipt_status" class="java.lang.Integer"/>
+	<field name="receipt_syn" class="java.lang.Integer"/>
+	<field name="chque_no" class="java.lang.String"/>
+	<field name="chque_date" class="java.sql.Date"/>
+	<field name="chque_bank" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="422" splitType="Stretch">
+			<textField>
+				<reportElement x="75" y="140" width="300" height="20" uuid="a05f3f5a-4d1e-4099-86df-1f9d9c32c890"/>
+				<textFieldExpression><![CDATA[$P{cusname}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="75" y="87" width="218" height="20" uuid="5ae035be-9021-41f0-aac4-3e287efb0f9d"/>
+				<textFieldExpression><![CDATA[$P{receipt_print_no}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="360" y="87" width="100" height="20" uuid="7ef91153-2c39-4a6c-9cbe-e3893bb19e03"/>
+				<textFieldExpression><![CDATA[$P{receipt_day}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="361" y="343" width="79" height="25" uuid="9cca243a-0758-4cce-870d-b3d25e9325dc">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{receipt_total}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="31" y="203" width="330" height="20" uuid="e88d659d-ddca-4a4d-af91-984e727ea814">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Iskoola Pota"/>
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{dis1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="361" y="203" width="79" height="20" uuid="f2f1bf1b-81f6-4351-9cd9-edec4dfd92ca">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$P{dis1val}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="31" y="223" width="330" height="20" uuid="8588182c-d525-4d34-a909-1ee01994365b">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Iskoola Pota"/>
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{dis2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="361" y="223" width="79" height="20" uuid="a3459f9b-f3d4-4077-8d0a-4bb32d58d8dc"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$P{dis2val}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="31" y="243" width="330" height="20" uuid="73395c79-75e6-4fba-831b-91ff0c7273f7"/>
+				<textElement>
+					<font fontName="Iskoola Pota"/>
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{dis3}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="361" y="243" width="79" height="20" uuid="0adb4746-518d-4dd6-8274-0419e8a97108"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$P{dis3val}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="31" y="263" width="330" height="20" uuid="f0af92c7-2493-447f-a7db-75f0e1ef1069"/>
+				<textElement>
+					<font fontName="Iskoola Pota"/>
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{dis4}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="361" y="263" width="79" height="20" uuid="0bd65884-5191-440f-a9c4-afeec2655ec7"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$P{dis4val}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="361" y="283" width="79" height="20" uuid="d57e8012-5450-4489-b9ba-6917daefa686"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$P{vat}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="361" y="303" width="79" height="20" uuid="476db83e-79d4-409a-a7ee-3ec0ecf3f99b">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$P{nbt}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="361" y="323" width="79" height="20" uuid="8efb8581-8978-4293-a14f-f91916480b40"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$P{stamp}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="31" y="283" width="289" height="20" uuid="db4adfb6-2297-464b-8e70-ba8bf4abd5ed">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[VAT]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="31" y="303" width="289" height="20" uuid="b2f21726-989d-4c47-86e4-2161c772e4ef"/>
+				<textElement textAlignment="Right">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[NBT]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="31" y="323" width="289" height="20" uuid="ab0456ed-8217-4919-b980-df4de2ca03e0"/>
+				<textElement textAlignment="Right">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Stamp]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="339" y="20" width="154" height="20" uuid="4af9c5bf-920c-4738-aee9-a3c1d7dde578"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{acno}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="350" y="15" width="131" height="1" uuid="73afed99-51f3-402f-ae70-2247672c723b">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="7.0"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement x="80" y="170" width="110" height="20" uuid="1991578c-13d2-4f60-acc1-a4545180df9c"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{vno}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="78" y="343" width="74" height="30" uuid="8f0be24a-60c9-4dd1-9f83-7eec8957c411"/>
+				<textElement textAlignment="Left"/>
+				<textFieldExpression><![CDATA[$F{cheack}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="31" y="343" width="44" height="30" uuid="94fe8198-3634-404a-b2df-ed6e95b35ac9"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[cheque]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="192" y="343" width="70" height="30" uuid="c515b08c-167c-42b9-94bc-9c7497d26f64"/>
+				<textFieldExpression><![CDATA[$F{cesh}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="160" y="343" width="30" height="30" uuid="a9607db2-9ee7-4d1a-90ac-64b9420949fc"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[cesh]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="100" y="373" width="130" height="30" uuid="09b21318-2a00-408e-9a9c-e435a07c8ecf"/>
+				<textFieldExpression><![CDATA[$F{chque_no}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

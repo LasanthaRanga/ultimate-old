@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 6, 2019 4:30:22 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.De" table="de" catalog="ultimate2" optimistic-lock="version">
+        <id name="idde" type="java.lang.Integer">
+            <column name="idde" />
+            <generator class="identity" />
+        </id>
+        <property name="receiptId" type="java.lang.Integer">
+            <column name="receipt_id" />
+        </property>
+        <property name="appcatId" type="java.lang.Integer">
+            <column name="appcat_id" />
+        </property>
+        <property name="userId" type="java.lang.Integer">
+            <column name="user_id" />
+        </property>
+        <property name="staus" type="java.lang.Integer">
+            <column name="staus" />
+        </property>
+        <property name="dayendtime" type="timestamp">
+            <column name="dayendtime" length="19" />
+        </property>
+        <property name="comment" type="string">
+            <column name="comment" />
+        </property>
+        <property name="receiptDate" type="date">
+            <column name="receipt_date" length="10" />
+        </property>
+    </class>
+</hibernate-mapping>

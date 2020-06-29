@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.3.1.final using JasperReports Library version 6.3.1  -->
+<!-- 2019-09-12T10:40:34 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="cd_report" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="33959a25-bec8-4fe1-9d22-f5e6f70be363">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Ultimate2.xml"/>
+	<parameter name="from" class="java.lang.String"/>
+	<parameter name="to" class="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+	ass_creditdebit.idAss_CreditDebit,
+	assessment.idAssessment,
+	ass_creditdebit.Ass_CreditDebit_cd,
+	ass_creditdebit.Ass_CreditDebit_amount,
+	ward.ward_no,
+	street.street_name,
+	assessment.assessment_no,
+	ass_creditdebit.Ass_CreditDebit_discription,
+	`user`.user_full_name,
+	ass_creditdebit.Ass_CreditDebit_date 
+FROM
+	ass_creditdebit
+	INNER JOIN assessment ON ass_creditdebit.Assessment_idAssessment = assessment.idAssessment
+	INNER JOIN ward ON assessment.Ward_idWard = ward.idWard
+	INNER JOIN street ON street.Ward_idWard = ward.idWard 
+	AND assessment.Street_idStreet = street.idStreet
+	LEFT JOIN `user` ON `user`.idUser = ass_creditdebit.user_id 
+WHERE
+	ass_creditdebit.Ass_CreditDebit_date BETWEEN   $P{from} 
+	AND  $P{to} 
+ORDER BY
+	ass_creditdebit.idAss_CreditDebit ASC]]>
+	</queryString>
+	<field name="idAss_CreditDebit" class="java.lang.Integer"/>
+	<field name="idAssessment" class="java.lang.Integer"/>
+	<field name="Ass_CreditDebit_cd" class="java.lang.Integer"/>
+	<field name="Ass_CreditDebit_amount" class="java.lang.Double"/>
+	<field name="ward_no" class="java.lang.String"/>
+	<field name="street_name" class="java.lang.String"/>
+	<field name="assessment_no" class="java.lang.String"/>
+	<field name="Ass_CreditDebit_discription" class="java.lang.String"/>
+	<field name="user_full_name" class="java.lang.String"/>
+	<field name="Ass_CreditDebit_date" class="java.sql.Date"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="65" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+			<staticText>
+				<reportElement x="81" y="7" width="641" height="30" uuid="5ab298c2-4482-4b36-b254-068fee6e7e75"/>
+				<textElement textAlignment="Center">
+					<font size="16"/>
+				</textElement>
+				<text><![CDATA[Credit Debit Report]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="150" y="43" width="179" height="20" uuid="21f6e583-7ff1-4651-9bb2-561ca59aee1e"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{from}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="480" y="43" width="150" height="20" uuid="e4a60e82-0bbb-47fb-ac19-7d611955cc7d"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{to}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="37" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+			<staticText>
+				<reportElement x="0" y="0" width="40" height="30" uuid="6d18fdec-8e23-4645-a327-c4fbed213e1c"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[ID ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="41" y="0" width="40" height="30" uuid="ecdab9f9-8245-4e85-a621-f6b9c36352fd"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[WARD]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="81" y="0" width="169" height="30" uuid="da001999-4c53-4d46-8320-14fc97d46c07"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Street Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="250" y="0" width="60" height="30" uuid="249ec6a7-0e14-412d-b78d-04124fb1c4da"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[NO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="318" y="0" width="212" height="30" uuid="6736e435-a47c-44a4-96a3-0b1c664dd3f3"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Description]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="530" y="0" width="160" height="30" uuid="3c1d3e2d-2f22-4805-8ce0-ab5e3da6a323"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[User]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="692" y="0" width="100" height="30" uuid="d2d3cf54-f7ab-4f89-9e48-2e29761f0569"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Credit or Debit]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="31" width="792" height="1" uuid="84c476e8-74b6-4933-bf25-bbde75aba158"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="42" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+			<textField>
+				<reportElement x="0" y="0" width="40" height="40" uuid="98df9ab3-b594-44af-941b-df16d82bf7f9">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{idAssessment}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="41" y="0" width="40" height="40" uuid="d27c4312-0e19-4b32-b662-685666b8510c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Iskoola Pota"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ward_no}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="81" y="0" width="169" height="40" uuid="fc2f9f30-e639-43b2-8175-ff97391afa65"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Iskoola Pota"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{street_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="250" y="0" width="60" height="40" uuid="bbcf44f9-c0d2-4d88-825e-ec747eae47a2"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Iskoola Pota"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{assessment_no}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="318" y="0" width="212" height="40" uuid="d1ab5c26-7186-410a-9a75-e3956ece0c2c"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Iskoola Pota" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Ass_CreditDebit_discription}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="527" y="0" width="160" height="40" uuid="302fe9c6-7121-4f79-b9b1-3927a04c068b"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{user_full_name}!=null?$F{user_full_name}:""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="692" y="0" width="100" height="40" uuid="c166b1f6-cd19-43e1-87c0-50894987cc2f"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[String.format("%.2f",$F{Ass_CreditDebit_amount})]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="40" width="792" height="1" uuid="f8f999b0-772b-4f67-88e1-58ff4e6be9ce"/>
+			</line>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+			<textField>
+				<reportElement x="320" y="0" width="120" height="18" uuid="b5443816-5c4e-4f0c-8ea4-898a559b0228"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

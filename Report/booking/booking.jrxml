@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.3.1.final using JasperReports Library version 6.3.1  -->
+<!-- 2019-05-21T00:10:06 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="booking" pageWidth="515" pageHeight="433" columnWidth="511" leftMargin="2" rightMargin="2" topMargin="2" bottomMargin="2" uuid="97601eed-3b02-4f00-84c6-c431cb071c98">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Ultimate2.xml"/>
+	<property name="com.jaspersoft.studio.unit." value="cm"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="cm"/>
+	<parameter name="description" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{description}]]></defaultValueExpression>
+	</parameter>
+	<parameter name="idRecipt" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{idRecipt}]]></defaultValueExpression>
+	</parameter>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+receipt.idReceipt,
+receipt.Application_Catagory_idApplication_Catagory,
+receipt.recept_applicationId,
+receipt.receipt_print_no,
+receipt.cheack,
+receipt.cesh,
+receipt.receipt_total,
+receipt.receipt_day,
+receipt.receipt_status,
+receipt.receipt_syn,
+receipt.chque_no,
+receipt.chque_date,
+receipt.chque_bank,
+receipt.oder,
+book.idbook,
+book.book_date,
+book.customer_idCustomer,
+book.book_amount,
+book.book_diposit,
+book.book_nbt,
+book.book_stamp,
+book.book_total,
+book_place.book_place_name,
+book_reson.book_reson_name,
+customer.cus_name,
+book.book_vat,
+book.book_book_status,
+bank_info.acount_no
+FROM
+receipt
+INNER JOIN book ON book.idbook = receipt.recept_applicationId
+INNER JOIN book_place ON book.book_place_idbook_place = book_place.idbook_place
+INNER JOIN book_reson ON book_reson.book_place_idbook_place = book_place.idbook_place AND book.book_reson_idbook_reson = book_reson.idbook_reson
+INNER JOIN customer ON book.customer_idCustomer = customer.idCustomer
+INNER JOIN bank_info ON book_reson.book_reson_idAccount = bank_info.idBank_Info
+WHERE
+receipt.idReceipt =  $P{idRecipt}]]>
+	</queryString>
+	<field name="idReceipt" class="java.lang.Integer"/>
+	<field name="Application_Catagory_idApplication_Catagory" class="java.lang.Integer"/>
+	<field name="recept_applicationId" class="java.lang.Integer"/>
+	<field name="receipt_print_no" class="java.lang.String"/>
+	<field name="cheack" class="java.lang.Double"/>
+	<field name="cesh" class="java.lang.Double"/>
+	<field name="receipt_total" class="java.lang.Double"/>
+	<field name="receipt_day" class="java.sql.Date"/>
+	<field name="receipt_status" class="java.lang.Integer"/>
+	<field name="receipt_syn" class="java.lang.Integer"/>
+	<field name="chque_no" class="java.lang.String"/>
+	<field name="chque_date" class="java.sql.Date"/>
+	<field name="chque_bank" class="java.lang.String"/>
+	<field name="oder" class="java.lang.Integer"/>
+	<field name="idbook" class="java.lang.Integer"/>
+	<field name="book_date" class="java.sql.Date"/>
+	<field name="customer_idCustomer" class="java.lang.Integer"/>
+	<field name="book_amount" class="java.lang.Double"/>
+	<field name="book_diposit" class="java.lang.Double"/>
+	<field name="book_nbt" class="java.lang.Double"/>
+	<field name="book_stamp" class="java.lang.Double"/>
+	<field name="book_total" class="java.lang.Double"/>
+	<field name="book_place_name" class="java.lang.String"/>
+	<field name="book_reson_name" class="java.lang.String"/>
+	<field name="cus_name" class="java.lang.String"/>
+	<field name="book_vat" class="java.lang.Double"/>
+	<field name="book_book_status" class="java.lang.Integer"/>
+	<field name="acount_no" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="428" splitType="Stretch">
+			<textField>
+				<reportElement x="90" y="90" width="210" height="20" uuid="2051d157-1c26-416b-ad65-2c021a9e5b21"/>
+				<textFieldExpression><![CDATA[$F{receipt_print_no}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="90" y="140" width="310" height="20" uuid="0dc3693e-cf3e-46a8-9760-967803b6cd47"/>
+				<textFieldExpression><![CDATA[$F{cus_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="370" y="90" width="110" height="20" uuid="eee7de5f-d999-446f-a73f-e33d4756b54a"/>
+				<textFieldExpression><![CDATA[new SimpleDateFormat("yyyy-MM-dd").format($F{book_date})]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="350" y="15" width="131" height="1" uuid="a2934dfb-1bac-4886-be24-b6e9cc1fbea6">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="7.0"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement x="350" y="26" width="130" height="14" uuid="36a1628e-53f7-4e65-a35f-46e2c2c8b69d"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{acount_no}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="350" y="210" width="90" height="20" uuid="9428f4a1-067b-4588-b744-84d01a48229c"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[String.format("%.2f",$F{book_amount})]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="310" y="210" width="40" height="20" uuid="07a48fa7-0e6a-4aa1-aa3a-c0f37319681d"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Amount]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="350" y="230" width="90" height="20" uuid="e719df25-7fe9-4058-b3f3-1fdca52de354"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[String.format("%.2f",$F{book_diposit})]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="310" y="230" width="40" height="20" uuid="3323ca6e-a63e-4fb3-8751-45b08779bb7e"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Diposit]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="350" y="250" width="90" height="20" uuid="e9fd826c-2aec-482e-a9b9-38c077776a43"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[String.format("%.2f",$F{book_vat})]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="310" y="250" width="40" height="20" uuid="1618dd7d-c03e-4c6c-90ad-4f6e33134ad6"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[VAT]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="350" y="270" width="90" height="20" uuid="382206d8-938f-4a5a-a230-0c8efa8f0812"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[String.format("%.2f",$F{book_nbt})]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="310" y="270" width="40" height="20" uuid="2299be2c-8633-4751-b8f4-6b3953b3ad81"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[NBT]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="350" y="290" width="90" height="20" uuid="7dfff93b-fde7-41b7-8877-6e236b66195d"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[String.format("%.2f",$F{book_stamp})]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="310" y="290" width="40" height="20" uuid="612c9c9c-0974-4d5b-bab6-866ca71fe02b"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[STAMP]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="350" y="350" width="90" height="20" uuid="c6568424-0c3c-4b6e-b39e-1cc39af8884d"/>
+				<textElement textAlignment="Right">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[String.format("%.2f",$F{book_total})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="30" y="230" width="270" height="110" uuid="891efbc2-b51e-4c1c-80eb-3c16b61a9454"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{description}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="90" y="165" width="310" height="20" uuid="b233faeb-5784-4694-a274-f8ce0258b3af"/>
+				<textFieldExpression><![CDATA[$F{book_place_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="30" y="210" width="270" height="20" uuid="05d573cf-08a1-41fe-a5e3-0deededb4343"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{book_reson_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="110" y="350" width="60" height="20" uuid="047048c2-586f-4f7a-95c4-7679c95f3856"/>
+				<textFieldExpression><![CDATA[String.format("%.2f",$F{cheack})]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="70" y="350" width="40" height="20" uuid="a99aaabe-0095-49ac-8743-abcbb6932e6a"/>
+				<text><![CDATA[cheque]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="210" y="350" width="90" height="20" uuid="a28ddfb3-61c6-4ac4-8bc8-67c352490e8e"/>
+				<textFieldExpression><![CDATA[String.format("%.2f",$F{cesh})]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="180" y="350" width="30" height="20" uuid="e44ab8bc-5794-4a94-ad35-272bbacf84c9"/>
+				<text><![CDATA[cesh]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="150" y="380" width="120" height="20" uuid="294d9cbd-4c65-406e-ba0f-b77dbf4024fa"/>
+				<textFieldExpression><![CDATA[$F{chque_no}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

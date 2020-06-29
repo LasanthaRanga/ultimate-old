@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXRadioButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="625.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.tradelicens.ApproveViewController">
+   <children>
+      <TableView fx:id="tbl_appList" layoutX="59.0" layoutY="193.0" onMouseClicked="#clickOnTable" prefHeight="380.0" prefWidth="1229.0">
+        <columns>
+            <TableColumn fx:id="col_id" prefWidth="61.0" text="#" />
+          <TableColumn fx:id="col_no" prefWidth="114.0" text="NO" />
+          <TableColumn fx:id="col_tradeName" prefWidth="178.0" text="Trade Name" />
+            <TableColumn fx:id="col_natrue" prefWidth="229.0" text="Nature" />
+            <TableColumn fx:id="col_cusName" prefWidth="347.0" text="Customer Name" />
+            <TableColumn fx:id="col_assessment" prefWidth="328.0" text="Assessment" />
+        </columns>
+      </TableView>
+      <Text fx:id="txt_ApproveCat" layoutX="822.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="RIGHT" wrappingWidth="466.0">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Text>
+      <JFXRadioButton fx:id="radio_pending" layoutX="59.0" layoutY="57.0" onAction="#statusRadioOnAction" selected="true" text="Pending" textFill="#2072ff">
+         <toggleGroup>
+            <ToggleGroup fx:id="status" />
+         </toggleGroup></JFXRadioButton>
+      <JFXRadioButton fx:id="radio_approve" layoutX="235.0" layoutY="57.0" onAction="#statusRadioOnAction" text="Approve" textFill="#009688" toggleGroup="$status" />
+      <JFXRadioButton fx:id="radio_non" layoutX="410.0" layoutY="57.0" onAction="#statusRadioOnAction" text="Non Approve" textFill="#ff2121" toggleGroup="$status" />
+      <JFXTextField fx:id="txt_tradeName" labelFloat="true" layoutX="59.0" layoutY="122.0" onKeyReleased="#searchByTradeNames" prefHeight="29.0" prefWidth="280.0" promptText="Search By Trade Name" />
+      <JFXTextField fx:id="txt_cusName" labelFloat="true" layoutX="410.0" layoutY="125.0" onKeyReleased="#searchByCusNames" prefHeight="29.0" prefWidth="280.0" promptText="Search By Customer Name" />
+      <Text fx:id="txt_appno" fill="#009688" layoutX="949.0" layoutY="145.0" strokeType="OUTSIDE" strokeWidth="0.0" text="00" textAlignment="RIGHT" wrappingWidth="129.99999225139618">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Text>
+      <JFXButton fx:id="btn_more" layoutX="1092.0" layoutY="124.0" onMouseClicked="#clickOnMore" prefHeight="31.0" prefWidth="194.0" style="-fx-background-color: #009688;" text="More Details" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </JFXButton>
+      <Text layoutX="59.0" layoutY="606.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Count :" wrappingWidth="65.24560546875">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Text>
+      <Text fx:id="txt_count" layoutX="124.0" layoutY="606.0" strokeType="OUTSIDE" strokeWidth="0.0" text="00" wrappingWidth="72.24560546875">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Text>
+      <JFXButton fx:id="btn_print_pending" layoutX="1092.0" layoutY="581.0" onMouseClicked="#clicOnPrintPanding" prefHeight="31.0" prefWidth="194.0" style="-fx-background-color: #3F51B5;" text="Print Panding List" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>

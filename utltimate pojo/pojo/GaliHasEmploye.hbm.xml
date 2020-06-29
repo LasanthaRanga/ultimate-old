@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 6, 2019 4:30:22 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.GaliHasEmploye" table="gali_has_employe" catalog="ultimate2" optimistic-lock="version">
+        <id name="idGaliHasEmploye" type="java.lang.Integer">
+            <column name="idGali_has_Employe" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="employe" class="pojo.Employe" fetch="select">
+            <column name="Employe_idEmploye" not-null="true" />
+        </many-to-one>
+        <many-to-one name="gali" class="pojo.Gali" fetch="select">
+            <column name="Gali_idGali" not-null="true" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 6, 2019 4:30:22 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.Receipt" table="receipt" catalog="ultimate2" optimistic-lock="version">
+        <id name="idReceipt" type="java.lang.Integer">
+            <column name="idReceipt" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="applicationCatagory" class="pojo.ApplicationCatagory" fetch="select">
+            <column name="Application_Catagory_idApplication_Catagory" not-null="true" />
+        </many-to-one>
+        <many-to-one name="user" class="pojo.User" fetch="select">
+            <column name="receipt_user_id" />
+        </many-to-one>
+        <property name="receptApplicationId" type="java.lang.Integer">
+            <column name="recept_applicationId" />
+        </property>
+        <property name="receiptPrintNo" type="string">
+            <column name="receipt_print_no" length="45" />
+        </property>
+        <property name="cheack" type="java.lang.Double">
+            <column name="cheack" precision="22" scale="0" />
+        </property>
+        <property name="cesh" type="java.lang.Double">
+            <column name="cesh" precision="22" scale="0" />
+        </property>
+        <property name="receiptTotal" type="java.lang.Double">
+            <column name="receipt_total" precision="22" scale="0" />
+        </property>
+        <property name="receiptDay" type="date">
+            <column name="receipt_day" length="10" />
+        </property>
+        <property name="receiptStatus" type="java.lang.Integer">
+            <column name="receipt_status" />
+        </property>
+        <property name="receiptSyn" type="java.lang.Integer">
+            <column name="receipt_syn" />
+        </property>
+        <property name="chqueNo" type="string">
+            <column name="chque_no" />
+        </property>
+        <property name="chqueDate" type="date">
+            <column name="chque_date" length="10" />
+        </property>
+        <property name="chqueBank" type="string">
+            <column name="chque_bank" />
+        </property>
+        <property name="oder" type="java.lang.Integer">
+            <column name="oder" />
+        </property>
+        <property name="officeIdOffice" type="java.lang.Integer">
+            <column name="office_idOffice" />
+        </property>
+        <property name="receiptAccountId" type="java.lang.Integer">
+            <column name="receipt_account_id" />
+        </property>
+        <property name="ribno" type="string">
+            <column name="ribno" length="45" />
+        </property>
+        <property name="receiptTime" type="time">
+            <column name="receipt_time" length="8" />
+        </property>
+        <set name="cheacks" table="cheack" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Receipt_idReceipt" not-null="true" />
+            </key>
+            <one-to-many class="pojo.Cheack" />
+        </set>
+        <set name="assPayments" table="ass_payment" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Receipt_idReceipt" />
+            </key>
+            <one-to-many class="pojo.AssPayment" />
+        </set>
+    </class>
+</hibernate-mapping>

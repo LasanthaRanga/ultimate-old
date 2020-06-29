@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 6, 2019 4:30:22 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.BuildingHasAssessment" table="building_has_assessment" catalog="ultimate2" optimistic-lock="version">
+        <id name="idBuildingHasAssessment" type="java.lang.Integer">
+            <column name="idBuilding_has_assessment" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="assessment" class="pojo.Assessment" fetch="select">
+            <column name="Assessment_idAssessment" not-null="true" />
+        </many-to-one>
+        <many-to-one name="building" class="pojo.Building" fetch="select">
+            <column name="Building_idBuilding" not-null="true" />
+        </many-to-one>
+        <property name="buildingHasAssessmentStatus" type="java.lang.Integer">
+            <column name="Building_has_assessment_status" />
+        </property>
+    </class>
+</hibernate-mapping>

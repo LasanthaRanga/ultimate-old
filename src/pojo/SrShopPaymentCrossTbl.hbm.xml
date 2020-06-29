@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 6, 2019 4:30:22 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.SrShopPaymentCrossTbl" table="sr_shop_payment_cross_tbl" catalog="ultimate2" optimistic-lock="version">
+        <id name="srShopPayment2Id" type="java.lang.Integer">
+            <column name="sr_shop_payment2_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="srShop" class="pojo.SrShop" fetch="select">
+            <column name="sr_shop_payment2_shop_id" />
+        </many-to-one>
+        <property name="srShopPayment2VoteId" type="java.lang.Integer">
+            <column name="sr_shop_payment2_vote_id" />
+        </property>
+        <property name="srShopPayment2Amount" type="java.lang.Double">
+            <column name="sr_shop_payment2_amount" precision="22" scale="0" />
+        </property>
+        <property name="srShopPayment2AccountId" type="java.lang.Integer">
+            <column name="sr_shop_payment2_account_id" />
+        </property>
+        <property name="srShopPayment2ReceiptNo" type="string">
+            <column name="sr_shop_payment2_receipt_no" length="50" />
+        </property>
+        <property name="srShopPayment2Date" type="date">
+            <column name="sr_shop_payment2_date" length="10" />
+        </property>
+        <property name="srShopPayment2Time" type="time">
+            <column name="sr_shop_payment2_time" length="8" />
+        </property>
+        <property name="srShopPayment2User" type="java.lang.Integer">
+            <column name="sr_shop_payment2_user" />
+        </property>
+        <property name="srShopPayment2CompleteOrNot" type="java.lang.Integer">
+            <column name="sr_shop_payment2_complete_or_not" />
+        </property>
+    </class>
+</hibernate-mapping>

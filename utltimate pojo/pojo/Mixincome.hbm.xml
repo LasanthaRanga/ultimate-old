@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 6, 2019 4:30:22 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.Mixincome" table="mixincome" catalog="ultimate2" optimistic-lock="version">
+        <id name="idMixincome" type="java.lang.Integer">
+            <column name="idMixincome"/>
+            <generator class="identity"/>
+        </id>
+        <property name="mixincomeDate" type="date">
+            <column name="mixincome_date" length="10"/>
+        </property>
+        <property name="mixincomeFulltotal" type="java.lang.Double">
+            <column name="mixincome_fulltotal" precision="22" scale="0"/>
+        </property>
+        <property name="mixincomeStatus" type="java.lang.Integer">
+            <column name="mixincome_status"/>
+        </property>
+        <property name="mixincomeYear" type="java.lang.Integer">
+            <column name="mixincome_year"/>
+        </property>
+        <property name="customerIdCustomer" type="java.lang.Integer">
+            <column name="customer_idCustomer"/>
+        </property>
+        <property name="mixincomeUserid" type="java.lang.Integer">
+            <column name="mixincome_userid"/>
+        </property>
+        <property name="mixincomePaytype" type="java.lang.Integer">
+            <column name="mixincome_paytype"/>
+        </property>
+        <property name="crosRef" type="string">
+            <column name="cros_ref"/>
+        </property>
+        <property name="others" type="string">
+            <column name="others"/>
+        </property>
+        <set name="mixdatas" table="mixdata" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="mixincome_IdMixincome"/>
+            </key>
+            <one-to-many class="pojo.Mixdata"/>
+        </set>
+    </class>
+</hibernate-mapping>

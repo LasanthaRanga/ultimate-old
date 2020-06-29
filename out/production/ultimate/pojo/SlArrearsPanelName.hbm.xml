@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 6, 2019 4:30:22 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.SlArrearsPanelName" table="sl_arrears_panel_name" catalog="ultimate2" optimistic-lock="version">
+        <id name="slArrearsPanelNameId" type="int">
+            <column name="sl_arrears_panel_name_id" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="slArrearsType" class="pojo.SlArrearsType" fetch="select">
+            <column name="sl_arrears_panel_arrears_type" />
+        </many-to-one>
+        <property name="slArrearsPanelName" type="string">
+            <column name="sl_arrears_panel_name" length="20" />
+        </property>
+        <set name="slLoadArrearsPanelses" table="sl_load_arrears_panels" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="sl_load_panels_name" />
+            </key>
+            <one-to-many class="pojo.SlLoadArrearsPanels" />
+        </set>
+    </class>
+</hibernate-mapping>

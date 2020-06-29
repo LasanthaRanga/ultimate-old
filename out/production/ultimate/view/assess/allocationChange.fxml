@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXRadioButton?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="625.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.assess.AllocationChangeController">
+   <children>
+      <JFXTextField fx:id="txt_idAssess" alignment="CENTER_RIGHT" labelFloat="true" layoutX="78.0" layoutY="43.0" onKeyReleased="#onKeyReleasedAssessmentID" prefHeight="29.0" prefWidth="165.0" promptText="Assessment ID" />
+      <VBox layoutX="78.0" layoutY="98.0" prefHeight="264.0" prefWidth="672.0">
+         <children>
+            <HBox prefHeight="24.0" prefWidth="458.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Ward :" textAlignment="RIGHT" wrappingWidth="164.6708984375" />
+                  <Text fx:id="txt_ward" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="480.0">
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </Text>
+               </children>
+            </HBox>
+            <HBox prefHeight="24.0" prefWidth="458.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Street :" textAlignment="RIGHT" wrappingWidth="164.6708984375" />
+                  <Text fx:id="txt_street" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="480.0">
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </Text>
+               </children>
+            </HBox>
+            <HBox prefHeight="24.0" prefWidth="458.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Assessment No :" textAlignment="RIGHT" wrappingWidth="164.6708984375" />
+                  <Text fx:id="txt_assessment" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="480.0">
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </Text>
+               </children>
+            </HBox>
+            <HBox prefHeight="24.0" prefWidth="458.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Customer Name :" textAlignment="RIGHT" wrappingWidth="164.6708984375" />
+                  <Text fx:id="txt_customer" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="480.0">
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </Text>
+               </children>
+            </HBox>
+            <HBox prefHeight="24.0" prefWidth="458.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Current Nature :" textAlignment="RIGHT" wrappingWidth="164.6708984375" />
+                  <Text fx:id="txt_nature" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="480.0">
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </Text>
+               </children>
+            </HBox>
+            <HBox prefHeight="24.0" prefWidth="458.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Current Quater :" textAlignment="RIGHT" wrappingWidth="164.6708984375" />
+                  <Text fx:id="txt_quater" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="480.0">
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </Text>
+               </children>
+            </HBox>
+            <HBox prefHeight="24.0" prefWidth="458.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Current Allocation :" textAlignment="RIGHT" wrappingWidth="164.6708984375" />
+                  <Text fx:id="txt_allocation" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="RIGHT" wrappingWidth="300.0">
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </Text>
+               </children>
+            </HBox>
+            <HBox prefHeight="24.0" prefWidth="458.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Credit Debit :" textAlignment="RIGHT" wrappingWidth="164.6708984375" />
+                  <Text fx:id="txt_creditDebit" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="RIGHT" wrappingWidth="300.0">
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </Text>
+               </children>
+            </HBox>
+            <HBox prefHeight="24.0" prefWidth="458.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Over Pay :" textAlignment="RIGHT" wrappingWidth="164.6708984375" />
+                  <Text fx:id="txt_overpay" fill="#1c7900" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="RIGHT" wrappingWidth="300.0">
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </Text>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <JFXComboBox fx:id="com_nature" labelFloat="true" layoutX="807.0" layoutY="43.0" prefHeight="31.0" prefWidth="152.0" promptText="New Nature" />
+      <JFXTextField fx:id="txt_newAllocation" disable="true" layoutX="1123.0" layoutY="44.0" prefHeight="29.0" prefWidth="152.0" promptText="New Allocation" />
+      <JFXRadioButton fx:id="radio_Debit" layoutX="789.0" layoutY="164.0" onAction="#radioOnAction" text="Debit ( + )">
+         <toggleGroup>
+            <ToggleGroup fx:id="cd" />
+         </toggleGroup>
+      </JFXRadioButton>
+      <JFXRadioButton fx:id="radio_Credit" layoutX="789.0" layoutY="203.0" onAction="#radioOnAction" text="Credit ( - )" toggleGroup="$cd" visible="false" />
+      <JFXTextField fx:id="txt_newCredit" labelFloat="true" layoutX="806.0" layoutY="206.0" onKeyReleased="#keyUpDebit" prefHeight="29.0" prefWidth="152.0" promptText="Debit" />
+      <JFXTextArea fx:id="txt_description" labelFloat="true" layoutX="978.0" layoutY="163.0" prefHeight="120.0" prefWidth="292.0" promptText="Discription" />
+      <JFXButton fx:id="btn_Save" layoutX="1110.0" layoutY="330.0" onMouseClicked="#onMouseClickedSaveButton" prefHeight="31.0" prefWidth="165.0" style="-fx-background-color: #4CAF50;" text="Save New Data" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></JFXButton>
+      <TableView fx:id="tbl_histry" layoutX="78.0" layoutY="386.0" prefHeight="225.0" prefWidth="1197.0">
+        <columns>
+          <TableColumn fx:id="col_date" prefWidth="116.0" text="Date" />
+          <TableColumn fx:id="col_allocation" prefWidth="140.0" text="Old Allocation" />
+            <TableColumn fx:id="col_new_allocation" prefWidth="151.0" text="New Allocation" />
+            <TableColumn fx:id="col_nature" prefWidth="151.0" text="Old Nature" />
+            <TableColumn fx:id="col_new_nature" prefWidth="151.0" text="New Allocation" />
+            <TableColumn fx:id="col_cd" prefWidth="151.0" text="Debit" />
+            <TableColumn fx:id="col_discription" prefWidth="173.0" text="Discription" />
+            <TableColumn fx:id="col_change" prefWidth="154.0" text="Change By" />
+        </columns>
+      </TableView>
+      <JFXCheckBox fx:id="check_new" layoutX="1042.0" layoutY="47.0" onAction="#checkNewOnAction" text="NEW" />
+      <JFXTextField fx:id="txt_balance" editable="false" labelFloat="true" layoutX="807.0" layoutY="263.0" prefHeight="25.0" prefWidth="152.0" promptText="Debit Balance" />
+   </children>
+</AnchorPane>

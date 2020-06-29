@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="625.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.assess.CDlist">
+   <children>
+      <TableView fx:id="tbl_cd" layoutX="67.0" layoutY="97.0" prefHeight="429.0" prefWidth="1179.0">
+        <columns>
+          <TableColumn fx:id="col_day" prefWidth="126.0" text="Date" />
+          <TableColumn fx:id="col_user" prefWidth="195.0" text="User" />
+            <TableColumn fx:id="col_ward" minWidth="6.0" prefWidth="89.0" text="Ward" />
+            <TableColumn fx:id="col_street" minWidth="0.0" prefWidth="261.0" text="Street" />
+            <TableColumn fx:id="col_assessment" minWidth="0.0" prefWidth="106.0" text="Assessment" />
+            <TableColumn fx:id="col_credit" prefWidth="77.0" text="Credit" />
+            <TableColumn fx:id="col_debit" prefWidth="86.0" text="Debit" />
+            <TableColumn fx:id="col_des" prefWidth="218.0" text="Description" />
+        </columns>
+      </TableView>
+      <JFXDatePicker fx:id="dp_from" layoutX="67.0" layoutY="33.0" onAction="#dateOnAction" promptText="From" />
+      <JFXDatePicker fx:id="dp_to" layoutX="455.0" layoutY="33.0" onAction="#dateOnAction" promptText="To" />
+      <JFXButton fx:id="btn_report" layoutX="995.0" layoutY="546.0" onAction="#clickonReport" prefHeight="39.0" prefWidth="251.0" style="-fx-background-color: #009688;" text="Print Credit Debit Report" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></JFXButton>
+   </children>
+</AnchorPane>

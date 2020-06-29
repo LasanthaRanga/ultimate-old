@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 3, 2019 9:57:03 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.WbMSubRoad" table="wb_m_sub_road" catalog="kuliuc" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="wbMMainRoad" class="pojo.WbMMainRoad" fetch="select">
+            <column name="main_road_id" not-null="true" />
+        </many-to-one>
+        <property name="subRoad" type="string">
+            <column name="sub_road" length="250" />
+        </property>
+        <set name="wbTCustomerRoads" table="wb_t_customer_road" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="sub_road_id" />
+            </key>
+            <one-to-many class="pojo.WbTCustomerRoad" />
+        </set>
+        <set name="wbMCustomers" table="wb_m_customer" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="sub_road" not-null="true" />
+            </key>
+            <one-to-many class="pojo.WbMCustomer" />
+        </set>
+        <set name="wbMDevisions" table="wb_m_devision" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="sub_road_id" />
+            </key>
+            <one-to-many class="pojo.WbMDevision" />
+        </set>
+    </class>
+</hibernate-mapping>

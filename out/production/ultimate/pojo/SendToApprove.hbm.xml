@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 6, 2019 4:30:22 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.SendToApprove" table="send_to_approve" catalog="ultimate2" optimistic-lock="version">
+        <id name="idSendToApprove" type="java.lang.Integer">
+            <column name="idSend_to_approve" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="applicationCatagory" class="pojo.ApplicationCatagory" fetch="select">
+            <column name="Application_Catagory_idApplication_Catagory" not-null="true" />
+        </many-to-one>
+        <many-to-one name="applications" class="pojo.Applications" fetch="select">
+            <column name="appID" />
+        </many-to-one>
+        <many-to-one name="approvalBy" class="pojo.ApprovalBy" fetch="select">
+            <column name="Approval_By_idApproval_By" not-null="true" />
+        </many-to-one>
+        <many-to-one name="userBySendToUser" class="pojo.User" fetch="select">
+            <column name="Send_to_user" />
+        </many-to-one>
+        <many-to-one name="userBySendByUser" class="pojo.User" fetch="select">
+            <column name="Send_by_user" />
+        </many-to-one>
+        <property name="statusApprove" type="java.lang.Integer">
+            <column name="status_approve" />
+        </property>
+        <property name="sendDateTime" type="timestamp">
+            <column name="send_date_time" length="19" />
+        </property>
+        <property name="sendToApprovecol" type="string">
+            <column name="Send_to_approvecol" length="45" />
+        </property>
+        <property name="applicationId" type="java.lang.Integer">
+            <column name="Application_id" />
+        </property>
+        <property name="statusPara" type="java.lang.Integer">
+            <column name="status_para" />
+        </property>
+        <property name="doneDnt" type="timestamp">
+            <column name="done_dnt" length="19" />
+        </property>
+        <set name="approveDetailses" table="approve_details" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Send_to_approve_idSend_to_approve" not-null="true" />
+            </key>
+            <one-to-many class="pojo.ApproveDetails" />
+        </set>
+    </class>
+</hibernate-mapping>

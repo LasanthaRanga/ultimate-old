@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="625.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.assess.AppLaters">
+   <children>
+      <JFXTextField fx:id="txt_myno" labelFloat="true" layoutX="109.0" layoutY="42.0" prefHeight="29.0" prefWidth="117.0" promptText="මගේ අංකය" text="MA/A" />
+      <JFXTextField fx:id="txt_youno" labelFloat="true" layoutX="469.0" layoutY="42.0" promptText="ඔබේ අංකය" />
+      <JFXTextArea fx:id="txt_address" labelFloat="true" layoutX="109.0" layoutY="142.0" prefHeight="113.0" prefWidth="529.0" promptText="ලිපිනය" />
+      <Text fx:id="txt_ward" layoutX="109.0" layoutY="318.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="529.0000014007092" />
+      <Text fx:id="txt_street" layoutX="109.0" layoutY="352.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="529.0000014007092" />
+      <Text fx:id="txt_assno" layoutX="109.0" layoutY="386.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="529.0000014007092" />
+      <TextArea fx:id="txt_description" layoutX="109.0" layoutY="411.0" prefHeight="133.0" prefWidth="1161.0" />
+      <JFXButton fx:id="btn_genarate" layoutX="919.0" layoutY="308.0" onAction="#genarate" prefHeight="11.0" prefWidth="199.0" style="-fx-background-color: #03A9F4;" text="Genarate Report" />
+      <JFXButton fx:id="btnPrint" layoutX="926.0" layoutY="573.0" onAction="#print" prefHeight="31.0" prefWidth="199.0" style="-fx-background-color: #4CAF50;" text="Print Report" />
+      <JFXButton fx:id="btn_cusdata" layoutX="919.0" layoutY="41.0" onAction="#cusDataOnAction" prefHeight="31.0" prefWidth="199.0" style="-fx-background-color: rgb(249,168,37);" text="Fill Customer Data" textFill="WHITE" />
+   </children>
+</AnchorPane>

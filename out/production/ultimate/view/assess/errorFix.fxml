@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="625.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.assess.ErrorFix">
+   <children>
+      <ScrollPane prefHeight="625.0" prefWidth="1300.0">
+         <content>
+            <AnchorPane prefHeight="619.0" prefWidth="1280.0">
+               <children>
+                  <JFXTextField fx:id="txt_lyw" layoutX="296.0" layoutY="53.0" prefHeight="29.0" prefWidth="183.0" promptText="Last Year Warrant" />
+                  <JFXTextField fx:id="txt_lya" layoutX="551.0" layoutY="60.0" prefHeight="29.0" prefWidth="179.0" promptText="Last Year Arrears" />
+                  <JFXTextField fx:id="txt_lqa" layoutX="1070.0" layoutY="60.0" prefHeight="29.0" prefWidth="181.0" promptText="Last Quater Arrears" />
+                  <JFXTextField fx:id="txt_lqw" layoutX="825.0" layoutY="60.0" prefHeight="29.0" prefWidth="198.0" promptText="Last Quater Warrant" />
+                  <JFXTextField fx:id="txt_q1p" layoutX="556.0" layoutY="204.0" prefHeight="29.0" prefWidth="178.0" promptText="Quater 1 Pay" />
+                  <JFXTextField fx:id="txt_q1dr" layoutX="65.0" layoutY="204.0" prefHeight="29.0" prefWidth="182.0" promptText="Quater 1 Discount Rate %" />
+                  <JFXTextField fx:id="txt_q1d" layoutX="296.0" layoutY="204.0" prefHeight="29.0" prefWidth="177.0" promptText="Quater 1 Discount " />
+                  <JFXTextField fx:id="txt_q2p" layoutX="556.0" layoutY="293.0" prefHeight="29.0" prefWidth="177.0" promptText="Quater 2 Pay" />
+                  <JFXTextField fx:id="txt_q2dr" layoutX="65.0" layoutY="293.0" prefHeight="29.0" prefWidth="182.0" promptText="Quater 2 Discount Rate %" />
+                  <JFXTextField fx:id="txt_q2d" layoutX="296.0" layoutY="293.0" prefHeight="29.0" prefWidth="177.0" promptText="Quater 2 Discount " />
+                  <JFXTextField fx:id="txt_q3p" layoutX="556.0" layoutY="388.0" prefHeight="29.0" prefWidth="180.0" promptText="Quater 3 Pay" />
+                  <JFXTextField fx:id="txt_q3dr" layoutX="65.0" layoutY="388.0" prefHeight="29.0" prefWidth="182.0" promptText="Quater 3 Discount Rate %" />
+                  <JFXTextField fx:id="txt_q3d" layoutX="296.0" layoutY="388.0" prefHeight="29.0" prefWidth="177.0" promptText="Quater 3 Discount " />
+                  <JFXTextField fx:id="txt_q4p" layoutX="556.0" layoutY="481.0" prefHeight="29.0" prefWidth="184.0" promptText="Quater 4 Pay" />
+                  <JFXTextField fx:id="txt_q4dr" layoutX="65.0" layoutY="481.0" prefHeight="29.0" prefWidth="182.0" promptText="Quater 4 Discount Rate %" />
+                  <JFXTextField fx:id="txt_q4d" layoutX="296.0" layoutY="481.0" prefHeight="29.0" prefWidth="177.0" promptText="Quater 4 Discount " />
+                  <JFXTextField fx:id="txt_over" layoutX="66.0" layoutY="568.0" prefHeight="29.0" prefWidth="180.0" promptText="Over Pay to Next Year" />
+                  <JFXTextField fx:id="txt_lycw" layoutX="297.0" layoutY="120.0" prefHeight="29.0" prefWidth="180.0" promptText="Last Year Current Warrant" />
+                  <JFXTextField fx:id="txt_lyca" layoutX="552.0" layoutY="127.0" prefHeight="29.0" prefWidth="178.0" promptText="Last Year Current Arrears" />
+                  <JFXTextField fx:id="txt_lqca" layoutX="1071.0" layoutY="127.0" prefHeight="29.0" prefWidth="177.0" promptText="Last Quater Current Arrears" />
+                  <JFXTextField fx:id="txt_lqcw" layoutX="826.0" layoutY="127.0" prefHeight="29.0" prefWidth="197.0" promptText="Last Quater Current Warrant" />
+                  <JFXTextField fx:id="id_assess" layoutX="65.0" layoutY="53.0" onKeyReleased="#idKeyRelesed" prefHeight="29.0" prefWidth="184.0" promptText="ID Assessment" />
+                  <JFXButton fx:id="btn_update" layoutX="1096.0" layoutY="530.0" onMouseClicked="#clickOnUpdate" prefHeight="67.0" prefWidth="163.0" style="-fx-background-color: #3F51B5;" text="Update All" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </JFXButton>
+               </children>
+            </AnchorPane>
+         </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>

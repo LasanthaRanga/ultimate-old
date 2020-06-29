@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="625.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.assess.AppProcess">
+   <children>
+      <TableView fx:id="tbl_assess" layoutX="86.0" layoutY="29.0" onMouseClicked="#selectFormTable" prefHeight="164.0" prefWidth="903.0">
+         <columns>
+            <TableColumn fx:id="col_order" prefWidth="75.0" text="Order" />
+            <TableColumn fx:id="col_nature" prefWidth="79.0" text="Nature" />
+            <TableColumn fx:id="col_ward" minWidth="0.0" prefWidth="66.0" text="Ward" />
+            <TableColumn fx:id="col_street" prefWidth="98.0" text="Street" />
+            <TableColumn fx:id="col_assess" prefWidth="147.0" text="Assessment NO." />
+            <TableColumn fx:id="col_obsalut" prefWidth="115.0" text="Obsolete NO." />
+            <TableColumn fx:id="col_allocation" prefWidth="92.0" style="-fx-alignment: CENTER-RIGHT;" text="Allocation" />
+            <TableColumn fx:id="col_owner" prefWidth="180.0" text="Owner Name" />
+            <TableColumn fx:id="col_ch" prefWidth="39.0" />
+         </columns>
+      </TableView>
+      <VBox layoutX="1012.0" layoutY="29.0" prefHeight="164.0" prefWidth="194.0">
+         <children>
+            <HBox prefHeight="36.0" prefWidth="194.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Arrears" wrappingWidth="75.0">
+                     <HBox.margin>
+                        <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="txt_arrias" strokeType="OUTSIDE" strokeWidth="0.0" text="00" textAlignment="RIGHT" wrappingWidth="100.0">
+                     <HBox.margin>
+                        <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Text>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox prefHeight="36.0" prefWidth="194.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Warrant" wrappingWidth="75.0">
+                     <HBox.margin>
+                        <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="txt_warant" strokeType="OUTSIDE" strokeWidth="0.0" text="00" textAlignment="RIGHT" wrappingWidth="100.0">
+                     <HBox.margin>
+                        <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Text>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox prefHeight="36.0" prefWidth="194.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="C.D. " wrappingWidth="75.0">
+                     <HBox.margin>
+                        <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="txt_cd" strokeType="OUTSIDE" strokeWidth="0.0" text="00" textAlignment="RIGHT" wrappingWidth="100.0">
+                     <HBox.margin>
+                        <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Text>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox prefHeight="36.0" prefWidth="194.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Total" wrappingWidth="75.0">
+                     <HBox.margin>
+                        <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="txt_total" strokeType="OUTSIDE" strokeWidth="0.0" text="00" textAlignment="RIGHT" wrappingWidth="100.0">
+                     <HBox.margin>
+                        <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Text>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </VBox.margin>
+            </HBox>
+         </children>
+      </VBox>
+      <JFXButton fx:id="btn_start_process" layoutX="833.0" layoutY="208.0" onMouseClicked="#clickOnAddToProcess" prefHeight="31.0" prefWidth="156.0" text="Add To Process" />
+      <TableView fx:id="tbl_assess1" layoutX="86.0" layoutY="254.0" prefHeight="117.0" prefWidth="903.0">
+         <columns>
+            <TableColumn fx:id="col_order1" prefWidth="75.0" text="Order" />
+            <TableColumn fx:id="col_nature1" prefWidth="79.0" text="Nature" />
+            <TableColumn fx:id="col_ward1" minWidth="0.0" prefWidth="66.0" text="Ward" />
+            <TableColumn fx:id="col_street1" prefWidth="98.0" text="Street" />
+            <TableColumn fx:id="col_assess1" prefWidth="147.0" text="Assessment NO." />
+            <TableColumn fx:id="col_obsalut1" prefWidth="115.0" text="Obsolete NO." />
+            <TableColumn fx:id="col_allocation1" prefWidth="92.0" style="-fx-alignment: CENTER-RIGHT;" text="Allocation" />
+            <TableColumn fx:id="col_owner1" prefWidth="219.0" text="Owner Name" />
+         </columns>
+      </TableView>
+      <JFXComboBox fx:id="com_for" layoutX="86.0" layoutY="389.0" prefHeight="31.0" prefWidth="241.0" promptText="Application Type" />
+      <JFXTextArea fx:id="txt_description" layoutX="86.0" layoutY="463.0" prefHeight="117.0" prefWidth="241.0" promptText="Description" />
+      <JFXTextField fx:id="txt_names" layoutX="374.0" layoutY="390.0" prefHeight="29.0" prefWidth="615.0" promptText="Appliciants Names" />
+      <JFXButton fx:id="btn_process" layoutX="806.0" layoutY="463.0" onMouseClicked="#clickOnStart" prefHeight="31.0" prefWidth="190.0" text="Start Application Process" />
+      <Text layoutX="1008.0" layoutY="274.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Reference Number" textAlignment="CENTER" wrappingWidth="240.9999817609787">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Text>
+      <Text fx:id="txt_refno" layoutX="1008.0" layoutY="319.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="240.9999817609787">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Text>
+      <JFXDatePicker fx:id="dp_app" layoutX="374.0" layoutY="464.0" promptText="Application Date" />
+   </children>
+</AnchorPane>

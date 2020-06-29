@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="625.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.assess.Ribill">
+   <children>
+      <TableView fx:id="tbl_not" layoutX="95.0" layoutY="65.0" onMouseClicked="#clickOnNot" prefHeight="182.0" prefWidth="463.0">
+        <columns>
+          <TableColumn fx:id="col_rino" prefWidth="160.0" text="Recipt No" />
+          <TableColumn fx:id="col_tot" minWidth="6.999969482421875" prefWidth="175.0" text="Total" />
+            <TableColumn fx:id="col_pm" prefWidth="109.0" text="Pay Method" />
+        </columns>
+      </TableView>
+      <Text layoutX="95.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Not Completed Recipt" wrappingWidth="352.6708984375">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></Text>
+      <TableView fx:id="tbl_ok" layoutX="766.0" layoutY="65.0" onMouseClicked="#clickOnOk" prefHeight="182.0" prefWidth="463.0">
+         <columns>
+            <TableColumn fx:id="col_rino2" prefWidth="160.0" text="Recipt No" />
+            <TableColumn fx:id="col_tot2" minWidth="6.999969482421875" prefWidth="175.0" text="Total" />
+            <TableColumn fx:id="col_pm2" prefWidth="107.0" text="Pay Method" />
+         </columns>
+      </TableView>
+      <TableView fx:id="tbl_bill" layoutX="95.0" layoutY="356.0" onMouseClicked="#clickOnRiTable" prefHeight="220.0" prefWidth="842.0">
+        <columns>
+          <TableColumn fx:id="col_billno" prefWidth="281.0" text="RI Recipt NO" />
+          <TableColumn fx:id="col_total" prefWidth="293.0" text="Recipt Total" />
+            <TableColumn fx:id="col_status" prefWidth="250.0" text="Complet Status" />
+        </columns>
+      </TableView>
+      <JFXDatePicker layoutX="1020.0" layoutY="383.0" />
+      <Text layoutX="766.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="RI Bill Collection" wrappingWidth="352.6708984375">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></Text>
+      <JFXButton fx:id="btn_make" layoutX="1051.0" layoutY="313.0" onMouseClicked="#clickOnMake" prefHeight="31.0" prefWidth="178.0" style="-fx-background-color: #4CAF50;" text="Make RI Bill" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></JFXButton>
+      <Text fx:id="txt_not_count" layoutX="95.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Count" wrappingWidth="88.13671875">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></Text>
+      <Text fx:id="txt_not_total" layoutX="379.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total" textAlignment="RIGHT" wrappingWidth="178.13672125339508">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></Text>
+      <Text fx:id="txt_not_count2" layoutX="766.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Count" wrappingWidth="88.13671875">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></Text>
+      <Text fx:id="txt_not_total2" layoutX="1050.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total" textAlignment="RIGHT" wrappingWidth="178.13671875">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></Text>
+      <Text fx:id="txt_billNo" layoutX="1028.0" layoutY="461.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="208.99999141693115" />
+      <JFXButton fx:id="btn_cancel" layoutX="1051.0" layoutY="493.0" onMouseClicked="#clickOnBtn" prefHeight="31.0" prefWidth="178.0" style="-fx-background-color: #E65100;" text="Cancel" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>

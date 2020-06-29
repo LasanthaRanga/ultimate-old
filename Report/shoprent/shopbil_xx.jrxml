@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.3.1.final using JasperReports Library version 6.3.1  -->
+<!-- 2019-10-22T14:09:34 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="shopbil" pageWidth="684" pageHeight="396" columnWidth="674" leftMargin="5" rightMargin="5" topMargin="5" bottomMargin="5" uuid="86e201f1-8951-425f-946b-7301e670077d">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="MCKServer.xml"/>
+	<property name="com.jaspersoft.studio.unit." value="inch"/>
+	<parameter name="idRecipt" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{idRecipt}]]></defaultValueExpression>
+	</parameter>
+	<parameter name="shops" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{shops}]]></defaultValueExpression>
+	</parameter>
+	<parameter name="months" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{months}]]></defaultValueExpression>
+	</parameter>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+sr_shop.sr_shop_no,
+sr_shop_payment_cross_tbl.sr_shop_payment2_receipt_no,
+bank_info.acount_no,
+receipt.cheack,
+receipt.cesh,
+receipt.idReceipt,
+receipt.receipt_total,
+receipt.receipt_day,
+receipt.chque_no,
+receipt.chque_date,
+receipt.chque_bank,
+sr_shop.idsr_shop,
+customer.idCustomer,
+customer.cus_name,
+sr_shop_payment_cross_tbl.sr_shop_payment2_time
+FROM
+sr_shop_payment_cross_tbl
+INNER JOIN account_receipt_title ON sr_shop_payment_cross_tbl.sr_shop_payment2_vote_id = account_receipt_title.idAccount_receipt_title
+INNER JOIN sr_shop ON sr_shop_payment_cross_tbl.sr_shop_payment2_shop_id = sr_shop.idsr_shop
+INNER JOIN sr_flow ON sr_shop.sr_flow_idsr_flow = sr_flow.idsr_flow
+INNER JOIN sr_building ON sr_flow.sr_building_idsr_building = sr_building.idsr_building
+INNER JOIN bank_info ON sr_shop_payment_cross_tbl.sr_shop_payment2_account_id = bank_info.idBank_Info
+INNER JOIN sr_shop_type ON sr_shop.sr_shop_type_idsr_shop_type = sr_shop_type.idsr_shop_type
+INNER JOIN receipt ON sr_shop_payment_cross_tbl.sr_shop_payment2_receipt_no = receipt.receipt_print_no
+INNER JOIN sr_shop_has_customer ON sr_shop_has_customer.sr_shop_has_customer_shop_id = sr_shop.idsr_shop
+INNER JOIN customer ON sr_shop_has_customer.sr_shop_has_customer_customer_id = customer.idCustomer
+WHERE
+receipt.idReceipt = $P{idRecipt}   AND
+sr_shop_payment_cross_tbl.sr_shop_payment2_amount > 0
+GROUP BY
+receipt.idReceipt]]>
+	</queryString>
+	<field name="sr_shop_no" class="java.lang.String"/>
+	<field name="sr_shop_payment2_receipt_no" class="java.lang.String"/>
+	<field name="acount_no" class="java.lang.String"/>
+	<field name="cheack" class="java.lang.Double"/>
+	<field name="cesh" class="java.lang.Double"/>
+	<field name="idReceipt" class="java.lang.Integer"/>
+	<field name="receipt_total" class="java.lang.Double"/>
+	<field name="receipt_day" class="java.sql.Date"/>
+	<field name="chque_no" class="java.lang.String"/>
+	<field name="chque_date" class="java.sql.Date"/>
+	<field name="chque_bank" class="java.lang.String"/>
+	<field name="idsr_shop" class="java.lang.Integer"/>
+	<field name="idCustomer" class="java.lang.Integer"/>
+	<field name="cus_name" class="java.lang.String"/>
+	<field name="sr_shop_payment2_time" class="java.sql.Time"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="385" splitType="Stretch">
+			<image>
+				<reportElement x="0" y="0" width="670" height="380" uuid="6010c9dd-55bb-4632-99fe-fd11e5a0e5b4"/>
+				<imageExpression><![CDATA["C:/Ultimate/Report/images/waribil.png"]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="50" y="120" width="100" height="26" uuid="8f574b75-d55d-4131-9d75-96d81d43bc2e"/>
+				<textFieldExpression><![CDATA[$F{sr_shop_no}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="150" y="118" width="100" height="30" uuid="03b565fe-13b7-4e70-8dd9-556a434b39dd"/>
+				<textFieldExpression><![CDATA[$F{sr_shop_payment2_receipt_no}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="391" y="90" width="78" height="20" uuid="5efedb18-2026-4322-9402-9d3acab55166">
+					<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[new SimpleDateFormat("yyyy-MM-dd").format($F{receipt_day})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="420" y="30" width="100" height="22" uuid="394dd73f-d0c5-43b0-976e-db2c092a277e"/>
+				<textFieldExpression><![CDATA[new SimpleDateFormat("HH : mm").format($F{sr_shop_payment2_time})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="130" y="53" width="410" height="20" uuid="1661b4a3-a1ff-4c4b-8ceb-8860bcebf1e4"/>
+				<textFieldExpression><![CDATA[$F{cus_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="271" width="60" height="30" uuid="154c9162-b35f-4c0a-96c1-9dac85389e02"/>
+				<textFieldExpression><![CDATA[String.format("%.2f",$F{cesh})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="220" y="273" width="70" height="30" uuid="bc6550cc-bc56-4404-a099-074781514606"/>
+				<textFieldExpression><![CDATA[String.format("%.2f",$F{cheack})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="440" y="273" width="100" height="18" uuid="7bc9b4e4-51a4-4e6a-9898-3a5648fcc90a"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[String.format("%.2f",$F{receipt_total})]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="50" y="271" width="50" height="31" uuid="ee22fbea-51a6-44cf-a505-3443f5c6da9d"/>
+				<text><![CDATA[Cash :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="170" y="273" width="50" height="31" uuid="ad6f294b-064b-414c-9a2c-2d6a2d8238f0"/>
+				<text><![CDATA[Cheque :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="50" y="150" width="220" height="30" uuid="7414cbbe-29e7-4527-9b0b-a615b8826cbb"/>
+				<textFieldExpression><![CDATA[$P{shops}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="50" y="183" width="220" height="88" uuid="3d2c5fa6-d582-4090-9501-5fbb6b0d4e3b"/>
+				<textFieldExpression><![CDATA[$P{months}]]></textFieldExpression>
+			</textField>
+			<subreport>
+				<reportElement x="339" y="140" width="201" height="125" uuid="6b945a03-7beb-45c7-b43b-f4343f2f02eb"/>
+				<subreportParameter name="idRecipt">
+					<subreportParameterExpression><![CDATA[$P{idRecipt}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA["C:\\Ultimate\\Report\\shoprent\\srsub1.jasper"]]></subreportExpression>
+			</subreport>
+			<textField>
+				<reportElement x="140" y="300" width="100" height="20" uuid="314ead9e-f28f-4254-9e5d-7a27c59c731d"/>
+				<textFieldExpression><![CDATA[$F{chque_no}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+</jasperReport>

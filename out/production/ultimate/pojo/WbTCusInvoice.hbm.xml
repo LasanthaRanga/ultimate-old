@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 3, 2019 9:57:03 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.WbTCusInvoice" table="wb_t_cus_invoice" catalog="kuliuc" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="wbMCustomer" class="pojo.WbMCustomer" fetch="select">
+            <column name="cus_id" length="10" not-null="true" />
+        </many-to-one>
+        <property name="invoiceNo" type="string">
+            <column name="invoice_no" length="20" not-null="true" unique="true" />
+        </property>
+        <property name="invoiceDate" type="date">
+            <column name="invoice_date" length="10" not-null="true" />
+        </property>
+        <property name="month" type="string">
+            <column name="month" length="15" />
+        </property>
+        <property name="consumption" type="java.lang.Integer">
+            <column name="consumption" />
+        </property>
+        <property name="waterCharge" type="java.lang.Double">
+            <column name="water_charge" precision="22" scale="0" />
+        </property>
+        <property name="tax" type="java.lang.Double">
+            <column name="tax" precision="22" scale="0" />
+        </property>
+        <property name="fixCharge" type="java.lang.Double">
+            <column name="fix_charge" precision="22" scale="0" />
+        </property>
+        <property name="totalPayable" type="java.lang.Double">
+            <column name="total_payable" precision="22" scale="0" />
+        </property>
+        <property name="payment" type="java.lang.Double">
+            <column name="payment" precision="22" scale="0" />
+        </property>
+        <property name="dateCreated" type="date">
+            <column name="date_created" length="10" not-null="true" />
+        </property>
+        <property name="cretedBy" type="string">
+            <column name="creted_by" length="15" not-null="true" />
+        </property>
+        <property name="status" type="string">
+            <column name="status" length="3" not-null="true">
+                <comment>ACT/INA</comment>
+            </column>
+        </property>
+        <property name="payMethod" type="string">
+            <column name="pay_method" length="6" not-null="true" />
+        </property>
+        <property name="chequeNo" type="string">
+            <column name="cheque_no" length="20" />
+        </property>
+        <property name="arrearsToday" type="java.lang.Double">
+            <column name="arrears_today" precision="22" scale="0" />
+        </property>
+        <property name="year" type="java.lang.Integer">
+            <column name="year" />
+        </property>
+        <property name="createYear" type="java.lang.Integer">
+            <column name="create_year" />
+        </property>
+    </class>
+</hibernate-mapping>

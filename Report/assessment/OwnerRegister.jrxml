@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.3.1.final using JasperReports Library version 6.3.1  -->
+<!-- 2019-09-25T06:19:50 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="OwnerRegister" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="7f9277b1-56eb-45be-8329-018cbd29779c">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Ultimate2.xml"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<parameter name="id" class="java.lang.String"/>
+	<parameter name="myno" class="java.lang.String"/>
+	<parameter name="youno" class="java.lang.String"/>
+	<parameter name="address" class="java.lang.String"/>
+	<parameter name="persontitle" class="java.lang.String"/>
+	<parameter name="title" class="java.lang.String"/>
+	<parameter name="ward" class="java.lang.String"/>
+	<parameter name="street" class="java.lang.String"/>
+	<parameter name="assessment" class="java.lang.String"/>
+	<parameter name="later1" class="java.lang.String"/>
+	<parameter name="date2" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+ass_app.idAssapp,
+ass_app.assapp_date,
+ass_app.assapp_user,
+ass_app.assapp_step,
+ass_app.assapp_description,
+ass_app.assapp_status,
+ass_app.assapp_type,
+ass_app.assapp_refno,
+ass_app.assapp_names
+FROM
+ass_app
+WHERE
+ass_app.idAssapp =  $P{id}]]>
+	</queryString>
+	<field name="idAssapp" class="java.lang.Integer"/>
+	<field name="assapp_date" class="java.sql.Date"/>
+	<field name="assapp_user" class="java.lang.Integer"/>
+	<field name="assapp_step" class="java.lang.Integer"/>
+	<field name="assapp_description" class="java.lang.String"/>
+	<field name="assapp_status" class="java.lang.Integer"/>
+	<field name="assapp_type" class="java.lang.String"/>
+	<field name="assapp_refno" class="java.lang.String"/>
+	<field name="assapp_names" class="java.lang.String"/>
+	<variable name="enddate" class="java.lang.String">
+		<variableExpression><![CDATA[$P{date2}+" "+"වන දින,"]]></variableExpression>
+		<initialValueExpression><![CDATA[$P{date2}+" "+"වන දින,"]]></initialValueExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="801" splitType="Stretch">
+			<staticText>
+				<reportElement x="10" y="7" width="170" height="40" uuid="9224b15c-d8b2-478c-bbd5-768f3c1ab7b1"/>
+				<textElement>
+					<font fontName="Iskoola Pota" size="16"/>
+				</textElement>
+				<text><![CDATA[කුරුණෑගල
+මහා නගර සභාව
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="370" y="7" width="181" height="40" uuid="e2a9e972-a7d6-4288-b207-9c2b3e020532"/>
+				<textElement>
+					<font fontName="Iskoola Pota" size="16"/>
+				</textElement>
+				<text><![CDATA[KURUNEGALA 
+MUNICIPAL COUNCIL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="47" width="170" height="40" uuid="797caed6-855f-4e4d-9331-2760bc9588ac"/>
+				<textElement>
+					<font fontName="Iskoola Pota" size="14"/>
+				</textElement>
+				<text><![CDATA[නාගරික - කොමසාරිස්
+කුරුණෑගල]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="370" y="47" width="181" height="40" uuid="f6036f44-61c6-44ce-9aa6-c9f2f644ff51"/>
+				<textElement>
+					<font fontName="Iskoola Pota" size="14"/>
+				</textElement>
+				<text><![CDATA[Municipal - Commissioner
+Kurunegala]]></text>
+			</staticText>
+			<line>
+				<reportElement x="2" y="91" width="551" height="1" uuid="4f5a8d80-1357-4249-a4ca-971cf25b1196"/>
+			</line>
+			<staticText>
+				<reportElement x="10" y="98" width="60" height="30" uuid="ebf4a6d0-8841-4a92-9b0a-2cdbe117a6a8"/>
+				<textElement>
+					<font fontName="Iskoola Pota" size="12"/>
+				</textElement>
+				<text><![CDATA[මගේ අංකය
+My No.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="70" y="93" width="10" height="40" uuid="3f312ec3-04fc-493b-b6ca-862703b1b9e3"/>
+				<textElement verticalAlignment="Top">
+					<font size="24"/>
+				</textElement>
+				<text><![CDATA[}]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="370" y="98" width="60" height="30" uuid="d001c956-eaa0-4336-91b1-83b86cdfe398"/>
+				<textElement>
+					<font fontName="Iskoola Pota" size="12"/>
+				</textElement>
+				<text><![CDATA[ඔබේ අංකය
+Your No.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="430" y="94" width="10" height="35" uuid="582ef12b-6378-420b-88a5-4ca8ded098d6"/>
+				<textElement>
+					<font size="24"/>
+				</textElement>
+				<text><![CDATA[}]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="79" y="97" width="190" height="30" uuid="b1cf2b8a-20d9-43fb-bb33-9fce86ff3a45"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{myno}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="440" y="98" width="112" height="30" uuid="3783581a-e3f6-4db1-8d11-e5b979eca259"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{youno}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="10" y="133" width="390" height="126" uuid="58ac83fc-41b2-4329-aa67-1c341f14eb15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Iskoola Pota" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{address}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="10" y="270" width="330" height="20" uuid="7a0a6273-cf1a-4ad1-aa0c-7abdbf3dc2d1"/>
+				<textElement>
+					<font fontName="Iskoola Pota" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{persontitle}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="35" y="300" width="490" height="20" uuid="ee0c864a-8a23-4596-9564-4dae167adfe7"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Iskoola Pota" size="12" isUnderline="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{title}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="10" y="328" width="400" height="20" uuid="abf41b2c-8372-422a-8d84-9734bc6d5c10"/>
+				<textElement>
+					<font fontName="Iskoola Pota" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{ward}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="10" y="350" width="400" height="20" uuid="114b1c7e-a59f-4d65-8e37-09dbdc9c684a"/>
+				<textElement>
+					<font fontName="Iskoola Pota" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{street}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="10" y="372" width="400" height="20" uuid="773c8104-9ab1-4d9e-ac40-e4c1a2ca5579"/>
+				<textElement>
+					<font fontName="Iskoola Pota" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{assessment}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="381" y="651" width="170" height="110" uuid="71383654-1c81-4c6b-9771-f26e1b55a9b3"/>
+				<textElement>
+					<font fontName="Iskoola Pota" size="12"/>
+				</textElement>
+				<text><![CDATA[මෙයට,
+විශ්වාසී වූ,
+
+
+
+
+නාගරික කොමසාරිස්/වෙනුවට,
+මහා නගර සභාව,
+කුරුණෑගල.
+]]></text>
+			</staticText>
+			<textField>
+				<reportElement positionType="FixRelativeToBottom" x="20" y="724" width="230" height="14" uuid="e6ba27a1-d1dd-460a-8f27-e293c3ac001c"/>
+				<textElement>
+					<font fontName="Iskoola Pota" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{enddate}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="20" y="739" width="230" height="24" uuid="27124f61-1c2c-4e8c-a70b-dbbdfef1b05f"/>
+				<textElement>
+					<font fontName="Iskoola Pota" size="12"/>
+				</textElement>
+				<text><![CDATA[කුරුණෑගල මහා නගර සභා කර්යාලයේ දීය.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="20" y="410" width="510" height="210" uuid="6d0f35f0-0bc3-43c3-9b99-f1bdc9e544e6"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Iskoola Pota" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{later1}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="245" y="0" width="70" height="91" uuid="6809776b-1a83-4f11-8523-b3eccfbd211a"/>
+				<imageExpression><![CDATA["C:/Ultimate/Report/images/mck_logo.PNG"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+</jasperReport>

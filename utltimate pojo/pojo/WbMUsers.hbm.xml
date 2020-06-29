@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 3, 2019 9:57:03 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.WbMUsers" table="wb_m_users" catalog="kuliuc" optimistic-lock="version">
+        <id name="userId" type="java.lang.Integer">
+            <column name="user_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="wbULevel" class="pojo.WbULevel" fetch="select">
+            <column name="user_level" />
+        </many-to-one>
+        <property name="userName" type="string">
+            <column name="user_name" length="15" unique="true" />
+        </property>
+        <property name="pwd" type="string">
+            <column name="pwd" />
+        </property>
+        <property name="dateCreated" type="date">
+            <column name="date_created" length="10" />
+        </property>
+        <property name="dateModified" type="date">
+            <column name="date_modified" length="10" />
+        </property>
+        <property name="approved" type="java.lang.Integer">
+            <column name="approved" />
+        </property>
+    </class>
+</hibernate-mapping>

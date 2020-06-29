@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="625.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.users.DipartmentController">
+   <children>
+      <JFXTextField fx:id="txt_dipartment" labelFloat="true" layoutX="66.0" layoutY="78.0" prefHeight="25.0" prefWidth="280.0" promptText="Dipartment Name" />
+      <JFXTextField fx:id="txt_dip_hed" labelFloat="true" layoutX="66.0" layoutY="133.0" prefHeight="25.0" prefWidth="280.0" promptText="Dipartment  Hed" />
+      <JFXButton fx:id="btn_save" layoutX="239.0" layoutY="200.0" onAction="#save" prefHeight="25.0" prefWidth="107.0" text="Save" />
+      <TableView fx:id="tbl_dip" layoutX="442.0" layoutY="59.0" prefHeight="148.0" prefWidth="514.0">
+        <columns>
+          <TableColumn fx:id="col_dip" prefWidth="248.0" text="Dipartment" />
+          <TableColumn fx:id="col_hed" prefWidth="245.0" text="Head" />
+        </columns>
+      </TableView>
+      <JFXTextField fx:id="txt_approval_cat" layoutX="66.0" layoutY="331.0" prefHeight="25.0" prefWidth="280.0" promptText="Approval Category" />
+      <TableView fx:id="tbl_approv_cats" layoutX="442.0" layoutY="284.0" prefHeight="200.0" prefWidth="358.0">
+        <columns>
+          <TableColumn fx:id="col_aprov_catName" prefWidth="255.0" text="Approval" />
+        </columns>
+      </TableView>
+      <JFXButton layoutX="273.0" layoutY="396.0" onMouseClicked="#clickOnSaveApprovalCat" text="Save" />
+   </children>
+</AnchorPane>

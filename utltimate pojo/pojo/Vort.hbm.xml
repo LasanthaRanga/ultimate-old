@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 6, 2019 4:30:22 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.Vort" table="vort" catalog="ultimate2" optimistic-lock="version">
+        <id name="idVort" type="java.lang.Integer">
+            <column name="idVort" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="bankInfo" class="pojo.BankInfo" fetch="select">
+            <column name="Bank_Info_idBank_Info" not-null="true" />
+        </many-to-one>
+        <many-to-one name="programSubtitle" class="pojo.ProgramSubtitle" fetch="select">
+            <column name="Program_SubTitle_idProgram_SubTitle" not-null="true" />
+        </many-to-one>
+        <property name="voteNo" type="string">
+            <column name="vote_no" length="45" />
+        </property>
+        <property name="voteName" type="string">
+            <column name="vote_name" length="45" />
+        </property>
+        <property name="voteCurrentBalance" type="java.lang.Double">
+            <column name="vote_current_balance" precision="22" scale="0" />
+        </property>
+        <property name="voteAlocation" type="java.lang.Double">
+            <column name="vote_alocation" precision="22" scale="0" />
+        </property>
+        <property name="status" type="java.lang.Integer">
+            <column name="status" />
+        </property>
+        <property name="syn" type="java.lang.Integer">
+            <column name="syn" />
+        </property>
+        <set name="payments" table="payment" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Vort_idVort" not-null="true" />
+            </key>
+            <one-to-many class="pojo.Payment" />
+        </set>
+        <set name="tradeTypes" table="trade_type" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Vort_idVort" not-null="true" />
+            </key>
+            <one-to-many class="pojo.TradeType" />
+        </set>
+        <set name="cashFlows" table="cash_flow" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Vort_idVort" not-null="true" />
+            </key>
+            <one-to-many class="pojo.CashFlow" />
+        </set>
+    </class>
+</hibernate-mapping>

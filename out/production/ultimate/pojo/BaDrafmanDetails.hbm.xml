@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 3, 2019 9:57:03 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.BaDrafmanDetails" table="ba_drafman_details" catalog="kuliuc" optimistic-lock="version">
+        <id name="baDrafmanDetailsId" type="java.lang.Integer">
+            <column name="BA_drafman_details_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="baPersonalInformation" class="pojo.BaPersonalInformation" fetch="select">
+            <column name="BA_Personal_details_Id" />
+        </many-to-one>
+        <property name="baDrafmanNameSinhala" type="string">
+            <column name="BA_drafman_Name_sinhala" />
+        </property>
+        <property name="baDrafmanNameEnglish" type="string">
+            <column name="BA_drafman_Name_english" />
+        </property>
+        <property name="baDrafmanNic" type="string">
+            <column name="BA_drafman_Nic" />
+        </property>
+        <property name="baDrafmanMobile" type="string">
+            <column name="BA_drafman_Mobile" />
+        </property>
+        <property name="baDrafmanAddressSinhala" type="string">
+            <column name="BA_drafman_address_sinhala" />
+        </property>
+        <property name="baDrafmanAddressEnglish" type="string">
+            <column name="BA_drafman_Address_english" />
+        </property>
+    </class>
+</hibernate-mapping>

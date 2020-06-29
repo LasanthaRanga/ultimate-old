@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 3, 2019 9:57:03 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.WbTLoadCusMeterReadStatus" table="wb_t_load_cus_meter_read_status" catalog="kuliuc" optimistic-lock="version">
+        <id name="wbTInvoiceComId" type="java.lang.Integer">
+            <column name="wb_t_invoice_com_id" />
+            <generator class="identity" />
+        </id>
+        <property name="cusMeterReadTblId" type="java.lang.Integer">
+            <column name="cus_meter_read_tbl_id" />
+        </property>
+        <property name="invoiceNo" type="string">
+            <column name="invoice_no" length="45" />
+        </property>
+        <property name="comStatus" type="java.lang.Integer">
+            <column name="com_status" />
+        </property>
+        <property name="totPayablePaid" type="java.lang.Double">
+            <column name="tot_payable_paid" precision="22" scale="0" />
+        </property>
+        <property name="overPay" type="java.lang.Double">
+            <column name="Over_pay" precision="22" scale="0" />
+        </property>
+        <property name="receiptIdCusMReadStatus" type="java.lang.Integer">
+            <column name="receipt_id_cus_m_read_status" />
+        </property>
+    </class>
+</hibernate-mapping>

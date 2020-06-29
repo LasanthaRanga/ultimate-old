@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 6, 2019 4:30:22 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.Referenceno" table="referenceno" catalog="ultimate2" optimistic-lock="version">
+        <id name="idReferenceNo" type="java.lang.Integer">
+            <column name="idReferenceNo" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="applicationCatagory" class="pojo.ApplicationCatagory" fetch="select">
+            <column name="application_catagory_idApplication_Catagory" not-null="true" />
+        </many-to-one>
+        <many-to-one name="customer" class="pojo.Customer" fetch="select">
+            <column name="customers_idCustomer" not-null="true" />
+        </many-to-one>
+        <property name="appId" type="java.lang.Integer">
+            <column name="app_id" />
+        </property>
+        <property name="refno" type="string">
+            <column name="refno" length="20" />
+        </property>
+        <property name="oder" type="java.lang.Integer">
+            <column name="oder" />
+        </property>
+    </class>
+</hibernate-mapping>

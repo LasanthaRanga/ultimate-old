@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="test" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="44341fc1-b25b-4235-873b-764b161cc2a3">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="AssessmentTest "/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="q2A" class="java.lang.Double">
+		<fieldDescription><![CDATA[q2A]]></fieldDescription>
+	</field>
+	<field name="assessNo" class="java.lang.String">
+		<fieldDescription><![CDATA[assessNo]]></fieldDescription>
+	</field>
+	<field name="q3DR" class="java.lang.Double">
+		<fieldDescription><![CDATA[q3DR]]></fieldDescription>
+	</field>
+	<field name="LYWP" class="java.lang.Double">
+		<fieldDescription><![CDATA[LYWP]]></fieldDescription>
+	</field>
+	<field name="q4DR" class="java.lang.Double">
+		<fieldDescription><![CDATA[q4DR]]></fieldDescription>
+	</field>
+	<field name="LYCA" class="java.lang.Double">
+		<fieldDescription><![CDATA[LYCA]]></fieldDescription>
+	</field>
+	<field name="q1CA" class="java.lang.Double">
+		<fieldDescription><![CDATA[q1CA]]></fieldDescription>
+	</field>
+	<field name="q2CA" class="java.lang.Double">
+		<fieldDescription><![CDATA[q2CA]]></fieldDescription>
+	</field>
+	<field name="q4P" class="java.lang.Double">
+		<fieldDescription><![CDATA[q4P]]></fieldDescription>
+	</field>
+	<field name="q2P" class="java.lang.Double">
+		<fieldDescription><![CDATA[q2P]]></fieldDescription>
+	</field>
+	<field name="streetName" class="java.lang.String">
+		<fieldDescription><![CDATA[streetName]]></fieldDescription>
+	</field>
+	<field name="LYA" class="java.lang.Double">
+		<fieldDescription><![CDATA[LYA]]></fieldDescription>
+	</field>
+	<field name="q4W" class="java.lang.Double">
+		<fieldDescription><![CDATA[q4W]]></fieldDescription>
+	</field>
+	<field name="q2W" class="java.lang.Double">
+		<fieldDescription><![CDATA[q2W]]></fieldDescription>
+	</field>
+	<field name="q1DP" class="java.lang.Double">
+		<fieldDescription><![CDATA[q1DP]]></fieldDescription>
+	</field>
+	<field name="q2DP" class="java.lang.Double">
+		<fieldDescription><![CDATA[q2DP]]></fieldDescription>
+	</field>
+	<field name="q1DR" class="java.lang.Double">
+		<fieldDescription><![CDATA[q1DR]]></fieldDescription>
+	</field>
+	<field name="q3DP" class="java.lang.Double">
+		<fieldDescription><![CDATA[q3DP]]></fieldDescription>
+	</field>
+	<field name="q2DR" class="java.lang.Double">
+		<fieldDescription><![CDATA[q2DR]]></fieldDescription>
+	</field>
+	<field name="q4DP" class="java.lang.Double">
+		<fieldDescription><![CDATA[q4DP]]></fieldDescription>
+	</field>
+	<field name="class" class="java.lang.Class">
+		<fieldDescription><![CDATA[class]]></fieldDescription>
+	</field>
+	<field name="q3A" class="java.lang.Double">
+		<fieldDescription><![CDATA[q3A]]></fieldDescription>
+	</field>
+	<field name="LYAP" class="java.lang.Double">
+		<fieldDescription><![CDATA[LYAP]]></fieldDescription>
+	</field>
+	<field name="idWard" class="java.lang.Integer">
+		<fieldDescription><![CDATA[idWard]]></fieldDescription>
+	</field>
+	<field name="q1A" class="java.lang.Double">
+		<fieldDescription><![CDATA[q1A]]></fieldDescription>
+	</field>
+	<field name="q1CW" class="java.lang.Double">
+		<fieldDescription><![CDATA[q1CW]]></fieldDescription>
+	</field>
+	<field name="q2CW" class="java.lang.Double">
+		<fieldDescription><![CDATA[q2CW]]></fieldDescription>
+	</field>
+	<field name="LYCW" class="java.lang.Double">
+		<fieldDescription><![CDATA[LYCW]]></fieldDescription>
+	</field>
+	<field name="q3CW" class="java.lang.Double">
+		<fieldDescription><![CDATA[q3CW]]></fieldDescription>
+	</field>
+	<field name="q4CW" class="java.lang.Double">
+		<fieldDescription><![CDATA[q4CW]]></fieldDescription>
+	</field>
+	<field name="idAssessment" class="java.lang.Integer">
+		<fieldDescription><![CDATA[idAssessment]]></fieldDescription>
+	</field>
+	<field name="LYW" class="java.lang.Double">
+		<fieldDescription><![CDATA[LYW]]></fieldDescription>
+	</field>
+	<field name="customerName" class="java.lang.String">
+		<fieldDescription><![CDATA[customerName]]></fieldDescription>
+	</field>
+	<field name="q3P" class="java.lang.Double">
+		<fieldDescription><![CDATA[q3P]]></fieldDescription>
+	</field>
+	<field name="q1P" class="java.lang.Double">
+		<fieldDescription><![CDATA[q1P]]></fieldDescription>
+	</field>
+	<field name="q3CA" class="java.lang.Double">
+		<fieldDescription><![CDATA[q3CA]]></fieldDescription>
+	</field>
+	<field name="q3W" class="java.lang.Double">
+		<fieldDescription><![CDATA[q3W]]></fieldDescription>
+	</field>
+	<field name="q4CA" class="java.lang.Double">
+		<fieldDescription><![CDATA[q4CA]]></fieldDescription>
+	</field>
+	<field name="q1W" class="java.lang.Double">
+		<fieldDescription><![CDATA[q1W]]></fieldDescription>
+	</field>
+	<field name="q4A" class="java.lang.Double">
+		<fieldDescription><![CDATA[q4A]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="38" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="36" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="60" height="30" uuid="8a896af5-fa1a-48fa-8d93-8cc00b3f6193">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f3622374-01e9-4450-944a-b470117db30a"/>
+				</reportElement>
+				<text><![CDATA[#]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="60" y="0" width="40" height="30" uuid="05ac16e6-2c97-480c-90e0-98c6a910976f">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c6d76dec-a0e7-414e-b694-fa910988e20f"/>
+				</reportElement>
+				<text><![CDATA[Ward]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="0" width="120" height="30" uuid="b3a43b11-a62e-430f-8a79-5ec467b3e716">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="dfaa9fd8-9d22-4307-9a97-c4e07c5fd919"/>
+				</reportElement>
+				<text><![CDATA[Street]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="220" y="0" width="110" height="30" uuid="fe4f256c-e2b2-4a21-85e6-87c47191c364">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6ec844ca-00ba-4f0f-893c-e34967d6dd1b"/>
+				</reportElement>
+				<text><![CDATA[Customer]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="53" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="60" height="30" uuid="35b343ae-0587-4710-8938-2f95c0021eda">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f3622374-01e9-4450-944a-b470117db30a"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{idAssessment}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="60" y="0" width="40" height="30" uuid="ea68556c-a54f-4789-9dbb-d0d42b91df2a">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c6d76dec-a0e7-414e-b694-fa910988e20f"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{idWard}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="0" width="120" height="30" uuid="a9638de5-5c06-43de-ac33-bfcd31f22376">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="dfaa9fd8-9d22-4307-9a97-c4e07c5fd919"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{streetName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="220" y="0" width="110" height="30" uuid="f466bc2f-6685-45a1-8a9f-16a8a6ee2cdd">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6ec844ca-00ba-4f0f-893c-e34967d6dd1b"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{customerName}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

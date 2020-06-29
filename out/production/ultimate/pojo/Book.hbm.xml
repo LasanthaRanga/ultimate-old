@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 6, 2019 4:30:22 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.Book" table="book" catalog="ultimate2" optimistic-lock="version">
+        <id name="idbook" type="java.lang.Integer">
+            <column name="idbook" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="bookPlace" class="pojo.BookPlace" fetch="select">
+            <column name="book_place_idbook_place" not-null="true" />
+        </many-to-one>
+        <many-to-one name="bookReson" class="pojo.BookReson" fetch="select">
+            <column name="book_reson_idbook_reson" not-null="true" />
+        </many-to-one>
+        <property name="bookDate" type="date">
+            <column name="book_date" length="10" />
+        </property>
+        <property name="customerIdCustomer" type="java.lang.Integer">
+            <column name="customer_idCustomer" />
+        </property>
+        <property name="bookAmount" type="java.lang.Double">
+            <column name="book_amount" precision="22" scale="0" />
+        </property>
+        <property name="bookDiposit" type="java.lang.Double">
+            <column name="book_diposit" precision="22" scale="0" />
+        </property>
+        <property name="bookVat" type="java.lang.Double">
+            <column name="book_vat" precision="22" scale="0" />
+        </property>
+        <property name="bookNbt" type="java.lang.Double">
+            <column name="book_nbt" precision="22" scale="0" />
+        </property>
+        <property name="bookStamp" type="java.lang.Double">
+            <column name="book_stamp" precision="22" scale="0" />
+        </property>
+        <property name="bookTotal" type="java.lang.Double">
+            <column name="book_total" precision="22" scale="0" />
+        </property>
+        <property name="bookCash" type="java.lang.Double">
+            <column name="book_cash" precision="22" scale="0" />
+        </property>
+        <property name="bookChque" type="java.lang.Double">
+            <column name="book_chque" precision="22" scale="0" />
+        </property>
+        <property name="bookChqueNo" type="string">
+            <column name="book_chque_no" length="45" />
+        </property>
+        <property name="bookBookPayStatus" type="java.lang.Integer">
+            <column name="book_book_pay_status" />
+        </property>
+        <property name="bookBookStatus" type="java.lang.Integer">
+            <column name="book_book_status" />
+        </property>
+        <property name="bookIdRecipt" type="java.lang.Integer">
+            <column name="book_idRecipt" />
+        </property>
+        <property name="bookIdUser" type="java.lang.Integer">
+            <column name="book_idUser" />
+        </property>
+        <property name="bookPayType" type="java.lang.Integer">
+            <column name="book_pay_type" />
+        </property>
+        <set name="bookDates" table="book_date" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="book_idbook" not-null="true" />
+            </key>
+            <one-to-many class="pojo.BookDate" />
+        </set>
+    </class>
+</hibernate-mapping>

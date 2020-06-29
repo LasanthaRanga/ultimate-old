@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 6, 2019 4:30:22 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.Dipartment" table="dipartment" catalog="ultimate2" optimistic-lock="version">
+        <id name="idDipartment" type="java.lang.Integer">
+            <column name="idDipartment" />
+            <generator class="identity" />
+        </id>
+        <property name="dipName" type="string">
+            <column name="dip_name" length="45" />
+        </property>
+        <property name="dipHead" type="string">
+            <column name="dip_head" length="45" />
+        </property>
+        <property name="dipStatus" type="java.lang.Integer">
+            <column name="dip_status" />
+        </property>
+        <property name="dipSyn" type="java.lang.Integer">
+            <column name="dip_syn" />
+        </property>
+        <set name="userHasDipartments" table="user_has_dipartment" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Dipartment_idDipartment" not-null="true" />
+            </key>
+            <one-to-many class="pojo.UserHasDipartment" />
+        </set>
+    </class>
+</hibernate-mapping>

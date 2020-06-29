@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 6, 2019 4:30:22 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.SlLaType" table="sl_la_type" catalog="ultimate2" optimistic-lock="version">
+        <id name="laTypeId" type="java.lang.Integer">
+            <column name="la_type_id" />
+            <generator class="identity" />
+        </id>
+        <property name="laType" type="string">
+            <column name="la_type" />
+        </property>
+        <set name="slSabhaTypes" table="sl_sabha_type" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="sl_sabha_type" />
+            </key>
+            <one-to-many class="pojo.SlSabhaType" />
+        </set>
+    </class>
+</hibernate-mapping>

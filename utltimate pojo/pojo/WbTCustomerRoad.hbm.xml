@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 3, 2019 9:57:03 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.WbTCustomerRoad" table="wb_t_customer_road" catalog="kuliuc" optimistic-lock="version">
+        <composite-id name="id" class="pojo.WbTCustomerRoadId">
+            <key-property name="orderNo" type="int">
+                <column name="order_no" />
+            </key-property>
+            <key-property name="cusId" type="string">
+                <column name="cus_id" length="10" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="wbMCustomer" class="pojo.WbMCustomer" update="false" insert="false" fetch="select">
+            <column name="cus_id" length="10" not-null="true" unique="true" />
+        </many-to-one>
+        <many-to-one name="wbMSubRoad" class="pojo.WbMSubRoad" fetch="select">
+            <column name="sub_road_id" />
+        </many-to-one>
+        <property name="readerId" type="java.lang.Integer">
+            <column name="reader_id" />
+        </property>
+    </class>
+</hibernate-mapping>

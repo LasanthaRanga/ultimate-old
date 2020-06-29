@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.3.1.final using JasperReports Library version 6.3.1  -->
+<!-- 2019-06-19T05:04:10 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="barcode" pageWidth="226" pageHeight="113" columnWidth="226" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="7e51f58c-c466-47b3-9ad2-8991576decdc">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<property name="com.jaspersoft.studio.unit." value="cm"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="code" class="java.lang.String"/>
+	<field name="total" class="java.lang.String"/>
+	<field name="cusname" class="java.lang.String"/>
+	<field name="subject" class="java.lang.String"/>
+	<field name="image" class="java.lang.Object"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="90" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+			<image hAlign="Center" vAlign="Middle">
+				<reportElement x="10" y="22" width="205" height="40" uuid="ae85b3ae-e267-442b-8c70-05758ccc5300"/>
+				<imageExpression><![CDATA[$F{image}]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="10" y="2" width="205" height="20" uuid="9f2640d6-7168-46bc-a953-92ae6f858296"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{cusname}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="10" y="62" width="205" height="13" uuid="9a5dbbfd-d107-4a7e-8273-ba01462006d5"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA["Rs."+$F{total}+"/="]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="10" y="75" width="205" height="13" uuid="82c5b3e1-8ed6-4f70-9e0d-a22d6ea9c062"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{subject}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="1">
+			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+		</band>
+	</summary>
+</jasperReport>

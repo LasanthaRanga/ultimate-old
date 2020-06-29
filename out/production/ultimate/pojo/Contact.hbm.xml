@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 6, 2019 4:30:22 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.Contact" table="contact" catalog="ultimate2" optimistic-lock="version">
+        <id name="idContact" type="java.lang.Integer">
+            <column name="idContact" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="customer" class="pojo.Customer" fetch="select">
+            <column name="Customer_idCustomer" not-null="true" />
+        </many-to-one>
+        <property name="phone" type="string">
+            <column name="phone" length="45" />
+        </property>
+        <property name="mobile" type="string">
+            <column name="mobile" length="45" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" length="45" />
+        </property>
+        <property name="address1" type="string">
+            <column name="address1" length="45" />
+        </property>
+        <property name="address2" type="string">
+            <column name="address2" length="45" />
+        </property>
+        <property name="address3" type="string">
+            <column name="address3" length="45" />
+        </property>
+        <property name="city" type="string">
+            <column name="city" length="45" />
+        </property>
+        <property name="statues" type="java.lang.Integer">
+            <column name="statues" />
+        </property>
+        <property name="syn" type="java.lang.Integer">
+            <column name="syn" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXListView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="625.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.users.Assign_userController">
+   <children>
+      <TableView fx:id="tbl_1" layoutX="93.0" layoutY="24.0" onMouseReleased="#selectByUserTable" prefHeight="570.0" prefWidth="365.0">
+        <columns>
+          <TableColumn id="idfirst" fx:id="col_uid" prefWidth="64.0" text="#" />
+          <TableColumn fx:id="col_fullname" prefWidth="189.0" text="Name" />
+            <TableColumn fx:id="col_unic" prefWidth="101.0" text="NIC" />
+        </columns>
+      </TableView>
+      <Label fx:id="lbl_uname" layoutX="551.0" layoutY="33.0" prefHeight="17.0" prefWidth="284.0" />
+      <Label fx:id="lbl_uid" layoutX="485.0" layoutY="33.0" prefHeight="17.0" prefWidth="39.0" />
+      <JFXComboBox fx:id="com_dipartment" layoutX="485.0" layoutY="97.0" prefHeight="25.0" prefWidth="365.0" promptText="Dipartment" />
+      <JFXComboBox fx:id="com_application" layoutX="485.0" layoutY="289.0" prefHeight="25.0" prefWidth="365.0" promptText="Application" />
+      <JFXComboBox fx:id="com_approvalCat" layoutX="485.0" layoutY="485.0" prefHeight="25.0" prefWidth="365.0" promptText="Approval Catagory" />
+      <JFXListView fx:id="list_dipartment" layoutX="932.0" layoutY="29.0" prefHeight="135.0" prefWidth="330.0" />
+      <JFXListView fx:id="list_application" layoutX="932.0" layoutY="221.0" prefHeight="135.0" prefWidth="330.0" />
+      <JFXListView fx:id="list_approval" layoutX="932.0" layoutY="417.0" prefHeight="135.0" prefWidth="330.0" />
+      <JFXButton fx:id="btn_dipAssign" layoutX="774.0" layoutY="140.0" onMouseClicked="#clicDipartmentAssing" prefHeight="25.0" prefWidth="76.0" text="Assign" />
+      <JFXButton layoutX="1186.0" layoutY="169.0" onMouseClicked="#clickOnDipRemove" prefHeight="25.0" prefWidth="76.0" text="Remove" />
+      <JFXButton layoutX="1186.0" layoutY="366.0" onMouseClicked="#clickOnApplicationRemove" prefHeight="25.0" prefWidth="76.0" text="Remove" />
+      <JFXButton layoutX="1186.0" layoutY="560.0" onMouseClicked="#onClickApprovalRemove" prefHeight="25.0" prefWidth="76.0" text="Remove" />
+      <JFXButton layoutX="774.0" layoutY="333.0" onMouseClicked="#clickApplicationAssing" prefHeight="25.0" prefWidth="76.0" text="Assign" />
+      <JFXButton layoutX="774.0" layoutY="526.0" onMouseClicked="#clickApprovAssing" prefHeight="25.0" prefWidth="76.0" text="Assign" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 6, 2019 4:30:22 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.Obsaloot" table="obsaloot" catalog="ultimate2" optimistic-lock="version">
+        <id name="idobsaloot" type="java.lang.Integer">
+            <column name="idobsaloot" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="assessment" class="pojo.Assessment" fetch="select">
+            <column name="Assessment_idAssessment" not-null="true" />
+        </many-to-one>
+        <property name="obsalootNo" type="string">
+            <column name="obsaloot_no" length="45" />
+        </property>
+        <property name="obsalootDate" type="date">
+            <column name="obsaloot_date" length="10" />
+        </property>
+        <property name="obsalootDetails" type="string">
+            <column name="obsaloot_details" length="45" />
+        </property>
+        <property name="obsalootDOrA" type="string">
+            <column name="obsaloot_d_or_a" length="1" />
+        </property>
+    </class>
+</hibernate-mapping>

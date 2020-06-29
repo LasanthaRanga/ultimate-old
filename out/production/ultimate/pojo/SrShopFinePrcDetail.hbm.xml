@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 6, 2019 4:30:22 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.SrShopFinePrcDetail" table="sr_shop_fine_prc_detail" catalog="ultimate2" optimistic-lock="version">
+        <id name="srShopFinePrcDetailId" type="java.lang.Integer">
+            <column name="sr_shop_fine_prc_detail_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="srShop" class="pojo.SrShop" fetch="select">
+            <column name="sr_shop_fine_prc_detail_shop_id" />
+        </many-to-one>
+        <many-to-one name="srShopProc" class="pojo.SrShopProc" fetch="select">
+            <column name="sr_shop_fine_prc_detail_process_tbl_id" />
+        </many-to-one>
+        <property name="srShopFinePrcDetailRentAmount" type="java.lang.Double">
+            <column name="sr_shop_fine_prc_detail_rent_amount" precision="22" scale="0" />
+        </property>
+        <property name="srShopFinePrcDetailFine" type="java.lang.Double">
+            <column name="sr_shop_fine_prc_detail_fine" precision="22" scale="0" />
+        </property>
+        <property name="srShopFinePrcDetailDate" type="date">
+            <column name="sr_shop_fine_prc_detail_date" length="10" />
+        </property>
+        <property name="srShopFinePrcDetailTime" type="time">
+            <column name="sr_shop_fine_prc_detail_time" length="8" />
+        </property>
+        <property name="srShopFinePrcDetailYear" type="java.lang.Integer">
+            <column name="sr_shop_fine_prc_detail_year" />
+        </property>
+        <property name="srShopFinePrcDetailMonth" type="java.lang.Integer">
+            <column name="sr_shop_fine_prc_detail_month" />
+        </property>
+        <property name="srShopFinePrcDetailUserid" type="java.lang.Integer">
+            <column name="sr_shop_fine_prc_detail_userid" />
+        </property>
+    </class>
+</hibernate-mapping>

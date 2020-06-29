@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<AnchorPane id="AnchorPane" prefHeight="625.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.sr.ShopController">
+   <children>
+      <Pane layoutX="62.0" layoutY="69.0" prefHeight="513.0" prefWidth="1218.0">
+         <children>
+            <TableView fx:id="table_shop" layoutX="387.0" layoutY="25.0" onMouseClicked="#onSelectShop" prefHeight="464.0" prefWidth="819.0" styleClass="card">
+              <columns>
+                <TableColumn fx:id="tc_building" prefWidth="119.0" text="Building" />
+                <TableColumn fx:id="tc_flow" prefWidth="125.0" text="Flow" />
+                  <TableColumn fx:id="tc_shopType" prefWidth="90.0" text="Shop Type" />
+                  <TableColumn fx:id="tc_shopNumber" prefWidth="130.0" text="Shop Number" />
+                  <TableColumn fx:id="tc_shopCode" prefWidth="92.0" text="Shop Code" />
+                  <TableColumn fx:id="tc_shopDescription" prefWidth="291.0" text="Shop Description" />
+              </columns>
+               <effect>
+                  <Glow />
+               </effect>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </TableView>
+            <Pane fx:id="form" layoutX="32.0" layoutY="25.0" prefHeight="464.0" prefWidth="325.0" stylesheets="@../css/card.css">
+               <children>
+                  <JFXComboBox fx:id="com_building" labelFloat="true" layoutX="20.0" layoutY="17.0" onAction="#loadFlows" prefHeight="25.0" prefWidth="288.0" promptText="Building" />
+                  <JFXComboBox fx:id="com_flow" labelFloat="true" layoutX="20.0" layoutY="63.0" prefHeight="25.0" prefWidth="288.0" promptText="Flow" />
+                  <JFXComboBox fx:id="com_shopType" labelFloat="true" layoutX="20.0" layoutY="109.0" prefHeight="25.0" prefWidth="288.0" promptText="Shop Type" />
+                  <JFXTextField fx:id="txt_shop_number" labelFloat="true" layoutX="20.0" layoutY="157.0" prefHeight="25.0" prefWidth="288.0" promptText="Shop Number" />
+                  <JFXTextField fx:id="txt_shop_code" labelFloat="true" layoutX="20.0" layoutY="206.0" prefHeight="25.0" prefWidth="288.0" promptText="Shop Code" />
+                  <JFXButton fx:id="btn_save" buttonType="RAISED" layoutX="20.0" layoutY="397.0" onAction="#save" prefHeight="25.0" prefWidth="86.0" ripplerFill="#8bc34a" text="Save" />
+                  <JFXTextArea fx:id="ta_description" labelFloat="true" layoutX="20.0" layoutY="254.0" prefHeight="111.0" prefWidth="288.0" promptText="Description" />
+                  <JFXButton layoutX="225.0" layoutY="397.0" onAction="#onResetClick" prefHeight="25.0" prefWidth="86.0" text="Reset" />
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="birthday" prefHeight="465.0" prefWidth="633.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.users.User_regController">
+   <children>
+      <JFXTextField fx:id="txt_fullname" labelFloat="true" layoutX="40.0" layoutY="46.0" prefHeight="25.0" prefWidth="323.0" promptText="Full Name" />
+      <JFXTextField fx:id="txt_nic" labelFloat="true" layoutX="40.0" layoutY="105.0" prefHeight="25.0" prefWidth="323.0" promptText="NIC" />
+      <JFXTextField fx:id="txt_uname" labelFloat="true" layoutX="40.0" layoutY="172.0" prefHeight="25.0" prefWidth="323.0" promptText="User Name" />
+      <JFXPasswordField fx:id="txt_pword" layoutX="40.0" layoutY="234.0" prefHeight="25.0" prefWidth="323.0" promptText="Password" />
+      <JFXTextField fx:id="txt_answer" labelFloat="true" layoutX="40.0" layoutY="379.0" prefHeight="25.0" prefWidth="323.0" promptText="Answer" />
+      <JFXComboBox fx:id="com_question" labelFloat="true" layoutX="40.0" layoutY="305.0" prefHeight="25.0" prefWidth="323.0" promptText="Question" />
+      <JFXButton fx:id="btn_save" layoutX="420.0" layoutY="289.0" onAction="#save" prefHeight="47.0" prefWidth="161.0" ripplerFill="#008d07" style="-fx-background-color: #00ff00;" text="Save" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></JFXButton>
+      <JFXButton fx:id="btn_go" layoutX="420.0" layoutY="378.0" onAction="#gotoLogin" prefHeight="31.0" prefWidth="161.0" style="-fx-background-color: #2196F3;" text="go to login" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></JFXButton>
+      <JFXDatePicker fx:id="bdate" editable="false" layoutX="420.0" layoutY="43.0" prefHeight="28.0" prefWidth="161.0" promptText="Birth Day" />
+      <JFXComboBox fx:id="com_user" labelFloat="true" layoutX="420.0" layoutY="104.0" prefHeight="31.0" prefWidth="161.0" promptText="Office" />
+      <JFXTextField fx:id="txt_mobileNo" labelFloat="true" layoutX="416.0" layoutY="172.0" promptText="Mobile No." />
+   </children>
+</AnchorPane>

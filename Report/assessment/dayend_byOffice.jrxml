@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.3.1.final using JasperReports Library version 6.3.1  -->
+<!-- 2019-07-16T22:04:48 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="dayend_1" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="361d279c-23b6-4e8b-89c1-8b2317d948de">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Ultimate2.xml"/>
+	<parameter name="day" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{day}]]></defaultValueExpression>
+	</parameter>
+	<parameter name="idOffice" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{idOffice}]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+receipt.idReceipt,
+receipt.receipt_print_no,
+ward.ward_name,
+street.street_name,
+assessment.assessment_no,
+ass_payment.ass_cash,
+ass_payment.ass_check,
+ass_payment.ass_check_no,
+bank.bank_name,
+ass_payment.office_idOffice
+FROM
+assessment
+INNER JOIN ward ON assessment.Ward_idWard = ward.idWard
+INNER JOIN street ON street.Ward_idWard = ward.idWard AND assessment.Street_idStreet = street.idStreet
+INNER JOIN ass_payment ON ass_payment.Assessment_idAssessment = assessment.idAssessment
+INNER JOIN receipt ON ass_payment.Receipt_idReceipt = receipt.idReceipt
+LEFT JOIN bank ON bank.idBank = ass_payment.ass_bank
+WHERE
+ass_payment.ass_Payment_Status = 1 AND
+ass_payment.ass_Payment_date =  $P{day}
+AND ass_payment.office_idOffice =  $P{idOffice}]]>
+	</queryString>
+	<field name="idReceipt" class="java.lang.Integer"/>
+	<field name="receipt_print_no" class="java.lang.String"/>
+	<field name="ward_name" class="java.lang.String"/>
+	<field name="street_name" class="java.lang.String"/>
+	<field name="assessment_no" class="java.lang.String"/>
+	<field name="ass_cash" class="java.lang.Double"/>
+	<field name="ass_check" class="java.lang.Double"/>
+	<field name="ass_check_no" class="java.lang.String"/>
+	<field name="bank_name" class="java.lang.String"/>
+	<field name="office_idOffice" class="java.lang.Integer"/>
+	<variable name="Assessment No" class="java.lang.String">
+		<variableExpression><![CDATA[$F{ward_name} +" "+ $F{street_name}+ " "+$F{assessment_no}]]></variableExpression>
+	</variable>
+	<variable name="cash" class="java.lang.String">
+		<variableExpression><![CDATA[String.format("%.2f", (double)$F{ass_cash})]]></variableExpression>
+		<initialValueExpression><![CDATA[String.format("%.2f", (double)$F{ass_cash})]]></initialValueExpression>
+	</variable>
+	<variable name="check" class="java.lang.String">
+		<variableExpression><![CDATA[String.format("%.2f", (double)$F{ass_check})]]></variableExpression>
+		<initialValueExpression><![CDATA[String.format("%.2f", (double)$F{ass_check})]]></initialValueExpression>
+	</variable>
+	<variable name="check_no" class="java.lang.String">
+		<variableExpression><![CDATA[$F{ass_check} ==0 ? " - " : $F{bank_name} +" "+$F{ass_check_no}]]></variableExpression>
+		<initialValueExpression><![CDATA[$F{ass_check} ==0 ? " - " : $F{bank_name} +" "+$F{ass_check_no}]]></initialValueExpression>
+	</variable>
+	<variable name="chquesum" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{ass_check}]]></variableExpression>
+		<initialValueExpression><![CDATA[$F{ass_check}]]></initialValueExpression>
+	</variable>
+	<variable name="cheque_tot" class="java.lang.String">
+		<variableExpression><![CDATA[String.format("%.2f", (double)$V{chquesum})]]></variableExpression>
+		<initialValueExpression><![CDATA[String.format("%.2f", (double)$V{chquesum})]]></initialValueExpression>
+	</variable>
+	<variable name="cash_sum" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{ass_cash}]]></variableExpression>
+		<initialValueExpression><![CDATA[$F{ass_cash}]]></initialValueExpression>
+	</variable>
+	<variable name="cash_tot" class="java.lang.String">
+		<variableExpression><![CDATA[String.format("%.2f", (double)$V{cash_sum})]]></variableExpression>
+		<initialValueExpression><![CDATA[String.format("%.2f", (double)$V{cash_sum})]]></initialValueExpression>
+	</variable>
+	<variable name="Full_TOT" class="java.lang.String">
+		<variableExpression><![CDATA[String.format("%.2f", (double)$V{cash_sum}+$V{chquesum})]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="38" splitType="Stretch">
+			<staticText>
+				<reportElement x="104" y="7" width="354" height="30" uuid="23c1ac8e-295d-40a6-95ef-040132e8fe80"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Assessment Tax Day End Schedule]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="29" splitType="Stretch">
+			<textField>
+				<reportElement x="206" y="2" width="150" height="18" uuid="cde33ef1-7e9d-4de2-8567-a84f5ae95ad4"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{day}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="161" y="22" width="239" height="1" uuid="2dbc0c3f-bd79-4b15-a69e-d98fe0b393a0"/>
+			</line>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="38" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="50" height="30" uuid="d136de75-eb17-47e1-889d-ff1aab2dca6b"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Receipt ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="220" y="0" width="100" height="30" uuid="d520fd0f-7735-4830-8dda-9da384369d2b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Recipt NO:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="55" y="0" width="154" height="30" uuid="cf37bd1b-070d-4709-b4ed-cebe15c96334"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Ward Street Assessment No]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="330" y="0" width="80" height="30" uuid="4b4a714d-1738-44b9-b330-5d5587d6d550"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Cash ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="410" y="0" width="80" height="30" uuid="e9c53d2b-ca60-4aa2-a9e9-8de215144cdc"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Cheque]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="494" y="0" width="60" height="30" uuid="74e1a913-462d-47bb-81e4-672f52854e0f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Bank Cheque NO]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="33" width="554" height="1" uuid="e3dbf8cd-caec-471a-9774-706e59c957fc"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="37" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="50" height="30" uuid="34cff604-58bf-40de-9307-1104abd44bc5"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{idReceipt}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="55" y="0" width="154" height="30" uuid="9f7104d3-469f-4d7e-9e01-197c23c0dcc4"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Iskoola Pota"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{Assessment No}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="220" y="0" width="100" height="30" uuid="bdff8c61-141f-4868-9b42-eb71d0381ff3"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{receipt_print_no}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="330" y="0" width="80" height="30" uuid="300b97b2-39cf-4ff3-956e-f65ab1be41ff"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{cash}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="410" y="0" width="80" height="30" uuid="8b3090fd-ac3d-481b-b14f-e0e567329fbc"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{check}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="494" y="0" width="60" height="30" uuid="a284027f-a3b0-4cc7-ab8a-aedd9cb28ee7"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{check_no}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="31" width="554" height="1" uuid="6fccda04-39e8-4e83-82d3-ca932eef591d"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="4" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="7" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="91" splitType="Stretch">
+			<staticText>
+				<reportElement x="160" y="3" width="80" height="20" uuid="2b2c0d4b-9aa9-4e3b-8c04-3eaca758dc1b"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cash Total :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="160" y="33" width="80" height="20" uuid="f9131f03-4a2f-4887-a212-26a35f548944"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cheque Total :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="240" y="33" width="150" height="20" uuid="d7a61043-e5e3-43ba-8ab5-b6210b9ea148"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{cheque_tot}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="160" y="63" width="80" height="20" uuid="d270395b-fc90-4c63-9d0c-06446281819e"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Full Total :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="240" y="3" width="150" height="20" uuid="1625c1da-0531-4325-a4fb-c2fbf7955438"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{cash_tot}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="240" y="63" width="150" height="20" uuid="c845ece1-1797-459c-bb93-6ef99719fcfa"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{Full_TOT}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 6, 2019 4:30:22 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.ProgramTitle" table="program_title" catalog="ultimate2" optimistic-lock="version">
+        <id name="idProgramTitle" type="java.lang.Integer">
+            <column name="idProgram_title" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="program" class="pojo.Program" fetch="select">
+            <column name="Program_idProgram" not-null="true" />
+        </many-to-one>
+        <property name="titleNo" type="string">
+            <column name="title_no" length="45" />
+        </property>
+        <property name="titleName" type="string">
+            <column name="title_name" length="45" />
+        </property>
+        <property name="statusProgramTitle" type="java.lang.Integer">
+            <column name="status_program_title" />
+        </property>
+        <property name="synProgramTitle" type="java.lang.Integer">
+            <column name="syn_program_title" />
+        </property>
+        <set name="programSubtitleCopies" table="program_subtitle_copy" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Program_Title_idProgram_Title" not-null="true" />
+            </key>
+            <one-to-many class="pojo.ProgramSubtitleCopy" />
+        </set>
+        <set name="programSubtitles" table="program_subtitle" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Program_title_idProgram_title" not-null="true" />
+            </key>
+            <one-to-many class="pojo.ProgramSubtitle" />
+        </set>
+    </class>
+</hibernate-mapping>

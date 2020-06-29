@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.2.0.final using JasperReports Library version 6.2.0  -->
+<!-- 2018-12-31T11:01:03 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="sub_pay" pageWidth="462" pageHeight="84" columnWidth="452" leftMargin="5" rightMargin="5" topMargin="1" bottomMargin="1" uuid="6bb42f95-8dd1-47d7-99c8-87060e4852c4">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Ultimate2"/>
+	<parameter name="pid" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{pid}]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+ass_payto.idass_payto,
+ass_payto.ass_payto_Qno,
+ass_payto.ass_payto_warrant,
+ass_payto.ass_payto_arrears,
+ass_payto.ass_payto_qvalue,
+ass_payto.ass_payto_discount,
+ass_payto.ass_payto_discount_rate,
+ass_payto.ass_Payment_idass_Payment,
+ass_payto.ass_payto_status
+FROM
+ass_payto
+WHERE
+ass_payto.ass_Payment_idass_Payment =  $P{pid}]]>
+	</queryString>
+	<field name="idass_payto" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ass_payto_Qno" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ass_payto_warrant" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ass_payto_arrears" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ass_payto_qvalue" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ass_payto_discount" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ass_payto_discount_rate" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ass_Payment_idass_Payment" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ass_payto_status" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<variable name="discount" class="java.lang.String">
+		<variableExpression><![CDATA[String.format("%.2f", (double)$F{ass_payto_discount})]]></variableExpression>
+		<initialValueExpression><![CDATA[String.format("%.2f", (double)$F{ass_payto_discount})]]></initialValueExpression>
+	</variable>
+	<variable name="value" class="java.lang.String">
+		<variableExpression><![CDATA[String.format("%.2f", (double)$F{ass_payto_qvalue})]]></variableExpression>
+		<initialValueExpression><![CDATA[String.format("%.2f", (double)$F{ass_payto_qvalue})]]></initialValueExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="19" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+			<textField>
+				<reportElement x="60" y="4" width="20" height="15" uuid="6233cdc4-6877-43bf-86a2-fedb67f5d531">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{ass_payto_Qno}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="4" width="60" height="15" uuid="ad88d462-055d-43e1-ab27-da4f421b362f">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<text><![CDATA[Quater No :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="141" y="4" width="28" height="15" uuid="b1ecfe47-58a2-49aa-b327-eb9014d5a2f9"/>
+				<textFieldExpression><![CDATA[$F{ass_payto_discount_rate}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="90" y="4" width="51" height="15" uuid="799da4f8-5901-4493-bfe8-c5f2d07ae97d"/>
+				<text><![CDATA[Discount :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="182" y="4" width="61" height="15" uuid="d2af452b-9e87-49f5-84b1-020b6dbf513c"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$V{discount}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="310" y="4" width="90" height="15" uuid="edc4e16d-81e9-456b-a422-bb175d1005cf"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$V{value}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="169" y="4" width="10" height="15" uuid="5a28cbb6-b625-47e1-9474-d7cee9f18ddb"/>
+				<text><![CDATA[%]]></text>
+			</staticText>
+		</band>
+	</detail>
+</jasperReport>

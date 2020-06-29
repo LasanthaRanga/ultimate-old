@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXProgressBar?>
+<?import com.jfoenix.controls.JFXRadioButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="625.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.assess.OnlineApprove">
+   <children>
+      <TableView fx:id="tbl" layoutX="127.0" layoutY="86.0" onMouseClicked="#clickOnTbl" prefHeight="462.0" prefWidth="1112.0">
+        <columns>
+          <TableColumn fx:id="col_index" prefWidth="91.0" text="#" />
+          <TableColumn fx:id="col_customer" prefWidth="423.0" text="Customer Name" />
+            <TableColumn fx:id="col_appcat" prefWidth="181.0" text="Application Category" />
+            <TableColumn fx:id="col_amount" prefWidth="138.0" text="Amount" />
+            <TableColumn fx:id="col_status" prefWidth="225.0" text="Status" />
+            <TableColumn fx:id="col_checks" minWidth="0.0" prefWidth="42.0" text="  ">
+               <graphic>
+                  <JFXCheckBox fx:id="check" onAction="#checkAll" text=" " />
+               </graphic>
+            </TableColumn>
+        </columns>
+      </TableView>
+      <JFXDatePicker fx:id="dp" layoutX="127.0" layoutY="33.0" onAction="#dateChange" />
+      <JFXRadioButton fx:id="radio_confirmed" layoutX="335.0" layoutY="38.0" onAction="#radioOnAction" selected="true" text="Paid confirmed" textFill="#0a7900">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+         <toggleGroup>
+            <ToggleGroup fx:id="confirmed" />
+         </toggleGroup>
+      </JFXRadioButton>
+      <JFXRadioButton fx:id="radio_reject" layoutX="484.0" layoutY="38.0" onAction="#radioOnAction" text="Rejected Or Pending" textFill="#cd0000" toggleGroup="$confirmed">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </JFXRadioButton>
+      <JFXRadioButton fx:id="radio_completed" layoutX="1132.0" layoutY="37.0" onAction="#radioOnAction" text="Completed" textFill="#0a7900">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+         <toggleGroup>
+            <ToggleGroup fx:id="finish" />
+         </toggleGroup>
+      </JFXRadioButton>
+      <JFXRadioButton fx:id="radio_pending" layoutX="1010.0" layoutY="37.0" onAction="#radioOnAction" selected="true" text="Pendig" textFill="#1200d7" toggleGroup="$finish">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </JFXRadioButton>
+      <JFXButton fx:id="btn_complete" layoutX="1058.0" layoutY="563.0" onAction="#completeOnAction" prefHeight="38.0" prefWidth="181.0" style="-fx-background-color: #4CAF50;" text="Complete Online Payment" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></JFXButton>
+      <JFXProgressBar fx:id="progress" layoutX="127.0" layoutY="574.0" prefHeight="17.0" prefWidth="902.0" progress="0.0" />
+   </children>
+</AnchorPane>

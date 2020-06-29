@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 6, 2019 4:30:22 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.DocHandDetails" table="doc_hand_details" catalog="ultimate2" optimistic-lock="version">
+        <id name="docHandDetailsid" type="java.lang.Integer">
+            <column name="doc_hand_detailsid" />
+            <generator class="identity" />
+        </id>
+        <property name="bopId" type="java.lang.Integer">
+            <column name="bop_id" />
+        </property>
+        <property name="userId" type="java.lang.Integer">
+            <column name="User_id" />
+        </property>
+        <property name="userCatId" type="java.lang.Integer">
+            <column name="user_cat_id" />
+        </property>
+        <property name="date" type="date">
+            <column name="Date" length="10" />
+        </property>
+        <property name="time" type="time">
+            <column name="Time" length="8" />
+        </property>
+        <property name="comment" type="string">
+            <column name="Comment" />
+        </property>
+        <property name="isapprove" type="java.lang.Integer">
+            <column name="Isapprove" />
+        </property>
+    </class>
+</hibernate-mapping>

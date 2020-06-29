@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="625.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.assess.ChangeDataController">
+    <children>
+        <JFXTextField fx:id="txt_id" layoutX="249.0" layoutY="118.0" onKeyReleased="#idType" prefHeight="25.0" prefWidth="183.0" promptText="Assessment ID" />
+        <JFXTextField fx:id="txt_warrant" alignment="TOP_RIGHT" labelFloat="true" layoutX="249.0" layoutY="196.0" onKeyTyped="#warantType" prefHeight="25.0" prefWidth="183.0" promptText="Last Year Warrant" unFocusColor="#ff8559" />
+        <JFXTextField fx:id="txt_arrears" alignment="TOP_RIGHT" labelFloat="true" layoutX="249.0" layoutY="260.0" onKeyTyped="#arrearsType" prefHeight="25.0" prefWidth="183.0" promptText="Last Year Arrears" unFocusColor="#ff8559" />
+        <Text layoutX="479.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Change  Warant Arrears And Quater Valure">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Text>
+      
+        <JFXButton layoutX="249.0" layoutY="552.0" onMouseClicked="#clickOnUpdate" prefHeight="30.0" prefWidth="183.0" style="-fx-background-color: #FF9800;" text="UPDATE" textFill="WHITE">
+            <font>
+                <Font name="System Bold" size="14.0" />
+            </font>
+        </JFXButton>
+      <Text fx:id="txt_assess" layoutX="514.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="688.13671875" />
+      <Text fx:id="txt_customer" layoutX="514.0" layoutY="250.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" -" wrappingWidth="688.13671875" />
+      <JFXTextField fx:id="txt_warrantQ" alignment="TOP_RIGHT" labelFloat="true" layoutX="249.0" layoutY="395.0" onKeyTyped="#warantType" prefHeight="25.0" prefWidth="183.0" promptText="Last Quater Warrant" unFocusColor="#63e470" />
+      <JFXTextField fx:id="txt_arrearsQ" alignment="TOP_RIGHT" labelFloat="true" layoutX="249.0" layoutY="458.0" onKeyTyped="#arrearsType" prefHeight="25.0" prefWidth="183.0" promptText="Last Quater Arrears" unFocusColor="#63e470" />
+    </children>
+</AnchorPane>

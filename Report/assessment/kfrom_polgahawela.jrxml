@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.3.1.final using JasperReports Library version 6.3.1  -->
+<!-- 2019-11-22T09:29:50 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="kfrom_1" pageWidth="691" pageHeight="576" columnWidth="691" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="ec43b61c-e4fa-4461-b6af-f813e77ab61a">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.unit." value="inch"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Ultimate2.xml"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="inch"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="inch"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="inch"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="inch"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="inch"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="inch"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="inch"/>
+	<parameter name="assList" class="java.lang.String">
+		<parameterDescription><![CDATA[]]></parameterDescription>
+		<defaultValueExpression><![CDATA[$P{assList}]]></defaultValueExpression>
+	</parameter>
+	<parameter name="des" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{des}]]></defaultValueExpression>
+	</parameter>
+	<parameter name="day" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{day}]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+ward.ward_name,
+street.street_name,
+assessment.idAssessment,
+assessment.assessment_oder,
+assessment.assessment_no,
+assessment.assessment_status,
+assessment.assessment_syn,
+assessment.assessment_comment,
+assessment.assessment_obsolete,
+ass_allocation.ass_allocation,
+ass_nature.ass_nature_year_rate,
+ass_nature.ass_nature_name,
+customer.idCustomer,
+customer.cus_nic,
+ass_discription.ass_discription,
+ward.idWard,
+assessment.User_idUser,
+if (CAST(GROUP_CONCAT(sub.ass_subOwner_name SEPARATOR ' , ')AS CHAR ) is NULL,customer.cus_name, CONCAT(customer.cus_name," , ",CAST(GROUP_CONCAT(sub.ass_subOwner_name SEPARATOR ' , ')AS CHAR ),'')) AS cus_name,
+sub.ass_subOwner_name,
+ass_qstart.ass_Qstart_tyold_arrias,
+ass_qstart.ass_Qstart_tyold_warant
+FROM
+ward
+LEFT JOIN street ON street.Ward_idWard = ward.idWard
+LEFT JOIN assessment ON assessment.Street_idStreet = street.idStreet AND assessment.Ward_idWard = ward.idWard
+INNER JOIN ass_allocation ON ass_allocation.Assessment_idAssessment = assessment.idAssessment
+INNER JOIN ass_nature ON assessment.ass_nature_idass_nature = ass_nature.idass_nature
+LEFT JOIN customer ON assessment.Customer_idCustomer = customer.idCustomer
+INNER JOIN ass_discription ON assessment.ass_discription_idass_discription = ass_discription.idass_discription
+LEFT JOIN sub ON assessment.idAssessment = sub.Assessment_idAssessment
+INNER JOIN ass_qstart ON ass_qstart.Assessment_idAssessment = assessment.idAssessment
+WHERE
+assessment.idAssessment IN ( $P!{assList} ) AND
+ass_allocation.ass_allocation_status = 1 AND
+ass_qstart.ass_Qstart_QuaterNumber = 4
+GROUP BY
+assessment.idAssessment
+ORDER BY FIELD(idAssessment, $P!{assList})]]>
+	</queryString>
+	<field name="ward_name" class="java.lang.String"/>
+	<field name="street_name" class="java.lang.String"/>
+	<field name="idAssessment" class="java.lang.Integer"/>
+	<field name="assessment_oder" class="java.lang.Double"/>
+	<field name="assessment_no" class="java.lang.String"/>
+	<field name="assessment_status" class="java.lang.Integer"/>
+	<field name="assessment_syn" class="java.lang.Integer"/>
+	<field name="assessment_comment" class="java.lang.String"/>
+	<field name="assessment_obsolete" class="java.lang.String"/>
+	<field name="ass_allocation" class="java.lang.Double"/>
+	<field name="ass_nature_year_rate" class="java.lang.Double"/>
+	<field name="ass_nature_name" class="java.lang.String"/>
+	<field name="idCustomer" class="java.lang.Integer"/>
+	<field name="cus_nic" class="java.lang.String"/>
+	<field name="ass_discription" class="java.lang.String"/>
+	<field name="idWard" class="java.lang.Integer"/>
+	<field name="User_idUser" class="java.lang.Integer"/>
+	<field name="cus_name" class="java.lang.String"/>
+	<field name="ass_subOwner_name" class="java.lang.String"/>
+	<field name="ass_Qstart_tyold_arrias" class="java.lang.Double"/>
+	<field name="ass_Qstart_tyold_warant" class="java.lang.Double"/>
+	<variable name="qrate" class="java.lang.Double">
+		<variableExpression><![CDATA[$F{ass_allocation}*$F{ass_nature_year_rate}/100/4]]></variableExpression>
+		<initialValueExpression><![CDATA[$F{ass_allocation}*$F{ass_nature_year_rate}/100/4]]></initialValueExpression>
+	</variable>
+	<variable name="rounded" class="java.lang.String">
+		<variableExpression><![CDATA[String.format("%.2f", (double)$V{qrate})]]></variableExpression>
+		<initialValueExpression><![CDATA[String.format("%.2f", (double)$V{qrate})]]></initialValueExpression>
+	</variable>
+	<variable name="Variable_1" class="java.lang.String"/>
+	<variable name="ID" class="java.lang.String">
+		<variableExpression><![CDATA["KURU/MC-"+$F{idAssessment}]]></variableExpression>
+	</variable>
+	<variable name="allocation" class="java.lang.Double">
+		<variableExpression><![CDATA[$F{ass_allocation}]]></variableExpression>
+		<initialValueExpression><![CDATA[$F{ass_allocation}]]></initialValueExpression>
+	</variable>
+	<variable name="al" class="java.lang.String">
+		<variableExpression><![CDATA[String.format("%.2f", (double)$F{ass_allocation})]]></variableExpression>
+		<initialValueExpression><![CDATA[String.format("%.2f", (double)$F{ass_allocation})]]></initialValueExpression>
+	</variable>
+	<variable name="higa" class="java.lang.Double">
+		<variableExpression><![CDATA[$F{ass_Qstart_tyold_arrias}+$F{ass_Qstart_tyold_warant}]]></variableExpression>
+		<initialValueExpression><![CDATA[$F{ass_Qstart_tyold_arrias}+$F{ass_Qstart_tyold_warant}]]></initialValueExpression>
+	</variable>
+	<variable name="q4val" class="java.lang.Double">
+		<variableExpression><![CDATA[$F{ass_allocation}*$F{ass_nature_year_rate}/100]]></variableExpression>
+		<initialValueExpression><![CDATA[$F{ass_allocation}*$F{ass_nature_year_rate}/100]]></initialValueExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="3" splitType="Stretch"/>
+	</title>
+	<detail>
+		<band height="575" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+			<textField>
+				<reportElement x="40" y="65" width="88" height="32" uuid="89ac9af0-4de7-409a-9f86-525ea62d6a3d"/>
+				<textElement>
+					<font fontName="Iskoola Pota" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cus_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" x="40" y="153" width="88" height="14" uuid="4d7b58f5-0e5a-4e66-8bb0-4732dee95b54"/>
+				<textElement>
+					<font fontName="Iskoola Pota" size="8" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ward_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="40" y="114" width="88" height="20" uuid="fb65eb7c-aa4f-4213-9bbe-52ba305004e3"/>
+				<textFieldExpression><![CDATA[$F{assessment_no}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="40" y="173" width="88" height="31" uuid="bc7bfcf9-0d81-4a27-b8ee-eb5412d0f9df"/>
+				<textElement>
+					<font fontName="Iskoola Pota" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{street_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="40" y="259" width="86" height="18" uuid="7032fb12-e6a2-4358-b54f-23e25149ad72"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{rounded}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="170" y="79" width="359" height="24" uuid="3ef92988-dfa1-409c-95a1-55fb261e890c"/>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Iskoola Pota" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cus_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="192" y="343" width="52" height="20" uuid="4b352d08-73da-4e20-8e5f-b2e56063b554"/>
+				<textElement textAlignment="Left">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{assessment_no}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="210" y="294" width="30" height="30" uuid="c1a04077-da1f-4a27-8310-0d9c71db02dd"/>
+				<textElement textAlignment="Left">
+					<font fontName="Iskoola Pota" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{idWard}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="157" y="366" width="72" height="40" uuid="677ccfab-255e-4276-8954-f2b0267b1bbf"/>
+				<textElement textAlignment="Left">
+					<font fontName="Iskoola Pota" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{street_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="157" y="406" width="72" height="30" uuid="8fdb9f37-8783-40da-b8f7-07b271dd32d3"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Iskoola Pota" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ass_nature_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="238" y="379" width="72" height="58" uuid="0568e4e4-67d5-4652-a208-d9d3ef6361f6"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Iskoola Pota"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ass_discription}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="FixRelativeToBottom" x="430" y="309" width="106" height="15" uuid="62acb164-2f73-485d-9d21-bdf9deaa16ef"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{rounded}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="430" y="343" width="106" height="15" uuid="0f73fd42-7b23-4ea9-b0a7-e52895eb8ffa"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{rounded}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="430" y="379" width="106" height="15" uuid="84577a2a-921f-492b-a536-f1fd6446baf6"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{rounded}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="430" y="412" width="106" height="15" uuid="966452be-69f6-4b4b-8da0-b84d317c8606"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{rounded}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="314" y="299" width="20" height="9" uuid="a9b395ac-170a-4bbb-bfd8-ed90d6acb6cf"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[2020]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="222" y="35" width="100" height="20" uuid="dd2dc383-a60c-427d-8806-f2c8468956ea"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font isBold="true" isItalic="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{idAssessment}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="166" y="35" width="56" height="20" uuid="7cb900b7-9a8a-40c7-bb10-fce1f865ebb9"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ASST. ID :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="80" y="22" width="70" height="18" uuid="95310ef6-7e00-478c-a8ed-474c1a2ec8d5"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{idAssessment}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="30" y="22" width="50" height="18" uuid="059ad17f-c7e3-4faf-9a4f-c0cdef69d7aa"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ASST. ID :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="269" y="304" width="41" height="14" uuid="1a0e7f0d-1477-4417-ab78-643914800bd5"/>
+				<textElement textAlignment="Left" verticalAlignment="Bottom">
+					<font size="9" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{al}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToBandHeight" x="40" y="208" width="88" height="18" uuid="c44ed7b8-6f1c-4a6c-95b0-db95e1ca7de2"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{al}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="240" y="526" width="70" height="18" uuid="7a8c0a99-7447-4c75-bd16-5d582629d679"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="DL-Sarala." isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{des}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="180" y="526" width="60" height="18" uuid="7133816a-23b6-4ea6-adc1-d25f7d34f31d"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{day}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="310" y="526" width="72" height="18" uuid="63501621-94ee-489a-b67e-929ba892cebd"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[String.format("%.2f",$V{higa})]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="314" y="333" width="20" height="9" uuid="dcb7697a-d3e1-4c46-b367-4aeaddcf0e97"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[2020]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="314" y="366" width="20" height="9" uuid="e262638c-922d-4391-8915-539159e81f82"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[2020]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="314" y="400" width="20" height="9" uuid="ce207c92-1044-4f3d-af68-f9e6ebfe3323"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[2020]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="260" y="329" width="50" height="20" uuid="5bfc042b-90fa-48d9-825c-3f8319b943f4"/>
+				<textElement>
+					<font size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[String.format("%.2f", $V{q4val})]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="150" y="516" width="250" height="10" uuid="ce694b4a-f608-430d-9380-68352945651c">
+					<property name="com.jaspersoft.studio.unit.height" value="inch"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Iskoola Pota" size="7"/>
+				</textElement>
+				<text><![CDATA[(2019 වර්ෂයට වරිපනම් ගෙවා නොමැති නම්, හිඟයට අවසන් කාර්තු මුදලද එකතු විය යුතුයි.)]]></text>
+			</staticText>
+		</band>
+	</detail>
+</jasperReport>

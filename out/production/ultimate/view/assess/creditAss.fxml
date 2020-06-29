@@ -1,0 +1,515 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="625.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.assess.CreditAss">
+   <children>
+      <VBox layoutX="93.0" layoutY="36.0" prefHeight="200.0" prefWidth="225.0">
+         <children>
+            <HBox prefHeight="29.0" prefWidth="225.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Ward No :" textAlignment="RIGHT" wrappingWidth="150.0">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="10.0" top="5.0" />
+                     </HBox.margin>
+                  </Text>
+                  <Text fx:id="txt_ward" strokeType="OUTSIDE" strokeWidth="0.0" text="00" wrappingWidth="300.0">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                  </Text>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox prefHeight="29.0" prefWidth="225.0" style="-fx-background-color: 2018-12-19;">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Street Name  :" textAlignment="RIGHT" wrappingWidth="150.0">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="10.0" top="5.0" />
+                     </HBox.margin>
+                  </Text>
+                  <Text fx:id="txt_street" strokeType="OUTSIDE" strokeWidth="0.0" text="00" wrappingWidth="300.0">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                  </Text>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox prefHeight="29.0" prefWidth="225.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Assessment No  :" textAlignment="RIGHT" wrappingWidth="150.0">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="10.0" top="5.0" />
+                     </HBox.margin>
+                  </Text>
+                  <Text fx:id="txt_assessmant" strokeType="OUTSIDE" strokeWidth="0.0" text="00" wrappingWidth="300.0">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Text>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox prefHeight="29.0" prefWidth="225.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Obsolete No :" textAlignment="RIGHT" wrappingWidth="150.0">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="10.0" top="5.0" />
+                     </HBox.margin>
+                  </Text>
+                  <Text fx:id="txt_Obsaloot" strokeType="OUTSIDE" strokeWidth="0.0" text="00" wrappingWidth="300.0">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                  </Text>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox prefHeight="29.0" prefWidth="225.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nature :" textAlignment="RIGHT" wrappingWidth="150.0">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="10.0" top="5.0" />
+                     </HBox.margin>
+                  </Text>
+                  <Text fx:id="txt_nature" strokeType="OUTSIDE" strokeWidth="0.0" text="00" wrappingWidth="300.0">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                  </Text>
+               </children>
+               <opaqueInsets>
+                  <Insets left="5.0" right="5.0" />
+               </opaqueInsets>
+               <VBox.margin>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox prefHeight="29.0" prefWidth="225.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Customer :" textAlignment="RIGHT" wrappingWidth="150.0">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="10.0" top="5.0" />
+                     </HBox.margin>
+                  </Text>
+                  <Text fx:id="txt_customer" strokeType="OUTSIDE" strokeWidth="0.0" text="00" wrappingWidth="300.0">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Text>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox prefHeight="29.0" prefWidth="225.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Allocation :" textAlignment="RIGHT" wrappingWidth="150.0">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="10.0" top="5.0" />
+                     </HBox.margin>
+                  </Text>
+                  <Text fx:id="txt_allocation" strokeType="OUTSIDE" strokeWidth="0.0" text="00" wrappingWidth="300.0">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                  </Text>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox prefHeight="29.0" prefWidth="225.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Current Quater :" textAlignment="RIGHT" wrappingWidth="150.0">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="10.0" top="5.0" />
+                     </HBox.margin>
+                  </Text>
+                  <Text fx:id="txt_currentQuater" strokeType="OUTSIDE" strokeWidth="0.0" text="00" wrappingWidth="289.0">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                  </Text>
+               </children>
+               <opaqueInsets>
+                  <Insets left="5.0" right="5.0" />
+               </opaqueInsets>
+               <VBox.margin>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox prefHeight="29.0" prefWidth="225.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Current Year :" textAlignment="RIGHT" wrappingWidth="150.0">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="10.0" top="5.0" />
+                     </HBox.margin>
+                  </Text>
+                  <Text fx:id="txt_currentYear" strokeType="OUTSIDE" strokeWidth="0.0" text="00" wrappingWidth="289.0">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                  </Text>
+               </children>
+               <opaqueInsets>
+                  <Insets left="5.0" right="5.0" />
+               </opaqueInsets>
+               <VBox.margin>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </VBox.margin>
+            </HBox>
+         </children>
+      </VBox>
+      <VBox layoutX="65.0" layoutY="373.0" prefHeight="258.0" prefWidth="371.0">
+         <children>
+            <HBox prefHeight="29.0" prefWidth="388.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Last Year Arrears :" textAlignment="RIGHT" wrappingWidth="178.0">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin></Text>
+                  <Text fx:id="txt_lyArrears" strokeType="OUTSIDE" strokeWidth="0.0" text="00" textAlignment="RIGHT" wrappingWidth="150.0">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="14.0" />
+                     </font></Text>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox prefHeight="24.0" prefWidth="370.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Last Year Warrant :" textAlignment="RIGHT" wrappingWidth="178.0">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin></Text>
+                  <Text fx:id="txt_lyWarrant" strokeType="OUTSIDE" strokeWidth="0.0" text="00" textAlignment="RIGHT" wrappingWidth="150.0">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="14.0" />
+                     </font></Text>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox prefHeight="24.0" prefWidth="370.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="This Year Arrears :" textAlignment="RIGHT" wrappingWidth="178.0">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin></Text>
+                  <Text fx:id="txt_tyArrears" strokeType="OUTSIDE" strokeWidth="0.0" text="00" textAlignment="RIGHT" wrappingWidth="150.0">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="14.0" />
+                     </font></Text>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox prefHeight="24.0" prefWidth="370.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="This Year Warrant :" textAlignment="RIGHT" wrappingWidth="178.0">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin></Text>
+                  <Text fx:id="txt_tyWarrant" strokeType="OUTSIDE" strokeWidth="0.0" text="00" textAlignment="RIGHT" wrappingWidth="150.0">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="14.0" />
+                     </font></Text>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox prefHeight="24.0" prefWidth="370.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Full Arrears Warrant Total :" textAlignment="RIGHT" wrappingWidth="178.0">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin></Text>
+                  <Text fx:id="txt_Total" strokeType="OUTSIDE" strokeWidth="0.0" text="00" textAlignment="RIGHT" wrappingWidth="150.0">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="14.0" />
+                     </font></Text>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox prefHeight="24.0" prefWidth="398.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Quater Value :" textAlignment="RIGHT" wrappingWidth="178.0">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin></Text>
+                  <Text fx:id="txt_quaterValue" strokeType="OUTSIDE" strokeWidth="0.0" text="00" textAlignment="RIGHT" wrappingWidth="150.0">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="14.0" />
+                     </font></Text>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox prefHeight="24.0" prefWidth="398.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Credit Debit :" textAlignment="RIGHT" wrappingWidth="178.0">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin></Text>
+                  <Text fx:id="txt_cd" strokeType="OUTSIDE" strokeWidth="0.0" text="00" textAlignment="RIGHT" wrappingWidth="150.0">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="14.0" />
+                     </font></Text>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </VBox.margin>
+            </HBox>
+         </children>
+      </VBox>
+      <JFXTextField fx:id="txt_Pay" alignment="CENTER_RIGHT" layoutX="1064.0" layoutY="14.0" onKeyReleased="#payKeyRelesed" prefHeight="25.0" prefWidth="218.0">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></JFXTextField>
+      <TableView fx:id="table_pay" layoutX="607.0" layoutY="80.0" prefHeight="287.0" prefWidth="675.0">
+        <columns>
+          <TableColumn fx:id="col_dis" prefWidth="228.0" text="Description" />
+          <TableColumn fx:id="col_amount" editable="false" prefWidth="116.0" text="Amount" />
+            <TableColumn fx:id="col_discount" prefWidth="59.0" text="Discount" />
+            <TableColumn fx:id="col_value" prefWidth="116.0" text="Value" />
+        </columns>
+      </TableView>
+      <VBox layoutX="558.0" layoutY="390.0" prefHeight="211.0" prefWidth="351.0">
+         <children>
+            <HBox prefHeight="15.0" prefWidth="289.0">
+               <children>
+                  <Text fx:id="q1pidv" fill="#2e7d32" strokeType="OUTSIDE" strokeWidth="0.0" text="00" textAlignment="RIGHT" wrappingWidth="98.13671875">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                  </Text>
+                  <JFXCheckBox fx:id="cq1" onAction="#cheackValues" text=" ">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                  </JFXCheckBox>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Q1 :" textAlignment="RIGHT" wrappingWidth="30.0">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin></Text>
+                  <Text fx:id="q1_val" strokeType="OUTSIDE" strokeWidth="0.0" text="00" textAlignment="RIGHT" wrappingWidth="120.0">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="14.0" />
+                     </font></Text>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox prefHeight="14.0" prefWidth="289.0">
+               <children>
+                  <Text fx:id="q2pidv" fill="#2e7d32" strokeType="OUTSIDE" strokeWidth="0.0" text="00" textAlignment="RIGHT" wrappingWidth="98.13671875">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                  </Text>
+                  <JFXCheckBox fx:id="cq2" onAction="#cheackValues" text=" ">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                  </JFXCheckBox>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Q2 :" textAlignment="RIGHT" wrappingWidth="30.0">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin></Text>
+                  <Text fx:id="q2_val" strokeType="OUTSIDE" strokeWidth="0.0" text="00" textAlignment="RIGHT" wrappingWidth="120.0">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="14.0" />
+                     </font></Text>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox prefHeight="9.0" prefWidth="289.0">
+               <children>
+                  <Text fx:id="q3pidv" fill="#2e7d32" strokeType="OUTSIDE" strokeWidth="0.0" text="00" textAlignment="RIGHT" wrappingWidth="98.13671875">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                  </Text>
+                  <JFXCheckBox fx:id="cq3" onAction="#cheackValues" text=" ">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                  </JFXCheckBox>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Q3 :" textAlignment="RIGHT" wrappingWidth="30.0">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin></Text>
+                  <Text fx:id="q3_val" strokeType="OUTSIDE" strokeWidth="0.0" text="00" textAlignment="RIGHT" wrappingWidth="120.0">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="14.0" />
+                     </font></Text>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox prefHeight="11.0" prefWidth="289.0">
+               <children>
+                  <Text fx:id="q4pidv" fill="#2e7d32" strokeType="OUTSIDE" strokeWidth="0.0" text="00" textAlignment="RIGHT" wrappingWidth="98.13671875">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                  </Text>
+                  <JFXCheckBox fx:id="cq4" onAction="#cheackValues" text=" ">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                  </JFXCheckBox>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Q4 :" textAlignment="RIGHT" wrappingWidth="30.0">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin></Text>
+                  <Text fx:id="q4_val" strokeType="OUTSIDE" strokeWidth="0.0" text="00" textAlignment="RIGHT" wrappingWidth="120.0">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="14.0" />
+                     </font></Text>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox prefHeight="21.0" prefWidth="361.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="RIGHT" wrappingWidth="76.13671875">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="       Total       :" textAlignment="CENTER" wrappingWidth="113.0">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin></Text>
+                  <Text fx:id="q4_tot" strokeType="OUTSIDE" strokeWidth="0.0" text="00" textAlignment="RIGHT" wrappingWidth="112.0">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font></Text>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </VBox.margin>
+            </HBox>
+         </children>
+      </VBox>
+      <JFXButton fx:id="btn_pay" layoutX="1109.0" layoutY="538.0" onMouseClicked="#clickOnPay" prefHeight="63.0" prefWidth="173.0" style="-fx-background-color: #EA80FC;" text="Credit" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></JFXButton>
+      <HBox layoutX="102.0" layoutY="1.0" prefHeight="35.0" prefWidth="338.0">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Assessment ID :" textAlignment="RIGHT" wrappingWidth="142.0">
+               <HBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Text>
+            <JFXTextField fx:id="txt_idAssess" onKeyReleased="#idKeyReleased" prefHeight="25.0" prefWidth="155.0">
+               <HBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </HBox.margin>
+            </JFXTextField>
+         </children>
+      </HBox>
+      <Text layoutX="908.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Credit Amount :" wrappingWidth="155.0000101327896">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <JFXButton fx:id="btn_search" layoutX="424.0" layoutY="2.0" onMouseClicked="#clickOnSearchBTN" prefHeight="35.0" prefWidth="42.0" ripplerFill="#2e58ff" style="-fx-background-color: #BDBDBD;" text=" ">
+         <graphic>
+            <ImageView fitHeight="25.0" fitWidth="31.0" layoutX="10.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../grafics/search_b.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton fx:id="btn_histry" layoutX="429.0" layoutY="457.0" onMouseClicked="#clickOnHistry" prefHeight="39.0" prefWidth="88.0" style="-fx-background-color: #4CAF50;" text="History" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </JFXButton>
+      <JFXTextArea fx:id="txt_comment" labelFloat="true" layoutX="931.0" layoutY="395.0" prefHeight="126.0" prefWidth="351.0" promptText="Comment" />
+   </children>
+</AnchorPane>

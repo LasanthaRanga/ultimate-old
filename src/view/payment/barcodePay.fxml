@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXRadioButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="625.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.payment.BarcodePay">
+   <children>
+      <JFXRadioButton fx:id="radio_print" layoutX="610.0" layoutY="63.0" onAction="#radioOnAction" text="Direct Pay And Print">
+         <toggleGroup>
+            <ToggleGroup fx:id="PrintView" />
+         </toggleGroup>
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </JFXRadioButton>
+      <JFXRadioButton fx:id="radio_view" layoutX="610.0" layoutY="20.0" onAction="#radioOnAction" selected="true" text="View, Pay, And Print" toggleGroup="$PrintView">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </JFXRadioButton>
+      <VBox alignment="TOP_CENTER" layoutX="174.0" layoutY="91.0" prefHeight="407.0" prefWidth="1063.0">
+         <children>
+            <JFXTextField fx:id="txt_barcode" alignment="CENTER" labelFloat="true" onKeyReleased="#barcodeEntered" prefHeight="35.0" prefWidth="745.0" promptText="BAR CODE">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="50.0" left="350.0" right="350.0" top="20.0" />
+               </VBox.margin>
+            </JFXTextField>
+            <Text fx:id="txt_tot" strokeType="OUTSIDE" strokeWidth="0.0" text="00" textAlignment="CENTER" wrappingWidth="631.9999914765358">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="20.0" left="50.0" right="50.0" top="5.0" />
+               </VBox.margin>
+            </Text>
+            <Text fx:id="txt_dis1" strokeType="OUTSIDE" strokeWidth="0.0" text="--" textAlignment="CENTER" wrappingWidth="962.9999914765358">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="50.0" right="50.0" top="5.0" />
+               </VBox.margin>
+            </Text>
+            <Text fx:id="txt_dis2" strokeType="OUTSIDE" strokeWidth="0.0" text="--" textAlignment="CENTER" wrappingWidth="962.9999914765358">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </Text>
+            <Text fx:id="txt_dis3" strokeType="OUTSIDE" strokeWidth="0.0" text="--" textAlignment="CENTER" wrappingWidth="962.9999914765358">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </Text>
+            <Text fx:id="txt_dis4" strokeType="OUTSIDE" strokeWidth="0.0" text="--" textAlignment="CENTER" wrappingWidth="962.9999914765358">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </Text>
+         </children>
+      </VBox>
+      <JFXButton fx:id="btn_pay" buttonType="RAISED" layoutX="342.0" layoutY="556.0" onMouseClicked="#clickOnPay" prefHeight="39.0" prefWidth="167.0" style="-fx-background-color: #FF5722;" text="Pay" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="btn_print" buttonType="RAISED" layoutX="923.0" layoutY="556.0" onMouseClicked="#clickOnPrint" prefHeight="39.0" prefWidth="167.0" style="-fx-background-color: #2196F3;" text="Re-Print" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>

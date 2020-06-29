@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 6, 2019 4:30:22 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.UserLog" table="user_log" catalog="ultimate2" optimistic-lock="version">
+        <id name="idUserLog" type="java.lang.Integer">
+            <column name="idUser_Log" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="user" class="pojo.User" fetch="select">
+            <column name="User_idUser" not-null="true" />
+        </many-to-one>
+        <property name="outTyme" type="timestamp">
+            <column name="out_tyme" length="19" />
+        </property>
+        <property name="inTyme" type="timestamp">
+            <column name="in_tyme" length="19" />
+        </property>
+        <property name="status" type="java.lang.Integer">
+            <column name="status" />
+        </property>
+        <property name="syn" type="java.lang.Integer">
+            <column name="syn" />
+        </property>
+        <set name="applications" table="application" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="User_Log_idUser_Log" />
+            </key>
+            <one-to-many class="pojo.Application" />
+        </set>
+        <set name="payments" table="payment" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="User_Log_idUser_Log" not-null="true" />
+            </key>
+            <one-to-many class="pojo.Payment" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="650.0" prefWidth="464.0" style="-fx-background-color: #009688;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.users.ForgotPass">
+   <children>
+      <VBox layoutX="11.0" layoutY="10.0" prefHeight="580.0" prefWidth="443.0" spacing="5.0" style="-fx-background-color: #fff;">
+         <children>
+            <JFXTextField fx:id="text_nic" labelFloat="true" onKeyReleased="#nickeyReleased" promptText="NIC">
+               <VBox.margin>
+                  <Insets bottom="10.0" left="20.0" right="20.0" top="20.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </JFXTextField>
+            <JFXTextField fx:id="txt_user" labelFloat="true" onKeyReleased="#userKeyReleased" promptText="User Name">
+               <VBox.margin>
+                  <Insets bottom="10.0" left="20.0" right="20.0" top="20.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </JFXTextField>
+            <JFXTextArea fx:id="txt_question" labelFloat="true" promptText="Question">
+               <VBox.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </VBox.margin>
+            </JFXTextArea>
+            <JFXTextField fx:id="txt_answer" labelFloat="true" onKeyReleased="#answerkeyRelesed" promptText="Answer">
+               <VBox.margin>
+                  <Insets bottom="10.0" left="20.0" right="20.0" top="20.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </JFXTextField>
+            <JFXButton fx:id="btn_ok" onMouseClicked="#clickOnOk" prefHeight="31.0" prefWidth="384.0" style="-fx-background-color: #4CAF50;" text="OK" textFill="WHITE">
+               <VBox.margin>
+                  <Insets bottom="10.0" left="20.0" right="20.0" top="20.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </JFXButton>
+            <JFXPasswordField fx:id="pword1" labelFloat="true" onKeyReleased="#p1keyRelesed" promptText="New Password">
+               <VBox.margin>
+                  <Insets bottom="10.0" left="20.0" right="20.0" top="20.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </JFXPasswordField>
+            <JFXPasswordField fx:id="pword2" labelFloat="true" onKeyReleased="#p2keyRelesed" promptText="New Password">
+               <VBox.margin>
+                  <Insets bottom="10.0" left="20.0" right="20.0" top="20.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </JFXPasswordField>
+            <JFXButton fx:id="btn_applay" onMouseClicked="#clickOnApplay" prefHeight="31.0" prefWidth="397.0" style="-fx-background-color: #4CAF50;" text="Apply New Password" textFill="WHITE">
+               <VBox.margin>
+                  <Insets bottom="10.0" left="20.0" right="20.0" top="20.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="btn_applay1" onMouseClicked="#clickOnBack" prefHeight="31.0" prefWidth="401.0" style="-fx-background-color: #2196F3;" text="Go Back" textFill="WHITE">
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </VBox.margin>
+            </JFXButton>
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+      </VBox>
+   </children>
+</AnchorPane>

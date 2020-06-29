@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="625.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.tradelicens.MoreDetails">
+   <children>
+      <Text fx:id="txt_appNo" layoutX="1110.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="No :" textAlignment="RIGHT" wrappingWidth="166.61134588718414" />
+      <VBox layoutX="64.0" layoutY="38.0" prefHeight="550.0" prefWidth="790.0" style="-fx-border-color: #673AB7;">
+         <children>
+            <HBox prefHeight="40.0" prefWidth="600.0">
+               <children>
+                  <Text fill="#2196f3" strokeType="OUTSIDE" strokeWidth="0.0" text="Trade Data" textAlignment="CENTER" wrappingWidth="840.0">
+                     <HBox.margin>
+                        <Insets top="10.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Text>
+               </children>
+            </HBox>
+            <HBox prefHeight="40.0" prefWidth="600.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Customer Name :" textAlignment="RIGHT" wrappingWidth="200.0">
+                     <HBox.margin>
+                        <Insets top="10.0" />
+                     </HBox.margin>
+                  </Text>
+                  <Text fx:id="txt_cusname" fill="#2196f3" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="600.0">
+                     <HBox.margin>
+                        <Insets left="20.0" top="10.0" />
+                     </HBox.margin>
+                  </Text>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox prefHeight="40.0" prefWidth="600.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Trade Name :" textAlignment="RIGHT" wrappingWidth="200.0">
+                     <HBox.margin>
+                        <Insets top="10.0" />
+                     </HBox.margin>
+                  </Text>
+                  <Text fx:id="txt_tradename" fill="#2196f3" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="600.0">
+                     <HBox.margin>
+                        <Insets left="20.0" top="10.0" />
+                     </HBox.margin>
+                  </Text>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox prefHeight="40.0" prefWidth="600.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Trade Type :" textAlignment="RIGHT" wrappingWidth="200.0">
+                     <HBox.margin>
+                        <Insets top="10.0" />
+                     </HBox.margin>
+                  </Text>
+                  <Text fx:id="txt_tradtype" fill="#2196f3" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="600.0">
+                     <HBox.margin>
+                        <Insets left="20.0" top="10.0" />
+                     </HBox.margin>
+                  </Text>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox prefHeight="40.0" prefWidth="600.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Trade Nature :" textAlignment="RIGHT" wrappingWidth="200.0">
+                     <HBox.margin>
+                        <Insets top="10.0" />
+                     </HBox.margin>
+                  </Text>
+                  <Text fx:id="txt_nature" fill="#2196f3" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="600.0">
+                     <HBox.margin>
+                        <Insets left="20.0" top="10.0" />
+                     </HBox.margin>
+                  </Text>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox prefHeight="40.0" prefWidth="600.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="RO Name :" textAlignment="RIGHT" wrappingWidth="200.0">
+                     <HBox.margin>
+                        <Insets top="10.0" />
+                     </HBox.margin>
+                  </Text>
+                  <Text fx:id="txt_ro" fill="#2196f3" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="600.0">
+                     <HBox.margin>
+                        <Insets left="20.0" top="10.0" />
+                     </HBox.margin>
+                  </Text>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox prefHeight="40.0" prefWidth="600.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Tex Amount :" textAlignment="RIGHT" wrappingWidth="200.0">
+                     <HBox.margin>
+                        <Insets top="10.0" />
+                     </HBox.margin>
+                  </Text>
+                  <Text fx:id="txt_amount" fill="#2196f3" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="600.0">
+                     <HBox.margin>
+                        <Insets left="20.0" top="10.0" />
+                     </HBox.margin>
+                  </Text>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox prefHeight="40.0" prefWidth="600.0">
+               <children>
+                  <Text fill="#795548" strokeType="OUTSIDE" strokeWidth="0.0" text="Assessment Data" textAlignment="CENTER" wrappingWidth="840.0">
+                     <HBox.margin>
+                        <Insets top="10.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Text>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox prefHeight="40.0" prefWidth="600.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Ward :" textAlignment="RIGHT" wrappingWidth="200.0">
+                     <HBox.margin>
+                        <Insets top="10.0" />
+                     </HBox.margin>
+                  </Text>
+                  <Text fx:id="txt_ward" fill="#795548" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="600.0">
+                     <HBox.margin>
+                        <Insets left="20.0" top="10.0" />
+                     </HBox.margin>
+                  </Text>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox prefHeight="40.0" prefWidth="600.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Street :" textAlignment="RIGHT" wrappingWidth="200.0">
+                     <HBox.margin>
+                        <Insets top="10.0" />
+                     </HBox.margin>
+                  </Text>
+                  <Text fx:id="txt_street" fill="#795548" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="600.0">
+                     <HBox.margin>
+                        <Insets left="20.0" top="10.0" />
+                     </HBox.margin>
+                  </Text>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox prefHeight="40.0" prefWidth="600.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Assessment No :" textAlignment="RIGHT" wrappingWidth="200.0">
+                     <HBox.margin>
+                        <Insets top="10.0" />
+                     </HBox.margin>
+                  </Text>
+                  <Text fx:id="txt_assessment" fill="#795548" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="600.0">
+                     <HBox.margin>
+                        <Insets left="20.0" top="10.0" />
+                     </HBox.margin>
+                  </Text>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox prefHeight="40.0" prefWidth="600.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Assessment Owner Name :" textAlignment="RIGHT" wrappingWidth="200.0">
+                     <HBox.margin>
+                        <Insets top="10.0" />
+                     </HBox.margin>
+                  </Text>
+                  <Text fx:id="txt_owner" fill="#795548" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="600.0">
+                     <HBox.margin>
+                        <Insets left="20.0" top="10.0" />
+                     </HBox.margin>
+                  </Text>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </VBox.margin>
+            </HBox>
+         </children>
+      </VBox>
+      <Text fx:id="txt_date" layoutX="931.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date :" textAlignment="RIGHT" wrappingWidth="155.9999989271164" />
+      <JFXTextArea fx:id="txt_comment" labelFloat="true" layoutX="935.0" layoutY="399.0" prefHeight="135.0" prefWidth="350.0" promptText="Comment" />
+      <JFXButton fx:id="btn_approve" layoutX="935.0" layoutY="555.0" onMouseClicked="#clickOnApprove" prefHeight="31.0" prefWidth="148.0" style="-fx-background-color: #4CAF50;" text="Approve" textFill="WHITE" />
+      <JFXButton fx:id="btn_no" layoutX="1138.0" layoutY="555.0" onMouseClicked="#clickOnNo" prefHeight="31.0" prefWidth="148.0" style="-fx-background-color: #FF5722;" text="No" textFill="WHITE" />
+      <TableView fx:id="tbl_list" layoutX="931.0" layoutY="73.0" onMouseClicked="#clickOnTable" prefHeight="135.0" prefWidth="350.0">
+        <columns>
+          <TableColumn fx:id="col_a" prefWidth="101.0" />
+          <TableColumn fx:id="col_b" prefWidth="235.0" />
+        </columns>
+      </TableView>
+      <JFXTextArea fx:id="txt_oldComment" editable="false" layoutX="931.0" layoutY="236.0" prefHeight="112.0" prefWidth="350.0" />
+   </children>
+</AnchorPane>

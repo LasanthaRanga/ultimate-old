@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.3.1.final using JasperReports Library version 6.3.1  -->
+<!-- 2019-06-18T12:45:08 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="srsub1" pageWidth="198" pageHeight="198" columnWidth="198" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="e9e7ef98-7037-4bc6-b5f2-b208e858dfc4">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Ultimate2.xml"/>
+	<property name="com.jaspersoft.studio.unit." value="cm"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="cm"/>
+	<parameter name="idRecipt" class="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+account_receipt_title.ART_vote_and_bal,
+sr_shop_payment_cross_tbl.sr_shop_payment2_amount,
+sr_print_vote_bill_name.sr_print_vote_name
+FROM
+sr_shop_payment_cross_tbl
+INNER JOIN account_receipt_title ON sr_shop_payment_cross_tbl.sr_shop_payment2_vote_id = account_receipt_title.idAccount_receipt_title
+INNER JOIN sr_shop ON sr_shop_payment_cross_tbl.sr_shop_payment2_shop_id = sr_shop.idsr_shop
+INNER JOIN sr_flow ON sr_shop.sr_flow_idsr_flow = sr_flow.idsr_flow
+INNER JOIN sr_building ON sr_flow.sr_building_idsr_building = sr_building.idsr_building
+INNER JOIN bank_info ON sr_shop_payment_cross_tbl.sr_shop_payment2_account_id = bank_info.idBank_Info
+INNER JOIN sr_shop_type ON sr_shop.sr_shop_type_idsr_shop_type = sr_shop_type.idsr_shop_type
+INNER JOIN receipt ON sr_shop_payment_cross_tbl.sr_shop_payment2_receipt_no = receipt.receipt_print_no
+INNER JOIN sr_shop_has_customer ON sr_shop_has_customer.sr_shop_has_customer_shop_id = sr_shop.idsr_shop
+INNER JOIN customer ON sr_shop_has_customer.sr_shop_has_customer_customer_id = customer.idCustomer
+LEFT JOIN sr_print_vote_bill_name ON sr_shop_payment_cross_tbl.sr_shop_payment2_vote_id = sr_print_vote_bill_name.sr_print_vote_name_id
+WHERE
+receipt.idReceipt =  $P{idRecipt} AND
+sr_shop_payment_cross_tbl.sr_shop_payment2_amount > 0 AND
+account_receipt_title.ART_vote_and_bal NOT IN ('Cash', 'Cheque') 
+
+ORDER BY
+sr_print_vote_bill_name.sr_print_vote_order ASC
+]]>
+	</queryString>
+	<field name="ART_vote_and_bal" class="java.lang.String"/>
+	<field name="sr_shop_payment2_amount" class="java.lang.Double"/>
+	<field name="sr_print_vote_name" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+			<textField>
+				<reportElement x="0" y="0" width="60" height="20" uuid="037d1225-5a38-4164-846b-0198598d329f"/>
+				<textFieldExpression><![CDATA[$F{sr_print_vote_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="60" y="0" width="70" height="20" uuid="f780242e-d069-4056-a592-53a8c311409b"/>
+				<textFieldExpression><![CDATA[$F{ART_vote_and_bal}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="130" y="0" width="68" height="20" uuid="8671e2e6-cdfd-4e92-8111-7c3ac85cbe44"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[String.format("%.2f",$F{sr_shop_payment2_amount})]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

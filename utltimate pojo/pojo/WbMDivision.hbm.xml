@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 6, 2019 4:30:22 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.WbMDivision" table="wb_m_division" catalog="ultimate2" optimistic-lock="version">
+        <id name="idivisionId" type="java.lang.Integer">
+            <column name="idivision_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="street" class="pojo.Street" fetch="select">
+            <column name="sub_road_id" not-null="true" />
+        </many-to-one>
+        <property name="divisonName" type="string">
+            <column name="divison_name" length="100" />
+        </property>
+    </class>
+</hibernate-mapping>

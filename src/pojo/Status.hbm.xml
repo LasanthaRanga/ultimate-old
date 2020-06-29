@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 6, 2019 4:30:22 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.Status" table="status" catalog="ultimate2" optimistic-lock="version">
+        <id name="idStatus" type="java.lang.Integer">
+            <column name="idSTATUS" />
+            <generator class="identity" />
+        </id>
+        <property name="statusName" type="string">
+            <column name="status_name" length="45" />
+        </property>
+        <property name="statusId" type="java.lang.Integer">
+            <column name="status_id" />
+        </property>
+    </class>
+</hibernate-mapping>

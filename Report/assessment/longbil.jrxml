@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.3.1.final using JasperReports Library version 6.3.1  -->
+<!-- 2019-02-25T13:27:52 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="longbil" pageWidth="345" pageHeight="581" columnWidth="305" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6ffcb6ef-7c34-4f80-be37-7b731ea8bc33">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="ultimate2_data_adapt.xml"/>
+	<property name="com.jaspersoft.studio.unit." value="cm"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<parameter name="pid" class="java.lang.String"/>
+	<parameter name="asno" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{asno}]]></defaultValueExpression>
+	</parameter>
+	<parameter name="day" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{day}]]></defaultValueExpression>
+	</parameter>
+	<parameter name="ricitno" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{ricitno}]]></defaultValueExpression>
+	</parameter>
+	<parameter name="cus_name" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{cus_name}]]></defaultValueExpression>
+	</parameter>
+	<parameter name="arrias" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{arrias}]]></defaultValueExpression>
+	</parameter>
+	<parameter name="warant" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{warant}]]></defaultValueExpression>
+	</parameter>
+	<parameter name="qptot" class="java.lang.String">
+		<parameterDescription><![CDATA[]]></parameterDescription>
+		<defaultValueExpression><![CDATA[$P{qptot}]]></defaultValueExpression>
+	</parameter>
+	<parameter name="cd" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{cd}]]></defaultValueExpression>
+	</parameter>
+	<parameter name="overnext" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{overnext}]]></defaultValueExpression>
+	</parameter>
+	<parameter name="fullpay" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{fullpay}]]></defaultValueExpression>
+	</parameter>
+	<parameter name="discount" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{discount}]]></defaultValueExpression>
+	</parameter>
+	<parameter name="chequeno" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{chequeno}]]></defaultValueExpression>
+	</parameter>
+	<parameter name="des" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{des}]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+ass_payment.idass_Payment,
+ass_payment.ass_Payment_Q_Number,
+ass_payment.ass_Payment_ThisYear,
+ass_payment.ass_Payment_date,
+ass_payment.ass_Payment_LY_Arrears,
+ass_payment.ass_Payment_LY_Warrant,
+ass_payment.ass_Payment_fullTotal,
+ass_payment.ass_Payment_idUser,
+ass_payment.Assessment_idAssessment,
+ass_payment.Receipt_idReceipt,
+ass_payment.ass_nature_idass_nature,
+ass_payment.ass_allocation_idass_allocation,
+ass_payment.ass_Payment_goto_debit,
+ass_payment.ass_Payment_Status,
+ass_payment.ass_cash,
+ass_payment.ass_check,
+ass_payment.ass_check_no,
+ass_payment.ass_bank,
+ass_payment.pay_user_id,
+ass_payment.cd_balance
+FROM
+ass_payment
+WHERE
+ass_payment.idass_Payment = $P{pid} ]]>
+	</queryString>
+	<field name="idass_Payment" class="java.lang.Integer"/>
+	<field name="ass_Payment_Q_Number" class="java.lang.Integer"/>
+	<field name="ass_Payment_ThisYear" class="java.lang.Integer"/>
+	<field name="ass_Payment_date" class="java.sql.Date"/>
+	<field name="ass_Payment_LY_Arrears" class="java.lang.Double"/>
+	<field name="ass_Payment_LY_Warrant" class="java.lang.Double"/>
+	<field name="ass_Payment_fullTotal" class="java.lang.Double"/>
+	<field name="ass_Payment_idUser" class="java.lang.Integer"/>
+	<field name="Assessment_idAssessment" class="java.lang.Integer"/>
+	<field name="Receipt_idReceipt" class="java.lang.Integer"/>
+	<field name="ass_nature_idass_nature" class="java.lang.Integer"/>
+	<field name="ass_allocation_idass_allocation" class="java.lang.Integer"/>
+	<field name="ass_Payment_goto_debit" class="java.lang.Double"/>
+	<field name="ass_Payment_Status" class="java.lang.Integer"/>
+	<field name="ass_cash" class="java.lang.Double"/>
+	<field name="ass_check" class="java.lang.Double"/>
+	<field name="ass_check_no" class="java.lang.String"/>
+	<field name="ass_bank" class="java.lang.Integer"/>
+	<field name="pay_user_id" class="java.lang.Integer"/>
+	<field name="cd_balance" class="java.lang.Double"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="391" splitType="Stretch">
+			<textField>
+				<reportElement x="50" y="83" width="250" height="19" uuid="ccb205ef-6edb-4fe6-9e20-cc34b0fff140"/>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{asno}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="50" y="61" width="250" height="20" uuid="2aaa664b-4edc-4fa4-bc3d-cba34557ec95"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{day}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="50" y="39" width="250" height="20" uuid="b5443f8d-168f-4773-b2a3-3098ef64022d"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{ricitno}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="117" width="300" height="20" uuid="aac2fc73-4cf4-4fb6-8226-c9ac60370937"/>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{cus_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="62" y="148" width="110" height="20" uuid="b55ff8d3-eabb-4fa2-aa1e-27bb4d931dc2"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$P{arrias}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="62" y="170" width="110" height="20" uuid="bfec6537-e5ac-4586-8fea-fdcc976b0f1d"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$P{warant}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="62" y="192" width="110" height="20" uuid="aca7f4ad-5012-4986-9b9f-0bfd304468e1"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$P{qptot}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="62" y="214" width="110" height="20" uuid="75303440-3b30-46db-abb0-9d81e5eb2f09"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$P{cd}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="62" y="236" width="110" height="20" uuid="baa4332f-df69-435e-912e-3825d5903085"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$P{overnext}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="62" y="258" width="110" height="20" uuid="4c1db4a2-5f5d-425b-977a-56df2f0833da"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$P{fullpay}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="62" y="280" width="110" height="20" uuid="30531074-385f-4eab-854e-e0eb1641d48e"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$P{discount}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="62" y="329" width="180" height="20" uuid="bfa8f8ce-81a4-49ba-b4b5-908a644b69ab"/>
+				<textElement textAlignment="Left">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{chequeno}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="62" y="354" width="180" height="20" uuid="e8ab0e37-d044-46c4-bc80-68de7714bcf2"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{day}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="62" y="305" width="180" height="20" uuid="a187f2ea-aa41-4c9f-b05f-7552fc34457d"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{des}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<detail>
+		<band splitType="Stretch"/>
+	</detail>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

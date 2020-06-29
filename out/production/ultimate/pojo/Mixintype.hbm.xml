@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 6, 2019 4:30:22 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.Mixintype" table="mixintype" catalog="ultimate2" optimistic-lock="version">
+        <id name="idMixintype" type="java.lang.Integer">
+            <column name="idMixintype" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="accountReceiptTitle" class="pojo.AccountReceiptTitle" fetch="select">
+            <column name="account_receipt_title_idAccount_receipt_title" />
+        </many-to-one>
+        <property name="mixintypeName" type="string">
+            <column name="mixintype_name" />
+        </property>
+        <property name="mixintypeStatus" type="java.lang.Integer">
+            <column name="mixintype_status" />
+        </property>
+        <property name="bankinfoIdBank" type="java.lang.Integer">
+            <column name="bankinfo_idBank" />
+        </property>
+        <property name="activeStatus" type="java.lang.Integer">
+            <column name="active_status" />
+        </property>
+        <property name="officeId" type="java.lang.Integer">
+            <column name="office_id" />
+        </property>
+        <property name="extraInt" type="java.lang.Integer">
+            <column name="extra_int" />
+        </property>
+        <property name="extraString" type="string">
+            <column name="extra_string" />
+        </property>
+        <set name="mixdatas" table="mixdata" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="mixintype_idMixintype" />
+            </key>
+            <one-to-many class="pojo.Mixdata" />
+        </set>
+    </class>
+</hibernate-mapping>

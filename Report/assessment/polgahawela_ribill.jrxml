@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.3.1.final using JasperReports Library version 6.3.1  -->
+<!-- 2019-08-21T12:59:59 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ribill" pageWidth="540" pageHeight="432" columnWidth="468" leftMargin="36" rightMargin="36" topMargin="0" bottomMargin="0" uuid="9f85f486-1c31-4d64-bab3-037559336bd5">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Ultimate2.xml"/>
+	<property name="com.jaspersoft.studio.unit." value="inch"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<parameter name="idRibill" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{idRibill}]]></defaultValueExpression>
+	</parameter>
+	<parameter name="billnos" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{billnos}]]></defaultValueExpression>
+	</parameter>
+	<parameter name="chequeno" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{chequeno}]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+ribill.idRibill,
+ribill.billdate,
+ribill.billtotal,
+ribill.userid,
+ribill.ribill_status,
+ribill.bill_no,
+`user`.user_full_name
+FROM
+ribill
+INNER JOIN `user` ON ribill.userid = `user`.idUser
+WHERE
+ribill.idRibill =  $P{idRibill}]]>
+	</queryString>
+	<field name="idRibill" class="java.lang.Integer"/>
+	<field name="billdate" class="java.sql.Date"/>
+	<field name="billtotal" class="java.lang.Double"/>
+	<field name="userid" class="java.lang.Integer"/>
+	<field name="ribill_status" class="java.lang.Integer"/>
+	<field name="bill_no" class="java.lang.String"/>
+	<field name="user_full_name" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="431" splitType="Stretch">
+			<textField>
+				<reportElement x="56" y="59" width="170" height="20" uuid="790ed1b5-6c53-4d67-89c7-307f4a0c36c0"/>
+				<textFieldExpression><![CDATA[$F{bill_no}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="326" y="59" width="88" height="20" uuid="d2ddda04-f115-46ff-8959-d919f0299f09"/>
+				<textFieldExpression><![CDATA[new SimpleDateFormat("yyyy-MM-dd").format($F{billdate})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="56" y="79" width="356" height="20" uuid="ab6488ec-e07f-43b3-b159-fe258ad05daf"/>
+				<textFieldExpression><![CDATA[$F{user_full_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="-11" y="140" width="280" height="170" uuid="5498ac53-1de5-4acd-858e-8a80ec527cb5"/>
+				<textFieldExpression><![CDATA[$P{billnos}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="50" y="330" width="160" height="20" uuid="743fc915-9418-467b-aab0-e989e5003e9b"/>
+				<textFieldExpression><![CDATA[$P{chequeno}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="269" y="310" width="100" height="20" uuid="6118a8fc-a522-425d-8a75-4d81ab7e53ed"/>
+				<textFieldExpression><![CDATA[String.format("%.2f", $F{billtotal})]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+</jasperReport>

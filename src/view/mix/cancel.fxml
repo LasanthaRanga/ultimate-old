@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="625.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.mix.Cancel">
+   <children>
+      <JFXTextField fx:id="txt_riciptid" layoutX="119.0" layoutY="131.0" onKeyReleased="#riciptIdKeyRelesec" promptText="Ricipt ID">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </JFXTextField>
+      <JFXButton fx:id="btn_reprint" layoutX="566.0" layoutY="129.0" onMouseClicked="#clickOnReprint" prefHeight="31.0" prefWidth="103.0" style="-fx-background-color: #2196F3;" text="Reprint" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="btn_cancel" layoutX="374.0" layoutY="129.0" onMouseClicked="#clickOnCancel" prefHeight="39.0" prefWidth="115.0" style="-fx-background-color: #FF5722;" text="Cancel" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </JFXButton>
+      <TableView fx:id="tbl_mix" layoutX="115.0" layoutY="193.0" onMouseClicked="#selectFromTable" prefHeight="334.0" prefWidth="1077.0">
+        <columns>
+          <TableColumn fx:id="col_id" prefWidth="142.0" text="Ricipt ID" />
+          <TableColumn fx:id="col_no" prefWidth="182.0" text="Recipt No" />
+            <TableColumn fx:id="col_customer" prefWidth="483.0" text="Customer" />
+            <TableColumn fx:id="col_total" prefWidth="250.0" text="Total" />
+        </columns>
+      </TableView>
+      <JFXDatePicker fx:id="dp_day" layoutX="115.0" layoutY="41.0" onAction="#dpOnAction" promptText="Day" />
+      <JFXComboBox fx:id="com_user" labelFloat="true" layoutX="795.0" layoutY="41.0" onAction="#com_onAction" prefHeight="31.0" prefWidth="295.0" promptText="User" />
+      <Text fx:id="txt_total" layoutX="932.0" layoutY="584.0" strokeType="OUTSIDE" strokeWidth="0.0" text="00" textAlignment="RIGHT" wrappingWidth="259.6708984375" />
+      <Text fx:id="txt_count" layoutX="115.0" layoutY="568.0" strokeType="OUTSIDE" strokeWidth="0.0" text="00" wrappingWidth="141.171875" />
+      <JFXComboBox fx:id="com_application" labelFloat="true" layoutX="374.0" layoutY="41.0" onAction="#applicationChange" prefHeight="31.0" prefWidth="295.0" promptText="Application" />
+   </children>
+</AnchorPane>

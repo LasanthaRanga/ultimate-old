@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 9, 2019 3:22:31 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.AllDataSheet" table="all_data_sheet" catalog="pannala" optimistic-lock="version">
+        <id name="idAssessment" type="int">
+            <column name="idAssessment" />
+            <generator class="assigned" />
+        </id>
+        <property name="allocation" type="java.lang.Double">
+            <column name="Allocation" precision="22" scale="0" />
+        </property>
+        <property name="quarterValue" type="java.lang.Double">
+            <column name="quarter_value" precision="22" scale="0" />
+        </property>
+        <property name="balance1231" type="java.lang.Double">
+            <column name="balance1231" precision="22" scale="0" />
+        </property>
+        <property name="balance0331" type="java.lang.Double">
+            <column name="balance0331" precision="22" scale="0" />
+        </property>
+        <property name="balance0631" type="java.lang.Double">
+            <column name="balance0631" precision="22" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

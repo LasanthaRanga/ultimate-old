@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 6, 2019 4:30:22 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.DocHandApprove" table="doc_hand_approve" catalog="ultimate2" optimistic-lock="version">
+        <id name="approveDocHandId" type="java.lang.Integer">
+            <column name="approve_doc_hand_id" />
+            <generator class="identity" />
+        </id>
+        <property name="applicationDocHandCategoryId" type="java.lang.Integer">
+            <column name="application_doc_hand_category_id">
+                <comment>Application ID</comment>
+            </column>
+        </property>
+        <property name="docHandSubjectId" type="java.lang.Integer">
+            <column name="doc_hand_subject_id">
+                <comment>application_id(Street line id)</comment>
+            </column>
+        </property>
+        <property name="docHandSendUserCategory" type="java.lang.Integer">
+            <column name="doc_hand_send_user_category" />
+        </property>
+        <property name="docHandSendDate" type="date">
+            <column name="doc_hand_send_date" length="10" />
+        </property>
+        <property name="docHandSendTime" type="time">
+            <column name="doc_hand_send_time" length="8" />
+        </property>
+        <property name="docHandReceviedUserCategory" type="java.lang.Integer">
+            <column name="doc_hand_recevied_user_category" />
+        </property>
+        <property name="docHandCompleteStatus" type="java.lang.Integer">
+            <column name="doc_hand_complete_status" />
+        </property>
+        <property name="docHandCompleteDate" type="date">
+            <column name="doc_hand_complete_date" length="10" />
+        </property>
+        <property name="docHandCompleteTime" type="time">
+            <column name="doc_hand_complete_time" length="8" />
+        </property>
+        <property name="docHandSendUserId" type="java.lang.Integer">
+            <column name="doc_hand_send_user_id" />
+        </property>
+        <property name="docHandReceviedUserId" type="java.lang.Integer">
+            <column name="doc_hand_recevied_user_id" />
+        </property>
+        <property name="docHandAcceptOrReject" type="java.lang.Integer">
+            <column name="doc_hand_accept_or_reject" />
+        </property>
+        <property name="isAssign" type="java.lang.Integer">
+            <column name="is_assign" />
+        </property>
+        <property name="engineerUserId" type="java.lang.Integer">
+            <column name="engineer_user_id" />
+        </property>
+        <property name="engineerApproveDate" type="date">
+            <column name="engineer_approve_date" length="10" />
+        </property>
+        <property name="engineerApproveTime" type="time">
+            <column name="engineer_approve_time" length="8" />
+        </property>
+    </class>
+</hibernate-mapping>

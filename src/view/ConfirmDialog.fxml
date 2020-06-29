@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="247.0" prefWidth="611.0" style="-fx-background-color: rgba(255, 255, 255, 0.0);" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.111" fx:controller="controller.ConfirmDialogController">
+   <children>
+      <AnchorPane layoutX="16.0" layoutY="17.0" prefHeight="216.0" prefWidth="579.0" style="-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 10, 0.7, 0.0, 0.0); -fx-background-color: rgba(33,150,243,0.5);">
+         <children>
+            <Label fx:id="txt_title" alignment="CENTER" layoutX="14.0" layoutY="14.0" prefHeight="35.0" prefWidth="550.0" style="-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 10, 0.2, 0.0, 0.0);" text="Label" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="txt_discription" alignment="CENTER" layoutX="14.0" layoutY="56.0" prefHeight="104.0" prefWidth="550.0" text="Label" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <JFXButton fx:id="btn_yes" buttonType="RAISED" layoutX="72.0" layoutY="172.0" onMouseClicked="#clickYes" prefHeight="25.0" prefWidth="152.0" style="-fx-background-color: #4CAF50;" text="Yes" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="btn_no" buttonType="RAISED" layoutX="356.0" layoutY="172.0" onMouseClicked="#clickNo" prefHeight="25.0" prefWidth="152.0" style="-fx-background-color: #FF5722;" text="No" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

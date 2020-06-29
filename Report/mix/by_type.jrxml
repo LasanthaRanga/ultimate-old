@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.3.1.final using JasperReports Library version 6.3.1  -->
+<!-- 2019-08-17T22:08:08 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="by_type" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a70295d9-c157-46b8-a724-aa96e0fc7e8c">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Ultimate2.xml"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<parameter name="from" class="java.lang.String"/>
+	<parameter name="to" class="java.lang.String"/>
+	<parameter name="type" class="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+receipt.idReceipt,
+receipt.receipt_print_no,
+receipt.receipt_day,
+mixintype.mixintype_name,
+mixdata.md_description,
+mixdata.md_amount,
+mixdata.md_vat,
+mixdata.md_nbt,
+mixdata.md_stamp,
+mixdata.md_total,
+mixincome.mixincome_status,
+receipt.receipt_status,
+receipt.office_idOffice,
+bank_info.acount_no,
+bank_info.bank_name
+FROM
+mixintype
+INNER JOIN mixdata ON mixdata.mixintype_idMixintype = mixintype.idMixintype
+INNER JOIN mixincome ON mixdata.mixincome_IdMixincome = mixincome.idMixincome
+INNER JOIN receipt ON receipt.recept_applicationId = mixincome.idMixincome
+INNER JOIN bank_info ON mixintype.bankinfo_idBank = bank_info.idBank_Info
+WHERE
+receipt.Application_Catagory_idApplication_Catagory = 9 AND
+receipt.receipt_day BETWEEN  $P{from}   AND   $P{to}  AND
+mixintype.mixintype_name =  $P{type} AND receipt_status = 1]]>
+	</queryString>
+	<field name="idReceipt" class="java.lang.Integer"/>
+	<field name="receipt_print_no" class="java.lang.String"/>
+	<field name="receipt_day" class="java.sql.Date"/>
+	<field name="mixintype_name" class="java.lang.String"/>
+	<field name="md_description" class="java.lang.String"/>
+	<field name="md_amount" class="java.lang.Double"/>
+	<field name="md_vat" class="java.lang.Double"/>
+	<field name="md_nbt" class="java.lang.Double"/>
+	<field name="md_stamp" class="java.lang.Double"/>
+	<field name="md_total" class="java.lang.Double"/>
+	<field name="mixincome_status" class="java.lang.Integer"/>
+	<field name="receipt_status" class="java.lang.Integer"/>
+	<field name="office_idOffice" class="java.lang.Integer"/>
+	<field name="acount_no" class="java.lang.String"/>
+	<field name="bank_name" class="java.lang.String"/>
+	<variable name="ftot" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{md_total}]]></variableExpression>
+		<initialValueExpression><![CDATA[$F{md_total}]]></initialValueExpression>
+	</variable>
+	<variable name="stamp" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{md_stamp}]]></variableExpression>
+		<initialValueExpression><![CDATA[$F{md_stamp}]]></initialValueExpression>
+	</variable>
+	<variable name="nbt" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{md_nbt}]]></variableExpression>
+		<initialValueExpression><![CDATA[$F{md_nbt}]]></initialValueExpression>
+	</variable>
+	<variable name="vat" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{md_vat}]]></variableExpression>
+		<initialValueExpression><![CDATA[$F{md_vat}]]></initialValueExpression>
+	</variable>
+	<variable name="amount" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{md_amount}]]></variableExpression>
+		<initialValueExpression><![CDATA[$F{md_amount}]]></initialValueExpression>
+	</variable>
+	<variable name="account" class="java.lang.String">
+		<variableExpression><![CDATA[$F{bank_name} +" - "+ $F{acount_no}]]></variableExpression>
+		<initialValueExpression><![CDATA[$F{bank_name} +" - "+ $F{acount_no}]]></initialValueExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="70" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+			<staticText>
+				<reportElement x="164" y="0" width="231" height="20" uuid="4ddb5ee9-b98c-4ae0-b021-b940446976c7"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Mix Income By Type]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="369" y="40" width="151" height="20" uuid="82cf7811-2935-4471-a38a-c07f4fb9145c"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$V{account}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="40" y="20" width="480" height="20" uuid="af02083a-74b8-4175-9989-c92bab9f9bdf"/>
+				<textElement textAlignment="Center">
+					<font fontName="Iskoola Pota"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{mixintype_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="40" y="40" width="80" height="20" uuid="e9bedc28-2ac2-4ea4-adf3-a696bf0f9ac7"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$P{from}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="140" y="40" width="80" height="20" uuid="826a8838-4f4e-4622-97e5-700a5d63275c"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$P{to}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="17" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+			<staticText>
+				<reportElement x="80" y="0" width="100" height="15" uuid="4fcb90b9-a5f7-46b3-9534-be9c0c265e2f">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<text><![CDATA[Receipt NO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="0" width="80" height="15" uuid="ebdeb9e7-412c-4533-9000-e40ca33bae7c"/>
+				<text><![CDATA[Day]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="190" y="0" width="70" height="15" uuid="f8425fed-9a7d-4729-869a-53f37f654fe3">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Amount]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="260" y="0" width="70" height="15" uuid="54031a86-f473-4497-aaae-a3d583f7e424"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[VAT]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="330" y="0" width="70" height="15" uuid="b4143979-822d-4a11-b8d7-50cb7af76667"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[NBT]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="400" y="0" width="70" height="15" uuid="853bbe7c-927a-46e9-a3e3-f009439904d0"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[STAMP]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="480" y="0" width="70" height="15" uuid="f6ac2e6b-fcb9-4904-aaa4-f19dda1eb2d1"/>
+				<textElement textAlignment="Right">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="22" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+			<textField>
+				<reportElement x="80" y="0" width="100" height="20" uuid="9abeed53-d727-4a76-a8fc-d48d06f0ad09">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{receipt_print_no}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="0" width="60" height="20" uuid="6f069d8d-dce9-4010-a5be-98a4fd0e8ab6">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[new SimpleDateFormat("dd/MM/yyyy").format($F{receipt_day})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="190" y="0" width="70" height="20" uuid="3a667ddf-85b3-4964-9abc-230f56f6d628"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[String.format("%.2f", (double)$F{md_amount})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="260" y="0" width="70" height="20" uuid="4cc3d219-bcf0-4ec0-92b1-8ee4600a8cf3"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[String.format("%.2f", (double)$F{md_vat})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="330" y="0" width="70" height="20" uuid="3b9afdcc-c026-41e7-8a7b-6c3daec7248c"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[String.format("%.2f", (double)$F{md_nbt})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="400" y="0" width="70" height="20" uuid="061b62c5-cc21-4118-8529-1b2fe93bd285"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[String.format("%.2f", (double)$F{md_stamp})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="480" y="0" width="70" height="20" uuid="9c586a6b-ce6e-4349-9544-2dbcc5fb1749"/>
+				<textElement textAlignment="Right">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[String.format("%.2f", (double)$F{md_total})]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="22" splitType="Stretch">
+			<textField>
+				<reportElement x="230" y="3" width="100" height="18" uuid="9be8c124-43b7-4995-8385-d012aee825f1"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="40" splitType="Stretch">
+			<textField>
+				<reportElement x="470" y="3" width="80" height="30" uuid="0bcbd2af-c22f-477b-9837-9d920f95ff7b">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[String.format("%.2f", (double)$V{ftot})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="400" y="3" width="70" height="30" uuid="ab62c472-1755-4ac4-bc10-afc8784ad949"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[String.format("%.2f", (double)$V{stamp})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="330" y="3" width="70" height="30" uuid="683a3283-5260-47ec-bb92-a295435dac6e"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[String.format("%.2f", (double)$V{nbt})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="260" y="3" width="70" height="30" uuid="491a3c7e-ee4b-4fb2-ada8-bb6657de678b"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[String.format("%.2f", (double)$V{vat})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="190" y="3" width="70" height="30" uuid="0fc5f3e3-1308-427d-9254-96e0383c8683"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[String.format("%.2f", (double)$V{amount})]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="2" width="550" height="1" uuid="ebe91967-1966-42ab-a669-413698988e66"/>
+			</line>
+			<line>
+				<reportElement x="0" y="33" width="550" height="1" uuid="1d57ee02-189a-4d4d-8ce9-067176d1a5eb"/>
+			</line>
+			<line>
+				<reportElement x="0" y="35" width="550" height="1" uuid="a56d187c-905b-41c1-b40e-1f6a0e80dbee"/>
+			</line>
+		</band>
+	</summary>
+</jasperReport>

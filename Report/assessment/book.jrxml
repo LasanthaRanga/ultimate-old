@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.2.0.final using JasperReports Library version 6.2.0  -->
+<!-- 2018-11-12T14:38:50 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="book" pageWidth="1700" pageHeight="850" orientation="Landscape" columnWidth="1502" leftMargin="99" rightMargin="99" topMargin="56" bottomMargin="42" uuid="1e361707-6269-4cf6-8fac-00d07f51f65a">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="cm"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Ultimate2"/>
+	<parameter name="year" class="java.lang.String">
+		<parameterDescription><![CDATA[]]></parameterDescription>
+		<defaultValueExpression><![CDATA[$P{year}]]></defaultValueExpression>
+	</parameter>
+	<parameter name="assList" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{assList}]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+ward.ward_name,
+street.street_name,
+assessment.idAssessment,
+assessment.assessment_oder,
+assessment.assessment_no,
+assessment.assessment_status,
+assessment.assessment_syn,
+assessment.assessment_comment,
+assessment.assessment_obsolete,
+ass_allocation.ass_allocation,
+ass_nature.ass_nature_year_rate,
+ass_nature.ass_nature_name,
+customer.idCustomer,
+customer.cus_nic,
+ass_discription.ass_discription,
+ward.idWard,
+assessment.User_idUser,
+if (CAST(GROUP_CONCAT(sub2.ass_subOwner_name SEPARATOR ' , ')AS CHAR ) is NULL,customer.cus_name, CONCAT(customer.cus_name," , ",CAST(GROUP_CONCAT(sub2.ass_subOwner_name SEPARATOR ' , ')AS CHAR ),'')) AS cus_name,
+sub2.ass_subOwner_name
+FROM
+ward
+LEFT JOIN street ON street.Ward_idWard = ward.idWard
+LEFT JOIN assessment ON assessment.Street_idStreet = street.idStreet AND assessment.Ward_idWard = ward.idWard
+INNER JOIN ass_allocation ON ass_allocation.Assessment_idAssessment = assessment.idAssessment
+INNER JOIN ass_nature ON assessment.ass_nature_idass_nature = ass_nature.idass_nature
+LEFT JOIN customer ON assessment.Customer_idCustomer = customer.idCustomer
+INNER JOIN ass_discription ON assessment.ass_discription_idass_discription = ass_discription.idass_discription
+LEFT JOIN sub2 ON assessment.idAssessment = sub2.Assessment_idAssessment
+WHERE
+assessment.idAssessment IN ( $P!{assList} ) AND ass_allocation.ass_allocation_status = 1 AND assessment.assessment_syn = 0
+GROUP BY
+assessment.idAssessment
+ORDER BY
+assessment.assessment_oder ASC]]>
+	</queryString>
+	<field name="ward_name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="street_name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="idAssessment" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="assessment_oder" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="assessment_no" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="assessment_status" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="assessment_syn" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="assessment_comment" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="assessment_obsolete" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ass_allocation" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ass_nature_year_rate" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ass_nature_name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="idCustomer" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cus_nic" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ass_discription" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="idWard" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="User_idUser" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cus_name" class="java.lang.String"/>
+	<field name="ass_subOwner_name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<variable name="obsalut" class="java.lang.String">
+		<variableExpression><![CDATA[$F{assessment_obsolete}!=null?$F{assessment_obsolete}:""]]></variableExpression>
+	</variable>
+	<variable name="allocation" class="java.lang.String">
+		<variableExpression><![CDATA[String.format("%.2f", (double)$F{ass_allocation})]]></variableExpression>
+	</variable>
+	<variable name="quater" class="java.lang.String">
+		<variableExpression><![CDATA[String.format("%.2f", (double)$F{ass_allocation}*$F{ass_nature_year_rate}/100/4)]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="71" splitType="Stretch">
+			<textField>
+				<reportElement x="90" y="20" width="510" height="19" uuid="99b24f02-4065-44b3-bcc2-74d92fb7ec19"/>
+				<textFieldExpression><![CDATA[$F{street_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="682" y="22" width="145" height="16" uuid="a3f50548-c9be-4eb9-8602-b987a27ebc85"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{ward_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1380" y="21" width="120" height="16" uuid="43fc10e0-2e15-4959-b3be-f02981d37b7d"/>
+				<textFieldExpression><![CDATA[$P{year}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="140" splitType="Stretch">
+			<textField>
+				<reportElement x="190" y="0" width="100" height="140" uuid="947b3de1-b85e-467d-a51b-f52171fc2183"/>
+				<textFieldExpression><![CDATA[$F{assessment_no}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="90" y="0" width="100" height="140" uuid="329186e7-eb7c-49a4-a50b-fcfbf0bf3303"/>
+				<textFieldExpression><![CDATA[$V{obsalut}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="300" y="0" width="220" height="140" uuid="6c39df86-d3b5-4df6-b7c6-7de195533c2f"/>
+				<textFieldExpression><![CDATA[$F{cus_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="550" y="0" width="290" height="140" uuid="d2d254ef-f5b0-4467-98b2-4df1aade95fa"/>
+				<textFieldExpression><![CDATA[$F{ass_discription}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" x="850" y="10" width="100" height="30" uuid="c12d8985-9745-48e7-b00e-7cf45a5174ca"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{allocation}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1090" y="10" width="100" height="30" uuid="7f692282-7407-4c38-ad8e-f210b718a50d"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{quater}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

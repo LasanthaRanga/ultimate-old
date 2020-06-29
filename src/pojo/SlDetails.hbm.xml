@@ -1,0 +1,141 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 6, 2019 4:30:22 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.SlDetails" table="sl_details" catalog="ultimate2" optimistic-lock="version">
+        <id name="idStreetLine" type="int">
+            <column name="idStreetLine" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="customer" class="pojo.Customer" fetch="select">
+            <column name="customer_idCustomer" not-null="true" />
+        </many-to-one>
+        <many-to-one name="office" class="pojo.Office" fetch="select">
+            <column name="office_idOffice" not-null="true" />
+        </many-to-one>
+        <property name="applicationCateg" type="java.lang.Integer">
+            <column name="application_categ" />
+        </property>
+        <property name="assId" type="string">
+            <column name="ass_id" length="11" />
+        </property>
+        <property name="slDate" type="date">
+            <column name="slDate" length="10" />
+        </property>
+        <property name="sllotNo" type="string">
+            <column name="sllotNo" length="45" />
+        </property>
+        <property name="slPlanNo" type="string">
+            <column name="slPlanNo" length="200" />
+        </property>
+        <property name="slDescription" type="string">
+            <column name="slDescription" length="65535" />
+        </property>
+        <property name="slDeposit" type="java.lang.Double">
+            <column name="slDeposit" precision="22" scale="0" />
+        </property>
+        <property name="slAmount" type="java.lang.Double">
+            <column name="slAmount" precision="22" scale="0" />
+        </property>
+        <property name="slVat" type="java.lang.Double">
+            <column name="slVat" precision="22" scale="0" />
+        </property>
+        <property name="slNbt" type="java.lang.Double">
+            <column name="slNbt" precision="22" scale="0" />
+        </property>
+        <property name="slStamp" type="java.lang.Double">
+            <column name="slStamp" precision="22" scale="0" />
+        </property>
+        <property name="slOther1" type="java.lang.Double">
+            <column name="slOther1" precision="22" scale="0" />
+        </property>
+        <property name="slOther2" type="java.lang.Double">
+            <column name="slOther2" precision="22" scale="0" />
+        </property>
+        <property name="slApproveToPay" type="java.lang.Integer">
+            <column name="slApproveToPay" />
+        </property>
+        <property name="slServayOfficer" type="string">
+            <column name="slServayOfficer" />
+        </property>
+        <property name="slServayDate" type="date">
+            <column name="slServayDate" length="10" />
+        </property>
+        <property name="slPersonTitle" type="java.lang.Integer">
+            <column name="slPersonTitle" />
+        </property>
+        <property name="slYesNoId" type="java.lang.Integer">
+            <column name="slYesNo_id" />
+        </property>
+        <property name="slYesNoId2" type="java.lang.Integer">
+            <column name="slYesNo_id2" />
+        </property>
+        <property name="slYesNoId3" type="java.lang.Integer">
+            <column name="slYesNo_id3" />
+        </property>
+        <property name="slYesNoId4" type="java.lang.Integer">
+            <column name="slYesNo_id4" />
+        </property>
+        <property name="slYesNoId5" type="java.lang.Integer">
+            <column name="slYesNo_id5" />
+        </property>
+        <property name="slYesNoId6" type="java.lang.Integer">
+            <column name="slYesNo_id6" />
+        </property>
+        <property name="slStatus" type="java.lang.Integer">
+            <column name="slStatus" />
+        </property>
+        <property name="slReferenceNo" type="string">
+            <column name="sl_reference_no" length="20" />
+        </property>
+        <property name="slApproveDescription" type="string">
+            <column name="slApproveDescription" length="65535" />
+        </property>
+        <property name="slLandName" type="string">
+            <column name="slLandName" />
+        </property>
+        <property name="slNotatyOfficer" type="string">
+            <column name="slNotatyOfficer" />
+        </property>
+        <property name="slNotaryDate" type="date">
+            <column name="slNotaryDate" length="10" />
+        </property>
+        <property name="slDeedNo" type="string">
+            <column name="slDeedNo" />
+        </property>
+        <property name="slApplicantName" type="string">
+            <column name="slApplicantName" />
+        </property>
+        <property name="slGnId" type="java.lang.Integer">
+            <column name="slGnId" />
+        </property>
+        <property name="slPurpose" type="string">
+            <column name="slPurpose" />
+        </property>
+        <property name="slBnkorPlce" type="string">
+            <column name="slBnkorPlce" />
+        </property>
+        <property name="slPlceAddress" type="string">
+            <column name="slPlceAddress" />
+        </property>
+        <property name="slloanAmnt" type="string">
+            <column name="slloanAmnt" length="11" />
+        </property>
+        <property name="slLandSize" type="string">
+            <column name="slLandSize" />
+        </property>
+        <property name="slvillageName" type="string">
+            <column name="slvillageName" />
+        </property>
+        <property name="engineerApprove" type="string">
+            <column name="engineer_approve" />
+        </property>
+        <set name="slDistances" table="sl_distance" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="StreetLine_idStreetLine" not-null="true" />
+            </key>
+            <one-to-many class="pojo.SlDistance" />
+        </set>
+    </class>
+</hibernate-mapping>

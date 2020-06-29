@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.3.1.final using JasperReports Library version 6.3.1  -->
+<!-- 2019-03-18T11:26:29 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="pendinglist" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="55fdbcdf-d8a0-495f-af8e-8afa4052a053">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Ultimate2.xml"/>
+	<parameter name="idApCat" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{idApCat}]]></defaultValueExpression>
+	</parameter>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+	`application`.`idApplication` AS `idApplication`,
+	`application`.`application_no` AS `application_no`,
+	`application`.`application_date` AS `application_date`,
+	`application`.`trade_name` AS `trade_name`,
+	`application`.`cus_name` AS `cus_name`,
+	`application`.`cus_nic` AS `cus_nic`,
+	`assessment`.`assessment_no` AS `assessment_no`,
+	`street`.`street_name` AS `street_name`,
+	`ward`.`ward_no` AS `ward_no`,
+	`application`.`approveTo_Paymant` AS `approveTo_Paymant`,
+	`sr_flow`.`sr_flow_name` AS `sr_flow_name`,
+	`sr_building`.`sr_building_name` AS `sr_building_name`,
+	`sr_shop`.`sr_shop_no` AS `sr_shop_no`,
+	`apprualstatues`.`idOtheritisCat` AS `idOtheritisCat`,
+	`approval_cat`.`approval_name` AS `approval_name`
+FROM
+	(
+		(
+			(
+				(
+					(
+						(
+							(
+								(
+									`application`
+									JOIN `apprualstatues` ON (
+										(
+											`apprualstatues`.`Application_idApplication` = `application`.`idApplication`
+										)
+									)
+								)
+								LEFT JOIN `assessment` ON (
+									(
+										`application`.`Assessment_idAssessment` = `assessment`.`idAssessment`
+									)
+								)
+							)
+							JOIN `street` ON (
+								(
+									`assessment`.`Street_idStreet` = `street`.`idStreet`
+								)
+							)
+						)
+						JOIN `ward` ON (
+							(
+								(
+									`assessment`.`Ward_idWard` = `ward`.`idWard`
+								)
+								AND (
+									`street`.`Ward_idWard` = `ward`.`idWard`
+								)
+							)
+						)
+					)
+					LEFT JOIN `sr_shop` ON (
+						(
+							`application`.`sr_shop_idsr_shop` = `sr_shop`.`idsr_shop`
+						)
+					)
+				)
+				LEFT JOIN `sr_flow` ON (
+					(
+						`sr_shop`.`sr_flow_idsr_flow` = `sr_flow`.`idsr_flow`
+					)
+				)
+			)
+			LEFT JOIN `sr_building` ON (
+				(
+					(
+						`sr_shop`.`sr_building_idsr_building` = `sr_building`.`idsr_building`
+					)
+					AND (
+						`sr_flow`.`sr_building_idsr_building` = `sr_building`.`idsr_building`
+					)
+				)
+			)
+		)
+		JOIN `approval_cat` ON (
+			(
+				`apprualstatues`.`idOtheritisCat` = `approval_cat`.`idApproval_cat`
+			)
+		)
+	)
+WHERE
+	(
+		(
+			`apprualstatues`.`statues` = 0
+		)
+		AND (
+			`apprualstatues`.`idOtheritisCat` =  $P{idApCat} 
+		)
+	)]]>
+	</queryString>
+	<field name="idApplication" class="java.lang.Integer"/>
+	<field name="application_no" class="java.lang.String"/>
+	<field name="application_date" class="java.sql.Date"/>
+	<field name="trade_name" class="java.lang.String"/>
+	<field name="cus_name" class="java.lang.String"/>
+	<field name="cus_nic" class="java.lang.String"/>
+	<field name="assessment_no" class="java.lang.String"/>
+	<field name="street_name" class="java.lang.String"/>
+	<field name="ward_no" class="java.lang.String"/>
+	<field name="approveTo_Paymant" class="java.lang.Integer"/>
+	<field name="sr_flow_name" class="java.lang.String"/>
+	<field name="sr_building_name" class="java.lang.String"/>
+	<field name="sr_shop_no" class="java.lang.String"/>
+	<field name="idOtheritisCat" class="java.lang.Integer"/>
+	<field name="approval_name" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="40" splitType="Stretch">
+			<staticText>
+				<reportElement x="270" y="0" width="100" height="30" uuid="1ed30701-278d-4fa9-adc7-254997c459dd"/>
+				<textElement textAlignment="Right">
+					<font size="16"/>
+				</textElement>
+				<text><![CDATA[Pending List]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="382" y="0" width="200" height="30" uuid="f79cd6cb-efe5-454a-93c8-310fee2e8d40"/>
+				<textElement textAlignment="Left">
+					<font size="16"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{approval_name}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="32" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+			<staticText>
+				<reportElement x="0" y="0" width="40" height="30" uuid="bb0173c9-e60d-40d1-a54e-dbf6a3acf6a5"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[#]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="60" y="0" width="80" height="30" uuid="de6fcb42-76b0-4176-b4be-f2ec44843eed"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Application No]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="146" y="0" width="40" height="30" uuid="775e706a-149d-4f76-8fcf-7707c34809fa"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="186" y="0" width="160" height="30" uuid="e9d79afc-2a1c-49d8-832b-b0898b6fe4b8"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Trade Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="346" y="0" width="174" height="30" uuid="b2ca8baa-6a27-435f-bdb6-89085307aabf"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Customer ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="520" y="0" width="190" height="30" uuid="3f96e0b9-f0d9-48c9-a2be-69901514c536"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Street]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="720" y="0" width="80" height="30" uuid="5bb302b2-ba6f-484a-aef8-42635c9d6faa"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Assessment No]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="32" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+			<textField>
+				<reportElement x="0" y="0" width="40" height="30" uuid="9cd9e26f-4da2-4006-aa97-56a0749a0595"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{idApplication}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="60" y="0" width="80" height="30" uuid="1a2be66c-bf2d-4d99-a4e5-c50e82c4fca8"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{application_no}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="144" y="5" width="40" height="20" uuid="de59fdd2-0de8-47a3-ba79-3ef6ff84c215"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{application_date}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="186" y="0" width="160" height="30" uuid="48e32f33-c054-47c2-b8e9-e968d2c79cb5"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{trade_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="347" y="0" width="174" height="30" uuid="9a2bf362-9bfc-4f88-9f0a-918c2c9450b2"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{cus_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="521" y="0" width="190" height="30" uuid="9ca542d5-305a-4a3e-90ff-01a66b1f22ed"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{street_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="720" y="0" width="80" height="30" uuid="a2802f83-a4ff-4a4c-8977-a3ec076cba55"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{assessment_no}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="32" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+			<textField>
+				<reportElement x="350" y="1" width="100" height="30" uuid="5e4ddcfc-223a-4015-b753-9f268d8f9765"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

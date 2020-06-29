@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 6, 2019 4:30:22 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.WeelPaidAmountVote" table="weel_paid_amount_vote" catalog="ultimate2" optimistic-lock="version">
+        <id name="weelPaidVoteId" type="java.lang.Integer">
+            <column name="weel_paid_vote_id" />
+            <generator class="identity" />
+        </id>
+        <property name="weelAmountVoteId" type="java.lang.Integer">
+            <column name="weel_amount_vote_id" />
+        </property>
+        <property name="weelAmountVatId" type="java.lang.Integer">
+            <column name="weel_amount_vat_id" />
+        </property>
+        <property name="weelAmountNbtId" type="java.lang.Integer">
+            <column name="weel_amount_nbt_id" />
+        </property>
+        <property name="weelAmountStampId" type="java.lang.Integer">
+            <column name="weel_amount_stamp_id" />
+        </property>
+        <property name="weelAmountOtherId" type="java.lang.Integer">
+            <column name="weel_amount_other_id" />
+        </property>
+        <property name="weelAmountCashVoteId" type="java.lang.Integer">
+            <column name="weel_amount_cash_vote_id" />
+        </property>
+        <property name="weelAmountChequeVoteId" type="java.lang.Integer">
+            <column name="weel_amount_cheque_vote_id" />
+        </property>
+        <property name="weelAmountAccId" type="java.lang.Integer">
+            <column name="weel_amount_acc_id" />
+        </property>
+        <property name="weelAmountOfficeId" type="java.lang.Integer">
+            <column name="weel_amount_office_id" />
+        </property>
+    </class>
+</hibernate-mapping>

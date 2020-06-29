@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 6, 2019 4:30:22 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.Vote" table="vote" catalog="ultimate2" optimistic-lock="version">
+        <id name="idVote" type="java.lang.Integer">
+            <column name="idVote" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="programSubtitle" class="pojo.ProgramSubtitle" fetch="select">
+            <column name="program_subtitle_idprogram_subtitle" not-null="true" />
+        </many-to-one>
+        <property name="voteNo" type="string">
+            <column name="vote_no" length="45" />
+        </property>
+        <property name="voteName" type="string">
+            <column name="vote_name" length="45" />
+        </property>
+        <property name="voteCurrentBalance" type="java.lang.Double">
+            <column name="vote_current_balance" precision="22" scale="0" />
+        </property>
+        <property name="voteAlocation" type="java.lang.Double">
+            <column name="vote_alocation" precision="22" scale="0" />
+        </property>
+        <property name="voteStatus" type="java.lang.Integer">
+            <column name="vote_status" />
+        </property>
+        <property name="voteSyn" type="java.lang.Integer">
+            <column name="vote_syn" />
+        </property>
+        <property name="voteBankAccountNo" type="string">
+            <column name="vote_bank_account_no" length="45" />
+        </property>
+    </class>
+</hibernate-mapping>

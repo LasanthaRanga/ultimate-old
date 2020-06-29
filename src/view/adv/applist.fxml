@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXRadioButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="625.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.adv.ApplistController">
+   <children>
+      <TableView fx:id="tbl_Approval" layoutX="74.0" layoutY="69.0" onMouseReleased="#selectOnTable" prefHeight="454.0" prefWidth="1179.0">
+         <columns>
+            <TableColumn fx:id="col_id" prefWidth="48.999969482421875" text="#" />
+            <TableColumn fx:id="col_customerName" prefWidth="600.9999847412109" text="Customer Name" />
+            <TableColumn fx:id="col_bordNo" prefWidth="179.0" text="Board No" />
+            <TableColumn fx:id="col_start_date" prefWidth="105.0" text="Date Start" />
+            <TableColumn fx:id="col_end_date" prefWidth="103.0" text="Date End" />
+            <TableColumn fx:id="col_fullAmount" prefWidth="136.0" text="Full Amount" />
+         </columns>
+      </TableView>
+      <JFXButton layoutX="496.0" layoutY="562.0" onMouseClicked="#MoreDetails" prefHeight="25.0" prefWidth="116.0" style="-fx-background-color: #8BC34A;" text="More Details" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </JFXButton>
+      <Label layoutX="74.0" layoutY="567.0" text="Selected Bord No :">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbl_bordNo" layoutX="208.0" layoutY="567.0" prefHeight="17.0" prefWidth="257.0" text="00">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <JFXDatePicker fx:id="today" layoutX="74.0" layoutY="21.0" onAction="#setDate" promptText="Date" />
+      <JFXRadioButton fx:id="r_not" layoutX="945.0" layoutY="25.0" onAction="#setStatus" text="Non approved">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+         <toggleGroup>
+            <ToggleGroup fx:id="group" />
+         </toggleGroup>
+      </JFXRadioButton>
+      <JFXRadioButton fx:id="r_yes" layoutX="1147.0" layoutY="25.0" onAction="#setStatus" text="Approved" toggleGroup="$group">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </JFXRadioButton>
+      <JFXRadioButton fx:id="r_pending" layoutX="778.0" layoutY="25.0" onAction="#setStatus" text="Pending" toggleGroup="$group">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </JFXRadioButton>
+      <JFXButton layoutX="725.0" layoutY="565.0" onMouseClicked="#goToPaymant" style="-fx-background-color: #FF9800;" text="Go To Payment" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></JFXButton>
+      <JFXButton layoutX="1155.0" layoutY="565.0" onMouseClicked="#Delete" prefHeight="25.0" prefWidth="98.0" style="-fx-background-color: #FF5722;" text="Delete " textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></JFXButton>
+      <JFXRadioButton fx:id="r_notsent" layoutX="337.0" layoutY="25.0" onAction="#setStatus" selected="true" text="Not Sent" toggleGroup="$group">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </JFXRadioButton>
+      <JFXButton fx:id="btn_send" disable="true" layoutX="950.0" layoutY="565.0" onMouseClicked="#clickOnSend" prefHeight="30.0" prefWidth="139.0" style="-fx-background-color: #2196F3;" text="Send To Approval" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>

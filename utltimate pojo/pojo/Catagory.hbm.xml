@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 6, 2019 4:30:22 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.Catagory" table="catagory" catalog="ultimate2" optimistic-lock="version">
+        <id name="idCatagory" type="java.lang.Integer">
+            <column name="idCatagory" />
+            <generator class="identity" />
+        </id>
+        <property name="catagoryName" type="string">
+            <column name="catagory_name" length="45">
+                <comment>Catagory kiyanne application jala tax shop rental tread license</comment>
+            </column>
+        </property>
+        <property name="catagoryNo" type="string">
+            <column name="catagory_no" length="45" />
+        </property>
+        <property name="catagorycol" type="string">
+            <column name="Catagorycol" length="45" />
+        </property>
+        <property name="status" type="java.lang.Integer">
+            <column name="status" />
+        </property>
+        <property name="syn" type="java.lang.Integer">
+            <column name="syn" />
+        </property>
+        <set name="userHasCatagories" table="user_has_catagory" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Catagory_idCatagory" not-null="true" />
+            </key>
+            <one-to-many class="pojo.UserHasCatagory" />
+        </set>
+    </class>
+</hibernate-mapping>

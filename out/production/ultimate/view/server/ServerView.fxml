@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXProgressBar?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane prefHeight="190.0" prefWidth="759.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.server.ServerView">
+   <children>
+      <Text layoutX="15.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="730.6708984375" />
+      <Text layoutX="15.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="730.6709170639515" />
+      <JFXProgressBar layoutX="26.0" layoutY="118.0" prefHeight="20.0" prefWidth="708.0" progress="1.0" />
+   </children>
+</AnchorPane>

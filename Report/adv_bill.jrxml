@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.3.1.final using JasperReports Library version 6.3.1  -->
+<!-- 2019-03-19T13:27:16 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="adv_bill" pageWidth="515" pageHeight="433" columnWidth="505" leftMargin="5" rightMargin="5" topMargin="5" bottomMargin="5" uuid="cb11f74f-e435-4b49-acbb-aaa347eca49d">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Server"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<parameter name="advID" class="java.lang.String">
+		<parameterDescription><![CDATA[]]></parameterDescription>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+adv_advertising.idAdv_Advertising,
+adv_advertising.adv_board_no,
+adv_advertising.adv_total,
+adv_advertising.adv_vat,
+adv_advertising.adv_nbt,
+adv_advertising.adv_stamp,
+adv_advertising.adv_diposit,
+adv_advertising.adv_ground_total,
+adv_advertising.adv_visiting_price,
+adv_advertising.adv_others,
+adv_advertising.adv_full_total,
+adv_advertising.adv_paid_notpaid,
+adv_advertising.adv_status,
+adv_advertising.adv_syn,
+adv_advertising.Customer_idCustomer,
+receipt.receipt_print_no,
+receipt.receipt_total,
+receipt.recept_applicationId,
+receipt.receipt_day,
+receipt.idReceipt,
+customer.cus_name,
+customer.cus_nic
+FROM
+adv_advertising
+INNER JOIN receipt ON adv_advertising.idAdv_Advertising = receipt.recept_applicationId
+INNER JOIN customer ON customer.idCustomer = adv_advertising.Customer_idCustomer
+WHERE
+adv_advertising.adv_paid_notpaid = 0 AND
+adv_advertising.idAdv_Advertising =  $P{advID}]]>
+	</queryString>
+	<field name="idAdv_Advertising" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="adv_board_no" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="adv_total" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="adv_vat" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="adv_nbt" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="adv_stamp" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="adv_diposit" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="adv_ground_total" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="adv_visiting_price" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="adv_others" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="adv_full_total" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="adv_paid_notpaid" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="adv_status" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="adv_syn" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Customer_idCustomer" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="receipt_print_no" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="receipt_total" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="recept_applicationId" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="receipt_day" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="idReceipt" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cus_name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cus_nic" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<group name="idAdv_Advertising">
+		<groupExpression><![CDATA[$F{idAdv_Advertising}]]></groupExpression>
+	</group>
+	<group name="adv_board_no">
+		<groupExpression><![CDATA[$F{adv_board_no}]]></groupExpression>
+	</group>
+	<group name="adv_total">
+		<groupExpression><![CDATA[$F{adv_total}]]></groupExpression>
+	</group>
+	<group name="adv_vat">
+		<groupExpression><![CDATA[$F{adv_vat}]]></groupExpression>
+	</group>
+	<group name="adv_nbt">
+		<groupExpression><![CDATA[$F{adv_nbt}]]></groupExpression>
+	</group>
+	<group name="adv_stamp">
+		<groupExpression><![CDATA[$F{adv_stamp}]]></groupExpression>
+	</group>
+	<group name="adv_diposit">
+		<groupExpression><![CDATA[$F{adv_diposit}]]></groupExpression>
+	</group>
+	<group name="adv_ground_total">
+		<groupExpression><![CDATA[$F{adv_ground_total}]]></groupExpression>
+	</group>
+	<group name="adv_visiting_price">
+		<groupExpression><![CDATA[$F{adv_visiting_price}]]></groupExpression>
+	</group>
+	<group name="adv_others">
+		<groupExpression><![CDATA[$F{adv_others}]]></groupExpression>
+	</group>
+	<group name="adv_full_total">
+		<groupExpression><![CDATA[$F{adv_full_total}]]></groupExpression>
+	</group>
+	<group name="adv_paid_notpaid">
+		<groupExpression><![CDATA[$F{adv_paid_notpaid}]]></groupExpression>
+	</group>
+	<group name="adv_status">
+		<groupExpression><![CDATA[$F{adv_status}]]></groupExpression>
+	</group>
+	<group name="adv_syn">
+		<groupExpression><![CDATA[$F{adv_syn}]]></groupExpression>
+	</group>
+	<group name="Customer_idCustomer">
+		<groupExpression><![CDATA[$F{Customer_idCustomer}]]></groupExpression>
+	</group>
+	<group name="receipt_print_no">
+		<groupExpression><![CDATA[$F{receipt_print_no}]]></groupExpression>
+	</group>
+	<group name="receipt_total">
+		<groupExpression><![CDATA[$F{receipt_total}]]></groupExpression>
+	</group>
+	<group name="recept_applicationId">
+		<groupExpression><![CDATA[$F{recept_applicationId}]]></groupExpression>
+	</group>
+	<group name="receipt_day">
+		<groupExpression><![CDATA[$F{receipt_day}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="422" splitType="Stretch">
+			<textField>
+				<reportElement x="330" y="230" width="100" height="15" uuid="7d1b75e4-bae1-45ca-8d7b-c5c81218902f"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{adv_total}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="330" y="245" width="100" height="15" uuid="1fe30de0-384b-4b9c-9023-ee6c1b881baf"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{adv_vat}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="330" y="260" width="100" height="15" uuid="76db7964-5e88-4b11-9af6-3c8c21b9202b"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{adv_nbt}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="330" y="275" width="100" height="15" uuid="ae0df70b-152f-47e3-aa6c-718e3a7a2195"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{adv_stamp}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="330" y="290" width="100" height="15" uuid="18454053-8386-4790-8146-fbc68406b0ea"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{adv_diposit}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="330" y="305" width="100" height="15" uuid="06460050-fdc4-44e2-83c0-107ca78a5d26"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{adv_ground_total}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="330" y="320" width="100" height="15" uuid="1003035d-7793-424e-9ebc-adbc7b86b339"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{adv_visiting_price}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="330" y="335" width="100" height="15" uuid="50144092-32dc-4de1-86b2-7aed5ac369b3"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{adv_others}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="330" y="350" width="100" height="15" uuid="adbb7a29-e449-41f6-a77c-b064ea05ecad"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{adv_full_total}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="140" y="350" width="100" height="15" uuid="04916b8e-759b-448c-a02e-8cc76c451af1">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[TOTAL]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="60" y="90" width="280" height="20" uuid="09a96a0d-6f0a-4f4f-b7dd-ba9be0099878"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{cus_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="60" y="110" width="280" height="20" uuid="b9592966-79b0-49ca-aeb4-bf2ddae371b4"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{cus_nic}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="60" y="130" width="280" height="20" uuid="0e170115-a387-4b95-a9d9-62e6f452daa8"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{adv_board_no}]]></textFieldExpression>
+			</textField>
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement x="360" y="90" width="110" height="20" uuid="2baed718-1e90-4c2e-8a32-1db3af43fa81"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="140" y="335" width="100" height="15" uuid="43433213-3a1b-40b2-aa45-1439f811cf00"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Others]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="140" y="320" width="100" height="15" uuid="d522578f-bc3d-4c8f-981c-f0e278833320"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Visiting cost]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="140" y="305" width="100" height="15" uuid="8459fb9a-75da-48b6-8d59-279b7d534cad"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Ground Rent]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="140" y="290" width="100" height="15" uuid="813b77ec-ef7c-4fa6-bfb2-c7d4e0cdc4fc"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Diposit]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="140" y="275" width="100" height="15" uuid="84a35edf-9457-4bba-b252-355036888eba"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Stamp]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="140" y="260" width="100" height="15" uuid="617a12d4-88c1-45c9-a50a-022e0db30978"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[NBT]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="140" y="245" width="100" height="15" uuid="0dcc1579-10a3-4332-8914-90be1ec3e9a5"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[VAT]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="140" y="230" width="100" height="15" uuid="0cc08e64-96c6-49b7-ad65-f1255341ce24"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Value]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="60" y="70" width="280" height="20" uuid="77bb80fa-863a-4041-b6fa-738b69dc891a"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{receipt_print_no}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

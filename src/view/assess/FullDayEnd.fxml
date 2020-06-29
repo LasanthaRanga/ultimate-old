@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXProgressBar?>
+<?import javafx.scene.control.ProgressIndicator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="625.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.assess.FullDayEnd">
+   <children>
+      <TableView fx:id="tbl_de" layoutX="77.0" layoutY="79.0" prefHeight="393.0" prefWidth="1199.0">
+        <columns>
+          <TableColumn fx:id="col_select" prefWidth="48.0">
+               <graphic>
+                  <JFXCheckBox fx:id="ch_all" onAction="#chAllOnAction" text=" " />
+               </graphic>
+            </TableColumn>
+          <TableColumn fx:id="col_apptype" prefWidth="451.0" text="Application Type" />
+            <TableColumn fx:id="col_reciptno" prefWidth="504.0" text="Receipt No" />
+            <TableColumn fx:id="col_total" prefWidth="181.0" text="Total" />
+        </columns>
+      </TableView>
+      <JFXButton fx:id="btn_dayEnd" layoutX="1119.0" layoutY="534.0" onMouseClicked="#relesedOnDayEnd" prefHeight="77.0" prefWidth="157.0" style="-fx-background-color: #4CAF50;" text="Day End" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </JFXButton>
+      <JFXDatePicker fx:id="dp" layoutX="77.0" layoutY="25.0" onAction="#dpOnAction" prefHeight="30.0" prefWidth="184.0" />
+      <Text fx:id="txt_server_messege" layoutX="78.0" layoutY="502.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="1199.000009894371">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <JFXProgressBar fx:id="dend_progras" layoutX="76.0" layoutY="509.0" prefHeight="16.0" prefWidth="1199.0" progress="0.0" />
+      <ProgressIndicator fx:id="pro_to" layoutX="1017.0" layoutY="528.0" prefHeight="83.0" prefWidth="95.0" progress="0.0" />
+   </children>
+</AnchorPane>

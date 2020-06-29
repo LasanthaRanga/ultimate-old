@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 3, 2019 9:57:03 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.WbYearlyNonMeteredProcess" table="wb_yearly_non_metered_process" catalog="kuliuc" optimistic-lock="version">
+        <id name="cusId" type="string">
+            <column name="cus_id" length="10" />
+            <generator class="foreign">
+                <param name="property">wbMCustomer</param>
+            </generator>
+        </id>
+        <one-to-one name="wbMCustomer" class="pojo.WbMCustomer" constrained="true"></one-to-one>
+        <property name="arrears" type="java.lang.Double">
+            <column name="arrears" precision="22" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

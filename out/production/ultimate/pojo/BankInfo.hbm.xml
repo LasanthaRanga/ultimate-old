@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 6, 2019 4:30:22 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.BankInfo" table="bank_info" catalog="ultimate2" optimistic-lock="version">
+        <id name="idBankInfo" type="java.lang.Integer">
+            <column name="idBank_Info" />
+            <generator class="identity" />
+        </id>
+        <property name="bankName" type="string">
+            <column name="bank_name" length="45" />
+        </property>
+        <property name="acountNo" type="string">
+            <column name="acount_no" length="45" />
+        </property>
+        <property name="acountName" type="string">
+            <column name="acount_name" length="45" />
+        </property>
+        <property name="currentBallance" type="java.lang.Double">
+            <column name="current_ballance" precision="22" scale="0" />
+        </property>
+        <property name="status" type="java.lang.Integer">
+            <column name="status" />
+        </property>
+        <property name="syn" type="java.lang.Integer">
+            <column name="syn" />
+        </property>
+        <set name="vorts" table="vort" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Bank_Info_idBank_Info" not-null="true" />
+            </key>
+            <one-to-many class="pojo.Vort" />
+        </set>
+        <set name="cashFlows" table="cash_flow" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Bank_Info_idBank_Info" not-null="true" />
+            </key>
+            <one-to-many class="pojo.CashFlow" />
+        </set>
+    </class>
+</hibernate-mapping>

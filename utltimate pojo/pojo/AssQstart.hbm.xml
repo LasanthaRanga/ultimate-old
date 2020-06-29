@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 6, 2019 4:30:22 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.AssQstart" table="ass_qstart" catalog="ultimate2" optimistic-lock="version">
+        <id name="idassQstart" type="java.lang.Integer">
+            <column name="idass_Qstart" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="assessment" class="pojo.Assessment" fetch="select">
+            <column name="Assessment_idAssessment" not-null="true" />
+        </many-to-one>
+        <property name="assQstartQuaterNumber" type="java.lang.Integer">
+            <column name="ass_Qstart_QuaterNumber" />
+        </property>
+        <property name="assQstartProcessDate" type="date">
+            <column name="ass_Qstart_process_date" length="10" />
+        </property>
+        <property name="assQstartLyArreas" type="java.lang.Double">
+            <column name="ass_Qstart_LY_Arreas" precision="22" scale="0" />
+        </property>
+        <property name="assQstartLyWarrant" type="java.lang.Double">
+            <column name="ass_Qstart_LY_Warrant" precision="22" scale="0" />
+        </property>
+        <property name="assQstartLycArreas" type="java.lang.Double">
+            <column name="ass_Qstart_LYC_Arreas" precision="22" scale="0" />
+        </property>
+        <property name="assQstartLycWarrant" type="java.lang.Double">
+            <column name="ass_Qstart_LYC_Warrant" precision="22" scale="0" />
+        </property>
+        <property name="assQstartLqArreas" type="java.lang.Double">
+            <column name="ass_Qstart_LQ_Arreas" precision="22" scale="0" />
+        </property>
+        <property name="assQstartLqcArreas" type="java.lang.Double">
+            <column name="ass_Qstart_LQC_Arreas" precision="22" scale="0" />
+        </property>
+        <property name="assQstartLqWarrant" type="java.lang.Double">
+            <column name="ass_Qstart_LQ_Warrant" precision="22" scale="0" />
+        </property>
+        <property name="assQstartLqcWarrant" type="java.lang.Double">
+            <column name="ass_Qstart_LQC_Warrant" precision="22" scale="0" />
+        </property>
+        <property name="assQstartHaveToQpay" type="java.lang.Double">
+            <column name="ass_Qstart_HaveToQPay" precision="22" scale="0" />
+        </property>
+        <property name="assQstartQpay" type="java.lang.Double">
+            <column name="ass_Qstart_QPay" precision="22" scale="0" />
+        </property>
+        <property name="assQstartQdiscont" type="java.lang.Double">
+            <column name="ass_Qstart_QDiscont" precision="22" scale="0" />
+        </property>
+        <property name="assQstartQtot" type="java.lang.Double">
+            <column name="ass_Qstart_QTot" precision="22" scale="0" />
+        </property>
+        <property name="assQstartFullTotal" type="java.lang.Double">
+            <column name="ass_Qstart_FullTotal" precision="22" scale="0" />
+        </property>
+        <property name="assQstartStatus" type="java.lang.Integer">
+            <column name="ass_Qstart_status" />
+        </property>
+        <property name="assQstartYear" type="java.lang.Integer">
+            <column name="ass_Qstart_year" />
+        </property>
+        <property name="processUpdateWarant" type="java.lang.Double">
+            <column name="process_update_warant" precision="22" scale="0" />
+        </property>
+        <property name="processUpdateArrears" type="java.lang.Double">
+            <column name="process_update_arrears" precision="22" scale="0" />
+        </property>
+        <property name="processUpdateComment" type="string">
+            <column name="process_update_comment" />
+        </property>
+        <property name="assQstartTyoldArrias" type="java.lang.Double">
+            <column name="ass_Qstart_tyold_arrias" precision="22" scale="0" />
+        </property>
+        <property name="assQstartTyoldWarant" type="java.lang.Double">
+            <column name="ass_Qstart_tyold_warant" precision="22" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="607.0" prefWidth="811.0" style="-fx-background-color: #FFF;" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.adv.RemoveInforController">
+   <children>
+      <Text fill="#2196f3" layoutX="40.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Board Number" />
+      <Text fx:id="txt_boardNumber" layoutX="163.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Board Number" />
+      <JFXTextField fx:id="txt_back" layoutX="164.0" layoutY="192.0" />
+      <Text fill="#2196f3" layoutX="57.0" layoutY="212.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Diposit Back" />
+      <JFXTextArea fx:id="txt_comment" layoutX="163.0" layoutY="274.0" />
+      <Text fill="#2196f3" layoutX="72.0" layoutY="290.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Comment" />
+      <JFXButton fx:id="btn_compleet" layoutX="601.0" layoutY="541.0" onMouseClicked="#clickOnComplete" style="-fx-background-color: #009688;" text="Remove Complete" textFill="WHITE" />
+      <Text fill="#2196f3" layoutX="89.0" layoutY="142.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Diposit" />
+      <Text fx:id="txt_diposit" layoutX="163.0" layoutY="142.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Diposit" />
+   </children>
+</AnchorPane>

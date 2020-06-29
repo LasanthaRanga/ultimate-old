@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="625.0" prefWidth="1300.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.adv.Position_regController">
+    <children>
+        <JFXTextField fx:id="txt_position" labelFloat="true" layoutX="92.0" layoutY="25.0" prefHeight="25.0" prefWidth="242.0" promptText="Location" />
+        <JFXTextField fx:id="txt_limt" alignment="CENTER_RIGHT" labelFloat="true" layoutX="92.0" layoutY="76.0" onKeyReleased="#onKeyRelesed" prefHeight="25.0" prefWidth="242.0" promptText="Limit" text="00" />
+        <JFXTextField fx:id="txt_owner" labelFloat="true" layoutX="92.0" layoutY="137.0" prefHeight="25.0" prefWidth="242.0" promptText="Owner Name" />
+        <JFXTextField fx:id="txt_nic" labelFloat="true" layoutX="92.0" layoutY="193.0" prefHeight="25.0" prefWidth="242.0" promptText="Owner NIC" />
+        <JFXComboBox fx:id="com_ward" labelFloat="true" layoutX="92.0" layoutY="251.0" onAction="#wardOnAction" prefHeight="25.0" prefWidth="242.0" promptText="Ward" />
+        <JFXComboBox fx:id="com_street" labelFloat="true" layoutX="92.0" layoutY="310.0" onAction="#streetOnAction" prefHeight="25.0" prefWidth="242.0" promptText="Street" />
+        <JFXTextField fx:id="txt_assessmant" labelFloat="true" layoutX="92.0" layoutY="368.0" onKeyReleased="#assessKeyReleased" prefHeight="25.0" prefWidth="242.0" promptText="Assessmant No" />
+        <JFXTextArea fx:id="txt_address" labelFloat="true" layoutX="92.0" layoutY="423.0" prefHeight="75.0" prefWidth="242.0" promptText="Address" />
+        <JFXTextField fx:id="txt_rent" alignment="CENTER_RIGHT" labelFloat="true" layoutX="92.0" layoutY="526.0" onKeyReleased="#onKeyRelesed" prefHeight="25.0" prefWidth="242.0" promptText="Graund Rent" text="00" />
+        <JFXButton fx:id="btn_save" layoutX="92.0" layoutY="572.0" onMouseClicked="#saveOnClick" prefHeight="30.0" prefWidth="140.0" style="-fx-background-color: #009300;" text="Save" textFill="WHITE" wrapText="true">
+            <font>
+                <Font name="System Bold" size="14.0" />
+            </font>
+        </JFXButton>
+        <TableView fx:id="tbl_possiton" layoutX="404.0" layoutY="25.0" onMouseReleased="#selectFromPossitionTable" prefHeight="570.0" prefWidth="882.0">
+            <columns>
+                <TableColumn fx:id="col_pos" prefWidth="199.0" text="Loacation" />
+                <TableColumn fx:id="col_limit" prefWidth="140.0" text="Limit" />
+                <TableColumn fx:id="col_current" prefWidth="125.0" text="Current Boards" />
+                <TableColumn fx:id="col_owner" prefWidth="125.0" text="Owner" />
+                <TableColumn fx:id="col_rent" prefWidth="121.0" text="Ground Rent" />
+            </columns>
+        </TableView>
+      <JFXButton fx:id="btn_save1" layoutX="244.0" layoutY="572.0" onMouseClicked="#clickOnClear" prefHeight="30.0" prefWidth="90.0" style="-fx-background-color: #ff0909;" text="Clear" textFill="WHITE" wrapText="true">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </JFXButton>
+    </children>
+</AnchorPane>

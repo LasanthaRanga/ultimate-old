@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 6, 2019 4:30:22 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.AtachmantEnv" table="atachmant_env" catalog="ultimate2" optimistic-lock="version">
+        <id name="idAtachmantEnv" type="java.lang.Integer">
+            <column name="idAtachmant_env" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="environment" class="pojo.Environment" fetch="select">
+            <column name="Environment_idEnvironment" not-null="true" />
+        </many-to-one>
+        <property name="atachType" type="string">
+            <column name="Atach_Type" length="45" />
+        </property>
+        <property name="nameAtach" type="string">
+            <column name="name_atach" length="45" />
+        </property>
+        <property name="atachDate" type="date">
+            <column name="atach_date" length="10" />
+        </property>
+        <property name="atachPath" type="string">
+            <column name="atach_path" />
+        </property>
+    </class>
+</hibernate-mapping>

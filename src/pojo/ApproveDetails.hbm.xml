@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 6, 2019 4:30:22 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.ApproveDetails" table="approve_details" catalog="ultimate2" optimistic-lock="version">
+        <id name="idApproveDetails" type="java.lang.Integer">
+            <column name="idApprove_details" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="sendToApprove" class="pojo.SendToApprove" fetch="select">
+            <column name="Send_to_approve_idSend_to_approve" not-null="true" />
+        </many-to-one>
+        <property name="comment" type="string">
+            <column name="comment" length="65535" />
+        </property>
+        <property name="pricing" type="java.lang.Double">
+            <column name="pricing" precision="22" scale="0" />
+        </property>
+        <property name="statusApprovDetails" type="java.lang.Integer">
+            <column name="status_approv_details" />
+        </property>
+        <property name="others" type="string">
+            <column name="Others" length="45" />
+        </property>
+        <property name="dateApproveDetails" type="timestamp">
+            <column name="date_approve_details" length="19" />
+        </property>
+    </class>
+</hibernate-mapping>

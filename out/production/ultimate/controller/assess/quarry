@@ -1,0 +1,51 @@
+
+Assessment Search Quary =============
+
+SELECT
+assessment.idAssessment,
+assessment.Customer_idCustomer,
+assessment.Ward_idWard,
+assessment.Street_idStreet,
+assessment.ass_nature_idass_nature,
+assessment.ass_discription_idass_discription,
+assessment.User_idUser,
+assessment.assessment_oder,
+assessment.assessment_no,
+assessment.assessment_status,
+assessment.assessment_syn,
+assessment.assessment_comment,
+assessment.assessment_obsolete,
+customer.cus_name,
+customer.cus_nic,
+customer.cus_mobile,
+customer.cus_address_l1,
+customer.cus_tel,
+customer.cus_address_l2,
+customer.cus_address_l3,
+customer.cus_sity,
+customer.cus_status,
+customer.idCustomer,
+ward.ward_name,
+ward.idWard,
+street.idStreet,
+street.street_name,
+ass_nature.idass_nature,
+ass_nature.ass_nature_name,
+ass_allocation.ass_allocation
+FROM
+assessment
+INNER JOIN customer ON assessment.Customer_idCustomer = customer.idCustomer
+INNER JOIN ward ON assessment.Ward_idWard = ward.idWard
+INNER JOIN street ON street.Ward_idWard = ward.idWard AND assessment.Street_idStreet = street.idStreet
+INNER JOIN ass_nature ON assessment.ass_nature_idass_nature = ass_nature.idass_nature
+INNER JOIN ass_allocation ON ass_allocation.Assessment_idAssessment = assessment.idAssessment
+WHERE
+ward.ward_name = 'ward 02' AND
+street.street_name = 'PUTTLUM ROAD' AND
+ass_nature.ass_nature_name = 'Bussines' AND
+assessment.assessment_no LIKE '%0%' AND
+assessment.assessment_obsolete LIKE '%0%' AND
+customer.cus_name LIKE '%S%'
+
+
+===================

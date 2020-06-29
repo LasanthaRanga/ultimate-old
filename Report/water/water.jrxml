@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.3.1.final using JasperReports Library version 6.3.1  -->
+<!-- 2019-10-31T09:59:39 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="water" pageWidth="459" pageHeight="433" columnWidth="419" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="4a987fc7-16a9-44eb-8d52-206b551a9802">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Ultimate2.xml"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.unit." value="cm"/>
+	<parameter name="id" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{id}]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+wb_t_paid.wb_t_receipt_id,
+wb_t_paid.wb_t_receipt_no,
+wb_t_paid.wb_t_LYA,
+wb_t_paid.wb_t_LMA,
+wb_t_paid.wb_t_TMA,
+wb_t_paid.wb_t_OP,
+wb_t_paid.wb_t_VAT,
+wb_t_paid.wb_t_date,
+wb_t_paid.wb_t_time,
+`user`.user_full_name,
+`user`.user_username,
+GROUP_CONCAT( CONCAT(wb_process_pay.wb_process_pay_invoice_no,"-",wb_m_paid_bill_status.paid_bill_status)),
+receipt.cheack,
+receipt.cesh,
+receipt.chque_no,
+receipt.chque_date,
+bank.bank_name,
+receipt.receipt_day,
+receipt.receipt_total,
+bank_info.idBank_Info,
+bank_info.acount_no,
+bank_info.acount_name,
+wb_m_connection.wb_m_connection_id,
+wb_m_sub_owner_active.sub_owner_name,
+wb_m_sub_owner_active.sub_owner_nic,
+wb_m_sub_owner_active.wb_m_sub_owner_cus_id,
+wb_m_sub_road.sub_road,
+wb_m_main_road.road_name,
+CONCAT(wb_m_sub_road.sub_road,",",wb_m_main_road.road_name) AS road__full,
+wb_m_nature.nature
+FROM
+wb_t_paid
+INNER JOIN wb_process_pay ON wb_t_paid.wb_t_receipt_no = wb_process_pay.wb_process_pay_receipt_no
+INNER JOIN `user` ON wb_t_paid.wb_t_user = `user`.idUser
+INNER JOIN wb_m_paid_bill_status ON wb_process_pay.wb_process_pay_com_status = wb_m_paid_bill_status.paid_bill_status_id
+INNER JOIN receipt ON receipt.receipt_user_id = `user`.idUser AND wb_t_paid.wb_t_receipt_id = receipt.idReceipt
+LEFT JOIN bank ON receipt.chque_bank = bank.idBank
+LEFT JOIN bank_info ON receipt.receipt_account_id = bank_info.idBank_Info
+LEFT JOIN wb_m_connection ON wb_t_paid.wb_t_connection_id_paid = wb_m_connection.wb_m_connection_id
+INNER JOIN wb_m_sub_owner_active ON wb_m_sub_owner_active.wb_m_sub_owner_cus_id = wb_m_connection.wb_m_connection_id
+INNER JOIN wb_m_sub_road ON wb_m_connection.wb_m_street = wb_m_sub_road.id
+INNER JOIN wb_m_nature ON wb_m_connection.wb_m_nature = wb_m_nature.id
+INNER JOIN wb_m_main_road ON wb_m_sub_road.main_road_id = wb_m_main_road.id
+WHERE
+receipt.idReceipt =  $P{id} 
+GROUP BY
+wb_t_paid.wb_t_receipt_no]]>
+	</queryString>
+	<field name="wb_t_receipt_id" class="java.lang.Integer"/>
+	<field name="wb_t_receipt_no" class="java.lang.String"/>
+	<field name="wb_t_LYA" class="java.lang.Double"/>
+	<field name="wb_t_LMA" class="java.lang.Double"/>
+	<field name="wb_t_TMA" class="java.lang.Double"/>
+	<field name="wb_t_OP" class="java.lang.Double"/>
+	<field name="wb_t_VAT" class="java.lang.Double"/>
+	<field name="wb_t_date" class="java.sql.Date"/>
+	<field name="wb_t_time" class="java.sql.Time"/>
+	<field name="user_full_name" class="java.lang.String"/>
+	<field name="user_username" class="java.lang.String"/>
+	<field name="GROUP_CONCAT( CONCAT(wb_process_pay.wb_process_pay_invoice_no,&quot;-&quot;,wb_m_paid_bill_status.paid_bill_status))" class="java.lang.String"/>
+	<field name="cheack" class="java.lang.Double"/>
+	<field name="cesh" class="java.lang.Double"/>
+	<field name="chque_no" class="java.lang.String"/>
+	<field name="chque_date" class="java.sql.Date"/>
+	<field name="bank_name" class="java.lang.String"/>
+	<field name="receipt_day" class="java.sql.Date"/>
+	<field name="receipt_total" class="java.lang.Double"/>
+	<field name="idBank_Info" class="java.lang.Integer"/>
+	<field name="acount_no" class="java.lang.String"/>
+	<field name="acount_name" class="java.lang.String"/>
+	<field name="wb_m_connection_id" class="java.lang.Integer"/>
+	<field name="sub_owner_name" class="java.lang.String"/>
+	<field name="sub_owner_nic" class="java.lang.String"/>
+	<field name="wb_m_sub_owner_cus_id" class="java.lang.Integer"/>
+	<field name="sub_road" class="java.lang.String"/>
+	<field name="road_name" class="java.lang.String"/>
+	<field name="road__full" class="java.lang.String"/>
+	<field name="nature" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="393" splitType="Stretch">
+			<textField>
+				<reportElement x="60" y="70" width="100" height="20" uuid="2c24c7e8-3ec6-494e-9a3a-88836f08439b"/>
+				<textFieldExpression><![CDATA[$F{wb_t_receipt_no}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="310" y="10" width="100" height="20" uuid="d248eead-03e0-4e0d-b99f-7efbbadd70b8"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{acount_no}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="290" y="70" width="80" height="20" uuid="dbea1ffc-da98-45af-a128-c1176f29046d"/>
+				<textFieldExpression><![CDATA[new SimpleDateFormat("yyyy - MM - dd").format($F{receipt_day})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="370" y="70" width="40" height="20" uuid="6bfb535b-ea39-4012-95b9-f63d833f2fea"/>
+				<textFieldExpression><![CDATA[new SimpleDateFormat("HH : mm").format($F{wb_t_time})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="60" y="110" width="210" height="30" uuid="030d16a6-2111-4f21-b011-26455eed2781"/>
+				<textFieldExpression><![CDATA[$F{sub_owner_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="20" y="180" width="180" height="130" uuid="b4b29bd1-cb1c-4af4-a1c9-66587c1bb45f"/>
+				<textFieldExpression><![CDATA[$F{GROUP_CONCAT( CONCAT(wb_process_pay.wb_process_pay_invoice_no,"-",wb_m_paid_bill_status.paid_bill_status))}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="300" y="180" width="80" height="14" uuid="73b817f5-9f48-4a78-9ded-3d62a274612f">
+					<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+				</reportElement>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[String.format("%.2f", (double)$F{wb_t_LYA})]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="210" y="180" width="90" height="14" uuid="e09b4380-ab49-4315-9c88-04165503f6ca"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Last Year Arrears]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="300" y="195" width="80" height="14" uuid="668b99cb-930b-486c-9450-b2e47030c1fe"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[String.format("%.2f", (double)$F{wb_t_LMA})]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="210" y="195" width="90" height="14" uuid="0f419550-0c77-4edd-b76b-051ecd4e3419"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Last Month Arrears]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="300" y="210" width="80" height="14" uuid="36265d54-6d81-49c5-9ae1-d556bfe5282f"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[String.format("%.2f", (double)$F{wb_t_TMA})]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="210" y="210" width="90" height="14" uuid="2e376440-e026-4ad8-921d-2ae685d2eb47"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[This Month Amount]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="300" y="226" width="80" height="14" uuid="434aee77-cb28-444f-896a-cb45781c1e8b"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[String.format("%.2f", (double)$F{wb_t_OP})]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="210" y="226" width="90" height="14" uuid="f64e6385-7a02-48f2-b9c2-eee109fd9fb4"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Over Pay]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="300" y="242" width="80" height="14" uuid="f417c653-cda9-494f-b0d2-59c50d5b6750"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[String.format("%.2f", (double)$F{wb_t_VAT})]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="210" y="242" width="90" height="14" uuid="b3648531-b5a5-48fc-9631-660234fde285"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[VAT]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="300" y="318" width="80" height="14" uuid="791706d8-c261-472a-bc7a-59492ad70d32"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[String.format("%.2f", (double)$F{receipt_total})]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="200" y="318" width="70" height="14" uuid="8351c4ee-c71f-495d-9d42-b9ec6b2c7375"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Total :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="20" y="340" width="100" height="20" uuid="83bb983f-df2b-4384-a432-8ceac3b3d8e2"/>
+				<textFieldExpression><![CDATA[$F{chque_no}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="57" y="318" width="47" height="19" uuid="9ced31af-bca1-47b3-a9a1-cc9cab3b44b7"/>
+				<textFieldExpression><![CDATA[String.format("%.2f", (double)$F{cheack})]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="14" y="319" width="43" height="20" uuid="fa25e807-8b07-4bea-beee-78d3bb37eeda"/>
+				<text><![CDATA[Chque :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="135" y="318" width="60" height="19" uuid="a7258921-daeb-466a-b43f-809631ced982"/>
+				<textFieldExpression><![CDATA[String.format("%.2f", (double)$F{cesh})]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="105" y="318" width="30" height="19" uuid="76aa5914-736e-49eb-9ec0-7754e1a36692"/>
+				<text><![CDATA[Cash :]]></text>
+			</staticText>
+		</band>
+	</detail>
+</jasperReport>

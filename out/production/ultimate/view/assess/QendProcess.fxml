@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXProgressBar?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="625.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.assess.QendProcess">
+
+
+
+    <children>
+        <TableView fx:id="tbl_assess" layoutX="422.0" layoutY="34.0" onMouseClicked="#selectFormTable" prefHeight="215.0" prefWidth="831.0">
+            <columns>
+                <TableColumn fx:id="col_order" prefWidth="75.0" text="Order" />
+                <TableColumn fx:id="col_nature" prefWidth="79.0" text="Nature" />
+                <TableColumn fx:id="col_ward" minWidth="0.0" prefWidth="66.0" text="Ward" />
+                <TableColumn fx:id="col_street" prefWidth="123.0" text="Street" />
+                <TableColumn fx:id="col_assess" prefWidth="103.0" text="Assessment NO." />
+                <TableColumn fx:id="col_obsalut" prefWidth="96.0" text="Obsolete NO." visible="false" />
+                <TableColumn fx:id="col_allocation" prefWidth="81.0" style="-fx-alignment: CENTER-RIGHT;" text="Allocation" />
+                <TableColumn fx:id="col_owner" prefWidth="247.0" text="Owner Name" />
+            <TableColumn fx:id="col_nchek" prefWidth="46.0">
+               <graphic>
+                  <JFXCheckBox fx:id="selectAllCheck" onAction="#selectAll" prefHeight="17.0" prefWidth="45.0" text=" " />
+               </graphic>
+            </TableColumn>
+            </columns>
+        </TableView>
+        <Text fx:id="txt_selected" layoutX="311.0" layoutY="586.0" strokeType="OUTSIDE" strokeWidth="0.0" text="--" textAlignment="CENTER" wrappingWidth="562.0000016838312" />
+      <VBox layoutX="77.0" layoutY="50.0" prefHeight="520.0" prefWidth="312.0">
+         <children>
+            <HBox prefHeight="60.0" prefWidth="250.0">
+               <children>
+                      <JFXCheckBox fx:id="cheack_ward" onAction="#cheackWard" text=" ">
+                     <HBox.margin>
+                        <Insets top="7.0" />
+                     </HBox.margin>
+                  </JFXCheckBox>
+                      <JFXComboBox fx:id="com_ward" labelFloat="true" onAction="#selectWard" prefHeight="25.0" prefWidth="240.0" promptText="Ward" />
+               </children>
+               <VBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </HBox>
+            <HBox prefHeight="60.0" prefWidth="250.0">
+               <children>
+                      <JFXCheckBox fx:id="cheack_street" onAction="#cheackStreet" text=" ">
+                     <HBox.margin>
+                        <Insets top="7.0" />
+                     </HBox.margin>
+                  </JFXCheckBox>
+                      <JFXComboBox fx:id="com_street" labelFloat="true" onAction="#selectStreet" prefHeight="25.0" prefWidth="240.0" promptText="Street" />
+               </children>
+               <VBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </HBox>
+            <HBox prefHeight="60.0" prefWidth="250.0">
+               <children>
+                      <JFXCheckBox fx:id="cheack_nature" onAction="#cheackNature" text=" ">
+                     <HBox.margin>
+                        <Insets top="7.0" />
+                     </HBox.margin>
+                  </JFXCheckBox>
+                      <JFXComboBox fx:id="com_nature" labelFloat="true" onAction="#selectNature" prefHeight="25.0" prefWidth="240.0" promptText="Nature" />
+               </children>
+               <VBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </HBox>
+            <HBox prefHeight="60.0" prefWidth="250.0">
+               <children>
+                      <JFXCheckBox fx:id="cheack_assessment" onAction="#cheackAssessment" text=" ">
+                     <HBox.margin>
+                        <Insets top="7.0" />
+                     </HBox.margin>
+                  </JFXCheckBox>
+                      <JFXTextField fx:id="txt_assessment" labelFloat="true" onKeyReleased="#typeAssess" prefHeight="25.0" prefWidth="240.0" promptText="Assessment No" />
+               </children>
+               <VBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </HBox>
+            <HBox prefHeight="60.0" prefWidth="250.0">
+               <children>
+                      <JFXCheckBox fx:id="cheack_obsolete" onAction="#cheackObsolete" text=" ">
+                     <HBox.margin>
+                        <Insets top="7.0" />
+                     </HBox.margin>
+                  </JFXCheckBox>
+                      <JFXTextField fx:id="txt_obsolete" labelFloat="true" onKeyReleased="#typeObsolete" prefHeight="25.0" prefWidth="240.0" promptText="Obsolete No" />
+               </children>
+               <VBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </HBox>
+            <HBox prefHeight="60.0" prefWidth="250.0">
+               <children>
+                      <JFXCheckBox fx:id="cheack_customer" onAction="#cheackCustomer" text=" ">
+                     <HBox.margin>
+                        <Insets top="7.0" />
+                     </HBox.margin>
+                  </JFXCheckBox>
+                      <JFXTextField fx:id="txt_customer" labelFloat="true" onKeyReleased="#typeCustomer" prefHeight="25.0" prefWidth="240.0" promptText="Customer Name" />
+               </children>
+               <VBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </HBox>
+            <HBox prefHeight="19.0" prefWidth="330.0">
+               <children>
+                  <Text fill="#e10000" strokeType="OUTSIDE" strokeWidth="0.0" text="Minimum Arrears Amount For Add Warrant" textAlignment="CENTER" wrappingWidth="329.6708984375">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Text>
+               </children>
+            </HBox>
+            <HBox prefHeight="43.0" prefWidth="330.0">
+               <children>
+                  <JFXTextField fx:id="txt_arrears_val" alignment="CENTER" focusColor="RED" labelFloat="true" prefHeight="31.0" prefWidth="131.0" text="10" unFocusColor="BLACK">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="25.0" right="25.0" top="10.0" />
+                     </HBox.margin>
+                  </JFXTextField>
+                  <JFXButton fx:id="updateMinVal" onMouseClicked="#updateMinVal" prefHeight="31.0" prefWidth="101.0" style="-fx-background-color: #FF5722;" text="Update" textFill="WHITE">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="25.0" right="25.0" top="10.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </JFXButton>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <TableView fx:id="tbl_assess1" layoutX="423.0" layoutY="316.0" prefHeight="215.0" prefWidth="831.0">
+         <columns>
+            <TableColumn fx:id="col_order1" prefWidth="75.0" text="Order" />
+            <TableColumn fx:id="col_nature1" prefWidth="79.0" text="Nature" />
+            <TableColumn fx:id="col_ward1" minWidth="0.0" prefWidth="66.0" text="Ward" />
+            <TableColumn fx:id="col_street1" prefWidth="123.0" text="Street" />
+            <TableColumn fx:id="col_assess1" prefWidth="103.0" text="Assessment NO." />
+            <TableColumn fx:id="col_obsalut1" prefWidth="96.0" text="Obsolete NO." visible="false" />
+            <TableColumn fx:id="col_allocation1" prefWidth="81.0" style="-fx-alignment: CENTER-RIGHT;" text="Allocation" />
+            <TableColumn fx:id="col_owner1" prefWidth="247.0" text="Owner Name" />
+            <TableColumn fx:id="col_nchek1" prefWidth="46.0">
+               <graphic>
+                  <JFXCheckBox fx:id="selectAllCheck1" onAction="#selectAllnotWarrant" prefHeight="17.0" prefWidth="45.0" text=" " />
+               </graphic>
+            </TableColumn>
+         </columns>
+      </TableView>
+      <JFXProgressBar fx:id="progSwich" layoutX="422.0" layoutY="265.0" prefHeight="9.0" prefWidth="501.0" progress="0.0" />
+      <JFXButton fx:id="btn_disabled" layoutX="965.0" layoutY="257.0" onMouseClicked="#clickOnDisabled" prefHeight="25.0" prefWidth="117.0" style="-fx-background-color: #FF5722;" text="Disable Warrant" textFill="WHITE" />
+      <JFXButton fx:id="btn_enabled" layoutX="1136.0" layoutY="257.0" onMouseClicked="#clickOnAnable" prefHeight="25.0" prefWidth="117.0" style="-fx-background-color: #8BC34A;" text="Active Warrant" textFill="WHITE" />
+      <Label layoutX="422.0" layoutY="18.0" prefHeight="17.0" prefWidth="150.0" text="Warrant Added List" textFill="#00970f" />
+      <Label layoutX="422.0" layoutY="299.0" prefHeight="17.0" prefWidth="150.0" text="Warrant Removed List" textFill="#e10000" />
+      <JFXProgressBar fx:id="progress" layoutX="100.0" layoutY="561.0" prefHeight="9.0" prefWidth="959.0" progress="0.0" />
+      <JFXButton fx:id="btn_process" disable="true" layoutX="1094.0" layoutY="564.0" onMouseClicked="#startProcess" prefHeight="25.0" prefWidth="150.0" style="-fx-background-color: #2196F3;" text="Qater End Process" textFill="WHITE" />
+      <JFXButton fx:id="btn_reload" layoutX="117.0" layoutY="21.0" onAction="#reloadAll" prefHeight="25.0" prefWidth="233.0" style="-fx-background-color: #2196F3;" text="Reload All" textFill="WHITE" />
+      <Text fx:id="count_with" fill="#00970f" layoutX="591.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="00" wrappingWidth="117.00000464916229" />
+      <Text fx:id="count_not" fill="#e10000" layoutX="591.0" layoutY="312.0" strokeType="OUTSIDE" strokeWidth="0.0" text="00" wrappingWidth="117.00000464916229" />
+    </children>
+
+
+
+
+</AnchorPane>

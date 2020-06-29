@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 6, 2019 4:30:22 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.SmsGettingSetting" table="sms_getting_setting" catalog="ultimate2" optimistic-lock="version">
+        <id name="smsSettingId" type="java.lang.Integer">
+            <column name="sms_setting_id" />
+            <generator class="identity" />
+        </id>
+        <property name="smsGatwayId" type="string">
+            <column name="sms_gatway_id" length="20" />
+        </property>
+        <property name="smsGatwayPwd" type="string">
+            <column name="sms_gatway_pwd" length="20" />
+        </property>
+        <property name="smsGatwayLink" type="string">
+            <column name="sms_gatway_link" length="200" />
+        </property>
+    </class>
+</hibernate-mapping>

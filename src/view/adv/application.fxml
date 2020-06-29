@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXRadioButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXToggleButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="625.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.adv.ApplicationController">
+   <children>
+      <JFXTextField fx:id="txt_cusName" labelFloat="true" layoutX="74.0" layoutY="30.0" prefHeight="25.0" prefWidth="266.0" promptText="Customer Name" />
+      <JFXTextField fx:id="txt_nic" labelFloat="true" layoutX="368.0" layoutY="30.0" prefHeight="25.0" prefWidth="171.0" promptText="Nic" />
+      <JFXDatePicker fx:id="date_start" layoutX="626.0" layoutY="30.0" onAction="#dateOnAction" prefHeight="30.0" prefWidth="139.0" promptText="Start Date" />
+      <JFXDatePicker fx:id="date_end" layoutX="797.0" layoutY="30.0" onAction="#dateOnAction" prefHeight="30.0" prefWidth="121.0" promptText="End Date" />
+      <JFXTextField fx:id="txt_board_no" labelFloat="true" layoutX="1098.0" layoutY="31.0" prefHeight="25.0" prefWidth="171.0" promptText="Board No" />
+      <JFXRadioButton fx:id="radio_temporary" layoutX="1065.0" layoutY="89.0" selected="true" text="Temporary">
+         <toggleGroup>
+            <ToggleGroup fx:id="TP" />
+         </toggleGroup>
+      </JFXRadioButton>
+      <JFXRadioButton fx:id="radio_permanent" layoutX="1173.0" layoutY="89.0" text="Permanent" toggleGroup="$TP" />
+      <Line endX="1200.0" layoutX="100.0" layoutY="137.0" startX="-100.0" stroke="#bdbdbd" />
+      <JFXTextField fx:id="txt_location" labelFloat="true" layoutX="74.0" layoutY="211.0" onAction="#locationOnAction" onKeyReleased="#locationOnKeyRelesed" prefHeight="25.0" prefWidth="185.0" promptText="Location Name" />
+      <JFXTextField fx:id="txt_width" labelFloat="true" layoutX="505.0" layoutY="163.0" onKeyPressed="#widthKeyType" onKeyReleased="#calPriceAndSquareFeet" prefHeight="25.0" prefWidth="88.0" promptText="Width" />
+      <JFXTextField fx:id="txt_height" labelFloat="true" layoutX="505.0" layoutY="210.0" onKeyPressed="#heightKeyType" onKeyReleased="#calPriceAndSquareFeet" prefHeight="25.0" prefWidth="88.0" promptText="Height" />
+      <JFXRadioButton fx:id="radio_oneSide" layoutX="638.0" layoutY="167.0" onMouseClicked="#selectSideToCal" selected="true" text="One Side">
+         <toggleGroup>
+            <ToggleGroup fx:id="side" />
+         </toggleGroup>
+      </JFXRadioButton>
+      <JFXRadioButton fx:id="radio_borthSide" layoutX="638.0" layoutY="214.0" onMouseClicked="#selectSideToCal" text="Both Side" toggleGroup="$side" />
+      <JFXTextField fx:id="txt_oneBoardSquare" editable="false" labelFloat="true" layoutX="797.0" layoutY="163.0" prefHeight="25.0" prefWidth="132.0" promptText="One Board Square feet" />
+      <JFXTextField fx:id="txt_qty" labelFloat="true" layoutX="797.0" layoutY="210.0" onKeyPressed="#qtyKeyType" onKeyReleased="#calPriceAndSquareFeet" prefHeight="25.0" prefWidth="132.0" promptText="Qty" />
+      <JFXTextField fx:id="txt_unitPrice" labelFloat="true" layoutX="321.0" layoutY="211.0" onKeyPressed="#unitKeyType" onKeyReleased="#calPriceAndSquareFeet" prefHeight="25.0" prefWidth="114.0" promptText="Unit Price" />
+      <JFXComboBox fx:id="com_boardType" labelFloat="true" layoutX="74.0" layoutY="163.0" prefHeight="25.0" prefWidth="185.0" promptText="Board Type" />
+      <JFXTextField fx:id="txt_total_Square" editable="false" labelFloat="true" layoutX="999.0" layoutY="163.0" prefHeight="25.0" prefWidth="132.0" promptText="Total Square feet" />
+      <JFXTextField fx:id="txt_total_Price" editable="false" labelFloat="true" layoutX="999.0" layoutY="210.0" prefHeight="25.0" prefWidth="132.0" promptText="Total Price" />
+      <JFXButton fx:id="btn_add" layoutX="1150.0" layoutY="195.0" onMouseClicked="#clickOnAdd" prefHeight="39.0" prefWidth="139.0" style="-fx-background-color: #2196F3;" text="Add" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></JFXButton>
+      <TableView fx:id="tbl_board" layoutX="74.0" layoutY="251.0" prefHeight="169.0" prefWidth="1059.0">
+        <columns>
+          <TableColumn fx:id="col_id" prefWidth="41.0" text="#" />
+          <TableColumn fx:id="col_location" prefWidth="280.9999694824219" text="Location" />
+            <TableColumn fx:id="col_groundRent" prefWidth="85.0" text="Ground Rent" />
+            <TableColumn fx:id="col_boardType" prefWidth="127.0" text="Board Type" />
+            <TableColumn fx:id="col_unitPrice" text="Unit Price" />
+            <TableColumn fx:id="col_width" prefWidth="70.0" text="Width" />
+            <TableColumn fx:id="col_height" prefWidth="69.0" text="Height" />
+            <TableColumn fx:id="col_side" prefWidth="60.0" text="Side" />
+            <TableColumn fx:id="col_squareFeet" prefWidth="76.0" text="Square feet" />
+            <TableColumn fx:id="col_qty" prefWidth="75.0" text="Qty" />
+            <TableColumn fx:id="col_total_price" minWidth="0.0" prefWidth="85.0" text="Total Price" />
+        </columns>
+      </TableView>
+      <JFXButton fx:id="btn_remove" layoutX="1150.0" layoutY="302.0" onMouseClicked="#clickOnRemove" prefHeight="39.0" prefWidth="139.0" style="-fx-background-color: #FF9800;" text="Remove" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></JFXButton>
+      <JFXButton fx:id="btn_edit" layoutX="1150.0" layoutY="350.0" onMouseClicked="#clickOnEdit" prefHeight="39.0" prefWidth="139.0" style="-fx-background-color: #2196F3;" text="Edit" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></JFXButton>
+      <JFXTextField fx:id="txt_dipositPrice" editable="false" labelFloat="true" layoutX="74.0" layoutY="482.0" onKeyReleased="#dipositKeyReeased" prefHeight="25.0" prefWidth="114.0" promptText="Diposit Price" />
+      <JFXTextField fx:id="txt_groundRent" editable="false" labelFloat="true" layoutX="321.0" layoutY="163.0" prefHeight="25.0" prefWidth="114.0" promptText="Ground Rent" />
+      <JFXTextField fx:id="txt_visitPrice" editable="false" labelFloat="true" layoutX="74.0" layoutY="531.0" onKeyReleased="#visitKeyReeased" prefHeight="25.0" prefWidth="114.0" promptText="Visit And Cheack " />
+      <JFXTextField fx:id="txt_otherPrice" labelFloat="true" layoutX="74.0" layoutY="579.0" onKeyReleased="#otherKeyReeased" prefHeight="25.0" prefWidth="114.0" promptText="Other Prices" />
+      <JFXTextField fx:id="txt_tot" editable="false" labelFloat="true" layoutX="1034.0" layoutY="437.0" prefHeight="25.0" prefWidth="97.0" promptText="Total Price">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></JFXTextField>
+      <JFXCheckBox fx:id="check_vat" layoutX="480.0" layoutY="488.0" onAction="#vatCheack" text=" " />
+      <JFXCheckBox fx:id="check_nbt" layoutX="480.0" layoutY="538.0" onAction="#nbtCheack" text=" " />
+      <JFXCheckBox fx:id="check_stamp" layoutX="480.0" layoutY="587.0" onAction="#stampCheack" text=" " />
+      <JFXTextField fx:id="txt_vat" editable="false" labelFloat="true" layoutX="531.0" layoutY="483.0" prefHeight="25.0" prefWidth="88.0" promptText="VAT" />
+      <JFXTextField fx:id="txt_nbt" editable="false" labelFloat="true" layoutX="531.0" layoutY="532.0" prefHeight="25.0" prefWidth="88.0" promptText="NBT" />
+      <JFXTextField fx:id="txt_stamp" labelFloat="true" layoutX="531.0" layoutY="580.0" prefHeight="25.0" prefWidth="88.0" promptText="STAMP" />
+      <JFXButton fx:id="btn_save" layoutX="1150.0" layoutY="475.0" onMouseClicked="#clickOnSave" prefHeight="39.0" prefWidth="139.0" style="-fx-background-color: #8BC34A;" text="Save" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></JFXButton>
+      <JFXButton fx:id="btn_send" disable="true" layoutX="1150.0" layoutY="524.0" onMouseClicked="#clickOnSend" prefHeight="39.0" prefWidth="139.0" style="-fx-background-color: #2196F3;" text="Send To Approval" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></JFXButton>
+      <JFXButton fx:id="btn_pay" disable="true" layoutX="1150.0" layoutY="572.0" onMouseClicked="#clickOnPay" prefHeight="39.0" prefWidth="139.0" style="-fx-background-color: #FF9800;" text="Pay" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></JFXButton>
+      <JFXTextField fx:id="txt_full_total" editable="false" labelFloat="true" layoutX="805.0" layoutY="532.0" prefHeight="25.0" prefWidth="171.0" promptText="Full Total">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></JFXTextField>
+      <JFXTextField fx:id="txt_discription" labelFloat="true" layoutX="74.0" layoutY="85.0" prefHeight="25.0" prefWidth="986.0" promptText="Discription" />
+      <Line endX="1200.0" layoutX="99.0" layoutY="465.0" startX="-100.0" stroke="#bdbdbd" />
+      <JFXTextField fx:id="txt_groundTot" editable="false" labelFloat="true" layoutX="400.0" layoutY="437.0" prefHeight="25.0" prefWidth="114.0" promptText="Ground Rent Total">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></JFXTextField>
+      <Text fx:id="txt_dayCount" fill="#009a27" layoutX="955.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Count" wrappingWidth="88.00000476837158">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></Text>
+      <JFXToggleButton fx:id="btn_diposit" layoutX="207.0" layoutY="470.0" onAction="#removeDiposit" text="Remove Diposit" toggleColor="RED" toggleLineColor="RED" />
+   </children>
+</AnchorPane>

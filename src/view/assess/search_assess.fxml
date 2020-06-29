@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="625.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.assess.Search_assessController">
+   <children>
+      <AnchorPane layoutX="88.0" layoutY="17.0" prefHeight="83.0" prefWidth="298.0" style="-fx-border-color: #66BB6A;">
+         <children>
+            <JFXCheckBox fx:id="cheack_ward" layoutX="14.0" layoutY="12.0" onAction="#cheackWard" text="Search with Ward" textFill="#66bb6a" />
+            <JFXComboBox fx:id="com_ward" layoutX="22.0" layoutY="45.0" onAction="#selectWard" prefHeight="25.0" prefWidth="255.0" promptText="Ward" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="88.0" layoutY="115.0" prefHeight="87.0" prefWidth="298.0" style="-fx-border-color: #66BB6A;">
+         <children>
+            <JFXComboBox fx:id="com_street" layoutX="22.0" layoutY="47.0" onAction="#selectStreet" prefHeight="25.0" prefWidth="255.0" promptText="Street" />
+            <JFXCheckBox fx:id="cheack_street" layoutX="12.0" layoutY="10.0" onAction="#cheackStreet" text="Search with Street" textFill="#66bb6a" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="88.0" layoutY="220.0" prefHeight="87.0" prefWidth="298.0" style="-fx-border-color: #66BB6A;">
+         <children>
+            <JFXComboBox fx:id="com_nature" layoutX="22.0" layoutY="48.0" onAction="#selectNature" prefHeight="25.0" prefWidth="255.0" promptText="Nature" />
+            <JFXCheckBox fx:id="cheack_nature" layoutX="12.0" layoutY="12.0" onAction="#cheackNature" text="Search with Nature" textFill="#66bb6a" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="88.0" layoutY="322.0" prefHeight="87.0" prefWidth="298.0" style="-fx-border-color: #66BB6A;">
+         <children>
+            <JFXTextField fx:id="txt_assessment" layoutX="22.0" layoutY="49.0" onKeyReleased="#typeAssess" prefHeight="25.0" prefWidth="255.0" promptText="Assessment No" />
+            <JFXCheckBox fx:id="cheack_assessment" layoutX="14.0" layoutY="11.0" onAction="#cheackAssessment" text="Search with Assessment" textFill="#66bb6a" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="88.0" layoutY="426.0" prefHeight="87.0" prefWidth="298.0" style="-fx-border-color: #26C6DA;">
+         <children>
+            <JFXTextField fx:id="txt_obsolete" layoutX="22.0" layoutY="49.0" onKeyReleased="#typeObsolete" prefHeight="25.0" prefWidth="255.0" promptText="NIC" />
+            <JFXCheckBox fx:id="cheack_obsolete" layoutX="12.0" layoutY="11.0" onAction="#cheackObsolete" text="Search with NIC" textFill="#26c6da" />
+         </children>
+      </AnchorPane>
+      <TableView fx:id="tbl_assess" layoutX="429.0" layoutY="28.0" onMouseClicked="#selectFormTable" prefHeight="528.0" prefWidth="831.0">
+        <columns>
+            <TableColumn fx:id="col_order" prefWidth="75.0" text="Order" />
+            <TableColumn fx:id="col_nature" prefWidth="79.0" text="Nature" />
+          <TableColumn fx:id="col_ward" minWidth="0.0" prefWidth="66.0" text="Ward" />
+          <TableColumn fx:id="col_street" prefWidth="123.0" text="Street" />
+            <TableColumn fx:id="col_assess" prefWidth="103.0" text="Assessment NO." />
+            <TableColumn fx:id="col_obsalut" prefWidth="96.0" text="Obsolete NO." />
+            <TableColumn fx:id="col_allocation" prefWidth="81.0" style="-fx-alignment: CENTER-RIGHT;" text="Allocation" />
+            <TableColumn fx:id="col_owner" prefWidth="149.0" text="Owner Name" />
+            <TableColumn fx:id="col_status" prefWidth="53.0" text="Status" />
+        </columns>
+      </TableView>
+      <AnchorPane layoutX="88.0" layoutY="531.0" prefHeight="87.0" prefWidth="298.0" style="-fx-border-color: #26C6DA;">
+         <children>
+            <JFXTextField fx:id="txt_customer" layoutX="22.0" layoutY="51.0" onKeyReleased="#typeCustomer" prefHeight="25.0" prefWidth="255.0" promptText="Customer Name" />
+            <JFXCheckBox fx:id="cheack_customer" layoutX="12.0" layoutY="13.0" onAction="#cheackCustomer" text="Search with Customer Name" textFill="#26c6da" />
+         </children>
+      </AnchorPane>
+      <JFXButton disable="true" layoutX="643.0" layoutY="576.0" text="More Info" visible="false" />
+      <JFXButton layoutX="1149.0" layoutY="573.0" onAction="#getKForm" prefHeight="30.0" prefWidth="110.0" style="-fx-background-color: #4CAF50;" text="Get K Form" textAlignment="CENTER" textFill="#fafafa">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="btn_paySelected" layoutX="993.0" layoutY="573.0" onMouseClicked="#clickOnPay" prefHeight="30.0" prefWidth="128.0" style="-fx-background-color: FF9800;" text="Go To Pay" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></JFXButton>
+      <JFXButton layoutX="719.0" layoutY="576.0" text="Change Process" visible="false" />
+      <Text fx:id="txt_selected" fill="#059000" layoutX="428.0" layoutY="596.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="290.0">
+         <font>
+            <Font size="24.0" />
+         </font></Text>
+      <JFXButton fx:id="btn_getBook" layoutX="844.0" layoutY="576.0" onMouseClicked="#clickOnBook" text="Get Book" visible="false" />
+   </children>
+</AnchorPane>

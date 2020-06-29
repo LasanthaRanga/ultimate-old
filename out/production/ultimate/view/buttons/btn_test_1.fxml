@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.text.Font?>
+
+<JFXButton fx:id="btn_t2" accessibleText="btn2" alignment="BASELINE_LEFT" graphicTextGap="20.0" onAction="#clickOnAction" prefHeight="37.0" prefWidth="198.0" style="-fx-background-color: #03A9F4;" text="Dashboard" textFill="WHITE" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.buttons.Btn_testController_1">
+   <font>
+      <Font name="System Bold" size="14.0" />
+   </font>
+   <graphic>
+      <ImageView fx:id="img_t2" fitHeight="27.0" fitWidth="33.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../grafics/dashboard.png" />
+         </image>
+      </ImageView>
+   </graphic>
+</JFXButton>

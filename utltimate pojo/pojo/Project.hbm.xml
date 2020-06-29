@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 9, 2019 3:22:31 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.Project" table="project" catalog="pannala" optimistic-lock="version">
+        <id name="idProject" type="java.lang.Integer">
+            <column name="idProject" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="project" class="pojo.Project" fetch="select">
+            <column name="program_idProgram" not-null="true" />
+        </many-to-one>
+        <property name="projectName" type="string">
+            <column name="project_name" />
+        </property>
+        <property name="projectSinhala" type="string">
+            <column name="project_sinhala" />
+        </property>
+        <property name="projectCode" type="string">
+            <column name="project_code" />
+        </property>
+        <property name="projectOder" type="java.lang.Integer">
+            <column name="project_oder" />
+        </property>
+        <property name="projectStatus" type="java.lang.Integer">
+            <column name="project_status" />
+        </property>
+        <set name="projects" table="project" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="program_idProgram" not-null="true" />
+            </key>
+            <one-to-many class="pojo.Project" />
+        </set>
+    </class>
+</hibernate-mapping>

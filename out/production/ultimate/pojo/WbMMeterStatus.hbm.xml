@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 3, 2019 9:57:03 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.WbMMeterStatus" table="wb_m_meter_status" catalog="kuliuc" optimistic-lock="version">
+        <id name="wbMMeterStatusId" type="java.lang.Integer">
+            <column name="wb_m_meter_status_id" />
+            <generator class="identity" />
+        </id>
+        <property name="wbMMeterStatus" type="string">
+            <column name="wb_m_meter_status" length="20" />
+        </property>
+        <set name="wbMReadingProblemses" table="wb_m_reading_problems" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="wb_m_canorcant_read" />
+            </key>
+            <one-to-many class="pojo.WbMReadingProblems" />
+        </set>
+    </class>
+</hibernate-mapping>

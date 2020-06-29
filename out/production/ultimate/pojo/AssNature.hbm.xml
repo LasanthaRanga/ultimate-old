@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 6, 2019 4:30:22 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.AssNature" table="ass_nature" catalog="ultimate2" optimistic-lock="version">
+        <id name="idassNature" type="java.lang.Integer">
+            <column name="idass_nature" />
+            <generator class="identity" />
+        </id>
+        <property name="assNatureName" type="string">
+            <column name="ass_nature_name" length="45" />
+        </property>
+        <property name="assNatureYearRate" type="java.lang.Double">
+            <column name="ass_nature_year_rate" precision="22" scale="0" />
+        </property>
+        <property name="assNatureStatus" type="java.lang.Integer">
+            <column name="ass_nature_status" />
+        </property>
+        <property name="assNatureWarrantRate" type="java.lang.Double">
+            <column name="ass_nature_warrant_rate" precision="22" scale="0" />
+        </property>
+        <set name="assessments" table="assessment" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ass_nature_idass_nature" not-null="true" />
+            </key>
+            <one-to-many class="pojo.Assessment" />
+        </set>
+        <set name="assPayments" table="ass_payment" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ass_nature_idass_nature" not-null="true" />
+            </key>
+            <one-to-many class="pojo.AssPayment" />
+        </set>
+    </class>
+</hibernate-mapping>

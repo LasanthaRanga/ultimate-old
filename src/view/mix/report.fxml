@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="625.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.mix.Report">
+   <children>
+      <JFXDatePicker fx:id="dp_from" layoutX="546.0" layoutY="116.0" promptText="FROM" />
+      <JFXDatePicker fx:id="dp_to" layoutX="546.0" layoutY="204.0" promptText="TO" />
+      <JFXButton fx:id="btn_report" layoutX="546.0" layoutY="367.0" onAction="#btnReportOnAction" prefHeight="44.0" prefWidth="209.0" style="-fx-background-color: #4CAF50;" text="Get Report" />
+      <JFXTextField fx:id="txt_type" layoutX="424.0" layoutY="284.0" onKeyReleased="#typeKeyUp" prefHeight="29.0" prefWidth="452.0" />
+   </children>
+</AnchorPane>

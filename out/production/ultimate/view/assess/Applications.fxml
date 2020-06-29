@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXToggleButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="625.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.assess.Applications">
+   <children>
+      <TableView fx:id="tbl_applications" layoutX="86.0" layoutY="64.0" onMouseClicked="#selectFromTable" prefHeight="173.0" prefWidth="1147.0">
+        <columns>
+          <TableColumn fx:id="col_refno" prefWidth="240.0" text="Ref. NO." />
+          <TableColumn fx:id="col_apptype" prefWidth="198.0" text="Application Type" />
+            <TableColumn fx:id="col_date" prefWidth="118.0" text="Date" />
+            <TableColumn fx:id="col_names" prefWidth="576.0" text="Appliciant" />
+        </columns>
+      </TableView>
+      <JFXToggleButton fx:id="btn_completed" layoutX="64.0" layoutY="6.0" onAction="#togalOnAction" prefHeight="41.0" prefWidth="163.0" text="Completed" />
+      <Text fx:id="txt_user" layoutX="86.0" layoutY="267.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="1146.9999819993973" />
+      <Text fx:id="txt_description" layoutX="86.0" layoutY="301.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="1146.9999819993973" />
+      <TableView fx:id="tbl_assessment" layoutX="86.0" layoutY="320.0" prefHeight="190.0" prefWidth="570.0">
+        <columns>
+          <TableColumn fx:id="col_ward" prefWidth="65.0" text="Ward" />
+          <TableColumn fx:id="col_street" prefWidth="366.0" text="Street" />
+            <TableColumn fx:id="col_assno" prefWidth="122.0" text="Assessment No" />
+        </columns>
+      </TableView>
+      <JFXButton fx:id="btn_application" layoutX="142.0" layoutY="537.0" onMouseClicked="#clickOnApplication" prefHeight="42.0" prefWidth="458.0" style="-fx-background-color: #00BCD4;" text="Cancel These Assessment And Create New Ones" />
+      <TableView fx:id="tbl_assessment1" layoutX="663.0" layoutY="320.0" onMouseClicked="#selectFromNew" prefHeight="190.0" prefWidth="570.0">
+         <columns>
+            <TableColumn fx:id="col_ward1" prefWidth="65.0" text="Ward" />
+            <TableColumn fx:id="col_street1" prefWidth="366.0" text="Street" />
+            <TableColumn fx:id="col_assno1" prefWidth="122.0" text="Assessment No" />
+         </columns>
+      </TableView>
+      <JFXButton fx:id="btn_laters" layoutX="712.0" layoutY="537.0" onAction="#clickOnLaters" prefHeight="42.0" prefWidth="472.0" style="-fx-background-color: #4CAF50;" text="Complete Process And Print Latters" />
+   </children>
+</AnchorPane>

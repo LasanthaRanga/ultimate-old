@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="625.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.adv.PaidController">
+   <children>
+      <TableView fx:id="tbl_Approval" layoutX="84.0" layoutY="79.0" onMouseReleased="#selectOnTable" prefHeight="454.0" prefWidth="1179.0">
+         <columns>
+            <TableColumn fx:id="col_id" prefWidth="48.999969482421875" text="#" />
+            <TableColumn fx:id="col_customerName" prefWidth="600.9999847412109" text="Customer Name" />
+            <TableColumn fx:id="col_bordNo" prefWidth="179.0" text="Board No" />
+            <TableColumn fx:id="col_start_date" prefWidth="105.0" text="Date Start" />
+            <TableColumn fx:id="col_end_date" prefWidth="103.0" text="Date End" />
+            <TableColumn fx:id="col_fullAmount" prefWidth="136.0" text="Full Amount" />
+         </columns>
+      </TableView>
+      <JFXButton layoutX="1147.0" layoutY="572.0" onMouseClicked="#MoreDetails" prefHeight="25.0" prefWidth="116.0" style="-fx-background-color: #8BC34A;" text="More Details" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </JFXButton>
+      <Label layoutX="84.0" layoutY="577.0" text="Selected Bord No :">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbl_bordNo" layoutX="218.0" layoutY="577.0" prefHeight="17.0" prefWidth="257.0" text="00">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <JFXDatePicker fx:id="today" layoutX="84.0" layoutY="31.0" onAction="#setDate" promptText="Date" />
+      <JFXButton layoutX="958.0" layoutY="572.0" onMouseClicked="#sheduleReport" prefHeight="31.0" prefWidth="156.0" style="-fx-background-color: #8BC34A;" text="Shedule Report" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>

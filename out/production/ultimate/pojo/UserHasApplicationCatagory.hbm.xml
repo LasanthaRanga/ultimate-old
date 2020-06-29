@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 6, 2019 4:30:22 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.UserHasApplicationCatagory" table="user_has_application_catagory" catalog="ultimate2" optimistic-lock="version">
+        <id name="idUserHasApplicationCatagory" type="java.lang.Integer">
+            <column name="idUser_has_Application_Catagory" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="applicationCatagory" class="pojo.ApplicationCatagory" fetch="select">
+            <column name="Application_Catagory_idApplication_Catagory" not-null="true" />
+        </many-to-one>
+        <many-to-one name="user" class="pojo.User" fetch="select">
+            <column name="User_idUser" not-null="true" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

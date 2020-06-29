@@ -1,0 +1,124 @@
+SELECT
+assessment.idAssessment,
+ward.ward_name,
+street.street_name,
+assessment.assessment_no,
+customer.cus_name,
+ass_nature.ass_nature_name,
+ass_allocation.ass_allocation,
+ROUND(ass_nature.ass_nature_year_rate * ass_allocation.ass_allocation /400 ,2) AS quater
+FROM
+assessment
+INNER JOIN ward ON assessment.Ward_idWard = ward.idWard
+INNER JOIN street ON street.Ward_idWard = ward.idWard AND assessment.Street_idStreet = street.idStreet
+INNER JOIN ass_nature ON assessment.ass_nature_idass_nature = ass_nature.idass_nature
+INNER JOIN customer ON assessment.Customer_idCustomer = customer.idCustomer
+INNER JOIN ass_allocation ON ass_allocation.Assessment_idAssessment = assessment.idAssessment
+WHERE
+ass_allocation.ass_allocation_status = 1
+
+================Bil Kirima Total ==========================
+
+SELECT
+assessment.idAssessment,
+ward.ward_name,
+street.street_name,
+assessment.assessment_no,
+customer.cus_name,
+ass_nature.ass_nature_name,
+ass_allocation.ass_allocation,
+SUM( ROUND(ass_nature.ass_nature_year_rate * ass_allocation.ass_allocation /100 ,2)) AS quater4
+FROM
+assessment
+INNER JOIN ward ON assessment.Ward_idWard = ward.idWard
+INNER JOIN street ON street.Ward_idWard = ward.idWard AND assessment.Street_idStreet = street.idStreet
+INNER JOIN ass_nature ON assessment.ass_nature_idass_nature = ass_nature.idass_nature
+INNER JOIN customer ON assessment.Customer_idCustomer = customer.idCustomer
+INNER JOIN ass_allocation ON ass_allocation.Assessment_idAssessment = assessment.idAssessment
+WHERE
+ass_allocation.ass_allocation_status = 1 AND
+assessment.assessment_syn = 0
+
+===================================================================
+
+
+=============== Last Year Arriars Warrant Query ======================
+SELECT
+ass_qstart.ass_Qstart_year,
+ROUND(Sum(ass_qstart.ass_Qstart_LY_Arreas),2) AS Arriars,
+ROUND(Sum(ass_qstart.ass_Qstart_LY_Warrant),2) as warrant
+FROM
+ass_qstart
+WHERE
+ass_qstart.ass_Qstart_year = 2019 AND
+ass_qstart.ass_Qstart_QuaterNumber = 1
+GROUP BY
+ass_qstart.ass_Qstart_year
+
+========================================================
+
+
+
+
+======================Quare 1 Arriars Warrant Query =================
+
+SELECT
+ass_qstart.ass_Qstart_year,
+ROUND(Sum(ass_qstart.ass_Qstart_LQ_Arreas) ,2 )as arriars,
+ROUND(Sum(ass_qstart.ass_Qstart_LQ_Warrant) ,2 )as warrant
+FROM
+ass_qstart
+WHERE
+ass_qstart.ass_Qstart_year = 2019 AND
+ass_qstart.ass_Qstart_QuaterNumber = 2
+GROUP BY
+ass_qstart.ass_Qstart_year
+
+========================================================
+
+
+============================ payment cancel =================
+SELECT
+ROUND(ass_payment.ass_Payment_fullTotal + ass_payment.ass_Payment_goto_debit + ass_payment.cd_balance ,2),
+
+ROUND((ass_payment.ass_Payment_fullTotal + ass_payment.ass_Payment_goto_debit + ass_payment.cd_balance) - (ass_payment.ass_cash+ ass_payment.ass_check),2),
+ass_payment.Assessment_idAssessment,
+ass_payment.Receipt_idReceipt,
+receipt.receipt_print_no ,
+ROUND(ass_payment.ass_cash+ ass_payment.ass_check,2) as pay
+FROM
+ass_payment
+INNER JOIN receipt ON ass_payment.Receipt_idReceipt = receipt.idReceipt
+WHERE
+( ass_payment.ass_Payment_Status = 0 or ass_payment.ass_Payment_Status = 2 ) AND
+ass_payment.ass_Payment_date BETWEEN '2019-01-01' AND '2019-01-31' AND
+ass_payment.Receipt_idReceipt IS NOT NULL
+
+====================================================================
+
+
+=================================== payemnt sum ============================
+SELECT
+ROUND(sum(ass_payment.ass_Payment_fullTotal + ass_payment.ass_Payment_goto_debit + ass_payment.cd_balance) ,2),
+ROUND(sum(ass_payment.ass_cash+ ass_payment.ass_check),2),
+ROUND(sum(ass_payment.ass_Payment_fullTotal + ass_payment.ass_Payment_goto_debit + ass_payment.cd_balance) - sum(ass_payment.ass_cash+ ass_payment.ass_check),2)
+
+FROM
+ass_payment
+WHERE
+( ass_payment.ass_Payment_Status = 1  ) AND
+ass_payment.ass_Payment_date BETWEEN '2019-01-01' AND '2019-01-31' AND
+ass_payment.Receipt_idReceipt IS NOT NULL
+
+=========================================================================
+
+
+11120
+11121
+
+sm-t295 
+
+
+
+
+

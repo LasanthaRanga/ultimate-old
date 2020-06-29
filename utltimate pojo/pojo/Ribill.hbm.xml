@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 6, 2019 4:30:22 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.Ribill" table="ribill" catalog="ultimate2" optimistic-lock="version">
+        <id name="idRibill" type="java.lang.Integer">
+            <column name="idRibill" />
+            <generator class="identity" />
+        </id>
+        <property name="billdate" type="date">
+            <column name="billdate" length="10" />
+        </property>
+        <property name="billtotal" type="java.lang.Double">
+            <column name="billtotal" precision="22" scale="0" />
+        </property>
+        <property name="userid" type="java.lang.Integer">
+            <column name="userid" />
+        </property>
+        <property name="ribillStatus" type="java.lang.Integer">
+            <column name="ribill_status" />
+        </property>
+        <property name="billNo" type="string">
+            <column name="bill_no" />
+        </property>
+        <property name="officeId" type="java.lang.Integer">
+            <column name="office_id" />
+        </property>
+        <property name="oder" type="java.lang.Integer">
+            <column name="oder" />
+        </property>
+        <set name="ribillLists" table="ribill_list" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Ribill_idRibill" />
+            </key>
+            <one-to-many class="pojo.RibillList" />
+        </set>
+    </class>
+</hibernate-mapping>

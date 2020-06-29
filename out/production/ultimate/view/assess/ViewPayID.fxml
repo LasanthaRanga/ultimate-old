@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="320.0" prefWidth="488.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.assess.ViewPayIDController">
+   <children>
+      <Text fx:id="txt_id" fill="#5100ff" layoutX="13.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0000000" textAlignment="CENTER" wrappingWidth="461.0000030994415">
+         <font>
+            <Font size="48.0" />
+         </font>
+      </Text>
+      <Text fx:id="txt_tot" layoutX="13.0" layoutY="114.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0000000" textAlignment="CENTER" wrappingWidth="461.0000030994415">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <JFXButton fx:id="btn_ok" layoutX="13.0" layoutY="253.0" onMouseClicked="#clickOnOk" prefHeight="53.0" prefWidth="461.0" style="-fx-background-color: #4CAF50;" text="OK" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </JFXButton>
+      <JFXTextField fx:id="txt_nic" layoutX="89.0" layoutY="172.0" prefHeight="32.0" prefWidth="310.0" promptText="NIC">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </JFXTextField>
+   </children>
+</AnchorPane>

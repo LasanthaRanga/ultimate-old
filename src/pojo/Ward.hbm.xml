@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 6, 2019 4:30:22 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.Ward" table="ward" catalog="ultimate2" optimistic-lock="version">
+        <id name="idWard" type="java.lang.Integer">
+            <column name="idWard" />
+            <generator class="identity" />
+        </id>
+        <property name="wardNo" type="string">
+            <column name="ward_no" length="45" />
+        </property>
+        <property name="wardName" type="string">
+            <column name="ward_name" length="45" />
+        </property>
+        <property name="wardStatus" type="java.lang.Integer">
+            <column name="ward_status" />
+        </property>
+        <property name="wardSyn" type="java.lang.Integer">
+            <column name="ward_syn" />
+        </property>
+        <property name="wardComment" type="string">
+            <column name="ward_comment" />
+        </property>
+        <property name="wardCode" type="string">
+            <column name="ward_Code" />
+        </property>
+        <property name="officeIdOffice" type="java.lang.Integer">
+            <column name="office_idOffice" />
+        </property>
+        <set name="streetCopies" table="street_copy" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Ward_idWard" not-null="true" />
+            </key>
+            <one-to-many class="pojo.StreetCopy" />
+        </set>
+        <set name="streets" table="street" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Ward_idWard" not-null="true" />
+            </key>
+            <one-to-many class="pojo.Street" />
+        </set>
+        <set name="assessments" table="assessment" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Ward_idWard" not-null="true" />
+            </key>
+            <one-to-many class="pojo.Assessment" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.3.1.final using JasperReports Library version 6.3.1  -->
+<!-- 2019-08-19T15:03:12 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="strretline" pageWidth="515" pageHeight="433" columnWidth="505" leftMargin="5" rightMargin="5" topMargin="5" bottomMargin="5" uuid="3dc37cfa-6bb9-41f7-abd0-2a34ba36f27b">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Ultimate2.xml"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="cm"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<parameter name="reciptid" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{reciptid}]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+	receipt.idReceipt,
+	receipt.Application_Catagory_idApplication_Catagory,
+	receipt.recept_applicationId,
+	receipt.receipt_print_no,
+	receipt.cheack,
+	receipt.cesh,
+	receipt.receipt_total,
+	receipt.receipt_day,
+	receipt.receipt_status,
+	receipt.receipt_syn,
+	receipt.chque_no,
+	receipt.chque_date,
+	receipt.chque_bank,
+	receipt.oder,
+	receipt.office_idOffice,
+	sl_details.idStreetLine,
+	sl_details.ass_id,
+	sl_details.slDate,
+	sl_details.sllotNo,
+	sl_details.slPlanNo,
+	sl_details.slDescription,
+	sl_details.slDeposit,
+	sl_details.slAmount,
+	sl_details.slVat,
+	sl_details.slNbt,
+	sl_details.slStamp,
+	sl_details.slOther1,
+	sl_details.slOther2,
+	sl_details.slApproveToPay,
+	sl_details.slServayOfficer,
+	sl_details.slServayDate,
+	sl_details.slPersonTitle,
+	sl_details.slYesNo_id,
+	sl_details.slStatus,
+	sl_details.office_idOffice,
+	sl_details.customer_idCustomer,
+	sl_details.sl_reference_no,
+	sl_details.slApproveDescription,
+	customer.cus_name
+FROM
+	receipt
+INNER JOIN sl_details ON receipt.recept_applicationId = sl_details.idStreetLine
+INNER JOIN customer ON sl_details.customer_idCustomer = customer.idCustomer
+WHERE
+	receipt.Application_Catagory_idApplication_Catagory = '14'
+AND receipt.idReceipt =  $P{reciptid}]]>
+	</queryString>
+	<field name="idReceipt" class="java.lang.Integer"/>
+	<field name="Application_Catagory_idApplication_Catagory" class="java.lang.Integer"/>
+	<field name="recept_applicationId" class="java.lang.Integer"/>
+	<field name="receipt_print_no" class="java.lang.String"/>
+	<field name="cheack" class="java.lang.Double"/>
+	<field name="cesh" class="java.lang.Double"/>
+	<field name="receipt_total" class="java.lang.Double"/>
+	<field name="receipt_day" class="java.sql.Date"/>
+	<field name="receipt_status" class="java.lang.Integer"/>
+	<field name="receipt_syn" class="java.lang.Integer"/>
+	<field name="chque_no" class="java.lang.String"/>
+	<field name="chque_date" class="java.sql.Date"/>
+	<field name="chque_bank" class="java.lang.String"/>
+	<field name="oder" class="java.lang.Integer"/>
+	<field name="office_idOffice" class="java.lang.Integer"/>
+	<field name="idStreetLine" class="java.lang.Integer"/>
+	<field name="ass_id" class="java.lang.String"/>
+	<field name="slDate" class="java.sql.Date"/>
+	<field name="sllotNo" class="java.lang.String"/>
+	<field name="slPlanNo" class="java.lang.String"/>
+	<field name="slDescription" class="java.lang.String"/>
+	<field name="slDeposit" class="java.lang.Double"/>
+	<field name="slAmount" class="java.lang.Double"/>
+	<field name="slVat" class="java.lang.Double"/>
+	<field name="slNbt" class="java.lang.Double"/>
+	<field name="slStamp" class="java.lang.Double"/>
+	<field name="slOther1" class="java.lang.Double"/>
+	<field name="slOther2" class="java.lang.Double"/>
+	<field name="slApproveToPay" class="java.lang.Integer"/>
+	<field name="slServayOfficer" class="java.lang.String"/>
+	<field name="slServayDate" class="java.sql.Date"/>
+	<field name="slPersonTitle" class="java.lang.Integer"/>
+	<field name="slYesNo_id" class="java.lang.Integer"/>
+	<field name="slStatus" class="java.lang.Integer"/>
+	<field name="COLUMN_35" class="java.lang.Integer"/>
+	<field name="customer_idCustomer" class="java.lang.Integer"/>
+	<field name="sl_reference_no" class="java.lang.String"/>
+	<field name="slApproveDescription" class="java.lang.String"/>
+	<field name="cus_name" class="java.lang.String"/>
+	<variable name="value" class="java.lang.String">
+		<variableExpression><![CDATA[String.format("%.2f", (double) $F{slAmount})]]></variableExpression>
+		<initialValueExpression><![CDATA[String.format("%.2f", (double) $F{slAmount})]]></initialValueExpression>
+	</variable>
+	<variable name="diposit" class="java.lang.String">
+		<variableExpression><![CDATA[String.format("%.2f", (double) $F{slDeposit})]]></variableExpression>
+		<initialValueExpression><![CDATA[String.format("%.2f", (double) $F{slDeposit})]]></initialValueExpression>
+	</variable>
+	<variable name="vat" class="java.lang.String">
+		<variableExpression><![CDATA[String.format("%.2f", (double) $F{slVat})]]></variableExpression>
+		<initialValueExpression><![CDATA[String.format("%.2f", (double) $F{slVat})]]></initialValueExpression>
+	</variable>
+	<variable name="nbt" class="java.lang.String">
+		<variableExpression><![CDATA[String.format("%.2f", (double) $F{slNbt})]]></variableExpression>
+		<initialValueExpression><![CDATA[String.format("%.2f", (double) $F{slNbt})]]></initialValueExpression>
+	</variable>
+	<variable name="total" class="java.lang.String">
+		<variableExpression><![CDATA[String.format("%.2f", (double) $F{receipt_total})]]></variableExpression>
+		<initialValueExpression><![CDATA[String.format("%.2f", (double) $F{receipt_total})]]></initialValueExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="423" splitType="Stretch">
+			<textField>
+				<reportElement x="90" y="90" width="210" height="20" uuid="eee1ca58-a9c6-4db0-a6a5-dc3b3e577799"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{receipt_print_no}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="90" y="117" width="240" height="20" uuid="308f50f7-c197-43e8-86f5-68aaccd95dc9"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{cus_name}]]></textFieldExpression>
+			</textField>
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement x="390" y="90" width="100" height="18" uuid="b14099ae-7eb3-43bd-b25b-66419e334f19"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="180" y="250" width="100" height="20" uuid="23edefcd-bfb9-452e-8d7e-84e4354ce8c5">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Value]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="180" y="270" width="100" height="20" uuid="25cdb6bc-5670-414d-a468-7afb6ed233c0"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Deposit]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="180" y="290" width="100" height="20" uuid="16e86a64-7938-4c0d-b72d-751f6b49fcd6"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[VAT]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="180" y="310" width="100" height="20" uuid="67840119-a532-42a0-a2b0-1ad9cca6e2d7"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[NBT]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="180" y="330" width="100" height="20" uuid="c73d0b6f-cf7d-4af9-9ba6-3c24742c2425"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="38" y="355" width="50" height="20" uuid="5758d4c4-3c9a-463c-95c3-1293125b23f1"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Cheque]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="188" y="355" width="50" height="20" uuid="19f37c25-9df1-430c-9be7-e9e0223820f5"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Cash]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="90" y="355" width="88" height="20" uuid="efc82e82-a768-4d62-abf0-1fb469e2d957"/>
+				<textFieldExpression><![CDATA[String.format("%.2f",$F{cheack})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="240" y="355" width="100" height="20" uuid="2843c6cf-39e7-4298-8362-fb9b31c8eede"/>
+				<textFieldExpression><![CDATA[String.format("%.2f",$F{cesh})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="90" y="380" width="88" height="20" uuid="3ad26bf7-de6e-4b93-8661-cf90f4711aac"/>
+				<textFieldExpression><![CDATA[$F{chque_no}==null?"":$F{chque_no}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="340" y="250" width="100" height="20" uuid="5bbd0964-ffa0-43dc-b686-40b58a68769d">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$V{value}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="340" y="270" width="100" height="20" uuid="47571c81-8f2f-4a10-ae24-187e3105c61e"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$V{diposit}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="340" y="290" width="100" height="20" uuid="75d3cda0-cf34-4a95-88e2-bfb4634c511c"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$V{vat}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="340" y="310" width="100" height="20" uuid="ca2aaeb9-5979-4a9e-be89-5dbf09097286"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$V{nbt}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="340" y="330" width="100" height="20" uuid="bfe42092-fa51-491b-a977-9ebb5c9f5d9a"/>
+				<textElement textAlignment="Right">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{total}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

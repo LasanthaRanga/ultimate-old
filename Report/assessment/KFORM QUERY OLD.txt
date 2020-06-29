@@ -1,0 +1,35 @@
+SELECT
+ward.ward_name,
+street.street_name,
+assessment.idAssessment,
+assessment.assessment_oder,
+assessment.assessment_no,
+assessment.assessment_status,
+assessment.assessment_syn,
+assessment.assessment_comment,
+assessment.assessment_obsolete,
+ass_allocation.ass_allocation,
+ass_nature.ass_nature_year_rate,
+ass_nature.ass_nature_name,
+customer.idCustomer,
+customer.cus_nic,
+ass_discription.ass_discription,
+ward.idWard,
+assessment.User_idUser,
+if (CAST(GROUP_CONCAT(sub.ass_subOwner_name SEPARATOR ' , ')AS CHAR ) is NULL,customer.cus_name, CONCAT(customer.cus_name," , ",CAST(GROUP_CONCAT(sub.ass_subOwner_name SEPARATOR ' , ')AS CHAR ),'')) AS cus_name,
+sub.ass_subOwner_name
+FROM
+ward
+LEFT JOIN street ON street.Ward_idWard = ward.idWard
+LEFT JOIN assessment ON assessment.Street_idStreet = street.idStreet AND assessment.Ward_idWard = ward.idWard
+INNER JOIN ass_allocation ON ass_allocation.Assessment_idAssessment = assessment.idAssessment
+INNER JOIN ass_nature ON assessment.ass_nature_idass_nature = ass_nature.idass_nature
+LEFT JOIN customer ON assessment.Customer_idCustomer = customer.idCustomer
+INNER JOIN ass_discription ON assessment.ass_discription_idass_discription = ass_discription.idass_discription
+LEFT JOIN sub ON assessment.idAssessment = sub.Assessment_idAssessment
+WHERE
+assessment.idAssessment IN ( $P!{assList} ) AND ass_allocation.ass_allocation_status = 1
+GROUP BY
+assessment.idAssessment
+ORDER BY
+assessment.assessment_oder ASC

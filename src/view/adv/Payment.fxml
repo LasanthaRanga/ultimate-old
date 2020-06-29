@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="625.0" prefWidth="1300.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.adv.PaymentController">
+   <children>
+      <HBox alignment="CENTER" layoutX="129.0" layoutY="173.0" prefHeight="374.0" prefWidth="330.0">
+         <children>
+            <VBox alignment="TOP_RIGHT" prefHeight="374.0" prefWidth="199.0" spacing="10.0">
+               <children>
+                  <Label text=" ">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label text="Addverticing Price  :" textFill="#3f51b5">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label text="VAT :" textFill="#ff9800">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label text="NBT :" textFill="#ff9800">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label text="Stamp :" textFill="#ff9800">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label>
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label text="Ground Rent :" textFill="#3f51b5">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label text="Diposit Price :" textFill="#3f51b5">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label text="Visiting And Searching Price :" textFill="#3f51b5">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label text="Other Prices :" textFill="#3f51b5">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label>
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label text="Full Total :" textFill="#ff5722">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox alignment="TOP_RIGHT" prefHeight="374.0" prefWidth="125.0" spacing="10.0">
+               <children>
+                  <Label contentDisplay="RIGHT">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lbl_advTot" contentDisplay="RIGHT" textFill="#3f51b5">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lbl_vat" contentDisplay="RIGHT" textFill="#ff9800">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lbl_nbt" contentDisplay="RIGHT" textFill="#ff9800">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lbl_stamp" contentDisplay="RIGHT" textFill="#ff9800">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label contentDisplay="RIGHT">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lbl_grund" contentDisplay="RIGHT" textFill="#3f51b5">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lbl_diposit" contentDisplay="RIGHT" textFill="#3f51b5">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lbl_searching" contentDisplay="RIGHT" textFill="#3f51b5">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lbl_price" contentDisplay="RIGHT" textFill="#3f51b5">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label contentDisplay="RIGHT">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lbl_Full_tot" contentDisplay="RIGHT" textFill="#ff5722">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+            </VBox>
+         </children>
+      </HBox>
+      <HBox layoutX="154.0" layoutY="78.0" prefHeight="100.0" prefWidth="579.0">
+         <children>
+            <VBox alignment="TOP_RIGHT" prefHeight="100.0" prefWidth="174.0" spacing="10.0">
+               <children>
+                  <Label text="Customer Name :" textFill="#3f51b5">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label text="NIC   :" textFill="#3f51b5">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label text="Bord No :" textFill="#3f51b5">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox prefHeight="100.0" prefWidth="404.0" spacing="10.0">
+               <children>
+                  <Label fx:id="lbl_customer" prefHeight="20.0" prefWidth="403.0" textFill="#3f51b5">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lbl_nic" prefHeight="20.0" prefWidth="402.0" textFill="#3f51b5">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lbl_bordNo" prefHeight="20.0" prefWidth="547.0" textFill="#3f51b5">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets left="20.0" />
+               </padding>
+            </VBox>
+         </children>
+      </HBox>
+      <JFXButton fx:id="btn_click" layoutX="769.0" layoutY="439.0" onMouseClicked="#clickOnPay" prefHeight="42.0" prefWidth="353.0" style="-fx-background-color: #FF9800;" text="Pay Now" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </JFXButton>
+      <JFXCheckBox fx:id="cash" layoutX="763.0" layoutY="157.0" onAction="#cash_onAction" text="Cash" />
+      <JFXCheckBox fx:id="check" layoutX="986.0" layoutY="157.0" onAction="#check_onAction" text="Check" />
+      <JFXTextField fx:id="txt_cash" alignment="CENTER_RIGHT" disable="true" labelFloat="true" layoutX="763.0" layoutY="214.0" onKeyReleased="#onKeyReleased" promptText="Cash" text="00" />
+      <JFXTextField fx:id="txt_check" alignment="CENTER_RIGHT" disable="true" labelFloat="true" layoutX="987.0" layoutY="214.0" onKeyReleased="#onKeyReleased" promptText="Check" text="00" />
+      <JFXTextField fx:id="txt_checkNO" layoutX="987.0" layoutY="265.0" promptText="Check NO." />
+      <JFXDatePicker fx:id="day_cheack" layoutX="986.0" layoutY="320.0" prefHeight="30.0" prefWidth="169.0" />
+      <JFXComboBox fx:id="com_bank" layoutX="987.0" layoutY="380.0" prefHeight="31.0" prefWidth="169.0" promptText="Bank" />
+   </children>
+</AnchorPane>

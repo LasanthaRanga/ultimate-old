@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_A4_Landscape" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="33763275-3fa5-4877-8269-eefc67d88328">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Test"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="d4" class="java.lang.Double">
+		<fieldDescription><![CDATA[d4]]></fieldDescription>
+	</field>
+	<field name="q1" class="java.lang.Double">
+		<fieldDescription><![CDATA[q1]]></fieldDescription>
+	</field>
+	<field name="q2" class="java.lang.Double">
+		<fieldDescription><![CDATA[q2]]></fieldDescription>
+	</field>
+	<field name="q3" class="java.lang.Double">
+		<fieldDescription><![CDATA[q3]]></fieldDescription>
+	</field>
+	<field name="q4" class="java.lang.Double">
+		<fieldDescription><![CDATA[q4]]></fieldDescription>
+	</field>
+	<field name="reciptno" class="java.lang.String">
+		<fieldDescription><![CDATA[reciptno]]></fieldDescription>
+	</field>
+	<field name="idPay" class="java.lang.Integer">
+		<fieldDescription><![CDATA[idPay]]></fieldDescription>
+	</field>
+	<field name="class" class="java.lang.Class">
+		<fieldDescription><![CDATA[class]]></fieldDescription>
+	</field>
+	<field name="d1" class="java.lang.Double">
+		<fieldDescription><![CDATA[d1]]></fieldDescription>
+	</field>
+	<field name="d2" class="java.lang.Double">
+		<fieldDescription><![CDATA[d2]]></fieldDescription>
+	</field>
+	<field name="d3" class="java.lang.Double">
+		<fieldDescription><![CDATA[d3]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="10" y="30" width="100" height="30" uuid="0977ec43-a956-4510-b9b7-1f6ca0f094e1">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="966c8f36-e61e-4d0f-a2f6-e6dfab3bc227"/>
+				</reportElement>
+				<text><![CDATA[reciptno]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="10" y="10" width="100" height="30" uuid="68e52600-983e-4b8f-8420-5bbf1ffcc4cb">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="966c8f36-e61e-4d0f-a2f6-e6dfab3bc227"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{reciptno}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

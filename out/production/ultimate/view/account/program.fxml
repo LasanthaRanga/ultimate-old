@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="625.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.account.Program">
+   <children>
+      <JFXTextField fx:id="txt_vat" labelFloat="true" layoutX="557.0" layoutY="122.0" prefHeight="30.0" prefWidth="186.0" promptText="VAT" />
+      <JFXTextField fx:id="txt_nbt" labelFloat="true" layoutX="557.0" layoutY="242.0" prefHeight="30.0" prefWidth="186.0" promptText="NBT" />
+      <JFXTextField fx:id="txt_stamp" labelFloat="true" layoutX="557.0" layoutY="376.0" prefHeight="30.0" prefWidth="186.0" promptText="STAMP" />
+      <JFXButton fx:id="txt_update" layoutX="552.0" layoutY="494.0" onMouseClicked="#clickOnUpdate" prefHeight="30.0" prefWidth="186.0" text="UPDATE" />
+   </children>
+</AnchorPane>

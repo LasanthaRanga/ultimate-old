@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Nov 19, 2019 3:39:59 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.SrProcMonthly" table="sr_proc_monthly" catalog="ibbagamuwaps" optimistic-lock="version">
+        <id name="shopProcMonthlyId" type="java.lang.Integer">
+            <column name="shop_proc_monthly_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="srShop" class="pojo.SrShop" fetch="select">
+            <column name="shop_proc_monthly_shop_id" />
+        </many-to-one>
+        <property name="shopProcMonthlyYear" type="java.lang.Integer">
+            <column name="shop_proc_monthly_year" />
+        </property>
+        <property name="shopProcMonthlyMonth" type="java.lang.Integer">
+            <column name="shop_proc_monthly_month" />
+        </property>
+        <property name="shopProcMonthlyFine" type="java.lang.Double">
+            <column name="shop_proc_monthly_Fine" precision="22" scale="0" />
+        </property>
+        <property name="shopProcMonthlyRent" type="java.lang.Double">
+            <column name="shop_proc_monthly_rent" precision="22" scale="0" />
+        </property>
+        <property name="shopProcMonthlySc1" type="java.lang.Double">
+            <column name="shop_proc_monthly_sc1" precision="22" scale="0" />
+        </property>
+        <property name="shopProcMonthlySc2" type="java.lang.Double">
+            <column name="shop_proc_monthly_sc2" precision="22" scale="0" />
+        </property>
+        <property name="shopProcMonthlySc3" type="java.lang.Double">
+            <column name="shop_proc_monthly_sc3" precision="22" scale="0" />
+        </property>
+        <property name="shopProcMonthlyProcDate" type="date">
+            <column name="shop_proc_monthly_proc_date" length="10" />
+        </property>
+        <property name="shopProcMonthlyVat" type="java.lang.Double">
+            <column name="shop_proc_monthly_vat" precision="22" scale="0" />
+        </property>
+        <property name="shopProcMonthlyNbt" type="java.lang.Double">
+            <column name="shop_proc_monthly_nbt" precision="22" scale="0" />
+        </property>
+        <property name="shopProcMonthlyStamp" type="java.lang.Double">
+            <column name="shop_proc_monthly_stamp" precision="22" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

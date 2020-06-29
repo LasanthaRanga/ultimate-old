@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 6, 2019 4:30:22 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.SlPaymentVote" table="sl_payment_vote" catalog="ultimate2" optimistic-lock="version">
+        <id name="slPaymentVoteId" type="java.lang.Integer">
+            <column name="sl_payment_vote_id" />
+            <generator class="identity" />
+        </id>
+        <property name="slPaymentAppCatgry" type="java.lang.Integer">
+            <column name="sl_payment_app_catgry" />
+        </property>
+        <property name="slPaymentAmountVote" type="java.lang.Integer">
+            <column name="sl_payment_amount_vote" />
+        </property>
+        <property name="slPaymentVat" type="java.lang.Integer">
+            <column name="sl_payment_VAT" />
+        </property>
+        <property name="slPaymentDeposit" type="java.lang.Integer">
+            <column name="sl_payment_deposit" />
+        </property>
+        <property name="slPaymentStamp" type="java.lang.Integer">
+            <column name="sl_payment_stamp" />
+        </property>
+        <property name="slPaymentOther1" type="java.lang.Integer">
+            <column name="sl_payment_other1" />
+        </property>
+        <property name="slPaymentNbt" type="java.lang.Integer">
+            <column name="sl_payment_nbt" />
+        </property>
+        <property name="slAccountId" type="java.lang.Integer">
+            <column name="sl_account_id" />
+        </property>
+        <property name="slCashId" type="java.lang.Integer">
+            <column name="sl_cash_id" />
+        </property>
+        <property name="slChequeId" type="java.lang.Integer">
+            <column name="sl_cheque_id" />
+        </property>
+    </class>
+</hibernate-mapping>

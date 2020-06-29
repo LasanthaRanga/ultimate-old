@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 6, 2019 4:30:22 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.AssPayment" table="ass_payment" catalog="ultimate2" optimistic-lock="version">
+        <id name="idassPayment" type="java.lang.Integer">
+            <column name="idass_Payment" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="assAllocation" class="pojo.AssAllocation" fetch="select">
+            <column name="ass_allocation_idass_allocation" not-null="true" />
+        </many-to-one>
+        <many-to-one name="assNature" class="pojo.AssNature" fetch="select">
+            <column name="ass_nature_idass_nature" not-null="true" />
+        </many-to-one>
+        <many-to-one name="assessment" class="pojo.Assessment" fetch="select">
+            <column name="Assessment_idAssessment" not-null="true" />
+        </many-to-one>
+        <many-to-one name="receipt" class="pojo.Receipt" fetch="select">
+            <column name="Receipt_idReceipt" />
+        </many-to-one>
+        <property name="assPaymentQNumber" type="java.lang.Integer">
+            <column name="ass_Payment_Q_Number" />
+        </property>
+        <property name="assPaymentThisYear" type="java.lang.Integer">
+            <column name="ass_Payment_ThisYear" />
+        </property>
+        <property name="assPaymentDate" type="date">
+            <column name="ass_Payment_date" length="10" />
+        </property>
+        <property name="assPaymentLyArrears" type="java.lang.Double">
+            <column name="ass_Payment_LY_Arrears" precision="22" scale="0" />
+        </property>
+        <property name="assPaymentLyWarrant" type="java.lang.Double">
+            <column name="ass_Payment_LY_Warrant" precision="22" scale="0" />
+        </property>
+        <property name="assPaymentFullTotal" type="java.lang.Double">
+            <column name="ass_Payment_fullTotal" precision="22" scale="0" />
+        </property>
+        <property name="assPaymentIdUser" type="int">
+            <column name="ass_Payment_idUser" not-null="true" />
+        </property>
+        <property name="assPaymentGotoDebit" type="java.lang.Double">
+            <column name="ass_Payment_goto_debit" precision="22" scale="0" />
+        </property>
+        <property name="assPaymentStatus" type="java.lang.Integer">
+            <column name="ass_Payment_Status" />
+        </property>
+        <property name="assCash" type="java.lang.Double">
+            <column name="ass_cash" precision="22" scale="0" />
+        </property>
+        <property name="assCheck" type="java.lang.Double">
+            <column name="ass_check" precision="22" scale="0" />
+        </property>
+        <property name="assCheckNo" type="string">
+            <column name="ass_check_no" />
+        </property>
+        <property name="assBank" type="java.lang.Integer">
+            <column name="ass_bank" />
+        </property>
+        <property name="payUserId" type="java.lang.Integer">
+            <column name="pay_user_id" />
+        </property>
+        <property name="cdBalance" type="java.lang.Double">
+            <column name="cd_balance" precision="22" scale="0" />
+        </property>
+        <property name="officeIdOffice" type="java.lang.Integer">
+            <column name="office_idOffice" />
+        </property>
+        <set name="assPaytos" table="ass_payto" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ass_Payment_idass_Payment" not-null="true" />
+            </key>
+            <one-to-many class="pojo.AssPayto" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 6, 2019 4:30:22 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.Street" table="street" catalog="ultimate2" optimistic-lock="version">
+        <id name="idStreet" type="java.lang.Integer">
+            <column name="idStreet" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="ward" class="pojo.Ward" fetch="select">
+            <column name="Ward_idWard" not-null="true" />
+        </many-to-one>
+        <property name="streetName" type="string">
+            <column name="street_name" />
+        </property>
+        <property name="streetNo" type="string">
+            <column name="street_no" length="45" />
+        </property>
+        <property name="streetStatus" type="java.lang.Integer">
+            <column name="street_status" />
+        </property>
+        <property name="streetSyn" type="java.lang.Integer">
+            <column name="street_syn" />
+        </property>
+        <property name="streetComent" type="string">
+            <column name="street_coment" />
+        </property>
+        <property name="streetNameSinhala" type="string">
+            <column name="street_name_sinhala" />
+        </property>
+        <property name="streetWidth" type="java.lang.Double">
+            <column name="street_width" precision="22" scale="0" />
+        </property>
+        <property name="streetLineLimit" type="java.lang.Double">
+            <column name="Street_line_limit" precision="22" scale="0" />
+        </property>
+        <property name="streetCode" type="string">
+            <column name="street_code" />
+        </property>
+        <set name="assessments" table="assessment" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Street_idStreet" not-null="true" />
+            </key>
+            <one-to-many class="pojo.Assessment" />
+        </set>
+        <set name="slDistances" table="sl_distance" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="street_idStreet" not-null="true" />
+            </key>
+            <one-to-many class="pojo.SlDistance" />
+        </set>
+        <set name="wbMDivisions" table="wb_m_division" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="sub_road_id" not-null="true" />
+            </key>
+            <one-to-many class="pojo.WbMDivision" />
+        </set>
+    </class>
+</hibernate-mapping>

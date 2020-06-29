@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 6, 2019 4:30:22 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.Aha" table="aha" catalog="ultimate2" optimistic-lock="version">
+        <id name="idAha" type="java.lang.Integer">
+            <column name="idAHA" />
+            <generator class="identity" />
+        </id>
+        <property name="appcatId" type="java.lang.Integer">
+            <column name="appcat_id" />
+        </property>
+        <property name="bankinfoId" type="java.lang.Integer">
+            <column name="bankinfo_id" />
+        </property>
+        <property name="officeId" type="java.lang.Integer">
+            <column name="office_id" />
+        </property>
+        <property name="ahaStatus" type="java.lang.Integer">
+            <column name="aha_status" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 6, 2019 4:30:22 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.Needdoc" table="needdoc" catalog="ultimate2" optimistic-lock="version">
+        <id name="idNeedDoc" type="java.lang.Integer">
+            <column name="idNeedDoc" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="applicationCatagory" class="pojo.ApplicationCatagory" fetch="select">
+            <column name="Application_Catagory_idApplication_Catagory" not-null="true" />
+        </many-to-one>
+        <many-to-one name="doccat" class="pojo.Doccat" fetch="select">
+            <column name="Doccat_idDoccat" not-null="true" />
+        </many-to-one>
+        <property name="needDocPriority" type="java.lang.Integer">
+            <column name="NeedDoc_priority" />
+        </property>
+    </class>
+</hibernate-mapping>

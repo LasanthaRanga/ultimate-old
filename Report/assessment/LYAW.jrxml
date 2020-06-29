@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.3.1.final using JasperReports Library version 6.3.1  -->
+<!-- 2019-03-17T21:08:24 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="LYAW" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="79397e73-fab9-4004-9509-f3754942f5cf">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Ultimate2.xml"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<parameter name="idList" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{idList}]]></defaultValueExpression>
+	</parameter>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+ass_qstart.idass_Qstart,
+ass_qstart.ass_Qstart_QuaterNumber,
+ass_qstart.ass_Qstart_process_date,
+ass_qstart.ass_Qstart_LY_Arreas,
+ass_qstart.ass_Qstart_LY_Warrant,
+ass_qstart.ass_Qstart_LYC_Arreas,
+ass_qstart.ass_Qstart_LYC_Warrant,
+ass_qstart.ass_Qstart_LQ_Arreas,
+ass_qstart.ass_Qstart_LQC_Arreas,
+ass_qstart.ass_Qstart_LQ_Warrant,
+ass_qstart.ass_Qstart_LQC_Warrant,
+ass_qstart.ass_Qstart_HaveToQPay,
+ass_qstart.ass_Qstart_QPay,
+ass_qstart.ass_Qstart_QDiscont,
+ass_qstart.ass_Qstart_QTot,
+ass_qstart.ass_Qstart_FullTotal,
+ass_qstart.ass_Qstart_status,
+ass_qstart.Assessment_idAssessment,
+ass_qstart.ass_Qstart_year,
+assessment.assessment_no,
+street.street_name,
+customer.cus_name,
+ward.ward_no
+FROM
+ass_qstart
+INNER JOIN assessment ON ass_qstart.Assessment_idAssessment = assessment.idAssessment
+INNER JOIN street ON assessment.Street_idStreet = street.idStreet
+INNER JOIN ward ON assessment.Ward_idWard = ward.idWard AND street.Ward_idWard = ward.idWard
+INNER JOIN customer ON assessment.Customer_idCustomer = customer.idCustomer
+WHERE
+	ass_qstart.ass_Qstart_status = 1
+AND ass_qstart.ass_Qstart_year = 2019
+AND ass_qstart.ass_Qstart_QuaterNumber = 1
+AND (
+	ass_qstart.ass_Qstart_LYC_Arreas > 0
+	OR ass_qstart.ass_Qstart_LYC_Warrant > 0
+)
+AND ass_qstart.Assessment_idAssessment IN ($P!{idList})]]>
+	</queryString>
+	<field name="idass_Qstart" class="java.lang.Integer"/>
+	<field name="ass_Qstart_QuaterNumber" class="java.lang.Integer"/>
+	<field name="ass_Qstart_process_date" class="java.sql.Date"/>
+	<field name="ass_Qstart_LY_Arreas" class="java.lang.Double"/>
+	<field name="ass_Qstart_LY_Warrant" class="java.lang.Double"/>
+	<field name="ass_Qstart_LYC_Arreas" class="java.lang.Double"/>
+	<field name="ass_Qstart_LYC_Warrant" class="java.lang.Double"/>
+	<field name="ass_Qstart_LQ_Arreas" class="java.lang.Double"/>
+	<field name="ass_Qstart_LQC_Arreas" class="java.lang.Double"/>
+	<field name="ass_Qstart_LQ_Warrant" class="java.lang.Double"/>
+	<field name="ass_Qstart_LQC_Warrant" class="java.lang.Double"/>
+	<field name="ass_Qstart_HaveToQPay" class="java.lang.Double"/>
+	<field name="ass_Qstart_QPay" class="java.lang.Double"/>
+	<field name="ass_Qstart_QDiscont" class="java.lang.Double"/>
+	<field name="ass_Qstart_QTot" class="java.lang.Double"/>
+	<field name="ass_Qstart_FullTotal" class="java.lang.Double"/>
+	<field name="ass_Qstart_status" class="java.lang.Integer"/>
+	<field name="Assessment_idAssessment" class="java.lang.Integer"/>
+	<field name="ass_Qstart_year" class="java.lang.Integer"/>
+	<field name="assessment_no" class="java.lang.String"/>
+	<field name="street_name" class="java.lang.String"/>
+	<field name="cus_name" class="java.lang.String"/>
+	<field name="ward_no" class="java.lang.String"/>
+	<variable name="tot" class="java.lang.Double">
+		<variableExpression><![CDATA[$F{ass_Qstart_LYC_Arreas}+$F{ass_Qstart_LYC_Warrant}]]></variableExpression>
+		<initialValueExpression><![CDATA[$F{ass_Qstart_LYC_Arreas}+$F{ass_Qstart_LYC_Warrant}]]></initialValueExpression>
+	</variable>
+	<variable name="atot" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{ass_Qstart_LYC_Arreas}]]></variableExpression>
+		<initialValueExpression><![CDATA[$F{ass_Qstart_LYC_Arreas}]]></initialValueExpression>
+	</variable>
+	<variable name="wtot" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{ass_Qstart_LYC_Warrant}]]></variableExpression>
+		<initialValueExpression><![CDATA[$F{ass_Qstart_LYC_Warrant}]]></initialValueExpression>
+	</variable>
+	<variable name="ftot" class="java.lang.Double">
+		<variableExpression><![CDATA[$V{atot}+$V{wtot}]]></variableExpression>
+		<initialValueExpression><![CDATA[$V{atot}+$V{wtot}]]></initialValueExpression>
+	</variable>
+	<variable name="sw" class="java.lang.String">
+		<variableExpression><![CDATA[String.format("%.2f", (double)   $F{ass_Qstart_LYC_Warrant})]]></variableExpression>
+		<initialValueExpression><![CDATA[String.format("%.2f", (double)  $F{ass_Qstart_LYC_Warrant})]]></initialValueExpression>
+	</variable>
+	<variable name="sa" class="java.lang.String">
+		<variableExpression><![CDATA[String.format("%.2f", (double)  $F{ass_Qstart_LYC_Arreas})]]></variableExpression>
+		<initialValueExpression><![CDATA[String.format("%.2f", (double)  $F{ass_Qstart_LYC_Arreas})]]></initialValueExpression>
+	</variable>
+	<variable name="st" class="java.lang.String">
+		<variableExpression><![CDATA[String.format("%.2f", (double)  $V{tot})]]></variableExpression>
+		<initialValueExpression><![CDATA[String.format("%.2f", (double)  $V{tot})]]></initialValueExpression>
+	</variable>
+	<variable name="aft" class="java.lang.String">
+		<variableExpression><![CDATA[String.format("%.2f", (double)  $V{atot})]]></variableExpression>
+	</variable>
+	<variable name="wft" class="java.lang.String">
+		<variableExpression><![CDATA[String.format("%.2f", (double) $V{wtot})]]></variableExpression>
+		<initialValueExpression><![CDATA[String.format("%.2f", (double) $V{wtot})]]></initialValueExpression>
+	</variable>
+	<variable name="sft" class="java.lang.String">
+		<variableExpression><![CDATA[String.format("%.2f", (double) $V{ftot})]]></variableExpression>
+		<initialValueExpression><![CDATA[String.format("%.2f", (double) $V{ftot})]]></initialValueExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="36" splitType="Stretch">
+			<staticText>
+				<reportElement x="194" y="0" width="374" height="30" uuid="e2c843f2-6bc4-4530-a169-2a73f76717b7"/>
+				<textElement textAlignment="Center">
+					<font size="20"/>
+				</textElement>
+				<text><![CDATA[Assessment Arriars List]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="45" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="50" height="40" uuid="37730b9b-4519-49f5-b8bb-22ad890b9451"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="50" y="0" width="50" height="40" uuid="a6a33e31-94aa-48a5-a1f2-9df6453f9598"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Ward]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="0" width="150" height="40" uuid="1dc70b6c-1966-4bf5-9f13-2ec7881b2132"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Street]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="250" y="0" width="100" height="40" uuid="1f6ce446-ff24-468b-9bb9-fb7392fb07ae"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Assessment]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="350" y="0" width="160" height="40" uuid="7df691e7-1ff9-4936-b6e7-ee031a6af62c"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Customer]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="510" y="0" width="90" height="40" uuid="cff5e7ac-8437-4460-97e5-b773684f7654"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Arriars]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="600" y="0" width="90" height="40" uuid="9c44c54a-cb98-429b-a7b3-7e19bdde5f43"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Warrant]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="690" y="0" width="100" height="40" uuid="05ee8d5c-4fc9-4d52-b967-4d49b2cbbf8a"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="32" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="50" height="30" uuid="0b95fb9b-0ee7-4273-8108-942d515f3a7a"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{Assessment_idAssessment}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="50" y="0" width="50" height="30" uuid="369e99c3-b632-4e64-9517-a383a6279dc4"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{ward_no}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="0" width="150" height="30" uuid="373008d7-37f4-48cd-ad80-5e84cbc6fa17"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{street_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="250" y="0" width="100" height="30" uuid="2b589748-d5fb-4af6-b686-3439b87571cb"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{assessment_no}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="350" y="0" width="160" height="30" uuid="4aec3f98-3759-44fc-8510-b824129ac316"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{cus_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="600" y="0" width="90" height="30" uuid="f24ac207-f8fe-4a42-81c5-a5eb71282674"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{sw}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="510" y="0" width="90" height="30" uuid="e8ff5ff2-fdff-45f9-b5db-75cdd6e5fbaa"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{sa}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="690" y="0" width="100" height="30" uuid="e5bf5916-e127-4101-a7ab-cb7c693e67c0"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{st}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="33" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+			<textField>
+				<reportElement x="331" y="3" width="100" height="28" uuid="a22f586e-10e4-4663-9344-aca7325bda6a"/>
+				<textElement textAlignment="Center">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="112" splitType="Stretch">
+			<textField>
+				<reportElement x="380" y="7" width="130" height="30" uuid="dfea1556-0d99-4fea-9dd4-5c0eced92d48"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{aft}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="380" y="37" width="130" height="30" uuid="a4ed2197-5bfd-4523-bf71-07b7d34053f6"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{wft}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="380" y="77" width="130" height="30" uuid="85d4363c-74aa-4060-a9fa-da44ee8ffa10"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{sft}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="220" y="7" width="120" height="30" uuid="a7b492e8-0dcf-4cf2-95c4-f7944e3cb64c"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Total Arriars]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="220" y="37" width="120" height="30" uuid="1ee6f9d2-ca41-4ecc-b204-ee3047110398"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Total Warrant]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="220" y="77" width="120" height="30" uuid="71a50062-f286-4dd3-b4a5-72b22e5e8d85"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total ]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 3, 2019 9:57:03 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.WbMFirstArrears" table="wb_m_first_arrears" catalog="kuliuc" optimistic-lock="version">
+        <id name="wbMFirstArrearsId" type="java.lang.Integer">
+            <column name="wb_m_first_arrears_id" />
+            <generator class="identity" />
+        </id>
+        <property name="wbMFirstArrearsConnId" type="java.lang.Integer">
+            <column name="wb_m_first_arrears_conn_id" />
+        </property>
+        <property name="wbMFirstArrearsArreras" type="java.lang.Double">
+            <column name="wb_m_first_arrears_arreras" precision="22" scale="0" />
+        </property>
+        <property name="currentReading" type="java.lang.Double">
+            <column name="current_reading" precision="22" scale="0" />
+        </property>
+        <property name="previousReading" type="java.lang.Double">
+            <column name="previous_reading" precision="22" scale="0" />
+        </property>
+        <property name="orderNumber" type="string">
+            <column name="order_number" length="20" />
+        </property>
+    </class>
+</hibernate-mapping>

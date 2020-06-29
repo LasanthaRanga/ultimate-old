@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 6, 2019 4:30:22 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.Login" table="login" catalog="ultimate2" optimistic-lock="version">
+        <id name="idLogin" type="java.lang.Integer">
+            <column name="idLogin" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="userCopy" class="pojo.UserCopy" fetch="select">
+            <column name="User_idUser" not-null="true" />
+        </many-to-one>
+        <property name="uname" type="string">
+            <column name="uname" length="45" />
+        </property>
+        <property name="pword" type="string">
+            <column name="pword" length="45" />
+        </property>
+        <property name="status" type="java.lang.Integer">
+            <column name="status" />
+        </property>
+        <property name="syn" type="java.lang.Integer">
+            <column name="syn" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,165 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 6, 2019 4:30:22 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.Customer" table="customer" catalog="ultimate2" optimistic-lock="version">
+        <id name="idCustomer" type="java.lang.Integer">
+            <column name="idCustomer" />
+            <generator class="identity" />
+        </id>
+        <property name="cusName" type="string">
+            <column name="cus_name" length="100" />
+        </property>
+        <property name="cusPersonTitle" type="string">
+            <column name="cus_person_title" />
+        </property>
+        <property name="cusNic" type="string">
+            <column name="cus_nic" length="45" />
+        </property>
+        <property name="cusMobile" type="string">
+            <column name="cus_mobile" length="45" />
+        </property>
+        <property name="cusTel" type="string">
+            <column name="cus_tel" length="45" />
+        </property>
+        <property name="cusAddressL1" type="string">
+            <column name="cus_address_l1" length="65535" />
+        </property>
+        <property name="cusAddressL2" type="string">
+            <column name="cus_address_l2" length="45" />
+        </property>
+        <property name="cusAddressL3" type="string">
+            <column name="cus_address_l3" length="45" />
+        </property>
+        <property name="cusSity" type="string">
+            <column name="cus_sity" length="45" />
+        </property>
+        <property name="cusStatus" type="java.lang.Integer">
+            <column name="cus_status" />
+        </property>
+        <property name="cusSyn" type="java.lang.Integer">
+            <column name="cus_syn" />
+        </property>
+        <property name="cusRegDate" type="date">
+            <column name="cus_reg_date" length="10" />
+        </property>
+        <property name="cusUpdateDate" type="date">
+            <column name="cus_update_date" length="10" />
+        </property>
+        <property name="cusNameSinhala" type="string">
+            <column name="cus_name_sinhala" />
+        </property>
+        <property name="cusAddressL1Sinhala" type="string">
+            <column name="cus_address_l1_sinhala" />
+        </property>
+        <property name="cusAddressL2Sinhala" type="string">
+            <column name="cus_address_l2_sinhala" />
+        </property>
+        <property name="cusAddressL3Sinhala" type="string">
+            <column name="cus_address_l3_sinhala" />
+        </property>
+        <set name="contacts" table="contact" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Customer_idCustomer" not-null="true" />
+            </key>
+            <one-to-many class="pojo.Contact" />
+        </set>
+        <set name="customerHasCusCats" table="customer_has_cus_cat" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Customer_idCustomer" not-null="true" />
+            </key>
+            <one-to-many class="pojo.CustomerHasCusCat" />
+        </set>
+        <set name="applicationses" table="applications" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idCustomer" />
+            </key>
+            <one-to-many class="pojo.Applications" />
+        </set>
+        <set name="slDetailses" table="sl_details" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="customer_idCustomer" not-null="true" />
+            </key>
+            <one-to-many class="pojo.SlDetails" />
+        </set>
+        <set name="bops" table="bop" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Customer_idCustomer" not-null="true" />
+            </key>
+            <one-to-many class="pojo.Bop" />
+        </set>
+        <set name="streetlines" table="streetline" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="customer_idCustomer" not-null="true" />
+            </key>
+            <one-to-many class="pojo.Streetline" />
+        </set>
+        <set name="applications" table="application" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Customer_idCustomer" not-null="true" />
+            </key>
+            <one-to-many class="pojo.Application" />
+        </set>
+        <set name="environments" table="environment" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Customer_idCustomer" not-null="true" />
+            </key>
+            <one-to-many class="pojo.Environment" />
+        </set>
+        <set name="customerHasTradeLicenses" table="customer_has_trade_license" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Customer_idCustomer" not-null="true" />
+            </key>
+            <one-to-many class="pojo.CustomerHasTradeLicense" />
+        </set>
+        <set name="uploadses" table="uploads" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="customer" />
+            </key>
+            <one-to-many class="pojo.Uploads" />
+        </set>
+        <set name="customerHasApplicationCatagories" table="customer_has_application_catagory" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Customer_idCustomer" not-null="true" />
+            </key>
+            <one-to-many class="pojo.CustomerHasApplicationCatagory" />
+        </set>
+        <set name="assessments" table="assessment" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Customer_idCustomer" not-null="true" />
+            </key>
+            <one-to-many class="pojo.Assessment" />
+        </set>
+        <set name="buildings" table="building" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Customer_idCustomer" not-null="true" />
+            </key>
+            <one-to-many class="pojo.Building" />
+        </set>
+        <set name="srShopHasCustomers" table="sr_shop_has_customer" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="sr_shop_has_customer_customer_id" />
+            </key>
+            <one-to-many class="pojo.SrShopHasCustomer" />
+        </set>
+        <set name="customerHasSrShops" table="customer_has_sr_shop" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="customer_idCustomer" not-null="true" />
+            </key>
+            <one-to-many class="pojo.CustomerHasSrShop" />
+        </set>
+        <set name="galis" table="gali" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Customer_idCustomer" not-null="true" />
+            </key>
+            <one-to-many class="pojo.Gali" />
+        </set>
+        <set name="referencenos" table="referenceno" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="customers_idCustomer" not-null="true" />
+            </key>
+            <one-to-many class="pojo.Referenceno" />
+        </set>
+    </class>
+</hibernate-mapping>

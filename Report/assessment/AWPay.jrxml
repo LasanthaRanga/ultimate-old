@@ -1,0 +1,615 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.3.1.final using JasperReports Library version 6.3.1  -->
+<!-- 2019-07-01T16:06:15 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="test" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="44341fc1-b25b-4235-873b-764b161cc2a3">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<property name="com.jaspersoft.studio.property.dataset.dialog.DatasetDialog.sash.w1" value="636"/>
+	<property name="com.jaspersoft.studio.property.dataset.dialog.DatasetDialog.sash.w2" value="354"/>
+	<parameter name="from" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{from}]]></defaultValueExpression>
+	</parameter>
+	<parameter name="to" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{to}]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="q2A" class="java.lang.Double">
+		<fieldDescription><![CDATA[q2A]]></fieldDescription>
+	</field>
+	<field name="assessNo" class="java.lang.String">
+		<fieldDescription><![CDATA[assessNo]]></fieldDescription>
+	</field>
+	<field name="q3DR" class="java.lang.Double">
+		<fieldDescription><![CDATA[q3DR]]></fieldDescription>
+	</field>
+	<field name="LYWP" class="java.lang.Double">
+		<fieldDescription><![CDATA[LYWP]]></fieldDescription>
+	</field>
+	<field name="q4DR" class="java.lang.Double">
+		<fieldDescription><![CDATA[q4DR]]></fieldDescription>
+	</field>
+	<field name="LYCA" class="java.lang.Double">
+		<fieldDescription><![CDATA[LYCA]]></fieldDescription>
+	</field>
+	<field name="q1CA" class="java.lang.Double">
+		<fieldDescription><![CDATA[q1CA]]></fieldDescription>
+	</field>
+	<field name="q2CA" class="java.lang.Double">
+		<fieldDescription><![CDATA[q2CA]]></fieldDescription>
+	</field>
+	<field name="q4P" class="java.lang.Double">
+		<fieldDescription><![CDATA[q4P]]></fieldDescription>
+	</field>
+	<field name="q2P" class="java.lang.Double">
+		<fieldDescription><![CDATA[q2P]]></fieldDescription>
+	</field>
+	<field name="streetName" class="java.lang.String">
+		<fieldDescription><![CDATA[streetName]]></fieldDescription>
+	</field>
+	<field name="LYA" class="java.lang.Double">
+		<fieldDescription><![CDATA[LYA]]></fieldDescription>
+	</field>
+	<field name="q4W" class="java.lang.Double">
+		<fieldDescription><![CDATA[q4W]]></fieldDescription>
+	</field>
+	<field name="q2W" class="java.lang.Double">
+		<fieldDescription><![CDATA[q2W]]></fieldDescription>
+	</field>
+	<field name="q1DP" class="java.lang.Double">
+		<fieldDescription><![CDATA[q1DP]]></fieldDescription>
+	</field>
+	<field name="q2DP" class="java.lang.Double">
+		<fieldDescription><![CDATA[q2DP]]></fieldDescription>
+	</field>
+	<field name="q1DR" class="java.lang.Double">
+		<fieldDescription><![CDATA[q1DR]]></fieldDescription>
+	</field>
+	<field name="q3DP" class="java.lang.Double">
+		<fieldDescription><![CDATA[q3DP]]></fieldDescription>
+	</field>
+	<field name="q2DR" class="java.lang.Double">
+		<fieldDescription><![CDATA[q2DR]]></fieldDescription>
+	</field>
+	<field name="q4DP" class="java.lang.Double">
+		<fieldDescription><![CDATA[q4DP]]></fieldDescription>
+	</field>
+	<field name="class" class="java.lang.Class">
+		<fieldDescription><![CDATA[class]]></fieldDescription>
+	</field>
+	<field name="q3A" class="java.lang.Double">
+		<fieldDescription><![CDATA[q3A]]></fieldDescription>
+	</field>
+	<field name="LYAP" class="java.lang.Double">
+		<fieldDescription><![CDATA[LYAP]]></fieldDescription>
+	</field>
+	<field name="idWard" class="java.lang.Integer">
+		<fieldDescription><![CDATA[idWard]]></fieldDescription>
+	</field>
+	<field name="q1A" class="java.lang.Double">
+		<fieldDescription><![CDATA[q1A]]></fieldDescription>
+	</field>
+	<field name="q1CW" class="java.lang.Double">
+		<fieldDescription><![CDATA[q1CW]]></fieldDescription>
+	</field>
+	<field name="q2CW" class="java.lang.Double">
+		<fieldDescription><![CDATA[q2CW]]></fieldDescription>
+	</field>
+	<field name="LYCW" class="java.lang.Double">
+		<fieldDescription><![CDATA[LYCW]]></fieldDescription>
+	</field>
+	<field name="q3CW" class="java.lang.Double">
+		<fieldDescription><![CDATA[q3CW]]></fieldDescription>
+	</field>
+	<field name="q4CW" class="java.lang.Double">
+		<fieldDescription><![CDATA[q4CW]]></fieldDescription>
+	</field>
+	<field name="idAssessment" class="java.lang.Integer">
+		<fieldDescription><![CDATA[idAssessment]]></fieldDescription>
+	</field>
+	<field name="LYW" class="java.lang.Double">
+		<fieldDescription><![CDATA[LYW]]></fieldDescription>
+	</field>
+	<field name="customerName" class="java.lang.String">
+		<fieldDescription><![CDATA[customerName]]></fieldDescription>
+	</field>
+	<field name="q3P" class="java.lang.Double">
+		<fieldDescription><![CDATA[q3P]]></fieldDescription>
+	</field>
+	<field name="q1P" class="java.lang.Double">
+		<fieldDescription><![CDATA[q1P]]></fieldDescription>
+	</field>
+	<field name="q3CA" class="java.lang.Double">
+		<fieldDescription><![CDATA[q3CA]]></fieldDescription>
+	</field>
+	<field name="q3W" class="java.lang.Double">
+		<fieldDescription><![CDATA[q3W]]></fieldDescription>
+	</field>
+	<field name="q4CA" class="java.lang.Double">
+		<fieldDescription><![CDATA[q4CA]]></fieldDescription>
+	</field>
+	<field name="q1W" class="java.lang.Double">
+		<fieldDescription><![CDATA[q1W]]></fieldDescription>
+	</field>
+	<field name="q4A" class="java.lang.Double">
+		<fieldDescription><![CDATA[q4A]]></fieldDescription>
+	</field>
+	<field name="idPayment" class="java.lang.Integer">
+		<fieldDescription><![CDATA[idPayment]]></fieldDescription>
+	</field>
+	<field name="idRecipt" class="java.lang.Integer">
+		<fieldDescription><![CDATA[idRecipt]]></fieldDescription>
+	</field>
+	<field name="reciptNo" class="java.lang.String">
+		<fieldDescription><![CDATA[reciptNo]]></fieldDescription>
+	</field>
+	<field name="overPay" class="java.lang.Double">
+		<fieldDescription><![CDATA[overPay]]></fieldDescription>
+	</field>
+	<field name="tyFullPay" class="java.lang.Double">
+		<fieldDescription><![CDATA[tyFullPay]]></fieldDescription>
+	</field>
+	<field name="fullTotalPay" class="java.lang.Double">
+		<fieldDescription><![CDATA[fullTotalPay]]></fieldDescription>
+	</field>
+	<field name="cd" class="java.lang.Double">
+		<fieldDescription><![CDATA[cd]]></fieldDescription>
+	</field>
+	<variable name="tyca" class="java.lang.Double">
+		<variableExpression><![CDATA[$F{q1CA}]]></variableExpression>
+		<initialValueExpression><![CDATA[$F{q1CA}]]></initialValueExpression>
+	</variable>
+	<variable name="tycw" class="java.lang.Double">
+		<variableExpression><![CDATA[$F{q1CW}]]></variableExpression>
+		<initialValueExpression><![CDATA[$F{q1CW}]]></initialValueExpression>
+	</variable>
+	<variable name="total" class="java.lang.Double">
+		<variableExpression><![CDATA[$V{tyca}+$V{tycw}+$F{LYCW}+$F{LYCA}]]></variableExpression>
+	</variable>
+	<variable name="totstring" class="java.lang.String">
+		<variableExpression><![CDATA[String.format("%.2f", (double)  $V{total})]]></variableExpression>
+		<initialValueExpression><![CDATA[String.format("%.2f", (double)  $V{total})]]></initialValueExpression>
+	</variable>
+	<variable name="lyfaw" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{LYCA}+$F{LYCW}]]></variableExpression>
+		<initialValueExpression><![CDATA[$F{LYCA}+$F{LYCW}]]></initialValueExpression>
+	</variable>
+	<variable name="tyfaw" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$V{tyca}+$V{tycw}]]></variableExpression>
+		<initialValueExpression><![CDATA[$V{tyca}+$V{tycw}]]></initialValueExpression>
+	</variable>
+	<variable name="fullawtotal" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$V{total}]]></variableExpression>
+		<initialValueExpression><![CDATA[$V{total}]]></initialValueExpression>
+	</variable>
+	<variable name="q1ap" class="java.lang.Double">
+		<variableExpression><![CDATA[$F{q1A}!=null?$F{q1A}:0.0]]></variableExpression>
+		<initialValueExpression><![CDATA[$F{q1A}!=null?$F{q1A}:0.0]]></initialValueExpression>
+	</variable>
+	<variable name="q2ap" class="java.lang.Double">
+		<variableExpression><![CDATA[$F{q2A}!=null?$F{q2A}:0.0]]></variableExpression>
+		<initialValueExpression><![CDATA[$F{q2A}!=null?$F{q2A}:0.0]]></initialValueExpression>
+	</variable>
+	<variable name="q3ap" class="java.lang.Double">
+		<variableExpression><![CDATA[$F{q3A}!=null?$F{q3A}:0.0]]></variableExpression>
+		<initialValueExpression><![CDATA[$F{q3A}!=null?$F{q3A}:0.0]]></initialValueExpression>
+	</variable>
+	<variable name="tyap" class="java.lang.Double">
+		<variableExpression><![CDATA[$V{q1ap}+$V{q2ap}+$V{q3ap}]]></variableExpression>
+		<initialValueExpression><![CDATA[$V{q1ap}+$V{q2ap}+$V{q3ap}]]></initialValueExpression>
+	</variable>
+	<variable name="tyapString" class="java.lang.String">
+		<variableExpression><![CDATA[String.format("%.2f", $V{tyap})]]></variableExpression>
+		<initialValueExpression><![CDATA[String.format("%.2f", $V{tyap})]]></initialValueExpression>
+	</variable>
+	<variable name="q1wp" class="java.lang.Double">
+		<variableExpression><![CDATA[$F{q1W}!=null?$F{q1W}:0.00]]></variableExpression>
+		<initialValueExpression><![CDATA[$F{q1W}!=null?$F{q1W}:0.00]]></initialValueExpression>
+	</variable>
+	<variable name="q2wp" class="java.lang.Double">
+		<variableExpression><![CDATA[$F{q2W}!=null?$F{q2W}:0.00]]></variableExpression>
+		<initialValueExpression><![CDATA[$F{q2W}!=null?$F{q2W}:0.00]]></initialValueExpression>
+	</variable>
+	<variable name="q3wp" class="java.lang.Double">
+		<variableExpression><![CDATA[$F{q3W}!=null?$F{q3W}:0.00]]></variableExpression>
+		<initialValueExpression><![CDATA[$F{q3W}!=null?$F{q3W}:0.00]]></initialValueExpression>
+	</variable>
+	<variable name="tywp" class="java.lang.Double">
+		<variableExpression><![CDATA[$V{q1wp}+$V{q2wp}+$V{q3wp}]]></variableExpression>
+		<initialValueExpression><![CDATA[$V{q1wp}+$V{q2wp}+$V{q3wp}]]></initialValueExpression>
+	</variable>
+	<variable name="tywpString" class="java.lang.String">
+		<variableExpression><![CDATA[String.format("%.2f", $V{tywp})]]></variableExpression>
+		<initialValueExpression><![CDATA[String.format("%.2f", $V{tywp})]]></initialValueExpression>
+	</variable>
+	<variable name="q1p" class="java.lang.Double">
+		<variableExpression><![CDATA[$F{q1P}!=null?$F{q1P}:0.00]]></variableExpression>
+		<initialValueExpression><![CDATA[$F{q1P}!=null?$F{q1P}:0.00]]></initialValueExpression>
+	</variable>
+	<variable name="q2p" class="java.lang.Double">
+		<variableExpression><![CDATA[$F{q2P}!=null?$F{q2P}:0.00]]></variableExpression>
+		<initialValueExpression><![CDATA[$F{q2P}!=null?$F{q2P}:0.00]]></initialValueExpression>
+	</variable>
+	<variable name="q3p" class="java.lang.Double">
+		<variableExpression><![CDATA[$F{q3P}!=null?$F{q3P}:0.00]]></variableExpression>
+		<initialValueExpression><![CDATA[$F{q3P}!=null?$F{q3P}:0.00]]></initialValueExpression>
+	</variable>
+	<variable name="q4p" class="java.lang.Double">
+		<variableExpression><![CDATA[$F{q4P}!=null?$F{q4P}:0.00]]></variableExpression>
+		<initialValueExpression><![CDATA[$F{q4P}!=null?$F{q4P}:0.00]]></initialValueExpression>
+	</variable>
+	<variable name="tyqp" class="java.lang.Double">
+		<variableExpression><![CDATA[$V{q1p}+$V{q2p}+$V{q3p}+$V{q4p}]]></variableExpression>
+		<initialValueExpression><![CDATA[$V{q1p}+$V{q2p}+$V{q3p}+$V{q4p}]]></initialValueExpression>
+	</variable>
+	<variable name="tyqpString" class="java.lang.String">
+		<variableExpression><![CDATA[String.format("%.2f", $V{tyqp})]]></variableExpression>
+		<initialValueExpression><![CDATA[String.format("%.2f", $V{tyqp})]]></initialValueExpression>
+	</variable>
+	<variable name="totPaid" class="java.lang.Double">
+		<variableExpression><![CDATA[$F{LYAP}+$F{LYWP}+$V{tyap}+$V{tywp}+$V{tyqp}+$F{overPay}+$F{cd}]]></variableExpression>
+		<initialValueExpression><![CDATA[$F{LYAP}+$F{LYWP}+$V{tyap}+$V{tywp}+$V{tyqp}+$F{overPay}+$F{cd}]]></initialValueExpression>
+	</variable>
+	<variable name="LYAPtotal" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{LYAP}]]></variableExpression>
+		<initialValueExpression><![CDATA[$F{LYAP}]]></initialValueExpression>
+	</variable>
+	<variable name="LYAPtotalString" class="java.lang.String">
+		<variableExpression><![CDATA[String.format("%.2f", $V{LYAPtotal})]]></variableExpression>
+		<initialValueExpression><![CDATA[String.format("%.2f", $V{LYAPtotal})]]></initialValueExpression>
+	</variable>
+	<variable name="LYWPtotal" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{LYWP}]]></variableExpression>
+		<initialValueExpression><![CDATA[$F{LYWP}]]></initialValueExpression>
+	</variable>
+	<variable name="LYWPtotalString" class="java.lang.String">
+		<variableExpression><![CDATA[String.format("%.2f",$V{LYWPtotal})]]></variableExpression>
+		<initialValueExpression><![CDATA[String.format("%.2f",$V{LYWPtotal})]]></initialValueExpression>
+	</variable>
+	<variable name="LY_A_W_total" class="java.lang.String">
+		<variableExpression><![CDATA[String.format("%.2f",$V{LYWPtotal} +$V{LYAPtotal})]]></variableExpression>
+		<initialValueExpression><![CDATA[String.format("%.2f",$V{LYWPtotal} +$V{LYAPtotal})]]></initialValueExpression>
+	</variable>
+	<variable name="TYAPtotal" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$V{tyap}]]></variableExpression>
+		<initialValueExpression><![CDATA[$V{tyap}]]></initialValueExpression>
+	</variable>
+	<variable name="TYAPtotalString" class="java.lang.String">
+		<variableExpression><![CDATA[String.format("%.2f",$V{TYAPtotal})]]></variableExpression>
+		<initialValueExpression><![CDATA[String.format("%.2f",$V{TYAPtotal})]]></initialValueExpression>
+	</variable>
+	<variable name="TYWPtotal" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$V{tywp}]]></variableExpression>
+		<initialValueExpression><![CDATA[$V{tywp}]]></initialValueExpression>
+	</variable>
+	<variable name="TYWPtotalString" class="java.lang.String">
+		<variableExpression><![CDATA[String.format("%.2f",$V{TYWPtotal})]]></variableExpression>
+		<initialValueExpression><![CDATA[String.format("%.2f",$V{TYWPtotal})]]></initialValueExpression>
+	</variable>
+	<variable name="TY_A_W_totalString" class="java.lang.String">
+		<variableExpression><![CDATA[String.format("%.2f",$V{TYAPtotal}+$V{TYWPtotal})]]></variableExpression>
+		<initialValueExpression><![CDATA[String.format("%.2f",$V{TYAPtotal}+$V{TYWPtotal})]]></initialValueExpression>
+	</variable>
+	<variable name="TYQTotal" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$V{tyqp}]]></variableExpression>
+		<initialValueExpression><![CDATA[$V{tyqp}]]></initialValueExpression>
+	</variable>
+	<variable name="TYQPtotalString" class="java.lang.String">
+		<variableExpression><![CDATA[String.format("%.2f",$V{TYQTotal})]]></variableExpression>
+		<initialValueExpression><![CDATA[String.format("%.2f",$V{TYQTotal})]]></initialValueExpression>
+	</variable>
+	<variable name="overTotal" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{overPay}]]></variableExpression>
+		<initialValueExpression><![CDATA[$F{overPay}]]></initialValueExpression>
+	</variable>
+	<variable name="overPayString" class="java.lang.String">
+		<variableExpression><![CDATA[String.format("%.2f",$V{overTotal})]]></variableExpression>
+		<initialValueExpression><![CDATA[String.format("%.2f",$V{overTotal})]]></initialValueExpression>
+	</variable>
+	<variable name="FULL_Pay_total_string" class="java.lang.String">
+		<variableExpression><![CDATA[String.format("%.2f",$V{LYAPtotal}+$V{LYWPtotal}+$V{TYAPtotal}+$V{TYWPtotal}+$V{TYQTotal}+$V{overTotal}+$V{cd_tot})]]></variableExpression>
+		<initialValueExpression><![CDATA[String.format("%.2f",$V{LYAPtotal}+$V{LYWPtotal}+$V{TYAPtotal}+$V{TYWPtotal}+$V{TYQTotal}+$V{overTotal}+$V{cd_tot})]]></initialValueExpression>
+	</variable>
+	<variable name="cd_tot" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{cd}]]></variableExpression>
+		<initialValueExpression><![CDATA[$F{cd}]]></initialValueExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="68" splitType="Stretch">
+			<staticText>
+				<reportElement x="276" y="0" width="250" height="30" uuid="801fea1b-d526-476e-a5a3-da34cb0a761a"/>
+				<textElement textAlignment="Center">
+					<font size="18"/>
+				</textElement>
+				<text><![CDATA[Payment Description Report]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="276" y="30" width="84" height="19" uuid="369bede1-8b96-444e-beb4-24c563970211"/>
+				<textFieldExpression><![CDATA[$P{from}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="440" y="30" width="86" height="18" uuid="068a9761-c8b0-44f5-bfd2-d23d2f511c10"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$P{to}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="360" y="30" width="80" height="18" uuid="66b35707-3ae1-4f5d-b223-049677526353"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[-]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="36" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+			<staticText>
+				<reportElement x="620" y="0" width="80" height="30" uuid="b808a98e-1115-47e8-800a-e78f1cdef4aa"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Total Pay]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="32" width="800" height="1" uuid="9ec4cc83-ff3f-4773-aea0-8377ea0bdae2"/>
+			</line>
+			<staticText>
+				<reportElement x="0" y="0" width="110" height="30" uuid="ea0c6cd3-b2f3-4448-bbc6-23f702318845"/>
+				<text><![CDATA[reciptNo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="110" y="0" width="80" height="30" uuid="4e92c503-c387-4e66-8036-9c5bf6ad70e7"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Last Year Arrears]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="196" y="0" width="80" height="30" uuid="74cb69c7-9f5e-4d41-867f-13ad52ca9f49"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Last Year Warrant]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="536" y="0" width="80" height="30" uuid="647ef65e-f97a-47bc-9aff-350bcaf7dd98"/>
+				<text><![CDATA[Next Year Pay]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="365" y="0" width="80" height="30" uuid="73adf669-cc01-429d-986b-ecdbecd3bd8a"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[This Year Warrant]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="280" y="0" width="80" height="30" uuid="916802a1-286d-4dca-8288-e8b90563d37e"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[This Year Arrears]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="450" y="0" width="80" height="30" uuid="55095624-4744-4cf4-b90f-51a3756c1ef9"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[This Year Q Pay]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="770" y="0" width="30" height="30" uuid="014960af-afdc-45ab-b7d4-c2ec99a908ce"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[....]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="704" y="0" width="66" height="30" uuid="cc75de44-524c-46a0-9666-275bf2d1e2c7"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Credit Debit]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="42" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+			<textField>
+				<reportElement x="0" y="0" width="110" height="30" uuid="4d0946ce-1e2c-4efa-a02a-648c6cc58249"/>
+				<textFieldExpression><![CDATA[$F{reciptNo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="110" y="0" width="80" height="30" uuid="9a721776-47e0-4223-932a-4d4abbd07e38"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[String.format("%.2f", $F{LYAP})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="196" y="0" width="80" height="30" uuid="bc6cad8c-9a38-49ac-afa1-924cc88d60db">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[String.format("%.2f", $F{LYWP})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="280" y="0" width="80" height="30" uuid="a464c266-0824-42e6-86e9-ca99b8e8a302">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$V{tyapString}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="365" y="0" width="80" height="30" uuid="8d497846-f96f-40d2-b504-c985f89c65a7">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$V{tywpString}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="450" y="0" width="80" height="30" uuid="69198301-74b9-478a-ade7-ba553ba0f280">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$V{tyqpString}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="536" y="0" width="80" height="30" uuid="19cab8b8-d755-4102-baf7-91f435f02890"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{overPay}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="620" y="0" width="80" height="30" uuid="7424e70c-3e27-4319-ba27-c67f5937391d"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[String.format("%.2f", $V{totPaid})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="704" y="0" width="66" height="30" uuid="539375c7-5a35-486a-bac2-4dac1a22e2f2"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[String.format("%.2f", $F{cd})]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="22" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+			<textField>
+				<reportElement x="720" y="0" width="80" height="20" uuid="2718c132-bdc8-42e7-a62f-1c03066d9360"/>
+				<textElement textAlignment="Right">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="278" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+			<staticText>
+				<reportElement x="170" y="4" width="236" height="30" uuid="10afa038-8bd9-47c2-a010-023090bb3035"/>
+				<textElement textAlignment="Right">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Last Year ArrearsTotal :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="170" y="34" width="236" height="30" uuid="4e83c5ea-5b54-42dd-87ae-0dfbd32238df"/>
+				<textElement textAlignment="Right">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[This Year Warrant Total :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="170" y="64" width="236" height="30" uuid="4bb54339-a0ab-4d5a-9f63-c95dac3ff861"/>
+				<textElement textAlignment="Right">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Last Year Arrears Warrant Total :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="170" y="94" width="236" height="30" uuid="31c193a9-28c8-435e-90fa-b2c6e3e25ed6"/>
+				<textElement textAlignment="Right">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[This Year Arrears Total :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="170" y="124" width="236" height="30" uuid="6bc8e7e1-2028-4a75-99dd-10f281a71f8e"/>
+				<textElement textAlignment="Right">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[This Year Warrant Total :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="170" y="154" width="236" height="30" uuid="90dcd63f-c1f7-4aea-87d1-14e119905ca2"/>
+				<textElement textAlignment="Right">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[This Year Arrears Warrant Total :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="170" y="184" width="236" height="30" uuid="ee0628b2-47b9-4f89-a494-1c2e9120e303"/>
+				<textElement textAlignment="Right">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[This Year Quarters Total :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="170" y="214" width="236" height="30" uuid="9c7d1c1d-6423-4006-afc1-f1619e846e98"/>
+				<textElement textAlignment="Right">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Next Year Over Total :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="170" y="244" width="236" height="30" uuid="9e427ff6-a4c5-449a-8217-9944cd12522f"/>
+				<textElement textAlignment="Right">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Full Total :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="420" y="4" width="180" height="30" uuid="57fc1583-a64e-414c-942f-bf483164e325"/>
+				<textElement textAlignment="Right">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{LYAPtotalString}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="420" y="34" width="180" height="30" uuid="1a6e2a21-f297-4612-b312-30e23f66be8b"/>
+				<textElement textAlignment="Right">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{LYWPtotalString}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="610" y="64" width="180" height="30" uuid="4d33c2cf-0909-4b54-a4aa-47821a6408f6"/>
+				<textElement textAlignment="Right">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{LY_A_W_total}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="420" y="94" width="180" height="30" uuid="a5c02878-07b5-4cb1-9e78-3103521ad396"/>
+				<textElement textAlignment="Right">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{TYAPtotalString}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="420" y="124" width="180" height="30" uuid="ca069bb8-b098-4bc8-88a5-8230d322831e"/>
+				<textElement textAlignment="Right">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{TYWPtotalString}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="610" y="154" width="180" height="30" uuid="453b8544-9660-403f-b7e9-be02176aebd9"/>
+				<textElement textAlignment="Right">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{TY_A_W_totalString}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="420" y="184" width="180" height="30" uuid="cb9f81e0-347c-4a20-99d5-12b5fd509da5"/>
+				<textElement textAlignment="Right">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{TYQPtotalString}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="420" y="214" width="180" height="30" uuid="52338e98-3cdf-4352-bf34-592fb6742ce7"/>
+				<textElement textAlignment="Right">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{overPayString}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="420" y="244" width="180" height="30" uuid="9b049862-a8c1-4a69-89f6-8cbc0595e2d7"/>
+				<textElement textAlignment="Right">
+					<font size="16"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{FULL_Pay_total_string}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="420" y="64" width="100" height="30" uuid="33feca40-a55f-40ea-a62a-043097446dc3"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[-------]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="420" y="154" width="100" height="30" uuid="2540bea1-2042-4a92-8fbe-87556e7e742a"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[-------]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 3, 2019 9:57:03 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.WbMApplicationCategory" table="wb_m_application_category" catalog="kuliuc" optimistic-lock="version">
+        <id name="wbMApplicationTblid" type="int">
+            <column name="wb_m_application_tblid" />
+            <generator class="assigned" />
+        </id>
+        <property name="wbMApplicationId" type="java.lang.Integer">
+            <column name="wb_m_application_id" />
+        </property>
+    </class>
+</hibernate-mapping>

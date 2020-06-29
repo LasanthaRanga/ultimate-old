@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 6, 2019 4:30:22 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.Bophascommettee" table="bophascommettee" catalog="ultimate2" optimistic-lock="version">
+        <id name="idBopHasCommettee" type="java.lang.Integer">
+            <column name="idBopHasCommettee" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="bop" class="pojo.Bop" fetch="select">
+            <column name="bopId" />
+        </many-to-one>
+        <property name="regulations" type="string">
+            <column name="regulations" />
+        </property>
+        <property name="comment" type="string">
+            <column name="comment" />
+        </property>
+        <set name="bopRegCons" table="bop_reg_con" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="bopCommitteeid" />
+            </key>
+            <one-to-many class="pojo.BopRegCon" />
+        </set>
+        <set name="commetteememberses" table="commetteemembers" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="bopcommetteeid" />
+            </key>
+            <one-to-many class="pojo.Commetteemembers" />
+        </set>
+    </class>
+</hibernate-mapping>

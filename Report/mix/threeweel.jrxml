@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.3.1.final using JasperReports Library version 6.3.1  -->
+<!-- 2019-06-03T11:10:31 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="threeweel" pageWidth="515" pageHeight="433" columnWidth="511" leftMargin="2" rightMargin="2" topMargin="2" bottomMargin="2" uuid="a8e0ed2c-8521-4b78-a13a-ac457ea60b44">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Server"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="cm"/>
+	<parameter name="idRecipt" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{idRecipt}]]></defaultValueExpression>
+	</parameter>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+3weel_park_details.3weel_park_details_name,
+CONCAT(
+		
+		3weel_prov_code.3weel_prov_code,
+		' ',
+		3weel_vehi_registration.3weel_vehi_reg_no
+		
+	) AS reg_no,
+3weel_park_details.3weel_park_details_name,
+customer.cus_name,
+3weel_payment.3weel_pay_date,
+customer.idCustomer,
+CONCAT('MCK/', customer.idCustomer) AS MCK_ID,
+3weel_payment.3weel_amount,
+3weel_payment.3weel_vat,
+3weel_payment.3weel_nbt,
+3weel_payment.3weel_stamp,
+3weel_payment.3weel_other,
+3weel_payment.3weel_pay_cash,
+3weel_payment.3weel_pay_cheque,
+3weel_payment.3weel_pay_chequeno,
+3weel_payment.3weel_pay_cheque_date,
+3weel_payment.3weel_pay_bank,
+3weel_payment.3weel_pay_total,
+3weel_park_type.3weel_park_type,
+3weel_payment.3weel_receipt_no,
+receipt.idReceipt
+FROM
+3weel_payment
+INNER JOIN 3weel_customer_has_vehicle ON 3weel_payment.3weel_pay_customer_vehi_id = 3weel_customer_has_vehicle.3weel_customer_has_vehicle_id
+INNER JOIN 3weel_customer ON 3weel_customer_has_vehicle.3weel_customer_idtbl = 3weel_customer.3weel_cus_cus_tbl_id
+INNER JOIN 3weel_park_details ON 3weel_customer_has_vehicle.3weel_cus_has_vehi_park_id = 3weel_park_details.3weel_park_details_id
+INNER JOIN 3weel_vehi_registration ON 3weel_customer_has_vehicle.3weel_vehicle_id_tbl = 3weel_vehi_registration.3weel_Vehi_reg_id
+INNER JOIN 3weel_prov_code ON 3weel_vehi_registration.3weel_provine_id = 3weel_prov_code.3weel_prov_code_id
+INNER JOIN customer ON 3weel_customer.3weel_cus_idcustomer = customer.idCustomer
+INNER JOIN 3weel_park_type ON 3weel_park_details.3weel_park_detail_type_id = 3weel_park_type.3weel_park_type_id
+INNER JOIN receipt ON 3weel_payment.3weel_receipt_no = receipt.receipt_print_no
+WHERE
+	receipt.idReceipt =  $P{idRecipt}]]>
+	</queryString>
+	<field name="3weel_park_details_name" class="java.lang.String"/>
+	<field name="reg_no" class="java.lang.String"/>
+	<field name="COLUMN_3" class="java.lang.String"/>
+	<field name="cus_name" class="java.lang.String"/>
+	<field name="3weel_pay_date" class="java.sql.Date"/>
+	<field name="idCustomer" class="java.lang.Integer"/>
+	<field name="MCK_ID" class="java.lang.String"/>
+	<field name="3weel_amount" class="java.lang.Double"/>
+	<field name="3weel_vat" class="java.lang.Double"/>
+	<field name="3weel_nbt" class="java.lang.Double"/>
+	<field name="3weel_stamp" class="java.lang.Double"/>
+	<field name="3weel_other" class="java.lang.Double"/>
+	<field name="3weel_pay_cash" class="java.lang.Double"/>
+	<field name="3weel_pay_cheque" class="java.lang.Double"/>
+	<field name="3weel_pay_chequeno" class="java.lang.String"/>
+	<field name="3weel_pay_cheque_date" class="java.sql.Date"/>
+	<field name="3weel_pay_bank" class="java.lang.String"/>
+	<field name="3weel_pay_total" class="java.lang.Double"/>
+	<field name="3weel_park_type" class="java.lang.String"/>
+	<field name="3weel_receipt_no" class="java.lang.String"/>
+	<field name="idReceipt" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="428" splitType="Stretch">
+			<textField>
+				<reportElement x="90" y="134" width="230" height="20" uuid="50131edf-307a-48ab-87fa-5aaa7b52b624"/>
+				<textFieldExpression><![CDATA[$F{cus_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="90" y="88" width="230" height="20" uuid="187cd368-114d-4b12-9d19-b97fc352aa18"/>
+				<textFieldExpression><![CDATA[$F{3weel_receipt_no}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="370" y="83" width="100" height="21" uuid="779452af-1c72-4994-82c2-c45cc59bb905"/>
+				<textFieldExpression><![CDATA[new SimpleDateFormat("yyyy-MM-dd").format($F{3weel_pay_date})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="342" y="240" width="100" height="20" uuid="d6d71085-a3d8-4077-89c8-e3706c7cf643"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[String.format("%.2f",$F{3weel_amount})]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="267" y="240" width="50" height="20" uuid="3621ffc3-f178-4eb7-8416-6cfb9df546de"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[30345/2]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="342" y="260" width="100" height="20" uuid="6176434e-f3a6-4b1d-8454-a487f54eb67a"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[String.format("%.2f",$F{3weel_vat})]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="267" y="260" width="50" height="20" uuid="d8e910fc-fe91-41af-9144-59212777d473"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[VAT]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="342" y="280" width="100" height="20" uuid="a23828b6-97bb-4770-9abb-f007f76fc50f"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[String.format("%.2f",$F{3weel_nbt})]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="267" y="280" width="50" height="20" uuid="b8db72b2-58f6-45cd-9430-704dc8411f05"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[NBT]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="342" y="300" width="100" height="20" uuid="3d48b1bf-8d4e-44a8-97c6-ae2fb9adba89"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[String.format("%.2f",$F{3weel_stamp})]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="267" y="300" width="50" height="20" uuid="e8baf152-3c47-4870-9ef9-ed2e9f500475"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[STAMP]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="342" y="320" width="100" height="20" uuid="3896fdfd-4b51-4d9b-adae-e4c6a5f89ce6"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[String.format("%.2f",$F{3weel_other})]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="267" y="320" width="50" height="20" uuid="4d245383-7249-4299-9086-80ec8ad524cf"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Other]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="342" y="350" width="100" height="20" uuid="f82b4c22-c40e-4f5d-bb18-b69e7f0ada05"/>
+				<textElement textAlignment="Right">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[String.format("%.2f",$F{3weel_pay_total})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="80" y="350" width="70" height="20" uuid="e2d322b7-ae19-4d97-8c1e-00dc4adb947b"/>
+				<textElement textAlignment="Left"/>
+				<textFieldExpression><![CDATA[String.format("%.2f",$F{3weel_pay_cash})]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="50" y="350" width="30" height="20" uuid="61acb4dc-702c-462f-b381-c8042401cb6a"/>
+				<text><![CDATA[Cash :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="203" y="350" width="70" height="20" uuid="55bed5d2-e223-4be5-bf99-480d203880db"/>
+				<textElement textAlignment="Left"/>
+				<textFieldExpression><![CDATA[String.format("%.2f",$F{3weel_pay_cheque})]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="156" y="350" width="46" height="20" uuid="103270f5-2c8e-4daa-8521-0e9a2c979bd2"/>
+				<text><![CDATA[Cheque :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="107" y="240" width="160" height="20" uuid="3af453c6-1653-4f27-9901-0c4e2341a3f5"/>
+				<textFieldExpression><![CDATA[$F{3weel_park_details_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="107" y="260" width="160" height="20" uuid="3f5ca7be-39af-47a4-9e27-93c1b49a6419"/>
+				<textFieldExpression><![CDATA[$F{reg_no}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="40" y="220" width="210" height="20" uuid="263f737a-1a6c-45a3-81ff-484270e54b14"/>
+				<text><![CDATA[Three Wheel Monthly Fee]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="90" y="112" width="230" height="18" uuid="c9633e0d-7fe1-45af-bd51-2ac0cccde6bd"/>
+				<textFieldExpression><![CDATA[$F{MCK_ID}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="370" y="30" width="100" height="21" uuid="c681c665-63fc-4d1b-8e8e-7ca98a2cff15"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[84342759]]></text>
+			</staticText>
+			<line>
+				<reportElement x="350" y="21" width="131" height="1" uuid="509058c7-34ed-4567-9d1a-fa405cd8ecce">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="7.0"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement x="107" y="280" width="160" height="20" uuid="c934b871-c78e-4992-8739-ede446fef945"/>
+				<textFieldExpression><![CDATA[$F{3weel_park_type}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="120" y="380" width="110" height="20" uuid="ec4df130-e369-480b-a315-e14aa23af0bc"/>
+				<textFieldExpression><![CDATA[$F{3weel_pay_chequeno}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="40" y="240" width="60" height="20" uuid="c8174433-fff5-4d34-b184-b38c0e8045bd"/>
+				<textElement textAlignment="Left"/>
+				<text><![CDATA[Park Name :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="260" width="60" height="20" uuid="b8b4ff4e-6efe-4197-8110-8748c1c4374c"/>
+				<textElement textAlignment="Left"/>
+				<text><![CDATA[Reg. NO     :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="280" width="60" height="20" uuid="807bd8f5-cbed-45b5-b902-9e4a06fd032c"/>
+				<textElement textAlignment="Left"/>
+				<text><![CDATA[Type           :]]></text>
+			</staticText>
+		</band>
+	</detail>
+</jasperReport>

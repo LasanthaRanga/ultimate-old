@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 6, 2019 4:30:22 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.SrShopHasVote" table="sr_shop_has_vote" catalog="ultimate2" optimistic-lock="version">
+        <id name="shopHasVoteId" type="java.lang.Integer">
+            <column name="shop_has_vote_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="srShop" class="pojo.SrShop" fetch="select">
+            <column name="vote_shop_id" />
+        </many-to-one>
+        <many-to-one name="srShopVotesCategory" class="pojo.SrShopVotesCategory" fetch="select">
+            <column name="sr_shop_vote_category_id" />
+        </many-to-one>
+        <property name="voteStatus" type="java.lang.Integer">
+            <column name="vote_status" />
+        </property>
+    </class>
+</hibernate-mapping>

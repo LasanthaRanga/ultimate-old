@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXRadioButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="463.0" prefWidth="989.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.assess.SubOwnersController">
+   <children>
+      <JFXTextField fx:id="txt_owner" labelFloat="true" layoutX="39.0" layoutY="78.0" prefHeight="29.0" prefWidth="309.0" promptText="Owener Name" />
+      <JFXTextField fx:id="txt_nic" labelFloat="true" layoutX="39.0" layoutY="136.0" prefHeight="29.0" prefWidth="309.0" promptText="Owener NIC" />
+      <JFXButton fx:id="btn_add" layoutX="819.0" layoutY="136.0" onAction="#add" prefHeight="25.0" prefWidth="136.0" style="-fx-background-color: #1ea400;" text="Add" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </JFXButton>
+      <Label fx:id="lbl_assessmant" layoutX="39.0" layoutY="23.0" prefHeight="20.0" prefWidth="219.0" text="AsssessmantNO">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TableView fx:id="tbl_sub" layoutX="37.0" layoutY="193.0" onMouseReleased="#selectSubOwner" prefHeight="200.0" prefWidth="931.0">
+        <columns>
+          <TableColumn fx:id="col_sub" prefWidth="332.0" text="Owner Name" />
+            <TableColumn fx:id="col_sinhala" prefWidth="346.0" text="නම" />
+          <TableColumn fx:id="col_nic" minWidth="2.0" prefWidth="132.0" text="Nic" />
+            <TableColumn fx:id="col_status" prefWidth="99.0" text="Name Print" />
+        </columns>
+      </TableView>
+      <JFXButton fx:id="btn_done1" layoutX="831.0" layoutY="408.0" onAction="#finish" prefHeight="25.0" prefWidth="136.0" style="-fx-background-color: #FF9800;" text="Close" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="btn_done11" layoutX="37.0" layoutY="416.0" onMouseClicked="#clickOnDelete" prefHeight="25.0" prefWidth="136.0" style="-fx-background-color: #f10505;" text="Delete" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </JFXButton>
+      <JFXRadioButton fx:id="radio_print" layoutX="803.0" layoutY="82.0" selected="true" text="Print">
+         <toggleGroup>
+            <ToggleGroup fx:id="print" />
+         </toggleGroup>
+      </JFXRadioButton>
+      <JFXRadioButton fx:id="radio_no" layoutX="893.0" layoutY="82.0" text="No" toggleGroup="$print" />
+      <JFXButton fx:id="btn_new" layoutX="819.0" layoutY="28.0" onAction="#newOnAction" prefHeight="25.0" prefWidth="136.0" style="-fx-background-color: #2196F3;" text="NEW" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </JFXButton>
+      <JFXComboBox fx:id="com_title" layoutX="700.0" layoutY="77.0" prefHeight="31.0" prefWidth="103.0" promptText="Title" />
+      <JFXTextField fx:id="txt_owner_sinhala" labelFloat="true" layoutX="368.0" layoutY="78.0" prefHeight="29.0" prefWidth="316.0" promptText="නම" />
+   </children>
+</AnchorPane>

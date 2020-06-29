@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.3.1.final using JasperReports Library version 6.3.1  -->
+<!-- 2019-12-12T22:32:25 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="mixbill" pageWidth="684" pageHeight="396" columnWidth="684" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="71cdc9cc-03e1-484c-b660-cfe156f8beef">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Ultimate2.xml"/>
+	<property name="com.jaspersoft.studio.unit." value="inch"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="inch"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="inch"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="inch"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="inch"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="inch"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="inch"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="inch"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="inch"/>
+	<parameter name="idReceipt" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{idReceipt}]]></defaultValueExpression>
+	</parameter>
+	<parameter name="cusname" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{cusname}]]></defaultValueExpression>
+	</parameter>
+	<parameter name="receipt_print_no" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{receipt_print_no}]]></defaultValueExpression>
+	</parameter>
+	<parameter name="receipt_day" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{receipt_day}]]></defaultValueExpression>
+	</parameter>
+	<parameter name="receipt_total" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{receipt_total}]]></defaultValueExpression>
+	</parameter>
+	<parameter name="dis1" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{dis1}]]></defaultValueExpression>
+	</parameter>
+	<parameter name="dis1val" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{dis1val}]]></defaultValueExpression>
+	</parameter>
+	<parameter name="dis2" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{dis2}]]></defaultValueExpression>
+	</parameter>
+	<parameter name="dis2val" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{dis2val}]]></defaultValueExpression>
+	</parameter>
+	<parameter name="dis3" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{dis3}]]></defaultValueExpression>
+	</parameter>
+	<parameter name="dis3val" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{dis3val}]]></defaultValueExpression>
+	</parameter>
+	<parameter name="dis4" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{dis4}]]></defaultValueExpression>
+	</parameter>
+	<parameter name="dis4val" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{dis4val}]]></defaultValueExpression>
+	</parameter>
+	<parameter name="vat" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{vat}]]></defaultValueExpression>
+	</parameter>
+	<parameter name="nbt" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{nbt}]]></defaultValueExpression>
+	</parameter>
+	<parameter name="stamp" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{stamp}]]></defaultValueExpression>
+	</parameter>
+	<parameter name="acno" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{acno}]]></defaultValueExpression>
+	</parameter>
+	<parameter name="vote1" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{vote1}]]></defaultValueExpression>
+	</parameter>
+	<parameter name="vote2" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{vote2}]]></defaultValueExpression>
+	</parameter>
+	<parameter name="vote3" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{vote3}]]></defaultValueExpression>
+	</parameter>
+	<parameter name="vote4" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{vote4}]]></defaultValueExpression>
+	</parameter>
+	<parameter name="word" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{word}]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT *
+FROM `receipt` WHERE idReceipt =  $P{idReceipt}]]>
+	</queryString>
+	<field name="idReceipt" class="java.lang.Integer"/>
+	<field name="Application_Catagory_idApplication_Catagory" class="java.lang.Integer"/>
+	<field name="recept_applicationId" class="java.lang.Integer"/>
+	<field name="receipt_print_no" class="java.lang.String"/>
+	<field name="cheack" class="java.lang.Double"/>
+	<field name="cesh" class="java.lang.Double"/>
+	<field name="receipt_total" class="java.lang.Double"/>
+	<field name="receipt_day" class="java.sql.Date"/>
+	<field name="receipt_status" class="java.lang.Integer"/>
+	<field name="receipt_syn" class="java.lang.Integer"/>
+	<field name="chque_no" class="java.lang.String"/>
+	<field name="chque_date" class="java.sql.Date"/>
+	<field name="chque_bank" class="java.lang.String"/>
+	<field name="oder" class="java.lang.Integer"/>
+	<field name="office_idOffice" class="java.lang.Integer"/>
+	<field name="receipt_account_id" class="java.lang.Integer"/>
+	<field name="receipt_user_id" class="java.lang.Integer"/>
+	<field name="ribno" class="java.lang.String"/>
+	<field name="receipt_time" class="java.sql.Time"/>
+	<variable name="des" class="java.lang.String">
+		<variableExpression><![CDATA[$P{dis1}+"  \n"+$P{dis2}+"  \n"+$P{dis3}+" \n "+$P{dis4}]]></variableExpression>
+		<initialValueExpression><![CDATA[$P{dis1}+"  \n"+$P{dis2}+"  \n"+$P{dis3}+" \n "+$P{dis4}]]></initialValueExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="370" splitType="Stretch">
+			<textField>
+				<reportElement x="172" y="58" width="378" height="32" uuid="a05f3f5a-4d1e-4099-86df-1f9d9c32c890"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="Iskoola Pota" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{cusname}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="166" y="42" width="218" height="16" uuid="5ae035be-9021-41f0-aac4-3e287efb0f9d"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{receipt_print_no}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="420" y="42" width="70" height="16" uuid="7ef91153-2c39-4a6c-9cbe-e3893bb19e03"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{receipt_day}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="460" y="274" width="79" height="18" uuid="9cca243a-0758-4cce-870d-b3d25e9325dc">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{receipt_total}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="460" y="120" width="79" height="20" uuid="f2f1bf1b-81f6-4351-9cd9-edec4dfd92ca">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$P{dis1val}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="460" y="140" width="79" height="20" uuid="a3459f9b-f3d4-4077-8d0a-4bb32d58d8dc"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$P{dis2val}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="460" y="160" width="79" height="20" uuid="0adb4746-518d-4dd6-8274-0419e8a97108"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$P{dis3val}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="460" y="180" width="79" height="20" uuid="0bd65884-5191-440f-a9c4-afeec2655ec7"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$P{dis4val}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="460" y="200" width="79" height="20" uuid="d57e8012-5450-4489-b9ba-6917daefa686"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$P{vat}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="460" y="220" width="79" height="20" uuid="476db83e-79d4-409a-a7ee-3ec0ecf3f99b">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$P{nbt}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="460" y="240" width="79" height="20" uuid="8efb8581-8978-4293-a14f-f91916480b40"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$P{stamp}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="370" y="200" width="79" height="20" uuid="db4adfb6-2297-464b-8e70-ba8bf4abd5ed">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[VAT]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="370" y="220" width="79" height="20" uuid="b2f21726-989d-4c47-86e4-2161c772e4ef"/>
+				<textElement textAlignment="Left">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[NBT]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="370" y="240" width="79" height="20" uuid="ab0456ed-8217-4919-b980-df4de2ca03e0"/>
+				<textElement textAlignment="Left">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Stamp]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="97" y="276" width="75" height="16" uuid="0c7fe31a-e5b9-46eb-8e35-92c2dc7604fe"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{cheack}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="53" y="276" width="44" height="16" uuid="d6ccdd67-1671-4445-bdac-433bd9574b36"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[cheque]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="210" y="276" width="72" height="16" uuid="eb4677f0-4c87-42d4-a187-6a1af90f7403"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{cesh}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="180" y="276" width="30" height="16" uuid="3c569286-2072-4841-9912-906dd8771f88"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[cash]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="137" y="300" width="113" height="18" uuid="d9731be1-31f9-492c-a0b5-ef1ab52beb3e"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{chque_no}.equals("null")?"":$F{chque_no}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="284" y="300" width="100" height="18" uuid="58bdc392-5843-4fab-a55c-b34e4a0a016f"/>
+				<textFieldExpression><![CDATA[$F{chque_bank}.equals("0")?"":$F{chque_bank}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="370" y="120" width="79" height="20" uuid="f56713df-95ed-4231-906a-3610d36766f5"/>
+				<textFieldExpression><![CDATA[$P{vote1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="370" y="140" width="79" height="20" uuid="5462f549-410c-4282-a9e7-44e0f35143a6"/>
+				<textFieldExpression><![CDATA[$P{vote2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="370" y="160" width="79" height="20" uuid="687fe6d9-7c36-4b6a-aa36-a2f4b9bc0212"/>
+				<textFieldExpression><![CDATA[$P{vote3}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="370" y="180" width="79" height="20" uuid="d50e8adc-959c-4cd7-a5a8-988cf665d3a8"/>
+				<textFieldExpression><![CDATA[$P{vote4}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="40" y="336" width="510" height="25" uuid="366689a6-b482-4e21-8b70-25bcf728d4ce"/>
+				<textElement verticalAlignment="Top">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{word}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="500" y="42" width="49" height="16" uuid="76c56f17-bab2-4f95-b248-58bb63ace0ea"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[new SimpleDateFormat("hh:mm:ss").format($F{receipt_time})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="50" y="120" width="310" height="150" uuid="a4b1c7b5-8cc2-4654-af2d-7caf3ee4c9f3"/>
+				<textElement>
+					<font fontName="Iskoola Pota"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{des}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="0" y="0" width="670" height="361" uuid="74da778c-150c-445a-aaad-7a338aba8da8"/>
+				<imageExpression><![CDATA["C:/Ultimate/Report/images/waribil_narammala.png"]]></imageExpression>
+			</image>
+		</band>
+	</detail>
+</jasperReport>

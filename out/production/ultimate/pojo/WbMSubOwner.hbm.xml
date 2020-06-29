@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 3, 2019 9:57:03 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.WbMSubOwner" table="wb_m_sub_owner" catalog="kuliuc" optimistic-lock="version">
+        <id name="wbMSubOwnerId" type="java.lang.Integer">
+            <column name="wb_m_sub_owner_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="wbMConnection" class="pojo.WbMConnection" fetch="select">
+            <column name="wb_m_sub_owner_cus_id" />
+        </many-to-one>
+        <property name="wbMSubOwnerCusTblId" type="java.lang.Integer">
+            <column name="wb_m_sub_owner_cus_tbl_id" />
+        </property>
+        <property name="wbMSubOwnerRegDate" type="date">
+            <column name="wb_m_sub_owner_reg_date" length="10" />
+        </property>
+        <property name="wbMSubOwnerResignDate" type="date">
+            <column name="wb_m_sub_owner_resign_date" length="10" />
+        </property>
+        <property name="wbMSubOwnerActiveStatus" type="java.lang.Integer">
+            <column name="wb_m_sub_owner_active_status" />
+        </property>
+    </class>
+</hibernate-mapping>

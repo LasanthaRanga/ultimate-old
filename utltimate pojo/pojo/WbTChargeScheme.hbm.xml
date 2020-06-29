@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 3, 2019 9:57:03 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.WbTChargeScheme" table="wb_t_charge_scheme" catalog="kuliuc" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="wbMNature" class="pojo.WbMNature" fetch="select">
+            <column name="nature_id" not-null="true" />
+        </many-to-one>
+        <property name="rangeStart" type="java.lang.Integer">
+            <column name="range_start" />
+        </property>
+        <property name="rangeEnd" type="java.lang.Integer">
+            <column name="range_end" />
+        </property>
+        <property name="unitPrice" type="java.lang.Double">
+            <column name="unit_price" precision="22" scale="0" />
+        </property>
+        <property name="fixedCharge" type="java.lang.Double">
+            <column name="fixed_charge" precision="22" scale="0" />
+        </property>
+        <property name="unlimitFlag" type="java.lang.Byte">
+            <column name="unlimit_flag" />
+        </property>
+    </class>
+</hibernate-mapping>

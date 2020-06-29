@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox fx:id="vbox1" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="625.0" prefWidth="200.0" style="-fx-background-color: #03A9F4;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.BoxController">
+    <children>
+      <ImageView fx:id="logo" fitHeight="185.0" fitWidth="105.0" pickOnBounds="true" preserveRatio="true" />
+      <ScrollPane hbarPolicy="NEVER" nodeOrientation="RIGHT_TO_LEFT" prefHeight="511.0" prefWidth="200.0" style="-fx-background-color: #03A9F4;" stylesheets="@css/myStyle.css" vbarPolicy="ALWAYS">
+         <content>
+            <VBox fx:id="vbox2" prefHeight="514.0" prefWidth="183.0" style="-fx-background-color: #03A9F4;" />
+         </content>
+      </ScrollPane>
+    </children>
+</VBox>

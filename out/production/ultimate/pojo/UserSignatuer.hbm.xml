@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 6, 2019 4:30:22 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.UserSignatuer" table="user_signatuer" catalog="ultimate2" optimistic-lock="version">
+        <id name="userSigId" type="java.lang.Integer">
+            <column name="user_sig_id" />
+            <generator class="identity" />
+        </id>
+        <property name="userId" type="java.lang.Integer">
+            <column name="user_id" />
+        </property>
+        <property name="imgSignature" type="binary">
+            <column name="img_signature" />
+        </property>
+        <property name="imgUrl" type="string">
+            <column name="img_url" />
+        </property>
+        <property name="imgurlWeb" type="string">
+            <column name="imgurl_web" />
+        </property>
+    </class>
+</hibernate-mapping>

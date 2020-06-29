@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXToggleButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="625.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.mix.Vehicle">
+   <children>
+      <HBox layoutX="77.0" layoutY="12.0" prefHeight="50.0" prefWidth="1219.0">
+         <children>
+            <JFXTextField fx:id="txt_nic" labelFloat="true" onKeyReleased="#nicKeyReleased" promptText="NIC">
+               <HBox.margin>
+                  <Insets left="20.0" right="20.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField fx:id="txt_name" labelFloat="true" promptText="Name">
+               <HBox.margin>
+                  <Insets left="20.0" right="20.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField fx:id="txt_adl1" labelFloat="true" promptText="Address Line 1">
+               <HBox.margin>
+                  <Insets left="20.0" right="20.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField fx:id="txt_adl2" labelFloat="true" promptText="Address Line 2">
+               <HBox.margin>
+                  <Insets left="20.0" right="20.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField fx:id="txt_adl3" labelFloat="true" promptText="Address Line 3">
+               <HBox.margin>
+                  <Insets left="20.0" right="20.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField fx:id="txt_mobile" labelFloat="true" promptText="Mobile Number">
+               <HBox.margin>
+                  <Insets left="20.0" right="20.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </JFXTextField>
+         </children>
+         <padding>
+            <Insets bottom="10.0" top="20.0" />
+         </padding>
+      </HBox>
+      <HBox layoutX="76.0" layoutY="152.0" prefHeight="23.0" prefWidth="1219.0">
+         <children>
+            <JFXComboBox fx:id="com_type" onAction="#typeSelect" prefHeight="31.0" prefWidth="285.0" promptText="Type" style="-fx-font-size: 18;" visibleRowCount="8">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <HBox.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </HBox.margin>
+            </JFXComboBox>
+            <JFXTextField fx:id="txt_des" prefHeight="41.0" prefWidth="126.0" promptText="Vehicle NO">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <HBox.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="Iskoola Pota Bold" size="18.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField fx:id="txt_val" alignment="CENTER_RIGHT" onKeyReleased="#keyReleaseOnValue" prefHeight="35.0" prefWidth="132.0" promptText="Value">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <HBox.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </HBox.margin>
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </JFXTextField>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <JFXCheckBox fx:id="ch_vat" onAction="#checkBoxClick" text="VAT">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="10.0" />
+                     </VBox.margin>
+                  </JFXCheckBox>
+                  <Text fx:id="txt_vat" strokeType="OUTSIDE" strokeWidth="0.0" text="00" textAlignment="RIGHT" wrappingWidth="73.00000157952309">
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="10.0" />
+                     </VBox.margin>
+                  </Text>
+               </children>
+            </VBox>
+            <VBox prefHeight="79.0" prefWidth="100.0">
+               <children>
+                  <JFXCheckBox fx:id="ch_nbt" onAction="#checkBoxClick" text="NBT">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="10.0" />
+                     </VBox.margin>
+                  </JFXCheckBox>
+                  <Text fx:id="txt_nbt" strokeType="OUTSIDE" strokeWidth="0.0" text="00" textAlignment="RIGHT" wrappingWidth="76.00000157952309">
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="10.0" />
+                     </VBox.margin>
+                  </Text>
+               </children>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <JFXCheckBox fx:id="ch_stamp" onAction="#checkBoxClick" text="STAMP">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="10.0" />
+                     </VBox.margin>
+                  </JFXCheckBox>
+                  <Text fx:id="txt_stamp" strokeType="OUTSIDE" strokeWidth="0.0" text="00" textAlignment="RIGHT" wrappingWidth="95.00000157952309">
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="10.0" />
+                     </VBox.margin>
+                  </Text>
+               </children>
+            </VBox>
+            <Text fx:id="txt_tot" strokeType="OUTSIDE" strokeWidth="0.0" text="00" textAlignment="RIGHT" wrappingWidth="203.6875">
+               <HBox.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Text>
+         </children>
+      </HBox>
+      <JFXButton fx:id="btn_add" layoutX="891.0" layoutY="262.0" onMouseClicked="#clickOnAdd" prefHeight="31.0" prefWidth="166.0" style="-fx-background-color: #4CAF50;" text="Add To Pay List" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </JFXButton>
+      <TableView fx:id="tbl_mix" layoutX="95.0" layoutY="317.0" onMouseClicked="#clickOnTable" prefHeight="175.0" prefWidth="1184.0">
+        <columns>
+          <TableColumn fx:id="col_appname" prefWidth="187.0" text="Application Name" />
+          <TableColumn fx:id="col_des" minWidth="0.0" prefWidth="275.0" text="Description" />
+            <TableColumn fx:id="col_val" prefWidth="137.0" text="Value" />
+            <TableColumn fx:id="col_vat" prefWidth="147.0" text="VAT" />
+            <TableColumn fx:id="col_nbt" prefWidth="139.0" text="NBT" />
+            <TableColumn fx:id="col_stamp" prefWidth="119.0" text="STAMP" />
+            <TableColumn fx:id="col_tot" prefWidth="169.0" text="TOTAL" />
+        </columns>
+      </TableView>
+      <Text layoutX="841.0" layoutY="538.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Full Total :" textAlignment="RIGHT" wrappingWidth="215.6708984375">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Text>
+      <Text fx:id="txt_fullTot" layoutX="1063.0" layoutY="538.0" strokeType="OUTSIDE" strokeWidth="0.0" text="00" textAlignment="RIGHT" wrappingWidth="215.6708984375">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Text>
+      <JFXButton fx:id="btn_pay" layoutX="1082.0" layoutY="567.0" onMouseClicked="#clickOnPay" prefHeight="39.0" prefWidth="197.0" style="-fx-background-color: #2196F3;" text="PAY" textFill="WHITE">
+         <font>
+            <Font name="System Bold Italic" size="15.0" />
+         </font></JFXButton>
+      <JFXButton fx:id="btn_remove" layoutX="1088.0" layoutY="262.0" onMouseClicked="#clickOnRemove" prefHeight="39.0" prefWidth="185.0" style="-fx-background-color: #FF5722;" text="Remove Selected" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </JFXButton>
+      <JFXTextField fx:id="txt_combo" labelFloat="true" layoutX="95.0" layoutY="110.0" onKeyReleased="#keyReleased" prefHeight="35.0" prefWidth="284.0" promptText="Search Vort">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="txt_totalval" alignment="CENTER_RIGHT" layoutX="1088.0" layoutY="108.0" onKeyReleased="#keyReleaseTotalValue" prefHeight="35.0" prefWidth="177.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </JFXTextField>
+      <JFXToggleButton fx:id="btn_togal" layoutX="974.0" layoutY="99.0" onAction="#togalOnAction" text="Back" />
+      <Text fx:id="txt_account" layoutX="416.0" layoutY="131.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="302.6708984375" />
+   </children>
+</AnchorPane>

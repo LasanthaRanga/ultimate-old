@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 6, 2019 4:30:22 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.AccountPsThree" table="account_ps_three" catalog="ultimate2" optimistic-lock="version">
+        <id name="idReport" type="java.lang.Integer">
+            <column name="idReport" />
+            <generator class="identity" />
+        </id>
+        <property name="reportDate" type="date">
+            <column name="report_date" length="10" />
+        </property>
+        <property name="reportRiciptNo" type="string">
+            <column name="report_ricipt_no" />
+        </property>
+        <property name="reportRiciptId" type="java.lang.Integer">
+            <column name="report_ricipt_id" />
+        </property>
+        <property name="reportVortId" type="java.lang.Integer">
+            <column name="report_vort_id" />
+        </property>
+        <property name="reportAccountId" type="java.lang.Integer">
+            <column name="report_account_id" />
+        </property>
+        <property name="reportAmount" type="java.lang.Double">
+            <column name="report_amount" precision="22" scale="0" />
+        </property>
+        <property name="reportUserId" type="java.lang.Integer">
+            <column name="report_user_id" />
+        </property>
+        <property name="reportApplicationId" type="java.lang.Integer">
+            <column name="report_application_id" />
+        </property>
+        <property name="reportApplicationCatId" type="java.lang.Integer">
+            <column name="report_application_cat_id" />
+        </property>
+        <property name="reportStatus" type="java.lang.Integer">
+            <column name="report_status" />
+        </property>
+        <property name="officeIdOffice" type="java.lang.Integer">
+            <column name="office_idOffice" />
+        </property>
+    </class>
+</hibernate-mapping>

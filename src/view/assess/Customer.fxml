@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane prefHeight="386.0" prefWidth="953.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.assess.Customer">
+   <children>
+      <VBox layoutX="53.0" layoutY="34.0" prefHeight="320.0" prefWidth="847.0" AnchorPane.leftAnchor="53.0" AnchorPane.topAnchor="34.0">
+         <children>
+            <Text fx:id="txt_nameenglish" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" wrappingWidth="826.9999988041818">
+               <VBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </VBox.margin>
+            </Text>
+            <JFXTextField fx:id="txt_namesinhala" labelFloat="true" prefHeight="29.0" prefWidth="422.0" promptText="නම">
+               <VBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </VBox.margin>
+            </JFXTextField>
+            <JFXTextField fx:id="txt_adl1" labelFloat="true" prefHeight="29.0" prefWidth="422.0" promptText="ලිපිනය පළමු පේලිය">
+               <VBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </VBox.margin>
+            </JFXTextField>
+            <JFXTextField fx:id="txt_adl2" labelFloat="true" prefHeight="29.0" prefWidth="422.0" promptText="ලිපිනය දෙවන පේලිය">
+               <VBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </VBox.margin>
+            </JFXTextField>
+            <JFXTextField fx:id="txt_adl3" labelFloat="true" prefHeight="29.0" prefWidth="422.0" promptText="ලිපිනය තුන්වන පේලිය">
+               <VBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </VBox.margin>
+            </JFXTextField>
+            <JFXButton fx:id="btn_update" onAction="#clickOnUpdate" prefHeight="31.0" prefWidth="831.0" style="-fx-background-color: rgb(255,152,0);" text="Update" textFill="WHITE">
+               <VBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="20.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </JFXButton>
+         </children>
+         <opaqueInsets>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </opaqueInsets>
+      </VBox>
+   </children>
+</AnchorPane>

@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="560.0" prefWidth="1098.0" style="-fx-background-color: EEEEEE;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.111" fx:controller="controller.adv.MoreController">
+   <children>
+      <Label layoutX="25.0" layoutY="49.0" prefHeight="20.0" prefWidth="113.0" text="Customer Name :">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="549.0" layoutY="49.0" prefHeight="20.0" prefWidth="40.0" text="NIC :">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="25.0" layoutY="14.0" prefHeight="20.0" prefWidth="68.0" text="Bord No :">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="25.0" layoutY="86.0" prefHeight="20.0" prefWidth="76.0" text="Start Date :">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbl_sdate" layoutX="104.0" layoutY="86.0" prefHeight="17.0" prefWidth="124.0" text="yyyy - mm - dd">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="383.0" layoutY="86.0" prefHeight="17.0" prefWidth="68.0" text="End Date :">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbl_edate" layoutX="453.0" layoutY="86.0" prefHeight="17.0" prefWidth="124.0" text="yyyy - mm - dd">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Text fx:id="lbl_discription" layoutX="25.0" layoutY="138.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rext" wrappingWidth="1059.000002861023">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <TableView fx:id="tbl_board" layoutX="25.0" layoutY="174.0" prefHeight="216.0" prefWidth="1059.0">
+         <columns>
+            <TableColumn fx:id="col_id" prefWidth="41.0" text="#" />
+            <TableColumn fx:id="col_location" prefWidth="280.9999694824219" text="Location" />
+            <TableColumn fx:id="col_groundRent" prefWidth="85.0" text="Ground Rent" />
+            <TableColumn fx:id="col_boardType" prefWidth="127.0" text="Board Type" />
+            <TableColumn fx:id="col_unitPrice" text="Unit Price" />
+            <TableColumn fx:id="col_width" prefWidth="70.0" text="Width" />
+            <TableColumn fx:id="col_height" prefWidth="69.0" text="Height" />
+            <TableColumn fx:id="col_side" prefWidth="60.0" text="Side" />
+            <TableColumn fx:id="col_squareFeet" prefWidth="76.0" text="Square feet" />
+            <TableColumn fx:id="col_qty" prefWidth="75.0" text="Qty" />
+            <TableColumn fx:id="col_total_price" minWidth="0.0" prefWidth="85.0" text="Total Price" />
+         </columns>
+      </TableView>
+      <Label layoutX="27.0" layoutY="403.0" prefHeight="20.0" prefWidth="76.0" text="Add Total :">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbl_add_tot" alignment="CENTER_RIGHT" layoutX="204.0" layoutY="404.0" prefHeight="20.0" prefWidth="90.0" text="0000000000" textAlignment="RIGHT">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="27.0" layoutY="434.0" prefHeight="20.0" prefWidth="124.0" text="GrundRent Total : ">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbl_ground_tot" alignment="CENTER_RIGHT" layoutX="204.0" layoutY="435.0" prefHeight="20.0" prefWidth="90.0" text="0000000000" textAlignment="RIGHT">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="27.0" layoutY="463.0" prefHeight="20.0" prefWidth="124.0" text="Diposit Price : ">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbl_diposit_price" alignment="CENTER_RIGHT" layoutX="204.0" layoutY="464.0" prefHeight="20.0" prefWidth="90.0" text="0000000000" textAlignment="RIGHT">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="27.0" layoutY="494.0" prefHeight="20.0" prefWidth="178.0" text="Visiting And Cheack Price : ">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbl_visiting_price" alignment="CENTER_RIGHT" layoutX="204.0" layoutY="495.0" prefHeight="20.0" prefWidth="90.0" text="0000000000" textAlignment="RIGHT">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="27.0" layoutY="521.0" prefHeight="20.0" prefWidth="163.0" text="Other Price : ">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbl_other_price" alignment="CENTER_RIGHT" layoutX="204.0" layoutY="522.0" prefHeight="20.0" prefWidth="90.0" text="0000000000" textAlignment="RIGHT">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="365.0" layoutY="403.0" prefHeight="20.0" prefWidth="40.0" text="VAT :">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbl_vat" layoutX="408.0" layoutY="404.0" prefHeight="20.0" prefWidth="90.0" text="0000000000">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="517.0" layoutY="403.0" prefHeight="20.0" prefWidth="40.0" text="NBT :">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbl_nbt" layoutX="557.0" layoutY="404.0" prefHeight="20.0" prefWidth="90.0" text="0000000000">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="713.0" layoutY="403.0" prefHeight="20.0" prefWidth="56.0" text="STAMP :">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbl_stamp" layoutX="771.0" layoutY="403.0" prefHeight="20.0" prefWidth="90.0" text="0000000000">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="593.0" layoutY="470.0" prefHeight="27.0" prefWidth="141.0" text="Full Total Price  :">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbl_fullTot" layoutX="734.0" layoutY="470.0" prefHeight="27.0" prefWidth="141.0" text="0000000000">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbl_bordNo" layoutX="104.0" layoutY="14.0" prefHeight="20.0" prefWidth="90.0" text="Bord No :">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbl_customerName" layoutX="157.0" layoutY="49.0" prefHeight="20.0" prefWidth="373.0" text="Customer Name :">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbl_nic" layoutX="600.0" layoutY="49.0" prefHeight="20.0" prefWidth="141.0" text="NIC :">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="btn_close" layoutX="1004.0" layoutY="485.0" onAction="#close" prefHeight="58.0" prefWidth="68.0" style="-fx-background-color: FFCCBC;" text="Close">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>

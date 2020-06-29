@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 6, 2019 4:30:22 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.AdvBords" table="adv_bords" catalog="ultimate2" optimistic-lock="version">
+        <id name="idAdvBords" type="java.lang.Integer">
+            <column name="idAdv_Bords" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="advAdvertising" class="pojo.AdvAdvertising" fetch="select">
+            <column name="Adv_Advertising_idAdv_Advertising" not-null="true" />
+        </many-to-one>
+        <many-to-one name="advBoardType" class="pojo.AdvBoardType" fetch="select">
+            <column name="Adv_board_Type_idAdv_board_Type" not-null="true" />
+        </many-to-one>
+        <many-to-one name="advPosition" class="pojo.AdvPosition" fetch="select">
+            <column name="Adv_position_idAdv_position" not-null="true" />
+        </many-to-one>
+        <property name="advBordWidth" type="java.lang.Double">
+            <column name="adv_bord_width" precision="22" scale="0" />
+        </property>
+        <property name="advBordHeight" type="java.lang.Double">
+            <column name="adv_bord_height" precision="22" scale="0" />
+        </property>
+        <property name="advBordSquareFeet" type="java.lang.Double">
+            <column name="adv_bord_square_feet" precision="22" scale="0" />
+        </property>
+        <property name="advBordQty" type="java.lang.Double">
+            <column name="adv_bord_qty" precision="22" scale="0" />
+        </property>
+        <property name="advBordSingleOrDouble" type="java.lang.Integer">
+            <column name="adv_bord_single_or_double" />
+        </property>
+        <property name="advBordUnitPrice" type="java.lang.Double">
+            <column name="adv_bord_unit_price" precision="22" scale="0" />
+        </property>
+        <property name="advBordGroundRent" type="java.lang.Double">
+            <column name="adv_bord_ground_rent" precision="22" scale="0" />
+        </property>
+        <property name="advBordTotalPrice" type="java.lang.Double">
+            <column name="adv_bord_total_price" precision="22" scale="0" />
+        </property>
+        <property name="advBordStatus" type="java.lang.Integer">
+            <column name="adv_bord_status" />
+        </property>
+        <property name="advBordSyn" type="java.lang.Integer">
+            <column name="adv_bord_syn" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="625.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.users.PrivilagesController">
+   <children>
+      <TableView fx:id="tbl_1" layoutX="120.0" layoutY="26.0" onMouseReleased="#selectRow" prefHeight="567.0" prefWidth="468.0">
+         <columns>
+            <TableColumn id="idfirst" fx:id="col_uid" prefWidth="43.999969482421875" text="#" />
+            <TableColumn fx:id="col_fullname" prefWidth="284.0000305175781" text="Name" />
+            <TableColumn fx:id="col_unic" prefWidth="117.0" text="NIC" />
+         </columns>
+      </TableView>
+      <Label fx:id="lbl_selected" layoutX="786.0" layoutY="26.0" prefHeight="20.0" prefWidth="396.0" text=".......">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Label>
+      <TableView fx:id="tbl_privilege" layoutX="726.0" layoutY="58.0" prefHeight="489.0" prefWidth="455.0">
+        <columns>
+          <TableColumn fx:id="col_priv_id" prefWidth="35.0" text="#" />
+          <TableColumn fx:id="col_prive" prefWidth="247.0" text="Privilege" />
+            <TableColumn fx:id="col_btn" prefWidth="120.0" text="BTN" />
+            <TableColumn fx:id="col_set" prefWidth="34.0" text="SET" />
+        </columns>
+      </TableView>
+      <JFXButton fx:id="btn_set" layoutX="1036.0" layoutY="564.0" onAction="#setPrivilage" prefHeight="36.0" prefWidth="145.0" style="-fx-background-color: #047f00;" text="Set Privileges" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></JFXButton>
+      <Label fx:id="lbl_uid" layoutX="726.0" layoutY="26.0" prefHeight="17.0" prefWidth="49.0" text="00">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Label>
+   </children>
+</AnchorPane>

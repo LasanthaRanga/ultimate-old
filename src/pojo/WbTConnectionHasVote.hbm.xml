@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 3, 2019 9:57:03 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.WbTConnectionHasVote" table="wb_t_connection_has_vote" catalog="kuliuc" optimistic-lock="version">
+        <id name="wbTConHasCatId" type="java.lang.Integer">
+            <column name="wb_t_con_has_cat_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="wbMConnection" class="pojo.WbMConnection" fetch="select">
+            <column name="wb_t_con_has_conn_id" />
+        </many-to-one>
+        <many-to-one name="wbTVoteCategory" class="pojo.WbTVoteCategory" fetch="select">
+            <column name="wb_t_con_has_vote" />
+        </many-to-one>
+        <property name="wbTConHasVoteStatus" type="java.lang.Integer">
+            <column name="wb_t_con_has_vote_status" />
+        </property>
+    </class>
+</hibernate-mapping>

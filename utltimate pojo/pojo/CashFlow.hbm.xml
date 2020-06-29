@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 6, 2019 4:30:22 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.CashFlow" table="cash_flow" catalog="ultimate2" optimistic-lock="version">
+        <id name="idCashFlow" type="java.lang.Integer">
+            <column name="idCash_Flow" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="bankInfo" class="pojo.BankInfo" fetch="select">
+            <column name="Bank_Info_idBank_Info" not-null="true" />
+        </many-to-one>
+        <many-to-one name="chequeBank" class="pojo.ChequeBank" fetch="select">
+            <column name="Cheque_Bank_idCheque_Bank" />
+        </many-to-one>
+        <many-to-one name="vort" class="pojo.Vort" fetch="select">
+            <column name="Vort_idVort" not-null="true" />
+        </many-to-one>
+        <property name="reciptNo" type="string">
+            <column name="recipt_no" length="45" />
+        </property>
+        <property name="cash" type="java.lang.Double">
+            <column name="cash" precision="22" scale="0" />
+        </property>
+        <property name="cheque" type="java.lang.Double">
+            <column name="cheque" precision="22" scale="0" />
+        </property>
+        <property name="chequeNo" type="string">
+            <column name="cheque_no" length="45" />
+        </property>
+        <property name="applicationNo" type="string">
+            <column name="application_no" length="45" />
+        </property>
+        <property name="totale" type="java.lang.Double">
+            <column name="totale" precision="22" scale="0" />
+        </property>
+        <property name="year" type="java.lang.Integer">
+            <column name="year" />
+        </property>
+        <property name="mont" type="java.lang.Integer">
+            <column name="mont" />
+        </property>
+        <property name="cfDate" type="date">
+            <column name="cf_date" length="10" />
+        </property>
+        <property name="status" type="java.lang.Integer">
+            <column name="status" />
+        </property>
+        <property name="syn" type="java.lang.Integer">
+            <column name="syn" />
+        </property>
+    </class>
+</hibernate-mapping>
