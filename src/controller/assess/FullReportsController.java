@@ -129,7 +129,7 @@ public class FullReportsController implements Initializable {
         tableCollomAssing();
 
         currentYear = GetInstans.getQuater().getCurrentYear();
-//       n = true;  // governmet office atha herima;
+        //  n = true;  // governmet office atha herima;
         modle.StaticViews.getMc().changeTitle(" Assessment Reports ");
 
         tbl_nature.setItems(modle.GetInstans.getNature().getNatureSelectList());
@@ -367,7 +367,7 @@ public class FullReportsController implements Initializable {
             }
             if (n) {
                 qq += " AND ass_nature.ass_nature_name = '" + nature + "' ";
-//                qq += "AND (ass_nature.ass_nature_name = 'House' OR ass_nature.ass_nature_name ='Bussines' OR ass_nature.ass_nature_name ='Land' OR ass_nature.ass_nature_name ='Paddy Field')";
+                //  qq += "AND (ass_nature.ass_nature_name = 'House' OR ass_nature.ass_nature_name ='Bussines' OR ass_nature.ass_nature_name ='Land' OR ass_nature.ass_nature_name ='Paddy Field')";
             }
             if (a) {
                 qq += " AND assessment.assessment_no LIKE '%" + assessment + "%' ";
@@ -564,8 +564,8 @@ public class FullReportsController implements Initializable {
         ObservableList<HolderAssess> items = tbl_assess.getItems();
         ArrayList<RipHolder> list = new ArrayList<>();
         for (HolderAssess holderAssess : items) {
-            RipHolder assessDataByIDAssess = getOldWarrantArriasByID(holderAssess.getIdAssess());
-           // RipHolder assessDataByIDAssess = getQendWarrantArriasByID(holderAssess.getIdAssess());
+            //   RipHolder assessDataByIDAssess = getOldWarrantArriasByID(holderAssess.getIdAssess());
+            RipHolder assessDataByIDAssess = getQendWarrantArriasByID(holderAssess.getIdAssess());
 
             System.out.println(assessDataByIDAssess.getIdAssessment());
             if (assessDataByIDAssess.getIdAssessment() != 0) {
@@ -752,6 +752,8 @@ public class FullReportsController implements Initializable {
                 } else {
                     ripHolder.setThisYearCurrentArrias(0.0);
                     ripHolder.setThisYearCurrentWarrant(0.0);
+                    //   ripHolder.setThisYearCurrentArrias(data.getDouble("ass_Qstart_tyold_arrias"));
+                    // ripHolder.setThisYearCurrentWarrant(data.getDouble("ass_Qstart_tyold_warant"));
                 }
                 ripHolder.setLasatYearArriars(data.getDouble("ass_Qstart_LYC_Arreas"), data.getDouble("ass_Qstart_LY_Arreas"), 0);
                 ripHolder.setLastYearWarrant(data.getDouble("ass_Qstart_LYC_Warrant"), data.getDouble("ass_Qstart_LY_Warrant"), 0);

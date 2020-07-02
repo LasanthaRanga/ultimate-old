@@ -153,7 +153,7 @@ public class QSProcess {
         String val = KeyVal.getVal("Min_Arriars_For_Warrant");
         minValue = Double.parseDouble(val);
 
-        System.out.println(minValue+"    ===    Minimum Arrears For Warrant");
+        System.out.println(minValue + "    ===    Minimum Arrears For Warrant");
 
         loadData();
 
@@ -445,7 +445,10 @@ public class QSProcess {
                         tyfw += tyaw.getDouble("ass_Qstart_LQC_Warrant");
                     }
 
-                    conn.DB.setData("UPDATE `ultimate2`.`ass_qstart` \n" +
+                    System.out.println("tyfa == " + tyfa);
+                    System.out.println("tyfw == " + tyfw);
+
+                    conn.DB.setData("UPDATE `ass_qstart` \n" +
                             "SET \n" +
                             "`ass_Qstart_tyold_arrias` = '" + modle.Round.round(tyfa) + "',\n" +
                             "`ass_Qstart_tyold_warant` = '" + modle.Round.round(tyfw) + "' \n" +
