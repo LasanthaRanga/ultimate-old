@@ -12,6 +12,8 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
+import modle.ComboItem;
+import modle.ComboLoad;
 import modle.GetInstans;
 import modle.asses.ChangeAllocation;
 import modle.asses.PayNowModle;
@@ -60,7 +62,7 @@ public class AllocationChangeController implements Initializable {
     public Text txt_creditDebit;
 
     @FXML
-    public JFXComboBox<String> com_nature;
+    public JFXComboBox<ComboItem> com_nature;
 
     @FXML
     public JFXTextField txt_newAllocation;
@@ -134,8 +136,13 @@ public class AllocationChangeController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         changeAllocation = new ChangeAllocation(this);
-        ObservableList<String> natureObservableListSQL = GetInstans.getNature().getNatureObservableListSQL();
-        com_nature.setItems(natureObservableListSQL);
+        String qq = "SELECT\n" +
+                "ass_nature.idass_nature,\n" +
+                "ass_nature.ass_nature_name\n" +
+                "FROM\n" +
+                "ass_nature";
+        ObservableList<ComboItem> comboItems = ComboLoad.loadCombo(qq);
+        com_nature.setItems(comboItems);
         modle.StaticViews.getMc().changeTitle("Allocation Change And Credit Debit");
     }
 
@@ -183,8 +190,8 @@ public class AllocationChangeController implements Initializable {
                 bal = 0;
             }
 
-            txt_balance.setText(modle.Round.round(bal)+"");
-            txt_overpay.setText(modle.Round.roundFormat(over));
+            txt_balance.setText(modle.Round.roundToString(bal));
+            txt_overpay.setText(modle.Round.roundToString(over));
 
 
         } catch (Exception e) {

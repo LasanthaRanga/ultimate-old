@@ -6,6 +6,7 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.cell.PropertyValueFactory;
+import modle.ComboItem;
 import modle.GetInstans;
 
 import org.hibernate.Session;
@@ -129,7 +130,7 @@ public class ChangeAllocation {
                 "\tstreet.street_name,\n" +
                 "\tass_allocation.ass_allocation,\n" +
                 "\tcustomer.cus_name,\n" +
-                "\tass_nature.ass_nature_name,\n" +
+                "\tass_nature.ass_nature_name, ass_nature.idass_nature,\n" +
                 "\tass_nature.ass_nature_year_rate,\n" +
                 "\tass_nature.idass_nature,\n" +
                 "\tass_allocation.idass_allocation,\n" +
@@ -158,7 +159,8 @@ public class ChangeAllocation {
                 acc.txt_nature.setText(data.getString("ass_nature_name") + "  -->  " + data.getString("ass_nature_year_rate") + "%");
                 currentAllocation = data.getDouble("ass_allocation");
                 acc.txt_allocation.setText(modle.Round.roundToString(currentAllocation));
-                acc.com_nature.getSelectionModel().select(data.getString("ass_nature_name"));
+                ComboItem comboItem = new ComboItem(data.getInt("idass_nature"), data.getString("ass_nature_name"));
+                acc.com_nature.getSelectionModel().select(comboItem);
                 acc.txt_newAllocation.setText(modle.Round.roundToString(currentAllocation));
 
                 ResultSet data1 = DB.getData("SELECT\n" +
@@ -247,7 +249,7 @@ public class ChangeAllocation {
 
         String text = acc.txt_newAllocation.getText();
         modle.GetInstans.getNature().getNatureObservableListSQL();
-        int newNature = GetInstans.getNature().getNatureIdByQuary(acc.com_nature.getSelectionModel().getSelectedItem());
+        int newNature = acc.com_nature.getSelectionModel().getSelectedItem().getId();
         String dis = acc.txt_description.getText();
 
 
