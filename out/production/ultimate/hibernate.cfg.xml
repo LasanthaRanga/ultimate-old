@@ -56,6 +56,10 @@ Contributor(s):
     <!--<property name="hibernate.connection.password">@Mck_#321</property>-->
 
 
+
+    <!--<property name="hibernate.connection.url">jdbc:mysql://124.43.8.250:3306/ultimate2?zeroDateTimeBehavior=convertToNull</property>-->
+    <!--<property name="hibernate.connection.password">CHI@#321#</property>-->
+
     <!--<property name="hibernate.connection.url">jdbc:mysql://PANDU_SERVER:3306/ultimate2?zeroDateTimeBehavior=convertToNull</property>-->
     <!--<property name="hibernate.connection.password">Pandu@#321#</property>-->
 

@@ -389,6 +389,7 @@ public class BarcodePay implements Initializable {
 
 
     public void waterBill(String text, boolean pay) {
+        System.out.println("water bill update and print");
         //print recipt
         HashMap<String, String> hm = new HashMap<>();
         hm.put("id", text);
@@ -455,8 +456,12 @@ public class BarcodePay implements Initializable {
 
                 conn.DB.setData("UPDATE `wb_t_paid` SET `wb_t_complete_status`='1' WHERE `wb_t_receipt_id`='" + text + "'");
                 conn.DB.setData("UPDATE `wb_t_payment` SET `wb_t_pay_complete_or_not`='1' WHERE `wb_t_receipt_id_payment`='" + text + "'");
+
                 conn.DB.setData("UPDATE `account_ps_three` SET `report_status`='1'  WHERE `report_ricipt_id` = '" + text + "'");
                 conn.DB.setData("UPDATE `receipt` SET `receipt_status`='1' WHERE `idReceipt`='" + text + "'");
+
+
+
 
             } catch (Exception e) {
                 e.printStackTrace();
@@ -464,9 +469,47 @@ public class BarcodePay implements Initializable {
             }
         }
 
+        recallWater(text);
+
         // update data
 
 
+    }
+
+
+    public void recallWater(String text) {
+        try {
+            ResultSet data = DB.getData("SELECT\n" +
+                    "receipt.receipt_status,\n" +
+                    "account_ps_three.report_status,\n" +
+                    "wb_t_paid.wb_t_complete_status,\n" +
+                    "wb_t_payment.wb_t_pay_complete_or_not\n" +
+                    "FROM\n" +
+                    "receipt\n" +
+                    "INNER JOIN account_ps_three ON receipt.idReceipt = account_ps_three.report_ricipt_id\n" +
+                    "INNER JOIN wb_t_paid ON wb_t_paid.wb_t_receipt_id = receipt.idReceipt\n" +
+                    "INNER JOIN wb_t_payment ON wb_t_payment.wb_t_receipt_id_payment = receipt.idReceipt ,\n" +
+                    "wb_process_pay\n" +
+                    "WHERE\n" +
+                    "receipt.idReceipt = '" + text + "'\n" +
+                    "GROUP BY\n" +
+                    "receipt.idReceipt");
+
+
+            if (data.last()) {
+                int receipt_status = data.getInt("receipt.receipt_status");
+                int anInt = data.getInt("account_ps_three.report_status");
+                int wb_t_complete_status = data.getInt("wb_t_complete_status");
+                int wb_t_pay_complete_or_not = data.getInt("wb_t_pay_complete_or_not");
+                if (receipt_status != 1 || anInt != 1 || wb_t_complete_status != 1 || wb_t_pay_complete_or_not != 1) {
+                    waterBill(text, true);
+                }
+            }
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 

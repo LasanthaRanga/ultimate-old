@@ -17,6 +17,11 @@ public class DB {
     public static final String PASS = "root";
 
 
+//    public static final String DBPATH = "jdbc:mysql://124.43.8.250:3306/ultimate2?zeroDateTimeBehavior=convertToNull";
+//    public static final String USER = "root";
+//    public static final String PASS = "CHI@#321#";
+
+
     // Panduwasnuwara local server
 //    public static final String DBPATH = "jdbc:mysql://localhost:3306/ultimate2?zeroDateTimeBehavior=convertToNull";
 //    public static final String USER = "root";
@@ -28,12 +33,10 @@ public class DB {
 //    public static final String PASS = "3ta@kela#una@";
 
 
-
 //    Kuliuc
 //    public static final String DBPATH = "jdbc:mysql://124.43.11.162:3307/chilaw?zeroDateTimeBehavior=convertToNull";
 //    public static final String USER = "root";
 //    public static final String PASS = "3ta@kela#una@";
-
 
 
 //    MCK
@@ -256,14 +259,14 @@ public class DB {
 
     public static int setData(String sql) throws Exception {
         int row = DB.getConnection().createStatement().executeUpdate(sql);
-//       System.out.println("===============\n"+sql+"\n====================");
+        System.out.println("===============\n" + sql + "\n====================");
         time = 300000;
         return row;
     }
 
     public static ResultSet getData(String sql) throws Exception {
         ResultSet executeQuery = DB.getConnection().createStatement().executeQuery(sql);
-//       System.out.println("===============\n"+sql+"\n====================");
+        System.out.println("===============\n" + sql + "\n====================");
         time = 300000;
         return executeQuery;
     }
