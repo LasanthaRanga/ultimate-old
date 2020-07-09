@@ -3,7 +3,7 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="pojo.TlCreatePropId" table="tl_create_prop_id" catalog="ultimate2" optimistic-lock="version">
+    <class name="pojo.TlCreatePropId" table="tl_create_prop_id"  optimistic-lock="version">
         <id name="tlCreateIdId" type="java.lang.Integer">
             <column name="tl_create_id_id" />
             <generator class="identity" />

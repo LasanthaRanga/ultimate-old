@@ -3,7 +3,7 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="pojo.ApproveTypes" table="approve_types" catalog="ultimate2" optimistic-lock="version">
+    <class name="pojo.ApproveTypes" table="approve_types"  optimistic-lock="version">
         <id name="idaptype" type="java.lang.Integer">
             <column name="idaptype" />
             <generator class="identity" />

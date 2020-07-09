@@ -3,7 +3,7 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="pojo.WbProcessTbl" table="wb_process_tbl" catalog="ultimate2" optimistic-lock="version">
+    <class name="pojo.WbProcessTbl" table="wb_process_tbl"  optimistic-lock="version">
         <id name="wbProcessTblId" type="java.lang.Integer">
             <column name="wb_process_tbl_id" />
             <generator class="identity" />

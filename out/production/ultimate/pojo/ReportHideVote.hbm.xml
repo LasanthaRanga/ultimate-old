@@ -3,7 +3,7 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="pojo.ReportHideVote" table="report_hide_vote" catalog="ultimate2" optimistic-lock="version">
+    <class name="pojo.ReportHideVote" table="report_hide_vote"  optimistic-lock="version">
         <id name="hideVoteId" type="java.lang.Integer">
             <column name="hide_vote_id" />
             <generator class="identity" />

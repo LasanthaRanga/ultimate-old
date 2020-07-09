@@ -3,7 +3,7 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="pojo.BaFloor" table="ba_floor" catalog="ultimate2" optimistic-lock="version">
+    <class name="pojo.BaFloor" table="ba_floor"  optimistic-lock="version">
         <id name="baFloorId" type="java.lang.Integer">
             <column name="BA_Floor_ID" />
             <generator class="identity" />

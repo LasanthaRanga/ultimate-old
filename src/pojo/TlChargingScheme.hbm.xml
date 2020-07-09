@@ -3,7 +3,7 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="pojo.TlChargingScheme" table="tl_charging_scheme" catalog="ultimate2" optimistic-lock="version">
+    <class name="pojo.TlChargingScheme" table="tl_charging_scheme"  optimistic-lock="version">
         <id name="tlChargingSchemeId" type="java.lang.Integer">
             <column name="tl_charging_scheme_id" />
             <generator class="identity" />

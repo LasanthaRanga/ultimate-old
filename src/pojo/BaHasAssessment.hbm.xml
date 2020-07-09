@@ -3,7 +3,7 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="pojo.BaHasAssessment" table="ba_has_assessment" catalog="ultimate2" optimistic-lock="version">
+    <class name="pojo.BaHasAssessment" table="ba_has_assessment"  optimistic-lock="version">
         <id name="baAssessmentHasId" type="java.lang.Integer">
             <column name="BA_Assessment_has_id" />
             <generator class="identity" />

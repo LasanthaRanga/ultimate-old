@@ -3,7 +3,7 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="pojo.WbMSetting" table="wb_m_setting" catalog="ultimate2" optimistic-lock="version">
+    <class name="pojo.WbMSetting" table="wb_m_setting"  optimistic-lock="version">
         <id name="wbMSettingId" type="int">
             <column name="wb_m_setting_id" />
             <generator class="assigned" />

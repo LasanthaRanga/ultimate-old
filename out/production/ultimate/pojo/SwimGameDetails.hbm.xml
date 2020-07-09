@@ -3,7 +3,7 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="pojo.SwimGameDetails" table="swim_game_details" catalog="ultimate2" optimistic-lock="version">
+    <class name="pojo.SwimGameDetails" table="swim_game_details"  optimistic-lock="version">
         <id name="swimGameTypeId" type="java.lang.Integer">
             <column name="swim_game_type_id" />
             <generator class="identity" />

@@ -3,7 +3,7 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="pojo.ExVoucherRefNoTbl" table="ex_voucher_ref_no_tbl" catalog="ultimate2" optimistic-lock="version">
+    <class name="pojo.ExVoucherRefNoTbl" table="ex_voucher_ref_no_tbl"  optimistic-lock="version">
         <id name="exVoucherRefNoId" type="int">
             <column name="ex_voucher_ref_no_id" />
             <generator class="assigned" />

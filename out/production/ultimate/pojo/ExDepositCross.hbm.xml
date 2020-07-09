@@ -3,7 +3,7 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="pojo.ExDepositCross" table="ex_deposit_cross" catalog="ultimate2" optimistic-lock="version">
+    <class name="pojo.ExDepositCross" table="ex_deposit_cross"  optimistic-lock="version">
         <id name="exDepositApproveId" type="java.lang.Integer">
             <column name="ex_deposit_approve_id" />
             <generator class="identity" />

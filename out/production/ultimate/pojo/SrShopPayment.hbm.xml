@@ -3,7 +3,7 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="pojo.SrShopPayment" table="sr_shop_payment" catalog="ultimate2" optimistic-lock="version">
+    <class name="pojo.SrShopPayment" table="sr_shop_payment"  optimistic-lock="version">
         <id name="srShopPaidId" type="java.lang.Integer">
             <column name="sr_shop_paid_id" />
             <generator class="identity" />

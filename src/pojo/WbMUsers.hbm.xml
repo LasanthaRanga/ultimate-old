@@ -3,7 +3,7 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="pojo.WbMUsers" table="wb_m_users" catalog="ultimate2" optimistic-lock="version">
+    <class name="pojo.WbMUsers" table="wb_m_users"  optimistic-lock="version">
         <id name="userId" type="java.lang.Integer">
             <column name="user_id" />
             <generator class="identity" />

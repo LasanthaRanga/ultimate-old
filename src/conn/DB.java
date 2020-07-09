@@ -12,9 +12,9 @@ public class DB {
 
     static Connection c = null;
 //
-    public static final String DBPATH = "jdbc:mysql://localhost:3306/ultimate2?zeroDateTimeBehavior=convertToNull";
+    public static final String DBPATH = "jdbc:mysql://124.43.11.162:3307/narammalaps?zeroDateTimeBehavior=convertToNull";
     public static final String USER = "root";
-    public static final String PASS = "root";
+    public static final String PASS = "3ta@kela#una@";
 
 
 //    public static final String DBPATH = "jdbc:mysql://124.43.8.250:3306/ultimate2?zeroDateTimeBehavior=convertToNull";
@@ -203,7 +203,7 @@ public class DB {
 //    public static final String PASS = "@Mck_#321";
 
 //    //Narammala
-//    public static final String DBPATH = "jdbc:mysql://124.43.11.162:3307/narammalaps?zeroDateTimeBehavior=convertToNull&useUnicode=true&amp;characterEncoding=utf8&amp;useSSL=no&amp;autoReconnect=true";
+//    public static final String DBPATH = "jdbc:mysql://124.43.11.162:3307/narammalaps?zeroDateTimeBehavior=convertToNull";
 //    public static final String USER = "root";
 //    public static final String PASS = "3ta@kela#una@";
 

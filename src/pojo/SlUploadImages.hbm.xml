@@ -3,7 +3,7 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="pojo.SlUploadImages" table="sl_upload_images" catalog="ultimate2" optimistic-lock="version">
+    <class name="pojo.SlUploadImages" table="sl_upload_images"  optimistic-lock="version">
         <id name="imageId" type="java.lang.Integer">
             <column name="image_id" />
             <generator class="identity" />

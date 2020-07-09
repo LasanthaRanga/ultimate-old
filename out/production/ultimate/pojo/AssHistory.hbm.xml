@@ -3,7 +3,7 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="pojo.AssHistory" table="ass_history" catalog="ultimate2" optimistic-lock="version">
+    <class name="pojo.AssHistory" table="ass_history"  optimistic-lock="version">
         <id name="idassHistory" type="java.lang.Integer">
             <column name="idass_history" />
             <generator class="identity" />

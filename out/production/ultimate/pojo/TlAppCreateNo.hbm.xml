@@ -3,7 +3,7 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="pojo.TlAppCreateNo" table="tl_app_create_no" catalog="ultimate2" optimistic-lock="version">
+    <class name="pojo.TlAppCreateNo" table="tl_app_create_no"  optimistic-lock="version">
         <id name="tlAppCreateNoId" type="java.lang.Integer">
             <column name="tl_app_create_no_id" />
             <generator class="identity" />

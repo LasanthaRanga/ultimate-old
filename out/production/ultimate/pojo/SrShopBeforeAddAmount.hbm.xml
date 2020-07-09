@@ -3,7 +3,7 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="pojo.SrShopBeforeAddAmount" table="sr_shop_before_add_amount" catalog="ultimate2" optimistic-lock="version">
+    <class name="pojo.SrShopBeforeAddAmount" table="sr_shop_before_add_amount"  optimistic-lock="version">
         <id name="srShopBeforeAddAmountId" type="int">
             <column name="sr_shop_before_add_amount_id" />
             <generator class="assigned" />

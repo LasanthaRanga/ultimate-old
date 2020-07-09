@@ -3,7 +3,7 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="pojo.InvoicesJanuary" table="invoices_january" catalog="ultimate2" optimistic-lock="version">
+    <class name="pojo.InvoicesJanuary" table="invoices_january"  optimistic-lock="version">
         <composite-id name="id" class="pojo.InvoicesJanuaryId">
             <key-property name="invoiceId" type="string">
                 <column name="invoice_id" length="100" />

@@ -3,7 +3,7 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="pojo.PersonTitle" table="person_title" catalog="ultimate2" optimistic-lock="version">
+    <class name="pojo.PersonTitle" table="person_title"  optimistic-lock="version">
         <id name="titleId" type="java.lang.Integer">
             <column name="title_id" />
             <generator class="identity" />

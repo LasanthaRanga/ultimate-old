@@ -3,7 +3,7 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="pojo.PrivilegesOtherSoft" table="privileges_other_soft" catalog="ultimate2" optimistic-lock="version">
+    <class name="pojo.PrivilegesOtherSoft" table="privileges_other_soft"  optimistic-lock="version">
         <id name="otherPrivilegesId" type="java.lang.Integer">
             <column name="other_privileges_id" />
             <generator class="identity" />

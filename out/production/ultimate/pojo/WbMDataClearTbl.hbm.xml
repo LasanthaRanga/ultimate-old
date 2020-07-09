@@ -3,7 +3,7 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="pojo.WbMDataClearTbl" table="wb_m_data_clear_tbl" catalog="ultimate2" optimistic-lock="version">
+    <class name="pojo.WbMDataClearTbl" table="wb_m_data_clear_tbl"  optimistic-lock="version">
         <id name="wbMDataClearTblId" type="java.lang.Integer">
             <column name="wb_m_data_clear_tbl_id" />
             <generator class="identity" />

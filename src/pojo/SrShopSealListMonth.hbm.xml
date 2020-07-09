@@ -3,7 +3,7 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="pojo.SrShopSealListMonth" table="sr_shop_seal_list_month" catalog="ultimate2" optimistic-lock="version">
+    <class name="pojo.SrShopSealListMonth" table="sr_shop_seal_list_month"  optimistic-lock="version">
         <id name="srShopSealListMnthId" type="int">
             <column name="sr_shop_seal_list_mnth_id" />
             <generator class="assigned" />

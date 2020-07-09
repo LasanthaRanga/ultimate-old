@@ -3,7 +3,7 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="pojo.AdvBords" table="adv_bords" catalog="ultimate2" optimistic-lock="version">
+    <class name="pojo.AdvBords" table="adv_bords"  optimistic-lock="version">
         <id name="idAdvBords" type="java.lang.Integer">
             <column name="idAdv_Bords" />
             <generator class="identity" />

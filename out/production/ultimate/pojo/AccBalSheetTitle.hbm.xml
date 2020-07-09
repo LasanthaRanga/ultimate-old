@@ -3,7 +3,7 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="pojo.AccBalSheetTitle" table="acc_bal_sheet_title" catalog="ultimate2" optimistic-lock="version">
+    <class name="pojo.AccBalSheetTitle" table="acc_bal_sheet_title"  optimistic-lock="version">
         <id name="balSheetTitleId" type="java.lang.Integer">
             <column name="bal_sheet_title_id" />
             <generator class="identity" />
