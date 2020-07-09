@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Sep 6, 2019 4:30:22 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="pojo.Gnd" table="gnd" catalog="ultimate2" optimistic-lock="version">
         <id name="idGnd" type="java.lang.Integer">
@@ -14,11 +14,20 @@
         <property name="gndCode" type="string">
             <column name="gnd_code" />
         </property>
+        <property name="eiId" type="java.lang.Integer">
+            <column name="ei_id" />
+        </property>
         <set name="userhasdivitions" table="userhasdivition" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="Gnd_idGnd" />
             </key>
             <one-to-many class="pojo.Userhasdivition" />
+        </set>
+        <set name="tlCreatePropIds" table="tl_create_prop_id" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="tl_create_gn_id" />
+            </key>
+            <one-to-many class="pojo.TlCreatePropId" />
         </set>
     </class>
 </hibernate-mapping>

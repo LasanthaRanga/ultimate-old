@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Sep 6, 2019 4:30:22 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="pojo.CustomerHasSrShop" table="customer_has_sr_shop" catalog="ultimate2" optimistic-lock="version">
         <id name="idCustomerHasSrShop" type="java.lang.Integer">
@@ -11,7 +11,7 @@
         <many-to-one name="customer" class="pojo.Customer" fetch="select">
             <column name="customer_idCustomer" not-null="true" />
         </many-to-one>
-        <many-to-one name="srShop" class="pojo.SrShop" fetch="select">
+        <many-to-one name="srShop1" class="pojo.SrShop1" fetch="select">
             <column name="sr_shop_idsr_shop" not-null="true" />
         </many-to-one>
         <property name="customerHasSrShopStatus" type="java.lang.Integer">

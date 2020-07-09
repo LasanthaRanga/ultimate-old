@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.WebJobtype" table="web_jobtype" catalog="ultimate2" optimistic-lock="version">
+        <id name="idWebJobtype" type="java.lang.Integer">
+            <column name="idWeb_jobtype" />
+            <generator class="identity" />
+        </id>
+        <property name="jobtypeName" type="string">
+            <column name="jobtype_name" />
+        </property>
+        <property name="jobtypeStatus" type="java.lang.Integer">
+            <column name="jobtype_status" />
+        </property>
+        <property name="jobcat" type="java.lang.Integer">
+            <column name="jobcat" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,5 +1,5 @@
 package pojo;
-// Generated Sep 6, 2019 4:30:16 PM by Hibernate Tools 4.3.1
+// Generated Jul 9, 2020 11:48:20 AM by Hibernate Tools 4.3.1
 
 
 
@@ -14,15 +14,23 @@ public class SlUploadImages  implements java.io.Serializable {
      private String docPath;
      private String nvDocPath;
      private String docWebPath;
+     private String bopDocPath;
+     private String baDocPath;
+     private String baDocWebPath;
+     private String bopDocWebPath;
 
     public SlUploadImages() {
     }
 
-    public SlUploadImages(String nicPath, String docPath, String nvDocPath, String docWebPath) {
+    public SlUploadImages(String nicPath, String docPath, String nvDocPath, String docWebPath, String bopDocPath, String baDocPath, String baDocWebPath, String bopDocWebPath) {
        this.nicPath = nicPath;
        this.docPath = docPath;
        this.nvDocPath = nvDocPath;
        this.docWebPath = docWebPath;
+       this.bopDocPath = bopDocPath;
+       this.baDocPath = baDocPath;
+       this.baDocWebPath = baDocWebPath;
+       this.bopDocWebPath = bopDocWebPath;
     }
    
     public Integer getImageId() {
@@ -59,6 +67,34 @@ public class SlUploadImages  implements java.io.Serializable {
     
     public void setDocWebPath(String docWebPath) {
         this.docWebPath = docWebPath;
+    }
+    public String getBopDocPath() {
+        return this.bopDocPath;
+    }
+    
+    public void setBopDocPath(String bopDocPath) {
+        this.bopDocPath = bopDocPath;
+    }
+    public String getBaDocPath() {
+        return this.baDocPath;
+    }
+    
+    public void setBaDocPath(String baDocPath) {
+        this.baDocPath = baDocPath;
+    }
+    public String getBaDocWebPath() {
+        return this.baDocWebPath;
+    }
+    
+    public void setBaDocWebPath(String baDocWebPath) {
+        this.baDocWebPath = baDocWebPath;
+    }
+    public String getBopDocWebPath() {
+        return this.bopDocWebPath;
+    }
+    
+    public void setBopDocWebPath(String bopDocWebPath) {
+        this.bopDocWebPath = bopDocWebPath;
     }
 
 

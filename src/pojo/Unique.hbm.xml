@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.Unique" table="unique" catalog="ultimate2" optimistic-lock="version">
+        <id name="idUnique" type="java.lang.Integer">
+            <column name="idUnique" />
+            <generator class="identity" />
+        </id>
+        <property name="customerId" type="java.lang.Integer">
+            <column name="customer_id" />
+        </property>
+        <property name="cusNic" type="string">
+            <column name="cus_nic" />
+        </property>
+        <property name="cusName" type="string">
+            <column name="cus_name" />
+        </property>
+        <property name="appcatId" type="java.lang.Integer">
+            <column name="appcat_id" />
+        </property>
+        <property name="appId" type="java.lang.Integer">
+            <column name="app_id" />
+        </property>
+        <property name="mobile" type="string">
+            <column name="mobile" />
+        </property>
+        <property name="confermCode" type="string">
+            <column name="conferm_code" />
+        </property>
+        <property name="rating" type="java.lang.Integer">
+            <column name="rating" />
+        </property>
+        <property name="startAt" type="timestamp">
+            <column name="start_at" length="19" />
+        </property>
+        <property name="location" type="string">
+            <column name="location" />
+        </property>
+        <property name="oldUinqueId" type="java.lang.Integer">
+            <column name="old_uinque_id" />
+        </property>
+        <property name="status" type="java.lang.Integer">
+            <column name="status" />
+        </property>
+        <set name="stepses" table="steps" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="unique_id" />
+            </key>
+            <one-to-many class="pojo.Steps" />
+        </set>
+    </class>
+</hibernate-mapping>

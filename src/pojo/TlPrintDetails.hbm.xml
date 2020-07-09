@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.TlPrintDetails" table="tl_print_details" catalog="ultimate2" optimistic-lock="version">
+        <id name="tlPrintDetailsId" type="int">
+            <column name="tl_print_details_id" />
+            <generator class="assigned" />
+        </id>
+        <property name="tlPrintChairmanName" type="string">
+            <column name="tl_print_chairman_name" />
+        </property>
+        <property name="tlPrintChairmanNameInitials" type="string">
+            <column name="tl_print_chairman_name_initials" />
+        </property>
+        <property name="tlPrintSecrataryName" type="string">
+            <column name="tl_print_secratary_name" />
+        </property>
+        <property name="gazzertNo" type="string">
+            <column name="gazzert_no" length="50" />
+        </property>
+        <property name="gazzertDate" type="date">
+            <column name="gazzert_date" length="10" />
+        </property>
+        <property name="status" type="java.lang.Integer">
+            <column name="status" />
+        </property>
+    </class>
+</hibernate-mapping>

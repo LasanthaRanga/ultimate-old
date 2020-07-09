@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.WbTGetFirstPaidAmount" table="wb_t_get_first_paid_amount" catalog="ultimate2" optimistic-lock="version">
+        <id name="wbTGetProConId" type="int">
+            <column name="wb_t_get_pro_con_id" />
+            <generator class="assigned" />
+        </id>
+        <property name="wbTGetProPaidAmount" type="java.lang.Double">
+            <column name="wb_t_get_pro_paid_amount" precision="22" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

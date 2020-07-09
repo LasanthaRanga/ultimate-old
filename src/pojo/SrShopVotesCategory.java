@@ -1,5 +1,5 @@
 package pojo;
-// Generated Sep 6, 2019 4:30:16 PM by Hibernate Tools 4.3.1
+// Generated Jul 9, 2020 11:48:20 AM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -29,12 +29,14 @@ public class SrShopVotesCategory  implements java.io.Serializable {
      private Integer srShopVoteNbtVoteId;
      private Integer srCashVote;
      private Integer srChequeVote;
+     private Integer srShopVoteLya;
+     private Integer srShopVoteLyf;
      private Set<SrShopHasVote> srShopHasVotes = new HashSet<SrShopHasVote>(0);
 
     public SrShopVotesCategory() {
     }
 
-    public SrShopVotesCategory(String srShopVoteCategoryName, Integer srShopVotePayment, Integer srShopVoteArrears, Integer srShopVoteFine, Integer srShopVoteOverpayment, Integer srShopVoteServiceCharge1, Integer srShopVoteServiceCharge2, Integer srShopVoteServiceCharge3, Integer srShopVoteAccountId, Integer srShopVoteVat, Integer srShopVoteStamp, Integer srShopVoteNbt, Integer srShopVoteVatVoteId, Integer srShopVoteStampVoteId, Integer srShopVoteNbtVoteId, Integer srCashVote, Integer srChequeVote, Set<SrShopHasVote> srShopHasVotes) {
+    public SrShopVotesCategory(String srShopVoteCategoryName, Integer srShopVotePayment, Integer srShopVoteArrears, Integer srShopVoteFine, Integer srShopVoteOverpayment, Integer srShopVoteServiceCharge1, Integer srShopVoteServiceCharge2, Integer srShopVoteServiceCharge3, Integer srShopVoteAccountId, Integer srShopVoteVat, Integer srShopVoteStamp, Integer srShopVoteNbt, Integer srShopVoteVatVoteId, Integer srShopVoteStampVoteId, Integer srShopVoteNbtVoteId, Integer srCashVote, Integer srChequeVote, Integer srShopVoteLya, Integer srShopVoteLyf, Set<SrShopHasVote> srShopHasVotes) {
        this.srShopVoteCategoryName = srShopVoteCategoryName;
        this.srShopVotePayment = srShopVotePayment;
        this.srShopVoteArrears = srShopVoteArrears;
@@ -52,6 +54,8 @@ public class SrShopVotesCategory  implements java.io.Serializable {
        this.srShopVoteNbtVoteId = srShopVoteNbtVoteId;
        this.srCashVote = srCashVote;
        this.srChequeVote = srChequeVote;
+       this.srShopVoteLya = srShopVoteLya;
+       this.srShopVoteLyf = srShopVoteLyf;
        this.srShopHasVotes = srShopHasVotes;
     }
    
@@ -180,6 +184,20 @@ public class SrShopVotesCategory  implements java.io.Serializable {
     
     public void setSrChequeVote(Integer srChequeVote) {
         this.srChequeVote = srChequeVote;
+    }
+    public Integer getSrShopVoteLya() {
+        return this.srShopVoteLya;
+    }
+    
+    public void setSrShopVoteLya(Integer srShopVoteLya) {
+        this.srShopVoteLya = srShopVoteLya;
+    }
+    public Integer getSrShopVoteLyf() {
+        return this.srShopVoteLyf;
+    }
+    
+    public void setSrShopVoteLyf(Integer srShopVoteLyf) {
+        this.srShopVoteLyf = srShopVoteLyf;
     }
     public Set<SrShopHasVote> getSrShopHasVotes() {
         return this.srShopHasVotes;

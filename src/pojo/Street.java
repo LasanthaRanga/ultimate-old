@@ -1,5 +1,5 @@
 package pojo;
-// Generated Sep 6, 2019 4:30:16 PM by Hibernate Tools 4.3.1
+// Generated Jul 9, 2020 11:48:20 AM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -24,6 +24,7 @@ public class Street  implements java.io.Serializable {
      private String streetCode;
      private Set<Assessment> assessments = new HashSet<Assessment>(0);
      private Set<SlDistance> slDistances = new HashSet<SlDistance>(0);
+     private Set<TlCreatePropId> tlCreatePropIds = new HashSet<TlCreatePropId>(0);
      private Set<WbMDivision> wbMDivisions = new HashSet<WbMDivision>(0);
 
     public Street() {
@@ -33,7 +34,7 @@ public class Street  implements java.io.Serializable {
     public Street(Ward ward) {
         this.ward = ward;
     }
-    public Street(Ward ward, String streetName, String streetNo, Integer streetStatus, Integer streetSyn, String streetComent, String streetNameSinhala, Double streetWidth, Double streetLineLimit, String streetCode, Set<Assessment> assessments, Set<SlDistance> slDistances, Set<WbMDivision> wbMDivisions) {
+    public Street(Ward ward, String streetName, String streetNo, Integer streetStatus, Integer streetSyn, String streetComent, String streetNameSinhala, Double streetWidth, Double streetLineLimit, String streetCode, Set<Assessment> assessments, Set<SlDistance> slDistances, Set<TlCreatePropId> tlCreatePropIds, Set<WbMDivision> wbMDivisions) {
        this.ward = ward;
        this.streetName = streetName;
        this.streetNo = streetNo;
@@ -46,6 +47,7 @@ public class Street  implements java.io.Serializable {
        this.streetCode = streetCode;
        this.assessments = assessments;
        this.slDistances = slDistances;
+       this.tlCreatePropIds = tlCreatePropIds;
        this.wbMDivisions = wbMDivisions;
     }
    
@@ -139,6 +141,13 @@ public class Street  implements java.io.Serializable {
     
     public void setSlDistances(Set<SlDistance> slDistances) {
         this.slDistances = slDistances;
+    }
+    public Set<TlCreatePropId> getTlCreatePropIds() {
+        return this.tlCreatePropIds;
+    }
+    
+    public void setTlCreatePropIds(Set<TlCreatePropId> tlCreatePropIds) {
+        this.tlCreatePropIds = tlCreatePropIds;
     }
     public Set<WbMDivision> getWbMDivisions() {
         return this.wbMDivisions;

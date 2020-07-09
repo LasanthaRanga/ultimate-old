@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Sep 6, 2019 4:30:22 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="pojo.Program" table="program" catalog="ultimate2" optimistic-lock="version">
         <id name="idProgram" type="java.lang.Integer">
@@ -10,6 +10,15 @@
         </id>
         <property name="nameProgram" type="string">
             <column name="name_program" length="45" />
+        </property>
+        <property name="nameSinhala" type="string">
+            <column name="name_sinhala" />
+        </property>
+        <property name="programCode" type="string">
+            <column name="program_code" />
+        </property>
+        <property name="programOder" type="java.lang.Integer">
+            <column name="program_oder" />
         </property>
         <property name="programcol" type="string">
             <column name="Programcol" length="45" />
@@ -20,6 +29,12 @@
         <property name="synProgram" type="java.lang.Integer">
             <column name="syn_program" />
         </property>
+        <set name="exTitles" table="ex_title" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ex_Program_idProgram" not-null="true" />
+            </key>
+            <one-to-many class="pojo.ExTitle" />
+        </set>
         <set name="programTitles" table="program_title" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="Program_idProgram" not-null="true" />

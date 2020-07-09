@@ -1,5 +1,5 @@
 package pojo;
-// Generated Sep 6, 2019 4:30:16 PM by Hibernate Tools 4.3.1
+// Generated Jul 9, 2020 11:48:20 AM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -17,16 +17,18 @@ public class ApprovalCat  implements java.io.Serializable {
      private Integer synAppCat;
      private Set<UserHasApprovalCat> userHasApprovalCats = new HashSet<UserHasApprovalCat>(0);
      private Set<ApprovalBy> approvalBies = new HashSet<ApprovalBy>(0);
+     private Set<WebPrivHasApproveCat> webPrivHasApproveCats = new HashSet<WebPrivHasApproveCat>(0);
 
     public ApprovalCat() {
     }
 
-    public ApprovalCat(String approvalName, Integer statusAppCat, Integer synAppCat, Set<UserHasApprovalCat> userHasApprovalCats, Set<ApprovalBy> approvalBies) {
+    public ApprovalCat(String approvalName, Integer statusAppCat, Integer synAppCat, Set<UserHasApprovalCat> userHasApprovalCats, Set<ApprovalBy> approvalBies, Set<WebPrivHasApproveCat> webPrivHasApproveCats) {
        this.approvalName = approvalName;
        this.statusAppCat = statusAppCat;
        this.synAppCat = synAppCat;
        this.userHasApprovalCats = userHasApprovalCats;
        this.approvalBies = approvalBies;
+       this.webPrivHasApproveCats = webPrivHasApproveCats;
     }
    
     public Integer getIdApprovalCat() {
@@ -70,6 +72,13 @@ public class ApprovalCat  implements java.io.Serializable {
     
     public void setApprovalBies(Set<ApprovalBy> approvalBies) {
         this.approvalBies = approvalBies;
+    }
+    public Set<WebPrivHasApproveCat> getWebPrivHasApproveCats() {
+        return this.webPrivHasApproveCats;
+    }
+    
+    public void setWebPrivHasApproveCats(Set<WebPrivHasApproveCat> webPrivHasApproveCats) {
+        this.webPrivHasApproveCats = webPrivHasApproveCats;
     }
 
 

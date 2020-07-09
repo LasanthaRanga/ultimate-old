@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.WbMNatureChangeTbl" table="wb_m_nature_change_tbl" catalog="ultimate2" optimistic-lock="version">
+        <id name="wbNatureAndConTypeChangeId" type="java.lang.Integer">
+            <column name="wb_nature_and_con_type_change_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="user" class="pojo.User" fetch="select">
+            <column name="change_user_id" />
+        </many-to-one>
+        <many-to-one name="wbMConnection" class="pojo.WbMConnection" fetch="select">
+            <column name="change_connection_id" />
+        </many-to-one>
+        <property name="previousNatureOrType" type="string">
+            <column name="previous_nature_or_type" length="50" />
+        </property>
+        <property name="currentNatureOrType" type="string">
+            <column name="current_nature_or_type" length="50" />
+        </property>
+        <property name="changeDate" type="date">
+            <column name="change_date" length="10" />
+        </property>
+        <property name="changeTime" type="time">
+            <column name="change_time" length="8" />
+        </property>
+        <property name="changeDescription" type="string">
+            <column name="change_description" length="500" />
+        </property>
+    </class>
+</hibernate-mapping>

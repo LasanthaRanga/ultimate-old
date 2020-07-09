@@ -1,0 +1,106 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.ExVote" table="ex_vote" catalog="ultimate2" optimistic-lock="version">
+        <composite-id name="id" class="pojo.ExVoteId">
+            <key-property name="idExAccountReceiptTitle" type="int">
+                <column name="id_ex_Account_receipt_title" />
+            </key-property>
+            <key-property name="exVoteAndBal" type="string">
+                <column name="ex_vote_and_bal" length="45" />
+            </key-property>
+        </composite-id>
+        <property name="exVoteAndBalCode" type="string">
+            <column name="ex_vote_and_bal_code" />
+        </property>
+        <property name="exVoteAndBalName" type="string">
+            <column name="ex_vote_and_bal_name" />
+        </property>
+        <property name="exProNameEng" type="string">
+            <column name="ex_Pro_name_eng" />
+        </property>
+        <property name="exProId" type="java.lang.Integer">
+            <column name="ex_Pro_id" />
+        </property>
+        <property name="exProCode" type="java.lang.Integer">
+            <column name="ex_Pro_code" />
+        </property>
+        <property name="exTitleNameEng" type="string">
+            <column name="ex_Title_name_eng" />
+        </property>
+        <property name="exTitleId" type="java.lang.Integer">
+            <column name="ex_Title_id" />
+        </property>
+        <property name="exTitleCode" type="java.lang.Integer">
+            <column name="ex_Title_code" />
+        </property>
+        <property name="exSubtitleNameEng" type="string">
+            <column name="ex_Subtitle_name_eng" />
+        </property>
+        <property name="exSubtitleId" type="java.lang.Integer">
+            <column name="ex_Subtitle_id" />
+        </property>
+        <property name="exSubtitleCode" type="java.lang.Integer">
+            <column name="ex_Subtitle_code" />
+        </property>
+        <property name="exType1Id" type="java.lang.Integer">
+            <column name="ex_Type1_Id" />
+        </property>
+        <property name="exType1Name" type="string">
+            <column name="ex_Type1_Name" length="45" />
+        </property>
+        <property name="exType2Id" type="java.lang.Integer">
+            <column name="ex_Type2_Id" />
+        </property>
+        <property name="exType2Name" type="string">
+            <column name="ex__Type2_Name" length="45" />
+        </property>
+        <property name="exVoteOrBal" type="java.lang.Integer">
+            <column name="ex_vote_or_bal" />
+        </property>
+        <property name="exOrder" type="java.lang.Integer">
+            <column name="ex_Order" />
+        </property>
+        <property name="exVBId" type="java.lang.Integer">
+            <column name="ex_V_B_Id" />
+        </property>
+        <property name="exProNameSinhala" type="string">
+            <column name="ex_Pro_name_sinhala" />
+        </property>
+        <property name="exProNameTamil" type="string">
+            <column name="ex_Pro_name_tamil" />
+        </property>
+        <property name="exTitleNameSinhala" type="string">
+            <column name="ex_Title_name_sinhala" />
+        </property>
+        <property name="exSubtitleNameTamil" type="string">
+            <column name="ex_Subtitle_name_tamil" />
+        </property>
+        <property name="exSubtitleNameSinhala" type="string">
+            <column name="ex_Subtitle_name_sinhala" />
+        </property>
+        <property name="exVoteAndBalNameSinhala" type="string">
+            <column name="ex_vote_and_bal_name_sinhala" />
+        </property>
+        <property name="exVoteAndBalNameTamil" type="string">
+            <column name="ex_vote_and_bal_name_tamil" />
+        </property>
+        <property name="exProjectId" type="java.lang.Integer">
+            <column name="ex_project_id" />
+        </property>
+        <property name="exProjectNameSin" type="string">
+            <column name="ex_project_name_sin" />
+        </property>
+        <property name="exProjectNameEng" type="string">
+            <column name="ex_project_name_eng" />
+        </property>
+        <property name="exProjectNameTamil" type="string">
+            <column name="ex_project_name_tamil" />
+        </property>
+        <property name="exVoteTypeStatus" type="java.lang.Integer">
+            <column name="ex_vote_type_status" />
+        </property>
+    </class>
+</hibernate-mapping>

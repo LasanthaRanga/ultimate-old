@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Sep 6, 2019 4:30:22 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="pojo.User" table="user" catalog="ultimate2" optimistic-lock="version">
         <id name="idUser" type="java.lang.Integer">
@@ -62,6 +62,18 @@
             </key>
             <one-to-many class="pojo.UserHasApprovalCat" />
         </set>
+        <set name="wbMChangesRecordTbls" table="wb_m_changes_record_tbl" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="wb_changes_user" />
+            </key>
+            <one-to-many class="pojo.WbMChangesRecordTbl" />
+        </set>
+        <set name="wbTPaids" table="wb_t_paid" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="wb_t_user" />
+            </key>
+            <one-to-many class="pojo.WbTPaid" />
+        </set>
         <set name="apprualstatueses" table="apprualstatues" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="User_idUser" not-null="true" />
@@ -106,6 +118,12 @@
             </key>
             <one-to-many class="pojo.SendToApprove" />
         </set>
+        <set name="tlApps" table="tl_app" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="app_ri_id" />
+            </key>
+            <one-to-many class="pojo.TlApp" />
+        </set>
         <set name="assessments" table="assessment" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="User_idUser" not-null="true" />
@@ -129,6 +147,12 @@
                 <column name="User_idUser" not-null="true" />
             </key>
             <one-to-many class="pojo.UserLogin" />
+        </set>
+        <set name="wbMNatureChangeTbls" table="wb_m_nature_change_tbl" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="change_user_id" />
+            </key>
+            <one-to-many class="pojo.WbMNatureChangeTbl" />
         </set>
         <set name="userLogs" table="user_log" inverse="true" lazy="true" fetch="select">
             <key>
@@ -159,6 +183,12 @@
                 <column name="User_idUser" not-null="true" />
             </key>
             <one-to-many class="pojo.UserHasOtheritiscat" />
+        </set>
+        <set name="wbMDivisionHasMeterReaders" table="wb_m_division_has_meter_reader" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="division_has_meter_reader_meter_reader_id" />
+            </key>
+            <one-to-many class="pojo.WbMDivisionHasMeterReader" />
         </set>
         <set name="userHasCatagories" table="user_has_catagory" inverse="true" lazy="true" fetch="select">
             <key>

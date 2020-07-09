@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.ExVoteTitleDeductionInfo" table="ex_vote_title_deduction_info" catalog="ultimate2" optimistic-lock="version">
+        <id name="exInfoId" type="java.lang.Integer">
+            <column name="ex_info_id" />
+            <generator class="identity" />
+        </id>
+        <property name="exVoteidTitleid" type="string">
+            <column name="ex_voteid_titleid" />
+        </property>
+        <property name="exVoucherInfoId" type="java.lang.Integer">
+            <column name="ex_voucher_info_id" />
+        </property>
+        <property name="exAmount" type="java.lang.Double">
+            <column name="ex_amount" precision="22" scale="0" />
+        </property>
+        <property name="exVoucherOrNot" type="java.lang.Integer">
+            <column name="ex_voucher_or_not" />
+        </property>
+        <property name="exCross" type="java.lang.Double">
+            <column name="ex_cross" precision="22" scale="0" />
+        </property>
+        <property name="exVat" type="java.lang.Double">
+            <column name="ex_vat" precision="22" scale="0" />
+        </property>
+        <property name="exNbt" type="java.lang.Double">
+            <column name="ex_nbt" precision="22" scale="0" />
+        </property>
+        <property name="exStamp" type="java.lang.Double">
+            <column name="ex_stamp" precision="22" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

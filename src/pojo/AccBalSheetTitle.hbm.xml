@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.AccBalSheetTitle" table="acc_bal_sheet_title" catalog="ultimate2" optimistic-lock="version">
+        <id name="balSheetTitleId" type="java.lang.Integer">
+            <column name="bal_sheet_title_id" />
+            <generator class="identity" />
+        </id>
+        <property name="balSheetTitleName" type="string">
+            <column name="bal_sheet_title_name" length="200" />
+        </property>
+        <property name="balSheetTitleStatus" type="java.lang.Integer">
+            <column name="bal_sheet_title_status" />
+        </property>
+        <property name="balSheetTitleCode" type="string">
+            <column name="bal_sheet_title_code" length="200" />
+        </property>
+        <set name="accBalSheetSubtitles" table="acc_bal_sheet_subtitle" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="bal_sheet_title_id" />
+            </key>
+            <one-to-many class="pojo.AccBalSheetSubtitle" />
+        </set>
+    </class>
+</hibernate-mapping>

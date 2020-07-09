@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Sep 6, 2019 4:30:22 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="pojo.SlUploadImages" table="sl_upload_images" catalog="ultimate2" optimistic-lock="version">
         <id name="imageId" type="java.lang.Integer">
@@ -19,6 +19,18 @@
         </property>
         <property name="docWebPath" type="string">
             <column name="doc_web_path" />
+        </property>
+        <property name="bopDocPath" type="string">
+            <column name="bop_doc_path" />
+        </property>
+        <property name="baDocPath" type="string">
+            <column name="ba_doc_path" />
+        </property>
+        <property name="baDocWebPath" type="string">
+            <column name="ba_doc_web_path" />
+        </property>
+        <property name="bopDocWebPath" type="string">
+            <column name="bop_doc_web_path" />
         </property>
     </class>
 </hibernate-mapping>

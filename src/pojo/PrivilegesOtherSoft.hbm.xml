@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.PrivilegesOtherSoft" table="privileges_other_soft" catalog="ultimate2" optimistic-lock="version">
+        <id name="otherPrivilegesId" type="java.lang.Integer">
+            <column name="other_privileges_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="privilage" class="pojo.Privilage" fetch="select">
+            <column name="privileges_table_id" />
+        </many-to-one>
+        <property name="privilegesOrder" type="java.lang.Integer">
+            <column name="privileges_order" />
+        </property>
+        <property name="privilegesImage" type="string">
+            <column name="privileges_image" />
+        </property>
+        <property name="appCategory" type="java.lang.Integer">
+            <column name="app_category" />
+        </property>
+        <property name="privilegeCallIdInSystem" type="java.lang.Integer">
+            <column name="privilege_call_id_in_system" />
+        </property>
+        <property name="image" type="binary">
+            <column name="image" />
+        </property>
+    </class>
+</hibernate-mapping>

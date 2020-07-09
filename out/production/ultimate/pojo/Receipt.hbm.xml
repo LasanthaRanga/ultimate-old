@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Sep 6, 2019 4:30:22 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="pojo.Receipt" table="receipt" catalog="ultimate2" optimistic-lock="version">
         <id name="idReceipt" type="java.lang.Integer">
@@ -62,11 +62,38 @@
         <property name="receiptTime" type="time">
             <column name="receipt_time" length="8" />
         </property>
+        <property name="incomeExpense" type="java.lang.Integer">
+            <column name="income_expense" />
+        </property>
+        <property name="cusId" type="java.lang.Integer">
+            <column name="cus_id" />
+        </property>
+        <property name="crossReciptOrVoucher" type="java.lang.Integer">
+            <column name="cross_recipt_or_voucher" />
+        </property>
+        <property name="payType" type="java.lang.Integer">
+            <column name="pay_type" />
+        </property>
+        <property name="amount" type="java.lang.Double">
+            <column name="amount" precision="22" scale="0" />
+        </property>
         <set name="cheacks" table="cheack" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="Receipt_idReceipt" not-null="true" />
             </key>
             <one-to-many class="pojo.Cheack" />
+        </set>
+        <set name="wbTPayments" table="wb_t_payment" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="wb_t_receipt_id_payment" />
+            </key>
+            <one-to-many class="pojo.WbTPayment" />
+        </set>
+        <set name="wbTPaids" table="wb_t_paid" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="wb_t_receipt_id" not-null="true" />
+            </key>
+            <one-to-many class="pojo.WbTPaid" />
         </set>
         <set name="assPayments" table="ass_payment" inverse="true" lazy="true" fetch="select">
             <key>

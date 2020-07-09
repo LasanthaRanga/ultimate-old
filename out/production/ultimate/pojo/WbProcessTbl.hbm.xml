@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.WbProcessTbl" table="wb_process_tbl" catalog="ultimate2" optimistic-lock="version">
+        <id name="wbProcessTblId" type="java.lang.Integer">
+            <column name="wb_process_tbl_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="wbMConnection" class="pojo.WbMConnection" fetch="select">
+            <column name="wb_process_tbl_con_id" />
+        </many-to-one>
+        <property name="wbProcessTblInvoiceNo" type="string">
+            <column name="wb_process_tbl_invoice_no" length="50" unique="true" />
+        </property>
+        <property name="wbProcessTblLya" type="java.lang.Double">
+            <column name="wb_process_tbl_LYA" precision="22" scale="0" />
+        </property>
+        <property name="wbProcessTblLyaBal" type="java.lang.Double">
+            <column name="wb_process_tbl_LYA_bal" precision="22" scale="0" />
+        </property>
+        <property name="wbProcessTblLma" type="java.lang.Double">
+            <column name="wb_process_tbl_LMA" precision="22" scale="0" />
+        </property>
+        <property name="wbProcessTblLmaBal" type="java.lang.Double">
+            <column name="wb_process_tbl_LMA_bal" precision="22" scale="0" />
+        </property>
+        <property name="wbProcessTblTma" type="java.lang.Double">
+            <column name="wb_process_tbl_TMA" precision="22" scale="0" />
+        </property>
+        <property name="wbProcessTblTmaBal" type="java.lang.Double">
+            <column name="wb_process_tbl_TMA_bal" precision="22" scale="0" />
+        </property>
+        <property name="wbProcessTblVat" type="java.lang.Double">
+            <column name="wb_process_tbl_VAT" precision="22" scale="0" />
+        </property>
+        <property name="wbProcessTblNbt" type="java.lang.Double">
+            <column name="wb_process_tbl_NBT" precision="22" scale="0" />
+        </property>
+        <property name="wbProcessTblStamp" type="java.lang.Double">
+            <column name="wb_process_tbl_STAMP" precision="22" scale="0" />
+        </property>
+        <property name="wbProcessTblYear" type="java.lang.Integer">
+            <column name="wb_process_tbl_year" />
+        </property>
+        <property name="wbProcessTblMonth" type="java.lang.Integer">
+            <column name="wb_process_tbl_month" />
+        </property>
+        <property name="wbProcessTblComStatus" type="string">
+            <column name="wb_process_tbl_com_status" length="11" />
+        </property>
+    </class>
+</hibernate-mapping>

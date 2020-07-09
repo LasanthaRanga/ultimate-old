@@ -1,5 +1,5 @@
 package pojo;
-// Generated Oct 3, 2019 9:56:57 AM by Hibernate Tools 4.3.1
+// Generated Jul 9, 2020 11:48:20 AM by Hibernate Tools 4.3.1
 
 
 
@@ -15,7 +15,8 @@ public class WbTChargeScheme  implements java.io.Serializable {
      private Integer rangeEnd;
      private Double unitPrice;
      private Double fixedCharge;
-     private Byte unlimitFlag;
+     private Integer unlimitFlag;
+     private Integer getTaxOrNot;
 
     public WbTChargeScheme() {
     }
@@ -24,13 +25,14 @@ public class WbTChargeScheme  implements java.io.Serializable {
     public WbTChargeScheme(WbMNature wbMNature) {
         this.wbMNature = wbMNature;
     }
-    public WbTChargeScheme(WbMNature wbMNature, Integer rangeStart, Integer rangeEnd, Double unitPrice, Double fixedCharge, Byte unlimitFlag) {
+    public WbTChargeScheme(WbMNature wbMNature, Integer rangeStart, Integer rangeEnd, Double unitPrice, Double fixedCharge, Integer unlimitFlag, Integer getTaxOrNot) {
        this.wbMNature = wbMNature;
        this.rangeStart = rangeStart;
        this.rangeEnd = rangeEnd;
        this.unitPrice = unitPrice;
        this.fixedCharge = fixedCharge;
        this.unlimitFlag = unlimitFlag;
+       this.getTaxOrNot = getTaxOrNot;
     }
    
     public Integer getId() {
@@ -75,12 +77,19 @@ public class WbTChargeScheme  implements java.io.Serializable {
     public void setFixedCharge(Double fixedCharge) {
         this.fixedCharge = fixedCharge;
     }
-    public Byte getUnlimitFlag() {
+    public Integer getUnlimitFlag() {
         return this.unlimitFlag;
     }
     
-    public void setUnlimitFlag(Byte unlimitFlag) {
+    public void setUnlimitFlag(Integer unlimitFlag) {
         this.unlimitFlag = unlimitFlag;
+    }
+    public Integer getGetTaxOrNot() {
+        return this.getTaxOrNot;
+    }
+    
+    public void setGetTaxOrNot(Integer getTaxOrNot) {
+        this.getTaxOrNot = getTaxOrNot;
     }
 
 

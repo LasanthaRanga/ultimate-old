@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Oct 3, 2019 9:57:03 AM by Hibernate Tools 4.3.1 -->
+<!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="pojo.WbMLastProcYearMonth" table="wb_m_last_proc_year_month" catalog="kuliuc" optimistic-lock="version">
+    <class name="pojo.WbMLastProcYearMonth" table="wb_m_last_proc_year_month" catalog="ultimate2" optimistic-lock="version">
         <id name="lastProcYearMonthId" type="java.lang.Integer">
             <column name="last_proc_year_month_id" />
             <generator class="identity" />
@@ -16,12 +16,6 @@
         </property>
         <property name="lastProcYearMonthMonth" type="java.lang.Integer">
             <column name="last_proc_year_month_month" />
-        </property>
-        <property name="nextProcYearMonthYear" type="java.lang.Integer">
-            <column name="next_proc_year_month_year" />
-        </property>
-        <property name="nextProcYearMonthMonth" type="java.lang.Integer">
-            <column name="next_proc_year_month_month" />
         </property>
         <property name="nextProcCodeFirst" type="string">
             <column name="next_proc_code_first" length="10" />

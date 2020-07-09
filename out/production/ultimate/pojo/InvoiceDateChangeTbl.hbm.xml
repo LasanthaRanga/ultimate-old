@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.InvoiceDateChangeTbl" table="invoice_date_change_tbl" catalog="ultimate2" optimistic-lock="version">
+        <id name="invoiceDateChangeTblId" type="java.lang.Integer">
+            <column name="invoice_date_change_tbl_id" />
+            <generator class="identity" />
+        </id>
+        <property name="invoiceDateChangeOldDate" type="date">
+            <column name="invoice_date_change_old_date" length="10" />
+        </property>
+        <property name="invoiceDateChangeNewDate" type="date">
+            <column name="invoice_date_change_new_date" length="10" />
+        </property>
+        <property name="invoiceDateChangeUserId" type="java.lang.Integer">
+            <column name="invoice_date_change_user_id" />
+        </property>
+        <property name="invoiceDateChangeDate" type="date">
+            <column name="invoice_date_change_date" length="10" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -116,8 +116,8 @@ public class BarcodePay implements Initializable {
             case 3:
                 modle.Payment.PaymentByID.genarateRisiptNo(3, "", appid);
                 updateBOP(appid);
-                modle.GetInstans.getAssessReport().getReciptPrintNonVesting(idRecipt + "", false);
-                modle.Allert.notificationGood("Completed", "BOP " + idRecipt);
+                modle.GetInstans.getAssessReport().getReciptPrintStrretLine(idRecipt + "", false);
+                modle.Allert.notificationGood("Completed", "Street Line " + idRecipt);
                 clearAll();
                 break;
             case 4:
@@ -197,7 +197,7 @@ public class BarcodePay implements Initializable {
                 clearAll();
                 break;
             case 3:
-                modle.GetInstans.getAssessReport().getReciptPrintNonVesting(idRecipt + "", false);
+                modle.GetInstans.getAssessReport().getReciptPrintStrretLine(idRecipt + "", false);
                 clearAll();
                 break;
 
@@ -310,7 +310,8 @@ public class BarcodePay implements Initializable {
                             assessmentTaxBil(text);
                             break;
                         case 3:
-                            bop(text);
+                            System.out.println("BOP");
+                            bopdata(text);
                             break;
 
                         case 4:
@@ -459,8 +460,6 @@ public class BarcodePay implements Initializable {
 
                 conn.DB.setData("UPDATE `account_ps_three` SET `report_status`='1'  WHERE `report_ricipt_id` = '" + text + "'");
                 conn.DB.setData("UPDATE `receipt` SET `receipt_status`='1' WHERE `idReceipt`='" + text + "'");
-
-
 
 
             } catch (Exception e) {
@@ -747,56 +746,115 @@ public class BarcodePay implements Initializable {
 
 
     public void updateBOP(int appid) {
-        String ss = "SELECT\n" +
-                "bop.idBOP,\n" +
-                "doc_hand_approve.approve_doc_hand_id\n" +
-                "FROM\n" +
-                "bop\n" +
-                "INNER JOIN doc_hand_approve ON bop.idBOP = doc_hand_approve.doc_hand_subject_id\n" +
-                "WHERE\n" +
-                "bop.idBOP = " + appid;
+
 
         try {
-            ResultSet data = DB.getData(ss);
+            ResultSet data = DB.getData("SELECT\n" +
+                    "doc_hand_approve.approve_doc_hand_id,\n" +
+                    "bop.idBOP\n" +
+                    "FROM\n" +
+                    "doc_hand_approve\n" +
+                    "INNER JOIN bop ON doc_hand_approve.doc_hand_subject_id = bop.idBOP\n" +
+                    "WHERE\n" +
+                    "doc_hand_approve.application_doc_hand_category_id = 3 AND\n" +
+                    "bop.idBOP = " + appid);
+
             if (data.last()) {
                 int approve_doc_hand_id = data.getInt("approve_doc_hand_id");
 
                 conn.DB.setData("UPDATE `doc_hand_approve`\n" +
-                        "SET `doc_hand_recevied_user_category` = '5',\n" +
-                        " `doc_hand_accept_or_reject` = '4'\n" +
+                        "SET `doc_hand_recevied_user_category` = '3',\n" +
+                        " `doc_hand_accept_or_reject` = '1'\n" +
                         "WHERE\n" +
-                        "\t(`approve_doc_hand_id` = '" + approve_doc_hand_id + "')");
+                        "\t(`approve_doc_hand_id` = " + approve_doc_hand_id + ")");
+
+
             }
 
             ResultSet data1 = DB.getData("SELECT\n" +
                     "receipt.idReceipt,\n" +
+                    "sl_details.idStreetLine,\n" +
                     "receipt.receipt_print_no,\n" +
-                    "receipt.receipt_day,\n" +
-                    "bop.idBOP\n" +
+                    "receipt.receipt_day, receipt.receipt_total\n" +
                     "FROM\n" +
                     "receipt\n" +
-                    "INNER JOIN bop ON receipt.recept_applicationId = bop.idBOP\n" +
+                    "INNER JOIN sl_details ON sl_details.idStreetLine = receipt.recept_applicationId\n" +
                     "WHERE\n" +
                     "receipt.Application_Catagory_idApplication_Catagory = 3 AND\n" +
-                    "bop.idBOP = " + appid);
+                    "sl_details.idStreetLine = '" + appid + "'");
 
             if (data1.last()) {
                 int idReceipt = data1.getInt("idReceipt");
                 String receipt_day = data1.getString("receipt_day");
                 String receipt_print_no = data1.getString("receipt_print_no");
+                double receipt_total = data1.getDouble("receipt_total");
+
                 conn.DB.setData("UPDATE `account_ps_three`\n" +
                         "SET `report_date` = '" + receipt_day + "',\n" +
                         " `report_ricipt_no` = '" + receipt_print_no + "',\n" +
-                        " `report_status` = '1'\n" +
+                        " `report_status` = '1' , `income_or_expence` = '1'\n" +
                         "WHERE\n" +
                         "\t`report_ricipt_id` = '" + idReceipt + "'");
+
+                updateReciptNewCollom(idRecipt, 1, 1, 1, receipt_total);
             }
 
 
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
         }
+
+
+//        String ss = "SELECT\n" +
+//                "bop.idBOP,\n" +
+//                "doc_hand_approve.approve_doc_hand_id\n" +
+//                "FROM\n" +
+//                "bop\n" +
+//                "INNER JOIN doc_hand_approve ON bop.idBOP = doc_hand_approve.doc_hand_subject_id\n" +
+//                "WHERE\n" +
+//                "bop.idBOP = " + appid;
+//
+//        try {
+//            ResultSet data = DB.getData(ss);
+//            if (data.last()) {
+//                int approve_doc_hand_id = data.getInt("approve_doc_hand_id");
+//
+//                conn.DB.setData("UPDATE `doc_hand_approve`\n" +
+//                        "SET `doc_hand_recevied_user_category` = '5',\n" +
+//                        " `doc_hand_accept_or_reject` = '4'\n" +
+//                        "WHERE\n" +
+//                        "\t(`approve_doc_hand_id` = '" + approve_doc_hand_id + "')");
+//            }
+//
+//            ResultSet data1 = DB.getData("SELECT\n" +
+//                    "receipt.idReceipt,\n" +
+//                    "receipt.receipt_print_no,\n" +
+//                    "receipt.receipt_day,\n" +
+//                    "bop.idBOP\n" +
+//                    "FROM\n" +
+//                    "receipt\n" +
+//                    "INNER JOIN bop ON receipt.recept_applicationId = bop.idBOP\n" +
+//                    "WHERE\n" +
+//                    "receipt.Application_Catagory_idApplication_Catagory = 3 AND\n" +
+//                    "bop.idBOP = " + appid);
+//
+//            if (data1.last()) {
+//                int idReceipt = data1.getInt("idReceipt");
+//                String receipt_day = data1.getString("receipt_day");
+//                String receipt_print_no = data1.getString("receipt_print_no");
+//                conn.DB.setData("UPDATE `account_ps_three`\n" +
+//                        "SET `report_date` = '" + receipt_day + "',\n" +
+//                        " `report_ricipt_no` = '" + receipt_print_no + "',\n" +
+//                        " `report_status` = '1'\n" +
+//                        "WHERE\n" +
+//                        "\t`report_ricipt_id` = '" + idReceipt + "'");
+//            }
+//
+//
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        } finally {
+//        }
 
 
     }
@@ -1096,7 +1154,107 @@ public class BarcodePay implements Initializable {
     }
 
 
+    public void bopdata(String text) {
+        System.out.println("method call");
+        String query = "SELECT\n" +
+                "\treceipt.idReceipt,\n" +
+                "\treceipt.Application_Catagory_idApplication_Catagory,\n" +
+                "\treceipt.recept_applicationId,\n" +
+                "\treceipt.receipt_print_no,\n" +
+                "\treceipt.cheack,\n" +
+                "\treceipt.cesh,\n" +
+                "\treceipt.receipt_total,\n" +
+                "\treceipt.receipt_day,\n" +
+                "\treceipt.receipt_status,\n" +
+                "\treceipt.receipt_syn,\n" +
+                "\treceipt.chque_no,\n" +
+                "\treceipt.chque_date,\n" +
+                "\treceipt.chque_bank,\n" +
+                "\treceipt.oder,\n" +
+                "\treceipt.office_idOffice,\n" +
+                "\tsl_details.idStreetLine,\n" +
+                "\tsl_details.ass_id,\n" +
+                "\tsl_details.slDate,\n" +
+                "\tsl_details.sllotNo,\n" +
+                "\tsl_details.slPlanNo,\n" +
+                "\tsl_details.slDescription,\n" +
+                "\tsl_details.slDeposit,\n" +
+                "\tsl_details.slAmount,\n" +
+                "\tsl_details.slVat,\n" +
+                "\tsl_details.slNbt,\n" +
+                "\tsl_details.slStamp,\n" +
+                "\tsl_details.slOther1,\n" +
+                "\tsl_details.slOther2,\n" +
+                "\tsl_details.slApproveToPay,\n" +
+                "\tsl_details.slServayOfficer,\n" +
+                "\tsl_details.slServayDate,\n" +
+                "\tsl_details.slPersonTitle,\n" +
+                "\tsl_details.slYesNo_id,\n" +
+                "\tsl_details.slStatus,\n" +
+                "\tsl_details.office_idOffice,\n" +
+                "\tsl_details.customer_idCustomer,\n" +
+                "\tsl_details.sl_reference_no,\n" +
+                "\tsl_details.slApproveDescription,\n" +
+                "\tcustomer.cus_name\n" +
+                "FROM\n" +
+                "\treceipt\n" +
+                "INNER JOIN sl_details ON receipt.recept_applicationId = sl_details.idStreetLine\n" +
+                "INNER JOIN customer ON sl_details.customer_idCustomer = customer.idCustomer\n" +
+                "WHERE\n" +
+                "\treceipt.Application_Catagory_idApplication_Catagory = '3'\n" +
+                "AND receipt.idReceipt = " + text;
+        try {
+            ResultSet data = DB.getData(query);
+
+            if (data.last()) {
+
+                System.out.println("have data");
+
+                int receipt_status = data.getInt("receipt_status");
+                if (receipt_status == 0) {
+                    catid = data.getInt("Application_Catagory_idApplication_Catagory");
+                    appid = data.getInt("recept_applicationId");
+                    double fullTot = data.getDouble("receipt_total");
+                    idRecipt = data.getInt("idReceipt");
+                    txt_dis1.setText(data.getString("cus_name"));
+                    txt_tot.setText(fullTot + "");
+                    if (radio_print.isSelected()) {
+
+                        modle.Payment.PaymentByID.genarateRisiptNo(3, "", appid);
+                        updateStreetLineStatus(appid);
+                        modle.GetInstans.getAssessReport().getReciptPrintStrretLine(idRecipt + "", true);
+                        modle.Allert.notificationGood("Completed", "BOP" + idRecipt);
+                        // updateReciptNewCollom(idRecipt, 1, 1, 1, fullTot);
+
+                        clearAll();
+                    } else {
+                        payAnable();
+                    }
+                } else if (receipt_status == 1) {
+                    catid = data.getInt("Application_Catagory_idApplication_Catagory");
+                    appid = data.getInt("recept_applicationId");
+                    double fullTot = data.getDouble("receipt_total");
+                    idRecipt = data.getInt("idReceipt");
+                    txt_dis1.setText(data.getString("cus_name"));
+                    txt_tot.setText(fullTot + "");
+                    printAnable();
+                } else {
+
+                }
+
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+        }
+
+
+    }
+
+
     public void streetLine2(String text) {
+        System.out.println("method call");
         String query = "SELECT\n" +
                 "\treceipt.idReceipt,\n" +
                 "\treceipt.Application_Catagory_idApplication_Catagory,\n" +
@@ -1148,6 +1306,9 @@ public class BarcodePay implements Initializable {
             ResultSet data = DB.getData(query);
 
             if (data.last()) {
+
+                System.out.println("have data");
+
                 int receipt_status = data.getInt("receipt_status");
                 if (receipt_status == 0) {
                     catid = data.getInt("Application_Catagory_idApplication_Catagory");

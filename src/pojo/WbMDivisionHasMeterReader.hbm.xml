@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Oct 3, 2019 9:57:03 AM by Hibernate Tools 4.3.1 -->
+<!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="pojo.WbMDivisionHasMeterReader" table="wb_m_division_has_meter_reader" catalog="kuliuc" optimistic-lock="version">
+    <class name="pojo.WbMDivisionHasMeterReader" table="wb_m_division_has_meter_reader" catalog="ultimate2" optimistic-lock="version">
         <id name="divisionHasMeterReaderId" type="java.lang.Integer">
             <column name="division_has_meter_reader_id" />
             <generator class="identity" />

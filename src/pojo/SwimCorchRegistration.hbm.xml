@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.SwimCorchRegistration" table="swim_corch_registration" catalog="ultimate2" optimistic-lock="version">
+        <id name="swimCorchRegId" type="java.lang.Integer">
+            <column name="swim_corch_reg_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="customer" class="pojo.Customer" fetch="select">
+            <column name="swim_corch_cus_tbl_id" />
+        </many-to-one>
+        <many-to-one name="swimGameDetails" class="pojo.SwimGameDetails" fetch="select">
+            <column name="swim_corch_type_game_id" />
+        </many-to-one>
+        <property name="swimCorchActiveStatus" type="java.lang.Integer">
+            <column name="swim_corch_active_status" />
+        </property>
+        <property name="swimCorchCode" type="string">
+            <column name="swim_corch_code" length="5" unique="true" />
+        </property>
+        <property name="swimCorchRegDate" type="date">
+            <column name="swim_corch_reg_date" length="10" />
+        </property>
+        <set name="swimApps" table="swim_app" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="swim_app_coach_id" />
+            </key>
+            <one-to-many class="pojo.SwimApp" />
+        </set>
+    </class>
+</hibernate-mapping>

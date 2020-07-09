@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.SwimGameDetails" table="swim_game_details" catalog="ultimate2" optimistic-lock="version">
+        <id name="swimGameTypeId" type="java.lang.Integer">
+            <column name="swim_game_type_id" />
+            <generator class="identity" />
+        </id>
+        <property name="swimGameName" type="string">
+            <column name="swim_game_name" length="100" />
+        </property>
+        <property name="swimGameActiveStatus" type="java.lang.Integer">
+            <column name="swim_game_active_status" />
+        </property>
+        <set name="swimCorchRegistrations" table="swim_corch_registration" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="swim_corch_type_game_id" />
+            </key>
+            <one-to-many class="pojo.SwimCorchRegistration" />
+        </set>
+    </class>
+</hibernate-mapping>

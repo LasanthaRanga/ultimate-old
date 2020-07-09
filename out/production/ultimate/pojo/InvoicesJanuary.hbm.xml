@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.InvoicesJanuary" table="invoices_january" catalog="ultimate2" optimistic-lock="version">
+        <composite-id name="id" class="pojo.InvoicesJanuaryId">
+            <key-property name="invoiceId" type="string">
+                <column name="invoice_id" length="100" />
+            </key-property>
+            <key-property name="invoiceDate" type="date">
+                <column name="invoice_date" length="10" />
+            </key-property>
+        </composite-id>
+        <property name="invoicePeriod" type="string">
+            <column name="invoice_period" length="45" not-null="true" />
+        </property>
+        <property name="invoiceMonth" type="string">
+            <column name="invoice_month" length="45" not-null="true" />
+        </property>
+        <property name="orderNumber" type="int">
+            <column name="order_number" not-null="true" />
+        </property>
+        <property name="customerId" type="string">
+            <column name="customer_id" length="10" />
+        </property>
+        <property name="customerName" type="string">
+            <column name="customer_name" length="250" />
+        </property>
+        <property name="customerAddress" type="string">
+            <column name="customer_address" length="450" />
+        </property>
+        <property name="customerRoad" type="string">
+            <column name="customer_road" length="250" />
+        </property>
+        <property name="assmntTaxNo" type="string">
+            <column name="assmnt_tax_no" length="45" />
+        </property>
+        <property name="currentReading" type="java.lang.Integer">
+            <column name="current_reading" />
+        </property>
+        <property name="previousReading" type="java.lang.Integer">
+            <column name="previous_reading" />
+        </property>
+        <property name="consumption" type="java.lang.Integer">
+            <column name="consumption" />
+        </property>
+        <property name="waterCharge" type="big_decimal">
+            <column name="water_charge" precision="20" />
+        </property>
+        <property name="otherCharges" type="big_decimal">
+            <column name="other_charges" precision="20" />
+        </property>
+        <property name="taxCharges" type="big_decimal">
+            <column name="tax_charges" precision="20" />
+        </property>
+        <property name="thisMonthCharges" type="big_decimal">
+            <column name="this_month_charges" precision="20" />
+        </property>
+        <property name="dueAmount" type="big_decimal">
+            <column name="due_amount" precision="20" />
+        </property>
+        <property name="totalPayable" type="big_decimal">
+            <column name="total_payable" precision="20" />
+        </property>
+        <property name="totalPaid" type="big_decimal">
+            <column name="total_paid" precision="20" />
+        </property>
+        <property name="invoiceStatus" type="string">
+            <column name="invoice_status" length="11" />
+        </property>
+        <property name="redbillstatus" type="string">
+            <column name="redbillstatus" length="45" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,5 +1,5 @@
 package pojo;
-// Generated Oct 3, 2019 9:56:57 AM by Hibernate Tools 4.3.1
+// Generated Jul 9, 2020 11:48:20 AM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -13,7 +13,6 @@ public class WbTBillProcess  implements java.io.Serializable {
 
 
      private Integer processId;
-     private Street street;
      private WbMConnection wbMConnection;
      private WbMDevision wbMDevision;
      private WbMDivisionHasMeterReader wbMDivisionHasMeterReader;
@@ -23,22 +22,19 @@ public class WbTBillProcess  implements java.io.Serializable {
      private String procInvoiceNo;
      private String procNextInvoice;
      private Double procLastYearArrears;
-     private Double procLastYearCurrentArrears;
      private Double procLastMonthArrears;
-     private Double procLastMonthCurrentArrears;
      private Double procThisMonthAmount;
-     private Double procThisMonthCurrentBalance;
      private Double procOverpayment;
      private Integer procYear;
-     private String procUserId;
+     private Integer procUserId;
      private Date procDate;
+     private Integer procSubRoadId;
      private Set<WbTPayment> wbTPayments = new HashSet<WbTPayment>(0);
 
     public WbTBillProcess() {
     }
 
-    public WbTBillProcess(Street street, WbMConnection wbMConnection, WbMDevision wbMDevision, WbMDivisionHasMeterReader wbMDivisionHasMeterReader, WbMNature wbMNature, WbMProcStatus wbMProcStatus, Integer procMonth, String procInvoiceNo, String procNextInvoice, Double procLastYearArrears, Double procLastYearCurrentArrears, Double procLastMonthArrears, Double procLastMonthCurrentArrears, Double procThisMonthAmount, Double procThisMonthCurrentBalance, Double procOverpayment, Integer procYear, String procUserId, Date procDate, Set<WbTPayment> wbTPayments) {
-       this.street = street;
+    public WbTBillProcess(WbMConnection wbMConnection, WbMDevision wbMDevision, WbMDivisionHasMeterReader wbMDivisionHasMeterReader, WbMNature wbMNature, WbMProcStatus wbMProcStatus, Integer procMonth, String procInvoiceNo, String procNextInvoice, Double procLastYearArrears, Double procLastMonthArrears, Double procThisMonthAmount, Double procOverpayment, Integer procYear, Integer procUserId, Date procDate, Integer procSubRoadId, Set<WbTPayment> wbTPayments) {
        this.wbMConnection = wbMConnection;
        this.wbMDevision = wbMDevision;
        this.wbMDivisionHasMeterReader = wbMDivisionHasMeterReader;
@@ -48,15 +44,13 @@ public class WbTBillProcess  implements java.io.Serializable {
        this.procInvoiceNo = procInvoiceNo;
        this.procNextInvoice = procNextInvoice;
        this.procLastYearArrears = procLastYearArrears;
-       this.procLastYearCurrentArrears = procLastYearCurrentArrears;
        this.procLastMonthArrears = procLastMonthArrears;
-       this.procLastMonthCurrentArrears = procLastMonthCurrentArrears;
        this.procThisMonthAmount = procThisMonthAmount;
-       this.procThisMonthCurrentBalance = procThisMonthCurrentBalance;
        this.procOverpayment = procOverpayment;
        this.procYear = procYear;
        this.procUserId = procUserId;
        this.procDate = procDate;
+       this.procSubRoadId = procSubRoadId;
        this.wbTPayments = wbTPayments;
     }
    
@@ -66,13 +60,6 @@ public class WbTBillProcess  implements java.io.Serializable {
     
     public void setProcessId(Integer processId) {
         this.processId = processId;
-    }
-    public Street getStreet() {
-        return this.street;
-    }
-    
-    public void setStreet(Street street) {
-        this.street = street;
     }
     public WbMConnection getWbMConnection() {
         return this.wbMConnection;
@@ -137,13 +124,6 @@ public class WbTBillProcess  implements java.io.Serializable {
     public void setProcLastYearArrears(Double procLastYearArrears) {
         this.procLastYearArrears = procLastYearArrears;
     }
-    public Double getProcLastYearCurrentArrears() {
-        return this.procLastYearCurrentArrears;
-    }
-    
-    public void setProcLastYearCurrentArrears(Double procLastYearCurrentArrears) {
-        this.procLastYearCurrentArrears = procLastYearCurrentArrears;
-    }
     public Double getProcLastMonthArrears() {
         return this.procLastMonthArrears;
     }
@@ -151,26 +131,12 @@ public class WbTBillProcess  implements java.io.Serializable {
     public void setProcLastMonthArrears(Double procLastMonthArrears) {
         this.procLastMonthArrears = procLastMonthArrears;
     }
-    public Double getProcLastMonthCurrentArrears() {
-        return this.procLastMonthCurrentArrears;
-    }
-    
-    public void setProcLastMonthCurrentArrears(Double procLastMonthCurrentArrears) {
-        this.procLastMonthCurrentArrears = procLastMonthCurrentArrears;
-    }
     public Double getProcThisMonthAmount() {
         return this.procThisMonthAmount;
     }
     
     public void setProcThisMonthAmount(Double procThisMonthAmount) {
         this.procThisMonthAmount = procThisMonthAmount;
-    }
-    public Double getProcThisMonthCurrentBalance() {
-        return this.procThisMonthCurrentBalance;
-    }
-    
-    public void setProcThisMonthCurrentBalance(Double procThisMonthCurrentBalance) {
-        this.procThisMonthCurrentBalance = procThisMonthCurrentBalance;
     }
     public Double getProcOverpayment() {
         return this.procOverpayment;
@@ -186,11 +152,11 @@ public class WbTBillProcess  implements java.io.Serializable {
     public void setProcYear(Integer procYear) {
         this.procYear = procYear;
     }
-    public String getProcUserId() {
+    public Integer getProcUserId() {
         return this.procUserId;
     }
     
-    public void setProcUserId(String procUserId) {
+    public void setProcUserId(Integer procUserId) {
         this.procUserId = procUserId;
     }
     public Date getProcDate() {
@@ -199,6 +165,13 @@ public class WbTBillProcess  implements java.io.Serializable {
     
     public void setProcDate(Date procDate) {
         this.procDate = procDate;
+    }
+    public Integer getProcSubRoadId() {
+        return this.procSubRoadId;
+    }
+    
+    public void setProcSubRoadId(Integer procSubRoadId) {
+        this.procSubRoadId = procSubRoadId;
     }
     public Set<WbTPayment> getWbTPayments() {
         return this.wbTPayments;

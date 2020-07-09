@@ -1,5 +1,5 @@
 package pojo;
-// Generated Sep 6, 2019 4:30:16 PM by Hibernate Tools 4.3.1
+// Generated Jul 9, 2020 11:48:20 AM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -15,16 +15,18 @@ public class SrBuilding  implements java.io.Serializable {
      private String srBuildingName;
      private Integer srBuildingStatus;
      private String srBuildingCode;
+     private Integer srOfficeId;
      private Set<SrShop> srShops = new HashSet<SrShop>(0);
      private Set<SrFlow> srFlows = new HashSet<SrFlow>(0);
 
     public SrBuilding() {
     }
 
-    public SrBuilding(String srBuildingName, Integer srBuildingStatus, String srBuildingCode, Set<SrShop> srShops, Set<SrFlow> srFlows) {
+    public SrBuilding(String srBuildingName, Integer srBuildingStatus, String srBuildingCode, Integer srOfficeId, Set<SrShop> srShops, Set<SrFlow> srFlows) {
        this.srBuildingName = srBuildingName;
        this.srBuildingStatus = srBuildingStatus;
        this.srBuildingCode = srBuildingCode;
+       this.srOfficeId = srOfficeId;
        this.srShops = srShops;
        this.srFlows = srFlows;
     }
@@ -56,6 +58,13 @@ public class SrBuilding  implements java.io.Serializable {
     
     public void setSrBuildingCode(String srBuildingCode) {
         this.srBuildingCode = srBuildingCode;
+    }
+    public Integer getSrOfficeId() {
+        return this.srOfficeId;
+    }
+    
+    public void setSrOfficeId(Integer srOfficeId) {
+        this.srOfficeId = srOfficeId;
     }
     public Set<SrShop> getSrShops() {
         return this.srShops;

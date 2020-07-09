@@ -1,5 +1,5 @@
 package pojo;
-// Generated Sep 6, 2019 4:30:16 PM by Hibernate Tools 4.3.1
+// Generated Jul 9, 2020 11:48:20 AM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -18,6 +18,7 @@ public class AssCreditdebit  implements java.io.Serializable {
      private Double assBalance;
      private Date assCreditDebitDate;
      private Integer assCreditDebitStatus;
+     private Integer userId;
 
     public AssCreditdebit() {
     }
@@ -26,7 +27,7 @@ public class AssCreditdebit  implements java.io.Serializable {
     public AssCreditdebit(Assessment assessment) {
         this.assessment = assessment;
     }
-    public AssCreditdebit(Assessment assessment, String assCreditDebitDiscription, Integer assCreditDebitCd, Double assCreditDebitAmount, Double assBalance, Date assCreditDebitDate, Integer assCreditDebitStatus) {
+    public AssCreditdebit(Assessment assessment, String assCreditDebitDiscription, Integer assCreditDebitCd, Double assCreditDebitAmount, Double assBalance, Date assCreditDebitDate, Integer assCreditDebitStatus, Integer userId) {
        this.assessment = assessment;
        this.assCreditDebitDiscription = assCreditDebitDiscription;
        this.assCreditDebitCd = assCreditDebitCd;
@@ -34,6 +35,7 @@ public class AssCreditdebit  implements java.io.Serializable {
        this.assBalance = assBalance;
        this.assCreditDebitDate = assCreditDebitDate;
        this.assCreditDebitStatus = assCreditDebitStatus;
+       this.userId = userId;
     }
    
     public Integer getIdAssCreditDebit() {
@@ -91,6 +93,13 @@ public class AssCreditdebit  implements java.io.Serializable {
     
     public void setAssCreditDebitStatus(Integer assCreditDebitStatus) {
         this.assCreditDebitStatus = assCreditDebitStatus;
+    }
+    public Integer getUserId() {
+        return this.userId;
+    }
+    
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 
 

@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.ExVoucherGrid" table="ex_voucher_grid" catalog="ultimate2" optimistic-lock="version">
+        <id name="exVoucherGridId" type="java.lang.Integer">
+            <column name="ex_voucher_grid_id" />
+            <generator class="identity" />
+        </id>
+        <property name="exVoucherInfomationId" type="java.lang.Integer">
+            <column name="ex_voucher_infomation_id" />
+        </property>
+        <property name="exVoteId" type="string">
+            <column name="ex_vote_id" />
+        </property>
+        <property name="exAmount" type="java.lang.Double">
+            <column name="ex_amount" precision="22" scale="0" />
+        </property>
+        <property name="exCross" type="java.lang.Double">
+            <column name="ex_cross" precision="22" scale="0" />
+        </property>
+        <property name="exVat" type="java.lang.Double">
+            <column name="ex_vat" precision="22" scale="0" />
+        </property>
+        <property name="exNbt" type="java.lang.Double">
+            <column name="ex_nbt" precision="22" scale="0" />
+        </property>
+        <property name="exStamp" type="java.lang.Double">
+            <column name="ex_stamp" precision="22" scale="0" />
+        </property>
+        <property name="exIsVoucherOrNotStatus" type="java.lang.Integer">
+            <column name="ex_is_voucher_or_not_status" />
+        </property>
+        <property name="exActiveStatus" type="java.lang.Integer">
+            <column name="ex_active_status" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,5 +1,5 @@
 package pojo;
-// Generated Sep 6, 2019 4:30:16 PM by Hibernate Tools 4.3.1
+// Generated Jul 9, 2020 11:48:20 AM by Hibernate Tools 4.3.1
 
 
 
@@ -23,11 +23,12 @@ public class SmsDetails  implements java.io.Serializable {
      private String smsSignature;
      private String smsSignature2;
      private String smsSignature3;
+     private String smsSendOrNot;
 
     public SmsDetails() {
     }
 
-    public SmsDetails(Integer smsApplicationCatId, Integer smsOder, String smsHeader, String smsDescrip1, String smsDescrip2, String smsDescrip3, String smsDescrip4, String smsDescrip5, String smsDescrip6, String smsDescrip7, String smsSignature, String smsSignature2, String smsSignature3) {
+    public SmsDetails(Integer smsApplicationCatId, Integer smsOder, String smsHeader, String smsDescrip1, String smsDescrip2, String smsDescrip3, String smsDescrip4, String smsDescrip5, String smsDescrip6, String smsDescrip7, String smsSignature, String smsSignature2, String smsSignature3, String smsSendOrNot) {
        this.smsApplicationCatId = smsApplicationCatId;
        this.smsOder = smsOder;
        this.smsHeader = smsHeader;
@@ -41,6 +42,7 @@ public class SmsDetails  implements java.io.Serializable {
        this.smsSignature = smsSignature;
        this.smsSignature2 = smsSignature2;
        this.smsSignature3 = smsSignature3;
+       this.smsSendOrNot = smsSendOrNot;
     }
    
     public Integer getSmsId() {
@@ -140,6 +142,13 @@ public class SmsDetails  implements java.io.Serializable {
     
     public void setSmsSignature3(String smsSignature3) {
         this.smsSignature3 = smsSignature3;
+    }
+    public String getSmsSendOrNot() {
+        return this.smsSendOrNot;
+    }
+    
+    public void setSmsSendOrNot(String smsSendOrNot) {
+        this.smsSendOrNot = smsSendOrNot;
     }
 
 

@@ -1,5 +1,5 @@
 package pojo;
-// Generated Sep 6, 2019 4:30:16 PM by Hibernate Tools 4.3.1
+// Generated Jul 9, 2020 11:48:20 AM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -25,6 +25,7 @@ public class Assessment  implements java.io.Serializable {
      private String assessmentComment;
      private String assessmentObsolete;
      private Integer officeIdOffice;
+     private Integer isWarrant;
      private Set<AssAllocation> assAllocations = new HashSet<AssAllocation>(0);
      private Set<BuildingHasAssessment> buildingHasAssessments = new HashSet<BuildingHasAssessment>(0);
      private Set<AssQstart> assQstarts = new HashSet<AssQstart>(0);
@@ -32,6 +33,7 @@ public class Assessment  implements java.io.Serializable {
      private Set<AssSubowner> assSubowners = new HashSet<AssSubowner>(0);
      private Set<AssPayhistry> assPayhistries = new HashSet<AssPayhistry>(0);
      private Set<AssPayment> assPayments = new HashSet<AssPayment>(0);
+     private Set<WbMConnection> wbMConnections = new HashSet<WbMConnection>(0);
      private Set<AssCreditdebit> assCreditdebits = new HashSet<AssCreditdebit>(0);
      private Set<Streetline> streetlines = new HashSet<Streetline>(0);
      private Set<Application> applications = new HashSet<Application>(0);
@@ -51,7 +53,7 @@ public class Assessment  implements java.io.Serializable {
         this.user = user;
         this.ward = ward;
     }
-    public Assessment(AssDiscription assDiscription, AssNature assNature, Customer customer, Street street, User user, Ward ward, Double assessmentOder, String assessmentNo, Integer assessmentStatus, Integer assessmentSyn, String assessmentComment, String assessmentObsolete, Integer officeIdOffice, Set<AssAllocation> assAllocations, Set<BuildingHasAssessment> buildingHasAssessments, Set<AssQstart> assQstarts, Set<Obsaloot> obsaloots, Set<AssSubowner> assSubowners, Set<AssPayhistry> assPayhistries, Set<AssPayment> assPayments, Set<AssCreditdebit> assCreditdebits, Set<Streetline> streetlines, Set<Application> applications, Set<AssessmentHasProcesstype> assessmentHasProcesstypes, Set<BopHasAssessment> bopHasAssessments, Set<AssHistory> assHistories) {
+    public Assessment(AssDiscription assDiscription, AssNature assNature, Customer customer, Street street, User user, Ward ward, Double assessmentOder, String assessmentNo, Integer assessmentStatus, Integer assessmentSyn, String assessmentComment, String assessmentObsolete, Integer officeIdOffice, Integer isWarrant, Set<AssAllocation> assAllocations, Set<BuildingHasAssessment> buildingHasAssessments, Set<AssQstart> assQstarts, Set<Obsaloot> obsaloots, Set<AssSubowner> assSubowners, Set<AssPayhistry> assPayhistries, Set<AssPayment> assPayments, Set<WbMConnection> wbMConnections, Set<AssCreditdebit> assCreditdebits, Set<Streetline> streetlines, Set<Application> applications, Set<AssessmentHasProcesstype> assessmentHasProcesstypes, Set<BopHasAssessment> bopHasAssessments, Set<AssHistory> assHistories) {
        this.assDiscription = assDiscription;
        this.assNature = assNature;
        this.customer = customer;
@@ -65,6 +67,7 @@ public class Assessment  implements java.io.Serializable {
        this.assessmentComment = assessmentComment;
        this.assessmentObsolete = assessmentObsolete;
        this.officeIdOffice = officeIdOffice;
+       this.isWarrant = isWarrant;
        this.assAllocations = assAllocations;
        this.buildingHasAssessments = buildingHasAssessments;
        this.assQstarts = assQstarts;
@@ -72,6 +75,7 @@ public class Assessment  implements java.io.Serializable {
        this.assSubowners = assSubowners;
        this.assPayhistries = assPayhistries;
        this.assPayments = assPayments;
+       this.wbMConnections = wbMConnections;
        this.assCreditdebits = assCreditdebits;
        this.streetlines = streetlines;
        this.applications = applications;
@@ -178,6 +182,13 @@ public class Assessment  implements java.io.Serializable {
     public void setOfficeIdOffice(Integer officeIdOffice) {
         this.officeIdOffice = officeIdOffice;
     }
+    public Integer getIsWarrant() {
+        return this.isWarrant;
+    }
+    
+    public void setIsWarrant(Integer isWarrant) {
+        this.isWarrant = isWarrant;
+    }
     public Set<AssAllocation> getAssAllocations() {
         return this.assAllocations;
     }
@@ -226,6 +237,13 @@ public class Assessment  implements java.io.Serializable {
     
     public void setAssPayments(Set<AssPayment> assPayments) {
         this.assPayments = assPayments;
+    }
+    public Set<WbMConnection> getWbMConnections() {
+        return this.wbMConnections;
+    }
+    
+    public void setWbMConnections(Set<WbMConnection> wbMConnections) {
+        this.wbMConnections = wbMConnections;
     }
     public Set<AssCreditdebit> getAssCreditdebits() {
         return this.assCreditdebits;

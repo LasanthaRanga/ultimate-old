@@ -1,5 +1,5 @@
 package pojo;
-// Generated Oct 3, 2019 9:56:57 AM by Hibernate Tools 4.3.1
+// Generated Jul 9, 2020 11:48:20 AM by Hibernate Tools 4.3.1
 
 
 
@@ -13,19 +13,15 @@ public class WbMLastProcYearMonth  implements java.io.Serializable {
      private WbMDevision wbMDevision;
      private Integer lastProcYearMonthYear;
      private Integer lastProcYearMonthMonth;
-     private Integer nextProcYearMonthYear;
-     private Integer nextProcYearMonthMonth;
      private String nextProcCodeFirst;
 
     public WbMLastProcYearMonth() {
     }
 
-    public WbMLastProcYearMonth(WbMDevision wbMDevision, Integer lastProcYearMonthYear, Integer lastProcYearMonthMonth, Integer nextProcYearMonthYear, Integer nextProcYearMonthMonth, String nextProcCodeFirst) {
+    public WbMLastProcYearMonth(WbMDevision wbMDevision, Integer lastProcYearMonthYear, Integer lastProcYearMonthMonth, String nextProcCodeFirst) {
        this.wbMDevision = wbMDevision;
        this.lastProcYearMonthYear = lastProcYearMonthYear;
        this.lastProcYearMonthMonth = lastProcYearMonthMonth;
-       this.nextProcYearMonthYear = nextProcYearMonthYear;
-       this.nextProcYearMonthMonth = nextProcYearMonthMonth;
        this.nextProcCodeFirst = nextProcCodeFirst;
     }
    
@@ -56,20 +52,6 @@ public class WbMLastProcYearMonth  implements java.io.Serializable {
     
     public void setLastProcYearMonthMonth(Integer lastProcYearMonthMonth) {
         this.lastProcYearMonthMonth = lastProcYearMonthMonth;
-    }
-    public Integer getNextProcYearMonthYear() {
-        return this.nextProcYearMonthYear;
-    }
-    
-    public void setNextProcYearMonthYear(Integer nextProcYearMonthYear) {
-        this.nextProcYearMonthYear = nextProcYearMonthYear;
-    }
-    public Integer getNextProcYearMonthMonth() {
-        return this.nextProcYearMonthMonth;
-    }
-    
-    public void setNextProcYearMonthMonth(Integer nextProcYearMonthMonth) {
-        this.nextProcYearMonthMonth = nextProcYearMonthMonth;
     }
     public String getNextProcCodeFirst() {
         return this.nextProcCodeFirst;

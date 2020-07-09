@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.TlApproveDetails" table="tl_approve_details" catalog="ultimate2" optimistic-lock="version">
+        <id name="tlApproveDetailsId" type="java.lang.Integer">
+            <column name="tl_approve_details_id" />
+            <generator class="identity" />
+        </id>
+        <property name="tlApproveAppId" type="int">
+            <column name="tl_approve_app_id" not-null="true" />
+        </property>
+        <property name="tlApprovePayId" type="java.lang.Integer">
+            <column name="tl_approve_pay_id" />
+        </property>
+        <property name="tlApproveUserId" type="string">
+            <column name="tl_approve_user_id" />
+        </property>
+        <property name="tlApproveUserCatId" type="int">
+            <column name="tl_approve_user_cat_id" not-null="true" />
+        </property>
+        <property name="tlApproveComment" type="string">
+            <column name="tl_approve_comment" />
+        </property>
+        <property name="tlApproveDate" type="date">
+            <column name="tl_approve_date" length="10" />
+        </property>
+        <property name="tlApproveTime" type="time">
+            <column name="tl_approve_time" length="8" />
+        </property>
+    </class>
+</hibernate-mapping>

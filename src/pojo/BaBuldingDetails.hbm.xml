@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Oct 3, 2019 9:57:03 AM by Hibernate Tools 4.3.1 -->
+<!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="pojo.BaBuldingDetails" table="ba_bulding_details" catalog="kuliuc" optimistic-lock="version">
+    <class name="pojo.BaBuldingDetails" table="ba_bulding_details" catalog="ultimate2" optimistic-lock="version">
         <id name="baBuldingDetailsId" type="java.lang.Integer">
             <column name="BA_Bulding_Details_Id" />
             <generator class="identity" />

@@ -1,5 +1,5 @@
 package pojo;
-// Generated Sep 6, 2019 4:30:16 PM by Hibernate Tools 4.3.1
+// Generated Jul 9, 2020 11:48:20 AM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -11,7 +11,7 @@ public class SrShopPaymentCrossTbl  implements java.io.Serializable {
 
 
      private Integer srShopPayment2Id;
-     private SrShop srShop;
+     private SrShopNow srShopNow;
      private Integer srShopPayment2VoteId;
      private Double srShopPayment2Amount;
      private Integer srShopPayment2AccountId;
@@ -24,8 +24,8 @@ public class SrShopPaymentCrossTbl  implements java.io.Serializable {
     public SrShopPaymentCrossTbl() {
     }
 
-    public SrShopPaymentCrossTbl(SrShop srShop, Integer srShopPayment2VoteId, Double srShopPayment2Amount, Integer srShopPayment2AccountId, String srShopPayment2ReceiptNo, Date srShopPayment2Date, Date srShopPayment2Time, Integer srShopPayment2User, Integer srShopPayment2CompleteOrNot) {
-       this.srShop = srShop;
+    public SrShopPaymentCrossTbl(SrShopNow srShopNow, Integer srShopPayment2VoteId, Double srShopPayment2Amount, Integer srShopPayment2AccountId, String srShopPayment2ReceiptNo, Date srShopPayment2Date, Date srShopPayment2Time, Integer srShopPayment2User, Integer srShopPayment2CompleteOrNot) {
+       this.srShopNow = srShopNow;
        this.srShopPayment2VoteId = srShopPayment2VoteId;
        this.srShopPayment2Amount = srShopPayment2Amount;
        this.srShopPayment2AccountId = srShopPayment2AccountId;
@@ -43,12 +43,12 @@ public class SrShopPaymentCrossTbl  implements java.io.Serializable {
     public void setSrShopPayment2Id(Integer srShopPayment2Id) {
         this.srShopPayment2Id = srShopPayment2Id;
     }
-    public SrShop getSrShop() {
-        return this.srShop;
+    public SrShopNow getSrShopNow() {
+        return this.srShopNow;
     }
     
-    public void setSrShop(SrShop srShop) {
-        this.srShop = srShop;
+    public void setSrShopNow(SrShopNow srShopNow) {
+        this.srShopNow = srShopNow;
     }
     public Integer getSrShopPayment2VoteId() {
         return this.srShopPayment2VoteId;

@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.TlCreatePropId" table="tl_create_prop_id" catalog="ultimate2" optimistic-lock="version">
+        <id name="tlCreateIdId" type="java.lang.Integer">
+            <column name="tl_create_id_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="electroDivision" class="pojo.ElectroDivision" fetch="select">
+            <column name="tl_create_electro_id" />
+        </many-to-one>
+        <many-to-one name="gnd" class="pojo.Gnd" fetch="select">
+            <column name="tl_create_gn_id" />
+        </many-to-one>
+        <many-to-one name="office" class="pojo.Office" fetch="select">
+            <column name="tl_create_office_id" />
+        </many-to-one>
+        <many-to-one name="street" class="pojo.Street" fetch="select">
+            <column name="tl_create_street_id" />
+        </many-to-one>
+        <many-to-one name="ward" class="pojo.Ward" fetch="select">
+            <column name="tl_create_ward_id" />
+        </many-to-one>
+        <property name="tlCreateNo" type="string">
+            <column name="tl_create_no" length="100" unique="true" />
+        </property>
+        <property name="tlCreateOrder" type="java.lang.Integer">
+            <column name="tl_create_order" />
+        </property>
+        <property name="tlOnlyNumber" type="string">
+            <column name="tl_only_number" length="11" />
+        </property>
+        <property name="tlCreateFirstCode" type="string">
+            <column name="tl_create_first_code" length="100" />
+        </property>
+        <property name="tlCreatePlaceAdd1E" type="string">
+            <column name="tl_create_place_add1_e" length="250" />
+        </property>
+        <property name="tlCreatePlaceAdd2E" type="string">
+            <column name="tl_create_place_add2_e" length="250" />
+        </property>
+        <property name="tlCreatePlaceAdd3E" type="string">
+            <column name="tl_create_place_add3_e" length="250" />
+        </property>
+        <property name="tlCreatePlaceAdd1S" type="string">
+            <column name="tl_create_place_add1_s" length="250" />
+        </property>
+        <property name="tlCreatePlaceAdd2S" type="string">
+            <column name="tl_create_place_add2_s" length="250" />
+        </property>
+        <property name="tlCreatePlaceAdd3S" type="string">
+            <column name="tl_create_place_add3_s" length="250" />
+        </property>
+        <property name="tlCreateIdStatus" type="java.lang.Integer">
+            <column name="tl_create_id_status" />
+        </property>
+        <property name="tlCreateDate" type="date">
+            <column name="tl_create_date" length="10" />
+        </property>
+        <property name="tlCreateTime" type="time">
+            <column name="tl_create_time" length="8" />
+        </property>
+        <property name="tlCreateUser" type="java.lang.Integer">
+            <column name="tl_create_user" />
+        </property>
+        <set name="tlApps" table="tl_app" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="tl_create_property_id" />
+            </key>
+            <one-to-many class="pojo.TlApp" />
+        </set>
+    </class>
+</hibernate-mapping>

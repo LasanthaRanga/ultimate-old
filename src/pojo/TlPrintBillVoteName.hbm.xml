@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.TlPrintBillVoteName" table="tl_print_bill_vote_name" catalog="ultimate2" optimistic-lock="version">
+        <id name="tlPrintBillVoteNameId" type="java.lang.Integer">
+            <column name="tl_print_bill_vote_name_id" />
+            <generator class="identity" />
+        </id>
+        <property name="tlPrintBillVoteName" type="string">
+            <column name="tl_print_bill_vote_name" length="50" />
+        </property>
+        <property name="tlPrintBillVoteId" type="java.lang.Integer">
+            <column name="tl_print_bill_vote_id" />
+        </property>
+        <property name="tlPrintBillVoteOrder" type="java.lang.Integer">
+            <column name="tl_print_bill_vote_order" />
+        </property>
+    </class>
+</hibernate-mapping>

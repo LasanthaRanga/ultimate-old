@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Sep 6, 2019 4:30:22 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="pojo.Customer" table="customer" catalog="ultimate2" optimistic-lock="version">
         <id name="idCustomer" type="java.lang.Integer">
@@ -83,12 +83,6 @@
             </key>
             <one-to-many class="pojo.SlDetails" />
         </set>
-        <set name="bops" table="bop" inverse="true" lazy="true" fetch="select">
-            <key>
-                <column name="Customer_idCustomer" not-null="true" />
-            </key>
-            <one-to-many class="pojo.Bop" />
-        </set>
         <set name="streetlines" table="streetline" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="customer_idCustomer" not-null="true" />
@@ -107,6 +101,18 @@
             </key>
             <one-to-many class="pojo.Environment" />
         </set>
+        <set name="swimApps" table="swim_app" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="swim_app_cus_id" />
+            </key>
+            <one-to-many class="pojo.SwimApp" />
+        </set>
+        <set name="swimCorchRegistrations" table="swim_corch_registration" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="swim_corch_cus_tbl_id" />
+            </key>
+            <one-to-many class="pojo.SwimCorchRegistration" />
+        </set>
         <set name="customerHasTradeLicenses" table="customer_has_trade_license" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="Customer_idCustomer" not-null="true" />
@@ -118,6 +124,12 @@
                 <column name="customer" />
             </key>
             <one-to-many class="pojo.Uploads" />
+        </set>
+        <set name="tlApps" table="tl_app" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="app_cus_id" />
+            </key>
+            <one-to-many class="pojo.TlApp" />
         </set>
         <set name="customerHasApplicationCatagories" table="customer_has_application_catagory" inverse="true" lazy="true" fetch="select">
             <key>
@@ -137,11 +149,11 @@
             </key>
             <one-to-many class="pojo.Building" />
         </set>
-        <set name="srShopHasCustomers" table="sr_shop_has_customer" inverse="true" lazy="true" fetch="select">
+        <set name="srShopNows" table="sr_shop_now" inverse="true" lazy="true" fetch="select">
             <key>
-                <column name="sr_shop_has_customer_customer_id" />
+                <column name="sr_shop_cus_id" />
             </key>
-            <one-to-many class="pojo.SrShopHasCustomer" />
+            <one-to-many class="pojo.SrShopNow" />
         </set>
         <set name="customerHasSrShops" table="customer_has_sr_shop" inverse="true" lazy="true" fetch="select">
             <key>
@@ -157,7 +169,7 @@
         </set>
         <set name="referencenos" table="referenceno" inverse="true" lazy="true" fetch="select">
             <key>
-                <column name="customers_idCustomer" not-null="true" />
+                <column name="customers_idCustomer" />
             </key>
             <one-to-many class="pojo.Referenceno" />
         </set>

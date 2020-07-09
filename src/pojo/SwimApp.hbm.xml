@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.SwimApp" table="swim_app" catalog="ultimate2" optimistic-lock="version">
+        <id name="swimAppId" type="java.lang.Integer">
+            <column name="swim_app_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="customer" class="pojo.Customer" fetch="select">
+            <column name="swim_app_cus_id" />
+        </many-to-one>
+        <many-to-one name="schoolDetails" class="pojo.SchoolDetails" fetch="select">
+            <column name="swim_app_school" />
+        </many-to-one>
+        <many-to-one name="swGrade" class="pojo.SwGrade" fetch="select">
+            <column name="swim_app_grade" />
+        </many-to-one>
+        <many-to-one name="swimCorchRegistration" class="pojo.SwimCorchRegistration" fetch="select">
+            <column name="swim_app_coach_id" />
+        </many-to-one>
+        <property name="swimAppRegNo" type="string">
+            <column name="swim_app_reg_no" length="50" />
+        </property>
+        <property name="swimAppOrderNo" type="java.lang.Integer">
+            <column name="swim_app_order_no" />
+        </property>
+        <property name="swimAppAge" type="java.lang.Integer">
+            <column name="swim_app_age" />
+        </property>
+        <property name="swimAppDate" type="date">
+            <column name="swim_app_date" length="10" />
+        </property>
+        <property name="swimAppTime" type="time">
+            <column name="swim_app_time" length="8" />
+        </property>
+        <property name="swimAppStatus" type="java.lang.Integer">
+            <column name="swim_app_status" />
+        </property>
+    </class>
+</hibernate-mapping>

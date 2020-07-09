@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.TlNature" table="tl_nature" catalog="ultimate2" optimistic-lock="version">
+        <id name="idTlNature" type="java.lang.Integer">
+            <column name="idTL_nature" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="tlSubType" class="pojo.TlSubType" fetch="select">
+            <column name="tl_subtype_id" />
+        </many-to-one>
+        <property name="tlNatureEname" type="string">
+            <column name="tl_nature_ename" />
+        </property>
+        <property name="tlNatureSname" type="string">
+            <column name="tl_nature_sname" />
+        </property>
+        <property name="tlStatusId" type="java.lang.Integer">
+            <column name="tl_status_id" />
+        </property>
+        <set name="tlSubnatures" table="tl_subnature" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="tl_nature_id" />
+            </key>
+            <one-to-many class="pojo.TlSubnature" />
+        </set>
+        <set name="tlPayDetailses" table="tl_pay_details" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="tl_pay_natue_id" />
+            </key>
+            <one-to-many class="pojo.TlPayDetails" />
+        </set>
+    </class>
+</hibernate-mapping>

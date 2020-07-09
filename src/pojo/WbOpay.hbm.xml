@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.WbOpay" table="wb_opay" catalog="ultimate2" optimistic-lock="version">
+        <id name="wbOpayId" type="java.lang.Integer">
+            <column name="wb_opay_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="wbMConnection" class="pojo.WbMConnection" fetch="select">
+            <column name="wb_opay_con_id" unique="true" />
+        </many-to-one>
+        <property name="wbOpayAmount" type="java.lang.Double">
+            <column name="wb_opay_amount" precision="22" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.SrShopSealListMonth" table="sr_shop_seal_list_month" catalog="ultimate2" optimistic-lock="version">
+        <id name="srShopSealListMnthId" type="int">
+            <column name="sr_shop_seal_list_mnth_id" />
+            <generator class="assigned" />
+        </id>
+        <property name="srShopSealListMnth" type="java.lang.Integer">
+            <column name="sr_shop_seal_list_mnth" />
+        </property>
+        <property name="srShopSealListYear" type="java.lang.Integer">
+            <column name="sr_shop_seal_list_year" />
+        </property>
+    </class>
+</hibernate-mapping>

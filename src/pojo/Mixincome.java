@@ -1,5 +1,5 @@
 package pojo;
-// Generated Sep 6, 2019 4:30:16 PM by Hibernate Tools 4.3.1
+// Generated Jul 9, 2020 11:48:20 AM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -38,7 +38,6 @@ public class Mixincome  implements java.io.Serializable {
        this.crosRef = crosRef;
        this.others = others;
        this.mixdatas = mixdatas;
-
     }
    
     public Integer getIdMixincome() {
@@ -97,16 +96,24 @@ public class Mixincome  implements java.io.Serializable {
     public void setMixincomePaytype(Integer mixincomePaytype) {
         this.mixincomePaytype = mixincomePaytype;
     }
-
-    public void setCrosRef(String crosRef){this.crosRef = crosRef;}
-    public String getCrosRef() {return this.crosRef;}
-
-    public void setOthers(String others){this.others = others;}
-    public String getOthers() {return this.others;}
-
+    public String getCrosRef() {
+        return this.crosRef;
+    }
+    
+    public void setCrosRef(String crosRef) {
+        this.crosRef = crosRef;
+    }
+    public String getOthers() {
+        return this.others;
+    }
+    
+    public void setOthers(String others) {
+        this.others = others;
+    }
     public Set<Mixdata> getMixdatas() {
         return this.mixdatas;
     }
+    
     public void setMixdatas(Set<Mixdata> mixdatas) {
         this.mixdatas = mixdatas;
     }

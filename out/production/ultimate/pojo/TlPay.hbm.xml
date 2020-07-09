@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.TlPay" table="tl_pay" catalog="ultimate2" optimistic-lock="version">
+        <id name="idTlPay" type="java.lang.Integer">
+            <column name="idTL_pay" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="tlApp" class="pojo.TlApp" fetch="select">
+            <column name="tl_pay_app_id" />
+        </many-to-one>
+        <many-to-one name="tlPayDetails" class="pojo.TlPayDetails" fetch="select">
+            <column name="tl_pay_detail_tbl_id" />
+        </many-to-one>
+        <property name="tlPayAmount" type="java.lang.Double">
+            <column name="tl_pay_amount" precision="22" scale="0" />
+        </property>
+        <property name="tlPayVat" type="java.lang.Double">
+            <column name="tl_pay_vat" precision="22" scale="0" />
+        </property>
+        <property name="tlPayNbt" type="java.lang.Double">
+            <column name="tl_pay_nbt" precision="22" scale="0" />
+        </property>
+        <property name="tlPayStamp" type="java.lang.Double">
+            <column name="tl_pay_stamp" precision="22" scale="0" />
+        </property>
+        <property name="tlPayStatus" type="java.lang.Integer">
+            <column name="tl_pay_status" />
+        </property>
+        <property name="tlPayTot" type="java.lang.Double">
+            <column name="tl_pay_tot" precision="22" scale="0" />
+        </property>
+        <property name="tlPayDate" type="date">
+            <column name="tl_pay_date" length="10" />
+        </property>
+        <property name="tlPayYear" type="java.lang.Integer">
+            <column name="tl_pay_year" />
+        </property>
+        <property name="tlPayTime" type="time">
+            <column name="tl_pay_time" length="8" />
+        </property>
+        <property name="tlRiciptId" type="java.lang.Integer">
+            <column name="tl_ricipt_id" />
+        </property>
+        <property name="tlReceiptNo" type="string">
+            <column name="tl_receipt_no" length="100" />
+        </property>
+        <property name="tlUserId" type="java.lang.Integer">
+            <column name="tl_user_id" />
+        </property>
+        <property name="tlOfficeId" type="java.lang.Integer">
+            <column name="tl_office_id" />
+        </property>
+    </class>
+</hibernate-mapping>

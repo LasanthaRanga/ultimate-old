@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Oct 3, 2019 9:57:03 AM by Hibernate Tools 4.3.1 -->
+<!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="pojo.WbMConnection" table="wb_m_connection" catalog="kuliuc" optimistic-lock="version">
+    <class name="pojo.WbMConnection" table="wb_m_connection" catalog="ultimate2" optimistic-lock="version">
         <id name="wbMConnectionId" type="java.lang.Integer">
             <column name="wb_m_connection_id" />
             <generator class="identity" />
@@ -53,35 +53,38 @@
         <property name="wbMOfficeId" type="java.lang.Integer">
             <column name="wb_m_office_id" />
         </property>
+        <property name="wbCreateUser" type="java.lang.Integer">
+            <column name="wb_create_user" />
+        </property>
+        <property name="wbCreateDate" type="date">
+            <column name="wb_create_date" length="10" />
+        </property>
+        <property name="wbCreateTime" type="time">
+            <column name="wb_create_time" length="8" />
+        </property>
+        <set name="wbMChangesRecordTbls" table="wb_m_changes_record_tbl" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="wb_change_con_id" />
+            </key>
+            <one-to-many class="pojo.WbMChangesRecordTbl" />
+        </set>
         <set name="wbMDataClearTbls" table="wb_m_data_clear_tbl" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="wb_m_water_customer_no" unique="true" />
             </key>
             <one-to-many class="pojo.WbMDataClearTbl" />
         </set>
-        <set name="wbTCusMeterReads" table="wb_t_cus_meter_read" inverse="true" lazy="true" fetch="select">
+        <set name="wbOpays" table="wb_opay" inverse="true" lazy="true" fetch="select">
             <key>
-                <column name="cus_id" not-null="true" />
+                <column name="wb_opay_con_id" unique="true" />
             </key>
-            <one-to-many class="pojo.WbTCusMeterRead" />
-        </set>
-        <set name="wbTPayments" table="wb_t_payment" inverse="true" lazy="true" fetch="select">
-            <key>
-                <column name="wb_t_pay_connection_id" />
-            </key>
-            <one-to-many class="pojo.WbTPayment" />
+            <one-to-many class="pojo.WbOpay" />
         </set>
         <set name="wbTPaids" table="wb_t_paid" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="wb_t_connection_id_paid" />
             </key>
             <one-to-many class="pojo.WbTPaid" />
-        </set>
-        <set name="wbTBillProcesses" table="wb_t_bill_process" inverse="true" lazy="true" fetch="select">
-            <key>
-                <column name="proc_connection_tbl_id" />
-            </key>
-            <one-to-many class="pojo.WbTBillProcess" />
         </set>
         <set name="wbTConnectionHasVotes" table="wb_t_connection_has_vote" inverse="true" lazy="true" fetch="select">
             <key>
@@ -95,23 +98,59 @@
             </key>
             <one-to-many class="pojo.WbMMainOwner" />
         </set>
+        <set name="wbMNatureChangeTbls" table="wb_m_nature_change_tbl" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="change_connection_id" />
+            </key>
+            <one-to-many class="pojo.WbMNatureChangeTbl" />
+        </set>
+        <set name="wbMOverpays" table="wb_m_overpay" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="wb_m_over_pay_con_id" />
+            </key>
+            <one-to-many class="pojo.WbMOverpay" />
+        </set>
         <set name="wbMReadingProbs" table="wb_m_reading_prob" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="wb_m_reading_prob_con_id" />
             </key>
             <one-to-many class="pojo.WbMReadingProb" />
         </set>
-        <set name="wbMSubOwners" table="wb_m_sub_owner" inverse="true" lazy="true" fetch="select">
-            <key>
-                <column name="wb_m_sub_owner_cus_id" />
-            </key>
-            <one-to-many class="pojo.WbMSubOwner" />
-        </set>
         <set name="wbTMeterResetDetailses" table="wb_t_meter_reset_details" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="wb_t_con_id" />
             </key>
             <one-to-many class="pojo.WbTMeterResetDetails" />
+        </set>
+        <set name="wbTCusMeterReads" table="wb_t_cus_meter_read" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="cus_id" not-null="true" />
+            </key>
+            <one-to-many class="pojo.WbTCusMeterRead" />
+        </set>
+        <set name="wbTPayments" table="wb_t_payment" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="wb_t_pay_connection_id" />
+            </key>
+            <one-to-many class="pojo.WbTPayment" />
+        </set>
+        <set name="wbTBillProcesses" table="wb_t_bill_process" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="proc_connection_tbl_id" />
+            </key>
+            <one-to-many class="pojo.WbTBillProcess" />
+        </set>
+        <set name="wbProcessTbls" table="wb_process_tbl" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="wb_process_tbl_con_id" />
+            </key>
+            <one-to-many class="pojo.WbProcessTbl" />
+        </set>
+        <set name="wbMSubOwners" table="wb_m_sub_owner" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="wb_m_sub_owner_cus_id" />
+            </key>
+            <one-to-many class="pojo.WbMSubOwner" />
         </set>
     </class>
 </hibernate-mapping>

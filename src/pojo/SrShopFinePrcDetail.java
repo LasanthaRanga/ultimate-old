@@ -1,5 +1,5 @@
 package pojo;
-// Generated Sep 6, 2019 4:30:16 PM by Hibernate Tools 4.3.1
+// Generated Jul 9, 2020 11:48:20 AM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -11,7 +11,7 @@ public class SrShopFinePrcDetail  implements java.io.Serializable {
 
 
      private Integer srShopFinePrcDetailId;
-     private SrShop srShop;
+     private SrShopNow srShopNow;
      private SrShopProc srShopProc;
      private Double srShopFinePrcDetailRentAmount;
      private Double srShopFinePrcDetailFine;
@@ -24,8 +24,8 @@ public class SrShopFinePrcDetail  implements java.io.Serializable {
     public SrShopFinePrcDetail() {
     }
 
-    public SrShopFinePrcDetail(SrShop srShop, SrShopProc srShopProc, Double srShopFinePrcDetailRentAmount, Double srShopFinePrcDetailFine, Date srShopFinePrcDetailDate, Date srShopFinePrcDetailTime, Integer srShopFinePrcDetailYear, Integer srShopFinePrcDetailMonth, Integer srShopFinePrcDetailUserid) {
-       this.srShop = srShop;
+    public SrShopFinePrcDetail(SrShopNow srShopNow, SrShopProc srShopProc, Double srShopFinePrcDetailRentAmount, Double srShopFinePrcDetailFine, Date srShopFinePrcDetailDate, Date srShopFinePrcDetailTime, Integer srShopFinePrcDetailYear, Integer srShopFinePrcDetailMonth, Integer srShopFinePrcDetailUserid) {
+       this.srShopNow = srShopNow;
        this.srShopProc = srShopProc;
        this.srShopFinePrcDetailRentAmount = srShopFinePrcDetailRentAmount;
        this.srShopFinePrcDetailFine = srShopFinePrcDetailFine;
@@ -43,12 +43,12 @@ public class SrShopFinePrcDetail  implements java.io.Serializable {
     public void setSrShopFinePrcDetailId(Integer srShopFinePrcDetailId) {
         this.srShopFinePrcDetailId = srShopFinePrcDetailId;
     }
-    public SrShop getSrShop() {
-        return this.srShop;
+    public SrShopNow getSrShopNow() {
+        return this.srShopNow;
     }
     
-    public void setSrShop(SrShop srShop) {
-        this.srShop = srShop;
+    public void setSrShopNow(SrShopNow srShopNow) {
+        this.srShopNow = srShopNow;
     }
     public SrShopProc getSrShopProc() {
         return this.srShopProc;

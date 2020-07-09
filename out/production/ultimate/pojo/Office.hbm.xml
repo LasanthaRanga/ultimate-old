@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Sep 6, 2019 4:30:22 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="pojo.Office" table="office" catalog="ultimate2" optimistic-lock="version">
         <id name="idOffice" type="java.lang.Integer">
@@ -32,6 +32,12 @@
         <property name="officeTypeString" type="string">
             <column name="office_type_string" />
         </property>
+        <set name="tlVoteCategories" table="tl_vote_category" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="tl_office_id" />
+            </key>
+            <one-to-many class="pojo.TlVoteCategory" />
+        </set>
         <set name="slDetailses" table="sl_details" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="office_idOffice" not-null="true" />
@@ -44,6 +50,12 @@
             </key>
             <one-to-many class="pojo.ReceiptCodeCreate" />
         </set>
+        <set name="tlAppCreateNos" table="tl_app_create_no" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="tl_office_id" />
+            </key>
+            <one-to-many class="pojo.TlAppCreateNo" />
+        </set>
         <set name="srShops" table="sr_shop" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="sub_office_id" />
@@ -55,6 +67,12 @@
                 <column name="office_idOffice" not-null="true" />
             </key>
             <one-to-many class="pojo.ReferencenoTbl" />
+        </set>
+        <set name="tlCreatePropIds" table="tl_create_prop_id" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="tl_create_office_id" />
+            </key>
+            <one-to-many class="pojo.TlCreatePropId" />
         </set>
     </class>
 </hibernate-mapping>

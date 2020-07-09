@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.ExOtherVote" table="ex_other_vote" catalog="ultimate2" optimistic-lock="version">
+        <id name="exOtherVoteId" type="java.lang.Integer">
+            <column name="ex_other_vote_id" />
+            <generator class="identity" />
+        </id>
+        <property name="exOtherVoteName" type="string">
+            <column name="ex_other_vote_name" />
+        </property>
+        <property name="exOtherVoteAsignId" type="java.lang.Integer">
+            <column name="ex_other_vote_asign_id" />
+        </property>
+        <property name="exOtherVoteStatus" type="java.lang.Integer">
+            <column name="ex_other_vote_status" />
+        </property>
+    </class>
+</hibernate-mapping>

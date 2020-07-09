@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.TlAppLicenceNoTbl" table="tl_app_licence_no_tbl" catalog="ultimate2" optimistic-lock="version">
+        <id name="tlAppLicenceNoId" type="int">
+            <column name="tl_app_licence_no_id" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="tlSubType" class="pojo.TlSubType" fetch="select">
+            <column name="tl_app_sub_id" />
+        </many-to-one>
+        <property name="tlAppLicenceNo" type="string">
+            <column name="tl_app_licence_no" length="50" />
+        </property>
+    </class>
+</hibernate-mapping>

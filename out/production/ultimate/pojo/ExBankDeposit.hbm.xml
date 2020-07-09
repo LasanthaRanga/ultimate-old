@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.ExBankDeposit" table="ex_bank_deposit" catalog="ultimate2" optimistic-lock="version">
+        <id name="exBankDepositId" type="java.lang.Integer">
+            <column name="ex_bank_deposit_id" />
+            <generator class="identity" />
+        </id>
+        <property name="exBankAccountId" type="java.lang.Integer">
+            <column name="ex_bank_account_id" />
+        </property>
+        <property name="exDepositDate" type="date">
+            <column name="ex_deposit_date" length="10" />
+        </property>
+        <property name="exTotalCashAmount" type="java.lang.Double">
+            <column name="ex_total_cash_amount" precision="22" scale="0" />
+        </property>
+        <property name="exTotalChequeAmount" type="java.lang.Double">
+            <column name="ex_total_cheque_amount" precision="22" scale="0" />
+        </property>
+        <property name="exDepositStatus" type="java.lang.Integer">
+            <column name="ex_deposit_status" />
+        </property>
+    </class>
+</hibernate-mapping>

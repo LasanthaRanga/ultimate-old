@@ -1,19 +1,19 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Sep 6, 2019 4:30:22 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="pojo.Bop" table="bop" catalog="ultimate2" optimistic-lock="version">
         <id name="idBop" type="java.lang.Integer">
             <column name="idBOP" />
             <generator class="identity" />
         </id>
-        <many-to-one name="customer" class="pojo.Customer" fetch="select">
-            <column name="Customer_idCustomer" not-null="true" />
-        </many-to-one>
         <many-to-one name="personTitle" class="pojo.PersonTitle" fetch="select">
             <column name="BOP_person_title" />
         </many-to-one>
+        <property name="customerIdCustomer" type="java.lang.Integer">
+            <column name="Customer_idCustomer" />
+        </property>
         <property name="bopApplayDate" type="date">
             <column name="BOP_applay_date" length="10" />
         </property>
@@ -50,8 +50,8 @@
         <property name="bopLandSize" type="java.lang.Double">
             <column name="BOP_land_size" precision="22" scale="0" />
         </property>
-        <property name="bopSurveyDate" type="timestamp">
-            <column name="BOP_survey_date" length="19" />
+        <property name="bopSurveyDate" type="date">
+            <column name="BOP_survey_date" length="10" />
         </property>
         <property name="bopVat" type="string">
             <column name="BOP_vat" />
@@ -76,6 +76,9 @@
         </property>
         <property name="bopPerpose" type="string">
             <column name="BOP_perpose" />
+        </property>
+        <property name="bopPaymentBtnStatus" type="java.lang.Integer">
+            <column name="BOP_payment_btn_status" />
         </property>
         <set name="applicationses" table="applications" inverse="true" lazy="true" fetch="select">
             <key>

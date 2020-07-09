@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Sep 6, 2019 4:30:22 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="pojo.AssSubowner" table="ass_subowner" catalog="ultimate2" optimistic-lock="version">
         <id name="idassSubOwner" type="java.lang.Integer">
@@ -12,7 +12,7 @@
             <column name="Assessment_idAssessment" not-null="true" />
         </many-to-one>
         <property name="assSubOwnerName" type="string">
-            <column name="ass_subOwner_name" length="255" />
+            <column name="ass_subOwner_name" />
         </property>
         <property name="assSubOwnerNic" type="string">
             <column name="ass_subOwner_nic" length="45" />
@@ -24,7 +24,7 @@
             <column name="title" length="45" />
         </property>
         <property name="assSubOwnerNamesinhala" type="string">
-            <column name="ass_subOwner_namesinhala" length="255" />
+            <column name="ass_subOwner_namesinhala" />
         </property>
     </class>
 </hibernate-mapping>

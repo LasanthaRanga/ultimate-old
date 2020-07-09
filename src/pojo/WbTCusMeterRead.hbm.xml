@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Oct 3, 2019 9:57:03 AM by Hibernate Tools 4.3.1 -->
+<!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="pojo.WbTCusMeterRead" table="wb_t_cus_meter_read" catalog="kuliuc" optimistic-lock="version">
+    <class name="pojo.WbTCusMeterRead" table="wb_t_cus_meter_read" catalog="ultimate2" optimistic-lock="version">
         <id name="id" type="java.lang.Integer">
             <column name="id" />
             <generator class="identity" />
@@ -11,8 +11,8 @@
         <many-to-one name="wbMConnection" class="pojo.WbMConnection" fetch="select">
             <column name="cus_id" not-null="true" />
         </many-to-one>
-        <property name="date" type="date">
-            <column name="date" length="10" />
+        <property name="dateStart" type="date">
+            <column name="date_start" length="10" />
         </property>
         <property name="month" type="java.lang.Integer">
             <column name="month" />
@@ -64,8 +64,8 @@
         <property name="year" type="java.lang.Integer">
             <column name="year" />
         </property>
-        <property name="userId" type="string">
-            <column name="user_id" length="11" />
+        <property name="userId" type="java.lang.Integer">
+            <column name="user_id" />
         </property>
         <property name="nextInvoice" type="string">
             <column name="next_invoice" length="20" />
@@ -91,11 +91,14 @@
         <property name="amountPaidTotpay" type="java.lang.Double">
             <column name="amount_paid_totpay" precision="22" scale="0" />
         </property>
-        <property name="amountPaidOverPay" type="java.lang.Double">
-            <column name="amount_paid_over_pay" precision="22" scale="0" />
+        <property name="havingOverPay" type="java.lang.Double">
+            <column name="having_over_pay" precision="22" scale="0" />
         </property>
         <property name="amountPaidOverPayhaveHavent" type="java.lang.Integer">
             <column name="amount_paid_over_payhave_havent" />
+        </property>
+        <property name="dateEnd" type="date">
+            <column name="date_end" length="10" />
         </property>
     </class>
 </hibernate-mapping>

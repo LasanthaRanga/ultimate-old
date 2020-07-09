@@ -1,14 +1,14 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Nov 19, 2019 3:39:59 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="pojo.SrProcMonthly" table="sr_proc_monthly" catalog="ibbagamuwaps" optimistic-lock="version">
+    <class name="pojo.SrProcMonthly" table="sr_proc_monthly" catalog="ultimate2" optimistic-lock="version">
         <id name="shopProcMonthlyId" type="java.lang.Integer">
             <column name="shop_proc_monthly_id" />
             <generator class="identity" />
         </id>
-        <many-to-one name="srShop" class="pojo.SrShop" fetch="select">
+        <many-to-one name="srShopNow" class="pojo.SrShopNow" fetch="select">
             <column name="shop_proc_monthly_shop_id" />
         </many-to-one>
         <property name="shopProcMonthlyYear" type="java.lang.Integer">
@@ -43,6 +43,12 @@
         </property>
         <property name="shopProcMonthlyStamp" type="java.lang.Double">
             <column name="shop_proc_monthly_stamp" precision="22" scale="0" />
+        </property>
+        <property name="shopNextMonth" type="java.lang.Integer">
+            <column name="shop_next_month" />
+        </property>
+        <property name="shopNextYear" type="java.lang.Integer">
+            <column name="shop_next_year" />
         </property>
     </class>
 </hibernate-mapping>

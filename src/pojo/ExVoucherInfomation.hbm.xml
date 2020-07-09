@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.ExVoucherInfomation" table="ex_voucher_infomation" catalog="ultimate2" optimistic-lock="version">
+        <id name="exVoucherInformationId" type="java.lang.Integer">
+            <column name="ex_voucher_information_id" />
+            <generator class="identity" />
+        </id>
+        <property name="exVoucherUserId" type="java.lang.Integer">
+            <column name="ex_voucher_user_id" />
+        </property>
+        <property name="exVoucherDepartmentId" type="java.lang.Integer">
+            <column name="ex_voucher_department_id" />
+        </property>
+        <property name="exVoucherDate" type="date">
+            <column name="ex_voucher_date" length="10" />
+        </property>
+        <property name="exVoucherNicBr" type="string">
+            <column name="ex_voucher_nic_br" />
+        </property>
+        <property name="exVoucherCalmnterName" type="string">
+            <column name="ex_voucher_calmnter_name" />
+        </property>
+        <property name="exVoucherAssmentNo" type="string">
+            <column name="ex_voucher_assment_no" />
+        </property>
+        <property name="exVoucherAddress" type="string">
+            <column name="ex_voucher_address" />
+        </property>
+        <property name="exVoucherTelmobile" type="string">
+            <column name="ex_voucher_telmobile" />
+        </property>
+        <property name="exVoucherNatureId" type="java.lang.Integer">
+            <column name="ex_voucher_nature_id" />
+        </property>
+        <property name="exVoucherDescription" type="string">
+            <column name="ex_voucher_description" />
+        </property>
+        <property name="exVoucherAccountNo" type="string">
+            <column name="ex_voucher_account_no" />
+        </property>
+        <property name="exVoucherRefNo" type="string">
+            <column name="ex_voucher_ref_no" />
+        </property>
+        <property name="exVoucherTime" type="time">
+            <column name="ex_voucher_time" length="8" />
+        </property>
+        <property name="exVoucherApproveStatus" type="java.lang.Integer">
+            <column name="ex_voucher_approve_status" />
+        </property>
+        <property name="exVoucherInvoiceNo" type="string">
+            <column name="ex_voucher_invoice_no" />
+        </property>
+        <property name="exProgressStatus" type="java.lang.Integer">
+            <column name="ex_progress_status" />
+        </property>
+        <property name="exIsAccountAllocation" type="java.lang.Integer">
+            <column name="ex_is_account_allocation" />
+        </property>
+        <property name="exCusId" type="java.lang.Integer">
+            <column name="ex_cus_id" />
+        </property>
+    </class>
+</hibernate-mapping>

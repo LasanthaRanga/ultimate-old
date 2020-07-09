@@ -1,5 +1,5 @@
 package pojo;
-// Generated Sep 6, 2019 4:30:16 PM by Hibernate Tools 4.3.1
+// Generated Jul 9, 2020 11:48:20 AM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -16,16 +16,18 @@ public class Privilage  implements java.io.Serializable {
      private String btn;
      private Double arange;
      private String type;
+     private Set<PrivilegesOtherSoft> privilegesOtherSofts = new HashSet<PrivilegesOtherSoft>(0);
      private Set<UserHasPrivilage> userHasPrivilages = new HashSet<UserHasPrivilage>(0);
 
     public Privilage() {
     }
 
-    public Privilage(String view, String btn, Double arange, String type, Set<UserHasPrivilage> userHasPrivilages) {
+    public Privilage(String view, String btn, Double arange, String type, Set<PrivilegesOtherSoft> privilegesOtherSofts, Set<UserHasPrivilage> userHasPrivilages) {
        this.view = view;
        this.btn = btn;
        this.arange = arange;
        this.type = type;
+       this.privilegesOtherSofts = privilegesOtherSofts;
        this.userHasPrivilages = userHasPrivilages;
     }
    
@@ -63,6 +65,13 @@ public class Privilage  implements java.io.Serializable {
     
     public void setType(String type) {
         this.type = type;
+    }
+    public Set<PrivilegesOtherSoft> getPrivilegesOtherSofts() {
+        return this.privilegesOtherSofts;
+    }
+    
+    public void setPrivilegesOtherSofts(Set<PrivilegesOtherSoft> privilegesOtherSofts) {
+        this.privilegesOtherSofts = privilegesOtherSofts;
     }
     public Set<UserHasPrivilage> getUserHasPrivilages() {
         return this.userHasPrivilages;

@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.ExProject" table="ex_project" catalog="ultimate2" optimistic-lock="version">
+        <id name="idProjectId" type="java.lang.Integer">
+            <column name="id_project_id" />
+            <generator class="identity" />
+        </id>
+        <property name="programmeTblId" type="java.lang.Integer">
+            <column name="programme_tbl_id" />
+        </property>
+        <property name="projectNameEng" type="string">
+            <column name="project_name_eng" />
+        </property>
+        <property name="projectNameSin" type="string">
+            <column name="project_name_sin" />
+        </property>
+        <property name="projectNameTamil" type="string">
+            <column name="project_name_tamil" />
+        </property>
+        <property name="projectCode" type="string">
+            <column name="project_code" />
+        </property>
+        <property name="projectOrder" type="java.lang.Integer">
+            <column name="project_order" />
+        </property>
+        <property name="projectStatus" type="java.lang.Integer">
+            <column name="project_status" />
+        </property>
+    </class>
+</hibernate-mapping>

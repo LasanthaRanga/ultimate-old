@@ -43,317 +43,366 @@ Contributor(s):
   <session-factory>
     <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
     <!--<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>-->
-     <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
 
-
-    <!--Kuliyapitiya-->
+    <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
     <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/ultimate2?zeroDateTimeBehavior=convertToNull</property>
-    <property name="hibernate.connection.password">root</property>
-
-
-     <!--Kuliyapitiya-->
-    <!--<property name="hibernate.connection.url">jdbc:mysql://124.43.9.57:3306/ultimate2?zeroDateTimeBehavior=convertToNull</property>-->
-    <!--<property name="hibernate.connection.password">@Mck_#321</property>-->
-
-
-
-    <!--<property name="hibernate.connection.url">jdbc:mysql://124.43.8.250:3306/ultimate2?zeroDateTimeBehavior=convertToNull</property>-->
-    <!--<property name="hibernate.connection.password">CHI@#321#</property>-->
-
-    <!--<property name="hibernate.connection.url">jdbc:mysql://PANDU_SERVER:3306/ultimate2?zeroDateTimeBehavior=convertToNull</property>-->
-    <!--<property name="hibernate.connection.password">Pandu@#321#</property>-->
-
-    <!--<property name="hibernate.connection.password">@Mck_#321</property>-->
-
-    <!--<property name="hibernate.connection.url">jdbc:mysql://124.43.8.210:3306/ultimate2?zeroDateTimeBehavior=convertToNull</property>-->
-    <!--<property name="hibernate.connection.password">Pan@#321#</property>-->
-
-
-    <!--<property name="hibernate.connection.url">jdbc:mysql://124.43.11.162:3307/wennappuwaps?zeroDateTimeBehavior=convertToNull</property>-->
-    <!--<property name="hibernate.connection.password">3ta@kela#una@</property>-->
-
-
-
-    <!--<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/ultimate2?zeroDateTimeBehavior=convertToNull&amp;useUnicode=true&amp;amp;characterEncoding=utf8&amp;amp;useSSL=no&amp;amp;autoReconnect=true</property>-->
-    <!--<property name="hibernate.connection.password">@Mck_#321</property>-->
-
-
-
-
-
-
-
-
-
-              <!--<property name="dialect">org.hibernate.dialect.Mysqldialect</property>-->
-
-
-
-
-
-      <!--<property name="hibernate.connection.url">jdbc:mysql://124.43.11.162:3306/pannala?zeroDateTimeBehavior=convertToNull&amp;useUnicode=true&amp;amp;characterEncoding=utf8&amp;amp;useSSL=no&amp;amp;autoReconnect=true</property>-->
-
-
-    <!--Cat 2020 Local Server-->
-    <!--<property name="hibernate.connection.url">jdbc:mysql://192.168.1.3:3306/ultimate2?zeroDateTimeBehavior=convertToNull&amp;useUnicode=true&amp;amp;characterEncoding=utf8&amp;amp;useSSL=no&amp;amp;autoReconnect=true</property>-->
-
-
-
-    <!--<property name="hibernate.connection.url">-->
-    <!--jdbc:mysql://124.43.9.57:3306/ultimate2?zeroDateTimeBehavior=convertToNull&amp;useUnicode=true&amp;amp;characterEncoding=utf8&amp;amp;useSSL=no&amp;amp;autoReconnect=true-->
-    <!--</property>-->
-
-
-
-    <!--<property name="hibernate.connection.url">-->
-    <!--jdbc:mysql://192.168.1.6:3306/ultimate2?zeroDateTimeBehavior=convertToNull&amp;useUnicode=true&amp;amp;characterEncoding=utf8&amp;amp;useSSL=no&amp;amp;autoReconnect=true-->
-    <!--</property>-->
-
-    <!--=========================================================================================================================================================-->
-    <!--Kuliyapitiya-->
-    <!--<property name="hibernate.connection.url">jdbc:mysql://124.43.11.162:3306/ultimate2?zeroDateTimeBehavior=convertToNull</property>-->
-    <!--<property name="hibernate.connection.password">3ta@kela#una@</property>-->
-
-
-    <!--MCK-->
-    <!--<property name="hibernate.connection.url">jdbc:mysql://MCK_SERVER:3306/ultimate2?zeroDateTimeBehavior=convertToNull&amp;useUnicode=true&amp;amp;characterEncoding=utf8&amp;amp;useSSL=no&amp;amp;autoReconnect=true</property>-->
-    <!--<property name="hibernate.connection.password">@Mck_#321</property>-->
-
-    <!--Galgamuwa-->
-    <!--<property name="hibernate.connection.url">jdbc:mysql://GPS_SERVER:3306/ultimate2?zeroDateTimeBehavior=convertToNull&amp;useUnicode=true&amp;amp;characterEncoding=utf8&amp;amp;useSSL=no&amp;amp;autoReconnect=true</property>-->
-    <!--<property name="hibernate.connection.password">root</property>-->
-
-    <!--Waththegama-->
-    <!--<property name="hibernate.connection.url">jdbc:mysql://ASSESSMENT-TAX:3306/ultimate2?zeroDateTimeBehavior=convertToNull&amp;useUnicode=true&amp;amp;characterEncoding=utf8&amp;amp;useSSL=no&amp;amp;autoReconnect=true</property>-->
-    <!--<property name="hibernate.connection.password">root</property>-->
-
-    <!--Polgahawela-->
-    <!--<property name="hibernate.connection.url">jdbc:mysql://124.43.9.57:3306/polgahawela?zeroDateTimeBehavior=convertToNull&amp;useUnicode=true&amp;amp;characterEncoding=utf8&amp;amp;useSSL=no&amp;amp;autoReconnect=true</property>-->
-    <!--<property name="hibernate.connection.password">@Mck_#321</property>-->
-
-    <!--Narammala PS-->
-    <!--<property name="hibernate.connection.url">jdbc:mysql://124.43.11.162:3307/narammalaps?zeroDateTimeBehavior=convertToNull&amp;useUnicode=true&amp;amp;characterEncoding=utf8&amp;amp;useSSL=no&amp;amp;autoReconnect=true</property>-->
-    <!--<property name="hibernate.connection.password">3ta@kela#una@</property>-->
-
-    <!--Pannala PS-->
-    <!--<property name="hibernate.connection.url">jdbc:mysql://124.43.11.162:3306/pannala?zeroDateTimeBehavior=convertToNull&amp;useUnicode=true&amp;amp;characterEncoding=utf8&amp;amp;useSSL=no&amp;amp;autoReconnect=true</property>-->
-    <!--<property name="hibernate.connection.password">3ta@kela#una@</property>-->
-
-    <!--puujaapitiya-->
-    <!--<property name="hibernate.connection.url">jdbc:mysql://PUJ_SERVER:3306/ultimate2?zeroDateTimeBehavior=convertToNull&amp;useUnicode=true&amp;amp;characterEncoding=utf8&amp;amp;useSSL=no&amp;amp;autoReconnect=true</property>-->
-    <!--<property name="hibernate.connection.password">root</property>-->
-
-    <!--Digital Ocean-->
-    <!--<property name="hibernate.connection.url">jdbc:mysql://157.245.87.168:3306/ultimate2?zeroDateTimeBehavior=convertToNull</property>-->
-    <!--<property name="hibernate.connection.password">Us@Do$mys*Narammala88</property>-->
-
-
-      <!--<property name="hibernate.connection.url">jdbc:mysql://157.245.152.224:3306/ultimate2?zeroDateTimeBehavior=convertToNull</property>-->
-      <!--<property name="hibernate.connection.password">Cat2020@mysql</property>-->
-      <!--<property name="hibernate.connection.username">doadmin</property>-->
-
-
 
 
     <property name="hibernate.connection.username">root</property>
-    <!--<property name="hibernate.connection.password">@Mck_#321</property>-->
+    <property name="hibernate.connection.password">root</property>
 
-    <property name="hibernate.connection.CharSet">utf8</property>
-    <property name="hibernate.connection.characterEncoding">utf8</property>
 
-    <!--<property name="hibernate.connection.socketFactory">com.mysql.jdbc.NamedPipeSocketFactory</property>-->
-
-    <mapping resource="pojo/SlSabhaType.hbm.xml"/>
-    <mapping resource="pojo/SrShopPayment.hbm.xml"/>
-    <mapping resource="pojo/SlArrLoadLocation.hbm.xml"/>
-    <mapping resource="pojo/Grade.hbm.xml"/>
-    <mapping resource="pojo/UserLogin.hbm.xml"/>
-    <mapping resource="pojo/WaterCus.hbm.xml"/>
-    <mapping resource="pojo/Vehiclepass.hbm.xml"/>
-    <mapping resource="pojo/ProgramSubtitleCopy.hbm.xml"/>
-    <mapping resource="pojo/BankInfo.hbm.xml"/>
-    <mapping resource="pojo/SrShopHasValue.hbm.xml"/>
-    <mapping resource="pojo/AdvPosition.hbm.xml"/>
-    <mapping resource="pojo/UserHasPrivilage.hbm.xml"/>
-    <mapping resource="pojo/SrShop.hbm.xml"/>
-    <mapping resource="pojo/AssQstart.hbm.xml"/>
-    <mapping resource="pojo/Ribill.hbm.xml"/>
     <mapping resource="pojo/SubNature.hbm.xml"/>
-    <mapping resource="pojo/De.hbm.xml"/>
-    <mapping resource="pojo/Fixcharge.hbm.xml"/>
-    <mapping resource="pojo/BuildingHasAssessment.hbm.xml"/>
-    <mapping resource="pojo/SrStatus.hbm.xml"/>
-    <mapping resource="pojo/DocHandApprove.hbm.xml"/>
-    <mapping resource="pojo/AssUpdateHistry.hbm.xml"/>
-    <mapping resource="pojo/Application.hbm.xml"/>
-    <mapping resource="pojo/KeysValues.hbm.xml"/>
-    <mapping resource="pojo/SendToApprove.hbm.xml"/>
-    <mapping resource="pojo/ReferencenoTbl.hbm.xml"/>
-    <mapping resource="pojo/DoOnAction.hbm.xml"/>
-    <mapping resource="pojo/SlYesNoDetails3.hbm.xml"/>
-    <mapping resource="pojo/UserHasDepartment.hbm.xml"/>
-    <mapping resource="pojo/Mixdata.hbm.xml"/>
-    <mapping resource="pojo/SrShopProc.hbm.xml"/>
-    <mapping resource="pojo/AssDiscription.hbm.xml"/>
-    <mapping resource="pojo/ProgramTitle.hbm.xml"/>
-    <mapping resource="pojo/WeelPaidAmountVote.hbm.xml"/>
-    <mapping resource="pojo/Watter.hbm.xml"/>
-    <mapping resource="pojo/CashFlow.hbm.xml"/>
-    <mapping resource="pojo/Apprualstatues.hbm.xml"/>
-    <mapping resource="pojo/SrShopBeforeAddAmount.hbm.xml"/>
-    <mapping resource="pojo/Gali.hbm.xml"/>
-    <mapping resource="pojo/BopPaymentVote.hbm.xml"/>
-    <mapping resource="pojo/AssAllocation.hbm.xml"/>
-    <mapping resource="pojo/ProgramTitleCopy.hbm.xml"/>
-    <mapping resource="pojo/AssPayto.hbm.xml"/>
-    <mapping resource="pojo/SlPaymentVote.hbm.xml"/>
-    <mapping resource="pojo/UserLevel.hbm.xml"/>
-    <mapping resource="pojo/User.hbm.xml"/>
-    <mapping resource="pojo/Bank.hbm.xml"/>
-    <mapping resource="pojo/Department.hbm.xml"/>
-    <mapping resource="pojo/Login.hbm.xml"/>
-    <mapping resource="pojo/SrPrintVoteBillName.hbm.xml"/>
-    <mapping resource="pojo/AssPayhistry.hbm.xml"/>
-    <mapping resource="pojo/InterestCopy.hbm.xml"/>
-    <mapping resource="pojo/SrBuilding.hbm.xml"/>
-    <mapping resource="pojo/BookReson.hbm.xml"/>
-    <mapping resource="pojo/Receipt.hbm.xml"/>
-    <mapping resource="pojo/Areacal.hbm.xml"/>
-    <mapping resource="pojo/UserLog.hbm.xml"/>
-    <mapping resource="pojo/Area.hbm.xml"/>
-    <mapping resource="pojo/Action.hbm.xml"/>
-    <mapping resource="pojo/Assessment.hbm.xml"/>
-    <mapping resource="pojo/SlYesNoDetails2.hbm.xml"/>
-    <mapping resource="pojo/SlSide.hbm.xml"/>
-    <mapping resource="pojo/TradeLicense.hbm.xml"/>
-    <mapping resource="pojo/DoOnActionHasAttributes.hbm.xml"/>
-    <mapping resource="pojo/ChequeBank.hbm.xml"/>
-    <mapping resource="pojo/AdvBoardType.hbm.xml"/>
-    <mapping resource="pojo/SlDetails.hbm.xml"/>
-    <mapping resource="pojo/Processtype.hbm.xml"/>
-    <mapping resource="pojo/SlArrearsPanelName.hbm.xml"/>
-    <mapping resource="pojo/UserCopy.hbm.xml"/>
-    <mapping resource="pojo/SrFlow.hbm.xml"/>
-    <mapping resource="pojo/Applications.hbm.xml"/>
-    <mapping resource="pojo/AssVote.hbm.xml"/>
-    <mapping resource="pojo/SmsDetails.hbm.xml"/>
-    <mapping resource="pojo/SrShopVotesCategory.hbm.xml"/>
-    <mapping resource="pojo/Interest.hbm.xml"/>
-    <mapping resource="pojo/SlArrearsType.hbm.xml"/>
-    <mapping resource="pojo/SrShopType.hbm.xml"/>
-    <mapping resource="pojo/UserHasCatagory.hbm.xml"/>
-    <mapping resource="pojo/Book.hbm.xml"/>
-    <mapping resource="pojo/BopHasAssessment.hbm.xml"/>
-    <mapping resource="pojo/Gotoeng.hbm.xml"/>
-    <mapping resource="pojo/SlYesNoDetails5.hbm.xml"/>
-    <mapping resource="pojo/EmployeHasApplicationCatagory.hbm.xml"/>
-    <mapping resource="pojo/AdvAdvertising.hbm.xml"/>
-    <mapping resource="pojo/TradeNature.hbm.xml"/>
-    <mapping resource="pojo/SlUploadImages.hbm.xml"/>
-    <mapping resource="pojo/SlYesNoDetails.hbm.xml"/>
-    <mapping resource="pojo/AdvVote.hbm.xml"/>
-    <mapping resource="pojo/SlDistance.hbm.xml"/>
-    <mapping resource="pojo/Version.hbm.xml"/>
-    <mapping resource="pojo/DocHandDetails.hbm.xml"/>
-    <mapping resource="pojo/SabhaDetails.hbm.xml"/>
-    <mapping resource="pojo/Shoprental.hbm.xml"/>
+    <mapping resource="pojo/JobAc.hbm.xml"/>
+    <mapping resource="pojo/WbTPayment.hbm.xml"/>
+    <mapping resource="pojo/Obsaloot.hbm.xml"/>
     <mapping resource="pojo/ReceiptCodeCreate.hbm.xml"/>
-    <mapping resource="pojo/CustomerHasSrShop.hbm.xml"/>
-    <mapping resource="pojo/ApproveTypes.hbm.xml"/>
-    <mapping resource="pojo/Contact.hbm.xml"/>
-    <mapping resource="pojo/SlLaType.hbm.xml"/>
-    <mapping resource="pojo/Xxx.hbm.xml"/>
-    <mapping resource="pojo/Office.hbm.xml"/>
-    <mapping resource="pojo/Vort.hbm.xml"/>
-    <mapping resource="pojo/UserSignatuer.hbm.xml"/>
-    <mapping resource="pojo/Attributes.hbm.xml"/>
-    <mapping resource="pojo/SlYesNoDetails4.hbm.xml"/>
-    <mapping resource="pojo/ChequeProcess.hbm.xml"/>
-    <mapping resource="pojo/Needdoc.hbm.xml"/>
-    <mapping resource="pojo/ProgramSubtitle.hbm.xml"/>
-    <mapping resource="pojo/TaxRate.hbm.xml"/>
-    <mapping resource="pojo/Privilage.hbm.xml"/>
-    <mapping resource="pojo/AtachmantEnv.hbm.xml"/>
-    <mapping resource="pojo/AplicationPayment.hbm.xml"/>
-    <mapping resource="pojo/Userhasdivition.hbm.xml"/>
-    <mapping resource="pojo/AssNature.hbm.xml"/>
-    <mapping resource="pojo/SrPaidStatus.hbm.xml"/>
-    <mapping resource="pojo/StreetCopy.hbm.xml"/>
-    <mapping resource="pojo/SlLoadArrearsPanels.hbm.xml"/>
-    <mapping resource="pojo/GaliHasEmploye.hbm.xml"/>
-    <mapping resource="pojo/SrShopHasCustomer.hbm.xml"/>
-    <mapping resource="pojo/Doccat.hbm.xml"/>
-    <mapping resource="pojo/Street.hbm.xml"/>
-    <mapping resource="pojo/SrShopFinePrcDetail.hbm.xml"/>
-    <mapping resource="pojo/Systemdate.hbm.xml"/>
-    <mapping resource="pojo/Gnd.hbm.xml"/>
-    <mapping resource="pojo/Fxkeyvalue.hbm.xml"/>
-    <mapping resource="pojo/ApproveDetails.hbm.xml"/>
-    <mapping resource="pojo/AccountReceiptTitle.hbm.xml"/>
-    <mapping resource="pojo/Otheritiscat.hbm.xml"/>
-    <mapping resource="pojo/ApprovalBy.hbm.xml"/>
-    <mapping resource="pojo/SlPaymentAmount.hbm.xml"/>
-    <mapping resource="pojo/CustomerHasApplicationCatagory.hbm.xml"/>
-    <mapping resource="pojo/TradeType.hbm.xml"/>
+    <mapping resource="pojo/WbTChargeScheme.hbm.xml"/>
+    <mapping resource="pojo/ExNature.hbm.xml"/>
+    <mapping resource="pojo/AdvBoardType.hbm.xml"/>
+    <mapping resource="pojo/SrShopCashflow.hbm.xml"/>
+    <mapping resource="pojo/AssQstart.hbm.xml"/>
+    <mapping resource="pojo/ExAllocation.hbm.xml"/>
     <mapping resource="pojo/CustomerHasCusCat.hbm.xml"/>
-    <mapping resource="pojo/Aha.hbm.xml"/>
-    <mapping resource="pojo/Uploads.hbm.xml"/>
-    <mapping resource="pojo/BookDate.hbm.xml"/>
-    <mapping resource="pojo/BopRegCon.hbm.xml"/>
-    <mapping resource="pojo/UserHasOtheritiscat.hbm.xml"/>
-    <mapping resource="pojo/Customer.hbm.xml"/>
+    <mapping resource="pojo/ExVoucherRefNoTbl.hbm.xml"/>
+    <mapping resource="pojo/ExMultyChequeDetails.hbm.xml"/>
+    <mapping resource="pojo/Ui.hbm.xml"/>
+    <mapping resource="pojo/Referenceno.hbm.xml"/>
+    <mapping resource="pojo/BaDrafmanDetails.hbm.xml"/>
+    <mapping resource="pojo/CustomersWbtBill.hbm.xml"/>
+    <mapping resource="pojo/UserLogin.hbm.xml"/>
+    <mapping resource="pojo/BaUserDetails.hbm.xml"/>
+    <mapping resource="pojo/TlCreatePropId.hbm.xml"/>
+    <mapping resource="pojo/ExVote.hbm.xml"/>
+    <mapping resource="pojo/Grade.hbm.xml"/>
     <mapping resource="pojo/AssSubowner.hbm.xml"/>
+    <mapping resource="pojo/WbMReadingProb.hbm.xml"/>
+    <mapping resource="pojo/ExVoteTransfer.hbm.xml"/>
+    <mapping resource="pojo/SrShopVotesCategory.hbm.xml"/>
+    <mapping resource="pojo/Payment.hbm.xml"/>
+    <mapping resource="pojo/SlLaType.hbm.xml"/>
+    <mapping resource="pojo/BankInfo.hbm.xml"/>
+    <mapping resource="pojo/TlUseWhatStatus.hbm.xml"/>
+    <mapping resource="pojo/RibillList.hbm.xml"/>
     <mapping resource="pojo/Ward.hbm.xml"/>
-    <mapping resource="pojo/AssPayment.hbm.xml"/>
-    <mapping resource="pojo/Building.hbm.xml"/>
-    <mapping resource="pojo/Bophascommettee.hbm.xml"/>
-    <mapping resource="pojo/AssessmentHasProcesstype.hbm.xml"/>
-    <mapping resource="pojo/Catagory.hbm.xml"/>
-    <mapping resource="pojo/ChequeStatus.hbm.xml"/>
+    <mapping resource="pojo/UserLevel.hbm.xml"/>
+    <mapping resource="pojo/WbMOverpay.hbm.xml"/>
+    <mapping resource="pojo/TlActiveNotTbl.hbm.xml"/>
+    <mapping resource="pojo/TlApproveDetails.hbm.xml"/>
+    <mapping resource="pojo/ExDepositCharges.hbm.xml"/>
     <mapping resource="pojo/Values.hbm.xml"/>
     <mapping resource="pojo/Status.hbm.xml"/>
-    <mapping resource="pojo/Mixincome.hbm.xml"/>
-    <mapping resource="pojo/UserHasApprovalCat.hbm.xml"/>
-    <mapping resource="pojo/AssHistory.hbm.xml"/>
-    <mapping resource="pojo/Dipartment.hbm.xml"/>
-    <mapping resource="pojo/SrShopHasVote.hbm.xml"/>
-    <mapping resource="pojo/SlYesNoDetails6.hbm.xml"/>
-    <mapping resource="pojo/Vote.hbm.xml"/>
-    <mapping resource="pojo/ApprovalByHasAction.hbm.xml"/>
-    <mapping resource="pojo/Commetteemembers.hbm.xml"/>
-    <mapping resource="pojo/Streetline.hbm.xml"/>
-    <mapping resource="pojo/Program.hbm.xml"/>
-    <mapping resource="pojo/SmsGettingSetting.hbm.xml"/>
-    <mapping resource="pojo/UserHasApplicationCatagory.hbm.xml"/>
-    <mapping resource="pojo/SrShopPaymentCrossTbl.hbm.xml"/>
-    <mapping resource="pojo/Payment.hbm.xml"/>
-    <mapping resource="pojo/Tradelicens.hbm.xml"/>
-    <mapping resource="pojo/Cheack.hbm.xml"/>
-    <mapping resource="pojo/Ui.hbm.xml"/>
-    <mapping resource="pojo/AssCreditdebit.hbm.xml"/>
-    <mapping resource="pojo/PrivilageCopy.hbm.xml"/>
-    <mapping resource="pojo/Employe.hbm.xml"/>
-    <mapping resource="pojo/AccountPsThree.hbm.xml"/>
-    <mapping resource="pojo/BookPlace.hbm.xml"/>
-    <mapping resource="pojo/Obsaloot.hbm.xml"/>
-    <mapping resource="pojo/Referenceno.hbm.xml"/>
+    <mapping resource="pojo/Online.hbm.xml"/>
+    <mapping resource="pojo/AplicationPayment.hbm.xml"/>
+    <mapping resource="pojo/ChequeBank.hbm.xml"/>
+    <mapping resource="pojo/DoOnActionHasAttributes.hbm.xml"/>
+    <mapping resource="pojo/WbTCustomerRoad.hbm.xml"/>
+    <mapping resource="pojo/AssAllocation.hbm.xml"/>
+    <mapping resource="pojo/SwimApp.hbm.xml"/>
+    <mapping resource="pojo/SlYesNoDetails2.hbm.xml"/>
+    <mapping resource="pojo/BopPaymentVote.hbm.xml"/>
+    <mapping resource="pojo/Login.hbm.xml"/>
+    <mapping resource="pojo/Userhasdivition.hbm.xml"/>
+    <mapping resource="pojo/WbProcessPay.hbm.xml"/>
+    <mapping resource="pojo/SrShopHasValue.hbm.xml"/>
+    <mapping resource="pojo/SrShopBeforeAddAmount.hbm.xml"/>
+    <mapping resource="pojo/TlPaidNotStatus.hbm.xml"/>
     <mapping resource="pojo/CustomerHasTradeLicense.hbm.xml"/>
-    <mapping resource="pojo/ApplicationCatagory.hbm.xml"/>
-    <mapping resource="pojo/WbMDivision.hbm.xml"/>
-    <mapping resource="pojo/ApprovalCat.hbm.xml"/>
-    <mapping resource="pojo/Mixintype.hbm.xml"/>
-    <mapping resource="pojo/SrShopCashflow.hbm.xml"/>
-    <mapping resource="pojo/AdvBords.hbm.xml"/>
+    <mapping resource="pojo/SrShopSealListMonth.hbm.xml"/>
+    <mapping resource="pojo/BaBuldingDetails.hbm.xml"/>
+    <mapping resource="pojo/ExDepositPayment.hbm.xml"/>
+    <mapping resource="pojo/ProgramSubtitle.hbm.xml"/>
+    <mapping resource="pojo/SabhaDetails.hbm.xml"/>
     <mapping resource="pojo/DocHandOderPath.hbm.xml"/>
-    <mapping resource="pojo/SrShopValues.hbm.xml"/>
-    <mapping resource="pojo/ProgramCopy.hbm.xml"/>
-    <mapping resource="pojo/PersonTitle.hbm.xml"/>
-    <mapping resource="pojo/RibillList.hbm.xml"/>
-    <mapping resource="pojo/InterestCopy1.hbm.xml"/>
-    <mapping resource="pojo/CusCat.hbm.xml"/>
-    <mapping resource="pojo/UserHasDipartment.hbm.xml"/>
+    <mapping resource="pojo/SendToApprove.hbm.xml"/>
+    <mapping resource="pojo/TlPrintDetails.hbm.xml"/>
+    <mapping resource="pojo/ApprovalByHasAction.hbm.xml"/>
+    <mapping resource="pojo/TlPhiSelectionAnswer.hbm.xml"/>
+    <mapping resource="pojo/WbMMeterStatus.hbm.xml"/>
+    <mapping resource="pojo/WbTConnectionHasVote.hbm.xml"/>
+    <mapping resource="pojo/SlYesNoDetails3.hbm.xml"/>
+    <mapping resource="pojo/Areacal.hbm.xml"/>
+    <mapping resource="pojo/SrShop.hbm.xml"/>
+    <mapping resource="pojo/Mixdata.hbm.xml"/>
+    <mapping resource="pojo/Vote.hbm.xml"/>
+    <mapping resource="pojo/BookReson.hbm.xml"/>
+    <mapping resource="pojo/ApproveTypes.hbm.xml"/>
+    <mapping resource="pojo/Systemdate.hbm.xml"/>
+    <mapping resource="pojo/WebJobtype.hbm.xml"/>
+    <mapping resource="pojo/ExVoucherGrid.hbm.xml"/>
+    <mapping resource="pojo/Cheack.hbm.xml"/>
+    <mapping resource="pojo/Application.hbm.xml"/>
+    <mapping resource="pojo/SrBuilding.hbm.xml"/>
+    <mapping resource="pojo/BopRegCon.hbm.xml"/>
+    <mapping resource="pojo/BaQuestionDetails.hbm.xml"/>
+    <mapping resource="pojo/CustomerHasApplicationCatagory.hbm.xml"/>
+    <mapping resource="pojo/WbOpay.hbm.xml"/>
+    <mapping resource="pojo/SrShop1.hbm.xml"/>
+    <mapping resource="pojo/UserHasPrivilage.hbm.xml"/>
+    <mapping resource="pojo/ExBalanceSheetAtribute.hbm.xml"/>
+    <mapping resource="pojo/TlApp.hbm.xml"/>
+    <mapping resource="pojo/Attributes.hbm.xml"/>
+    <mapping resource="pojo/TlLetterDate.hbm.xml"/>
+    <mapping resource="pojo/AssVote.hbm.xml"/>
+    <mapping resource="pojo/WbULevel.hbm.xml"/>
+    <mapping resource="pojo/SlSabhaType.hbm.xml"/>
+    <mapping resource="pojo/Aha.hbm.xml"/>
+    <mapping resource="pojo/WbTCusInvoice.hbm.xml"/>
+    <mapping resource="pojo/ExCrossApprove.hbm.xml"/>
+    <mapping resource="pojo/SwimGameDetails.hbm.xml"/>
+    <mapping resource="pojo/KeysValues.hbm.xml"/>
+    <mapping resource="pojo/Processtype.hbm.xml"/>
+    <mapping resource="pojo/TlAppCreateNo.hbm.xml"/>
+    <mapping resource="pojo/BaPersonalInformation.hbm.xml"/>
+    <mapping resource="pojo/GaliHasEmploye.hbm.xml"/>
+    <mapping resource="pojo/AssProcess.hbm.xml"/>
+    <mapping resource="pojo/DocHandDetails.hbm.xml"/>
+    <mapping resource="pojo/Employe.hbm.xml"/>
+    <mapping resource="pojo/SrShopType.hbm.xml"/>
+    <mapping resource="pojo/ExDepositCross.hbm.xml"/>
+    <mapping resource="pojo/SlArrearsType.hbm.xml"/>
+    <mapping resource="pojo/SlUploadImages.hbm.xml"/>
+    <mapping resource="pojo/WbMDivisionHasMeterReader.hbm.xml"/>
+    <mapping resource="pojo/ChequeStatus.hbm.xml"/>
+    <mapping resource="pojo/WbMTax.hbm.xml"/>
+    <mapping resource="pojo/WbNonmeteredArrears1.hbm.xml"/>
+    <mapping resource="pojo/StreetCopy.hbm.xml"/>
+    <mapping resource="pojo/WbMConnectionTypeDetail.hbm.xml"/>
+    <mapping resource="pojo/AdvVote.hbm.xml"/>
+    <mapping resource="pojo/UserHasCatagory.hbm.xml"/>
+    <mapping resource="pojo/TradeLicense.hbm.xml"/>
+    <mapping resource="pojo/WaterCus.hbm.xml"/>
+    <mapping resource="pojo/TlAppLicenceNoTbl.hbm.xml"/>
+    <mapping resource="pojo/Watter.hbm.xml"/>
+    <mapping resource="pojo/SlArrearsPanelName.hbm.xml"/>
+    <mapping resource="pojo/WbMReadingProblems.hbm.xml"/>
+    <mapping resource="pojo/AssUpdateHistry.hbm.xml"/>
+    <mapping resource="pojo/SrFlow.hbm.xml"/>
+    <mapping resource="pojo/TlSubnature.hbm.xml"/>
+    <mapping resource="pojo/WbMMainRoad.hbm.xml"/>
+    <mapping resource="pojo/SlDistance.hbm.xml"/>
+    <mapping resource="pojo/Gali.hbm.xml"/>
+    <mapping resource="pojo/TlAppGetType.hbm.xml"/>
+    <mapping resource="pojo/SlPsRoad.hbm.xml"/>
+    <mapping resource="pojo/AdvBords.hbm.xml"/>
+    <mapping resource="pojo/AssNature.hbm.xml"/>
+    <mapping resource="pojo/Subject.hbm.xml"/>
+    <mapping resource="pojo/ExSubtitle.hbm.xml"/>
+    <mapping resource="pojo/WbProcessTbl.hbm.xml"/>
+    <mapping resource="pojo/UserHasApplicationCatagory.hbm.xml"/>
+    <mapping resource="pojo/DoOnAction.hbm.xml"/>
+    <mapping resource="pojo/WbMDivisionToChangeDate.hbm.xml"/>
+    <mapping resource="pojo/AssPayhistry.hbm.xml"/>
+    <mapping resource="pojo/SmsDetails.hbm.xml"/>
+    <mapping resource="pojo/Catagory.hbm.xml"/>
+    <mapping resource="pojo/ApprovalBy.hbm.xml"/>
+    <mapping resource="pojo/AssessmentHasProcesstype.hbm.xml"/>
+    <mapping resource="pojo/User.hbm.xml"/>
+    <mapping resource="pojo/TlSubType.hbm.xml"/>
+    <mapping resource="pojo/UserCopy.hbm.xml"/>
     <mapping resource="pojo/Environment.hbm.xml"/>
+    <mapping resource="pojo/AssProcDetails.hbm.xml"/>
+    <mapping resource="pojo/BaChecklistText.hbm.xml"/>
+    <mapping resource="pojo/WbMSetting.hbm.xml"/>
+    <mapping resource="pojo/TaxRate.hbm.xml"/>
+    <mapping resource="pojo/Customer.hbm.xml"/>
+    <mapping resource="pojo/AdvPosition.hbm.xml"/>
+    <mapping resource="pojo/SrShopPaymentCrossTbl.hbm.xml"/>
+    <mapping resource="pojo/Contact.hbm.xml"/>
+    <mapping resource="pojo/ExForms.hbm.xml"/>
+    <mapping resource="pojo/UserHasDipartment.hbm.xml"/>
+    <mapping resource="pojo/SrShopHasVote.hbm.xml"/>
+    <mapping resource="pojo/TlPaidType.hbm.xml"/>
+    <mapping resource="pojo/SrPaidStatus.hbm.xml"/>
+    <mapping resource="pojo/InterestCopy1.hbm.xml"/>
+    <mapping resource="pojo/SlYesNoDetails4.hbm.xml"/>
+    <mapping resource="pojo/SrShopFinePrcDetail.hbm.xml"/>
+    <mapping resource="pojo/Customers3.hbm.xml"/>
+    <mapping resource="pojo/Commetteemembers.hbm.xml"/>
+    <mapping resource="pojo/PrivilageCopy.hbm.xml"/>
+    <mapping resource="pojo/AtachmantEnv.hbm.xml"/>
+    <mapping resource="pojo/BaQuestionlist.hbm.xml"/>
+    <mapping resource="pojo/AccountPsThree.hbm.xml"/>
+    <mapping resource="pojo/Xxx.hbm.xml"/>
+    <mapping resource="pojo/ProgramSubtitleCopy.hbm.xml"/>
+    <mapping resource="pojo/Privilage.hbm.xml"/>
+    <mapping resource="pojo/CustomerHasSrShop.hbm.xml"/>
+    <mapping resource="pojo/Apprualstatues.hbm.xml"/>
+    <mapping resource="pojo/BookPlace.hbm.xml"/>
+    <mapping resource="pojo/SlYesNoDetails.hbm.xml"/>
+    <mapping resource="pojo/Gotoeng.hbm.xml"/>
+    <mapping resource="pojo/ProgramTitle.hbm.xml"/>
+    <mapping resource="pojo/DocHandApprove.hbm.xml"/>
+    <mapping resource="pojo/AccBalSheetSubtitle.hbm.xml"/>
+    <mapping resource="pojo/TlPrintBillVoteName.hbm.xml"/>
+    <mapping resource="pojo/WebPrivilages.hbm.xml"/>
+    <mapping resource="pojo/SlYesNoDetails5.hbm.xml"/>
+    <mapping resource="pojo/WbTGetFirstPaidAmount.hbm.xml"/>
+    <mapping resource="pojo/ElectroDivision.hbm.xml"/>
+    <mapping resource="pojo/ExVoucherApproveDetails.hbm.xml"/>
+    <mapping resource="pojo/TlSettings.hbm.xml"/>
+    <mapping resource="pojo/AssDiscription.hbm.xml"/>
+    <mapping resource="pojo/JobStatus.hbm.xml"/>
+    <mapping resource="pojo/InvoicesJanuary.hbm.xml"/>
+    <mapping resource="pojo/SrShopNow.hbm.xml"/>
+    <mapping resource="pojo/ReferencenoTbl.hbm.xml"/>
+    <mapping resource="pojo/ExChequeBank.hbm.xml"/>
+    <mapping resource="pojo/Doccat.hbm.xml"/>
+    <mapping resource="pojo/ExChequeForVoucher.hbm.xml"/>
+    <mapping resource="pojo/Streetline.hbm.xml"/>
+    <mapping resource="pojo/WbMApplicationCategory.hbm.xml"/>
+    <mapping resource="pojo/SrShopPayment.hbm.xml"/>
+    <mapping resource="pojo/InvoiceDateChangeTbl.hbm.xml"/>
+    <mapping resource="pojo/WbMFirstArrears.hbm.xml"/>
+    <mapping resource="pojo/ExCrossVotes.hbm.xml"/>
+    <mapping resource="pojo/Assessment.hbm.xml"/>
+    <mapping resource="pojo/SlPaymentVote.hbm.xml"/>
+    <mapping resource="pojo/AssApptype.hbm.xml"/>
+    <mapping resource="pojo/Dipartment.hbm.xml"/>
+    <mapping resource="pojo/WbMMainOwner.hbm.xml"/>
+    <mapping resource="pojo/Mixincome.hbm.xml"/>
+    <mapping resource="pojo/WbTBillProcess.hbm.xml"/>
+    <mapping resource="pojo/ExBalanceSheetOpeningBalance.hbm.xml"/>
+    <mapping resource="pojo/Shoprental.hbm.xml"/>
+    <mapping resource="pojo/Office.hbm.xml"/>
+    <mapping resource="pojo/ExUserCat.hbm.xml"/>
+    <mapping resource="pojo/ExPriveliageTag.hbm.xml"/>
+    <mapping resource="pojo/Needdoc.hbm.xml"/>
+    <mapping resource="pojo/WbMDataClearTbl.hbm.xml"/>
+    <mapping resource="pojo/UserHasSubject.hbm.xml"/>
+    <mapping resource="pojo/Otheritiscat.hbm.xml"/>
+    <mapping resource="pojo/WbNonmeteredArrears.hbm.xml"/>
+    <mapping resource="pojo/UserHasOtheritiscat.hbm.xml"/>
+    <mapping resource="pojo/ExVoucherCode.hbm.xml"/>
+    <mapping resource="pojo/WbTVoteCategory.hbm.xml"/>
+    <mapping resource="pojo/ExReciptDeduct.hbm.xml"/>
+    <mapping resource="pojo/SrStatus.hbm.xml"/>
+    <mapping resource="pojo/TradeNature.hbm.xml"/>
+    <mapping resource="pojo/Uploads.hbm.xml"/>
+    <mapping resource="pojo/Ribill.hbm.xml"/>
+    <mapping resource="pojo/InterestCopy.hbm.xml"/>
+    <mapping resource="pojo/ExProject.hbm.xml"/>
+    <mapping resource="pojo/WbMNatureChangeTbl.hbm.xml"/>
+    <mapping resource="pojo/AccBalSheetTitle.hbm.xml"/>
+    <mapping resource="pojo/BaHasAssessment.hbm.xml"/>
+    <mapping resource="pojo/WbMLastProcYearMonth.hbm.xml"/>
+    <mapping resource="pojo/TlVoteCategory.hbm.xml"/>
+    <mapping resource="pojo/ExVoucherPaymentInfo.hbm.xml"/>
+    <mapping resource="pojo/Version.hbm.xml"/>
+    <mapping resource="pojo/WbMSubOwner.hbm.xml"/>
+    <mapping resource="pojo/WbMChangesRecordTbl.hbm.xml"/>
+    <mapping resource="pojo/CashFlow.hbm.xml"/>
+    <mapping resource="pojo/AssHistory.hbm.xml"/>
+    <mapping resource="pojo/Job.hbm.xml"/>
+    <mapping resource="pojo/Vehiclepass.hbm.xml"/>
+    <mapping resource="pojo/TlNature.hbm.xml"/>
+    <mapping resource="pojo/SrShopSettings.hbm.xml"/>
+    <mapping resource="pojo/Applications.hbm.xml"/>
+    <mapping resource="pojo/AssApp.hbm.xml"/>
+    <mapping resource="pojo/SwGrade.hbm.xml"/>
+    <mapping resource="pojo/BaAnswer.hbm.xml"/>
+    <mapping resource="pojo/CusCat.hbm.xml"/>
+    <mapping resource="pojo/AssPayment.hbm.xml"/>
+    <mapping resource="pojo/TlChargingScheme.hbm.xml"/>
+    <mapping resource="pojo/BaFloor.hbm.xml"/>
+    <mapping resource="pojo/TlPay.hbm.xml"/>
+    <mapping resource="pojo/WebPrivHasApproveCat.hbm.xml"/>
+    <mapping resource="pojo/JobAssign.hbm.xml"/>
+    <mapping resource="pojo/WbMDevision.hbm.xml"/>
+    <mapping resource="pojo/WbMSubRoad.hbm.xml"/>
+    <mapping resource="pojo/SchoolDetails.hbm.xml"/>
+    <mapping resource="pojo/WbMNature.hbm.xml"/>
+    <mapping resource="pojo/Mixintype.hbm.xml"/>
+    <mapping resource="pojo/WbMUseOldOrNewStreetStatus.hbm.xml"/>
+    <mapping resource="pojo/BopPaymentCalculation.hbm.xml"/>
+    <mapping resource="pojo/SlSide.hbm.xml"/>
+    <mapping resource="pojo/SrShopProc.hbm.xml"/>
+    <mapping resource="pojo/WbMProcStatus.hbm.xml"/>
+    <mapping resource="pojo/ExChequeInfo.hbm.xml"/>
+    <mapping resource="pojo/ApprovalCat.hbm.xml"/>
+    <mapping resource="pojo/Action.hbm.xml"/>
+    <mapping resource="pojo/WbTLoadCusMeterReadStatus.hbm.xml"/>
+    <mapping resource="pojo/Building.hbm.xml"/>
+    <mapping resource="pojo/WbMConnection.hbm.xml"/>
+    <mapping resource="pojo/WbTBillPrint.hbm.xml"/>
+    <mapping resource="pojo/BopHasAssessment.hbm.xml"/>
+    <mapping resource="pojo/AdvAdvertising.hbm.xml"/>
+    <mapping resource="pojo/AssNewold.hbm.xml"/>
+    <mapping resource="pojo/WbMCustomer.hbm.xml"/>
+    <mapping resource="pojo/Fxkeyvalue.hbm.xml"/>
+    <mapping resource="pojo/SrPrintVoteBillName.hbm.xml"/>
+    <mapping resource="pojo/BaToCheckList.hbm.xml"/>
+    <mapping resource="pojo/WbTCusMeterRead.hbm.xml"/>
+    <mapping resource="pojo/SrShopValues.hbm.xml"/>
+    <mapping resource="pojo/Unique.hbm.xml"/>
+    <mapping resource="pojo/WbYearlyNonMeteredProcess.hbm.xml"/>
+    <mapping resource="pojo/ExVoucherInfomation.hbm.xml"/>
+    <mapping resource="pojo/ApproveDetails.hbm.xml"/>
+    <mapping resource="pojo/Receipt.hbm.xml"/>
+    <mapping resource="pojo/SlArrLoadLocation.hbm.xml"/>
+    <mapping resource="pojo/ApplicationCatagory.hbm.xml"/>
+    <mapping resource="pojo/TradeType.hbm.xml"/>
+    <mapping resource="pojo/ExVoteTitleDeductionInfo.hbm.xml"/>
+    <mapping resource="pojo/UserHasDepartment.hbm.xml"/>
+    <mapping resource="pojo/SmsGettingSetting.hbm.xml"/>
+    <mapping resource="pojo/WbMDivision.hbm.xml"/>
+    <mapping resource="pojo/WbYearlyMeteredProcess.hbm.xml"/>
+    <mapping resource="pojo/AccPayType.hbm.xml"/>
+    <mapping resource="pojo/WbMUsers.hbm.xml"/>
+    <mapping resource="pojo/TlType.hbm.xml"/>
+    <mapping resource="pojo/SlYesNoDetails6.hbm.xml"/>
+    <mapping resource="pojo/SwimCorchRegistration.hbm.xml"/>
+    <mapping resource="pojo/Bank.hbm.xml"/>
     <mapping resource="pojo/Bop.hbm.xml"/>
-
+    <mapping resource="pojo/UserHasApprovalCat.hbm.xml"/>
+    <mapping resource="pojo/Program.hbm.xml"/>
+    <mapping resource="pojo/Interest.hbm.xml"/>
+    <mapping resource="pojo/TlSendApproveCat.hbm.xml"/>
+    <mapping resource="pojo/Area.hbm.xml"/>
+    <mapping resource="pojo/ExUserCatPriviliages.hbm.xml"/>
+    <mapping resource="pojo/UserLog.hbm.xml"/>
+    <mapping resource="pojo/EmployeHasApplicationCatagory.hbm.xml"/>
+    <mapping resource="pojo/JobComment.hbm.xml"/>
+    <mapping resource="pojo/SoftPath.hbm.xml"/>
+    <mapping resource="pojo/ChequeProcess.hbm.xml"/>
+    <mapping resource="pojo/BuildingHasAssessment.hbm.xml"/>
+    <mapping resource="pojo/Tradelicens.hbm.xml"/>
+    <mapping resource="pojo/PersonTitle.hbm.xml"/>
+    <mapping resource="pojo/ProgramCopy.hbm.xml"/>
+    <mapping resource="pojo/Bophascommettee.hbm.xml"/>
+    <mapping resource="pojo/ExTitle.hbm.xml"/>
+    <mapping resource="pojo/ProgramTitleCopy.hbm.xml"/>
+    <mapping resource="pojo/Street.hbm.xml"/>
+    <mapping resource="pojo/AccountReceiptTitle.hbm.xml"/>
+    <mapping resource="pojo/SlDetails.hbm.xml"/>
+    <mapping resource="pojo/De.hbm.xml"/>
+    <mapping resource="pojo/UserSignatuer.hbm.xml"/>
+    <mapping resource="pojo/Fixcharge.hbm.xml"/>
+    <mapping resource="pojo/ExBankDeposit.hbm.xml"/>
+    <mapping resource="pojo/Steps.hbm.xml"/>
+    <mapping resource="pojo/Book.hbm.xml"/>
+    <mapping resource="pojo/Gnd.hbm.xml"/>
+    <mapping resource="pojo/SrProcMonthly.hbm.xml"/>
+    <mapping resource="pojo/BookDate.hbm.xml"/>
+    <mapping resource="pojo/SlPaymentAmount.hbm.xml"/>
+    <mapping resource="pojo/PrivilegesOtherSoft.hbm.xml"/>
+    <mapping resource="pojo/WbTMeterResetDetails.hbm.xml"/>
+    <mapping resource="pojo/Department.hbm.xml"/>
+    <mapping resource="pojo/ExOtherVote.hbm.xml"/>
+    <mapping resource="pojo/SlLoadArrearsPanels.hbm.xml"/>
+    <mapping resource="pojo/BaChecklist.hbm.xml"/>
+    <mapping resource="pojo/ExDuty.hbm.xml"/>
+    <mapping resource="pojo/AssPayto.hbm.xml"/>
+    <mapping resource="pojo/BaPaymentCalculation.hbm.xml"/>
+    <mapping resource="pojo/WbMMeterReader.hbm.xml"/>
+    <mapping resource="pojo/ReportHideVote.hbm.xml"/>
+    <mapping resource="pojo/WbTPaid.hbm.xml"/>
+    <mapping resource="pojo/AssCreditdebit.hbm.xml"/>
+    <mapping resource="pojo/TlPhiSelection.hbm.xml"/>
+    <mapping resource="pojo/Vort.hbm.xml"/>
+    <mapping resource="pojo/OnlineCus.hbm.xml"/>
+    <mapping resource="pojo/WbMPaidBillStatus.hbm.xml"/>
+    <mapping resource="pojo/TlCrossTblDetails.hbm.xml"/>
+    <mapping resource="pojo/TlPayDetails.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

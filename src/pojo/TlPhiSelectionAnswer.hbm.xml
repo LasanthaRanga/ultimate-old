@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.TlPhiSelectionAnswer" table="tl_phi_selection_answer" catalog="ultimate2" optimistic-lock="version">
+        <id name="tlPhiSelectionAnswerId" type="java.lang.Integer">
+            <column name="tl_phi_selection_answer_id" />
+            <generator class="identity" />
+        </id>
+        <property name="tlPhiSelectionAnswerSelecId" type="java.lang.Integer">
+            <column name="tl_phi_selection_answer_selec_id" />
+        </property>
+        <property name="tlPhiSelectionAnswerAppId" type="int">
+            <column name="tl_phi_selection_answer_app_id" not-null="true" />
+        </property>
+        <property name="tlPhiSelectionPayDetailsId" type="int">
+            <column name="tl_phi_selection_pay_details_id" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

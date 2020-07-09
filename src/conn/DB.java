@@ -40,7 +40,7 @@ public class DB {
 
 
 //    MCK
-//    public static final String DBPATH = "jdbc:mysql://124.43.9.57:3306/ultimate2?zeroDateTimeBehavior=convertToNull";
+//    public static final String DBPATH = "jdbc:mysql://MCK_SERVER:3306/ultimate2?zeroDateTimeBehavior=convertToNull";
 //    public static final String USER = "root";
 //    public static final String PASS = "@Mck_#321";
 
@@ -259,14 +259,14 @@ public class DB {
 
     public static int setData(String sql) throws Exception {
         int row = DB.getConnection().createStatement().executeUpdate(sql);
-        System.out.println("===============\n" + sql + "\n====================");
+//        System.out.println("===============\n" + sql + "\n====================");
         time = 300000;
         return row;
     }
 
     public static ResultSet getData(String sql) throws Exception {
         ResultSet executeQuery = DB.getConnection().createStatement().executeQuery(sql);
-        System.out.println("===============\n" + sql + "\n====================");
+//        System.out.println("===============\n" + sql + "\n====================");
         time = 300000;
         return executeQuery;
     }

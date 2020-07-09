@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.ExBalanceSheetOpeningBalance" table="ex_balance_sheet_opening_balance" catalog="ultimate2" optimistic-lock="version">
+        <id name="exSubtitleOpenBalanceId" type="java.lang.Integer">
+            <column name="ex_subtitle_open_balance_id" />
+            <generator class="identity" />
+        </id>
+        <property name="exSubTitleId" type="java.lang.Integer">
+            <column name="ex_sub_title_id" />
+        </property>
+        <property name="exYear" type="string">
+            <column name="ex_year" />
+        </property>
+        <property name="exOpeningBalance" type="java.lang.Double">
+            <column name="ex_opening_balance" precision="22" scale="0" />
+        </property>
+        <property name="exActiveStatus" type="java.lang.Integer">
+            <column name="ex_active_status" />
+        </property>
+    </class>
+</hibernate-mapping>

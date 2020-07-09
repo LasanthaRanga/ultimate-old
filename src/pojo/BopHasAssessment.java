@@ -1,5 +1,5 @@
 package pojo;
-// Generated Sep 6, 2019 4:30:16 PM by Hibernate Tools 4.3.1
+// Generated Jul 9, 2020 11:48:20 AM by Hibernate Tools 4.3.1
 
 
 
@@ -16,6 +16,7 @@ public class BopHasAssessment  implements java.io.Serializable {
      private Double size;
      private Double price;
      private String comment;
+     private String lotNo;
 
     public BopHasAssessment() {
     }
@@ -25,13 +26,14 @@ public class BopHasAssessment  implements java.io.Serializable {
         this.assessment = assessment;
         this.bop = bop;
     }
-    public BopHasAssessment(Assessment assessment, Bop bop, Integer bopHasAssessmentStatus, Double size, Double price, String comment) {
+    public BopHasAssessment(Assessment assessment, Bop bop, Integer bopHasAssessmentStatus, Double size, Double price, String comment, String lotNo) {
        this.assessment = assessment;
        this.bop = bop;
        this.bopHasAssessmentStatus = bopHasAssessmentStatus;
        this.size = size;
        this.price = price;
        this.comment = comment;
+       this.lotNo = lotNo;
     }
    
     public Integer getIdBopHasAssessmentcol() {
@@ -82,6 +84,13 @@ public class BopHasAssessment  implements java.io.Serializable {
     
     public void setComment(String comment) {
         this.comment = comment;
+    }
+    public String getLotNo() {
+        return this.lotNo;
+    }
+    
+    public void setLotNo(String lotNo) {
+        this.lotNo = lotNo;
     }
 
 

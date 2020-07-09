@@ -1,5 +1,5 @@
 package pojo;
-// Generated Sep 6, 2019 4:30:16 PM by Hibernate Tools 4.3.1
+// Generated Jul 9, 2020 11:48:20 AM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -15,16 +15,18 @@ public class Bophascommettee  implements java.io.Serializable {
      private Bop bop;
      private String regulations;
      private String comment;
+     private String condition;
      private Set<BopRegCon> bopRegCons = new HashSet<BopRegCon>(0);
      private Set<Commetteemembers> commetteememberses = new HashSet<Commetteemembers>(0);
 
     public Bophascommettee() {
     }
 
-    public Bophascommettee(Bop bop, String regulations, String comment, Set<BopRegCon> bopRegCons, Set<Commetteemembers> commetteememberses) {
+    public Bophascommettee(Bop bop, String regulations, String comment, String condition, Set<BopRegCon> bopRegCons, Set<Commetteemembers> commetteememberses) {
        this.bop = bop;
        this.regulations = regulations;
        this.comment = comment;
+       this.condition = condition;
        this.bopRegCons = bopRegCons;
        this.commetteememberses = commetteememberses;
     }
@@ -56,6 +58,13 @@ public class Bophascommettee  implements java.io.Serializable {
     
     public void setComment(String comment) {
         this.comment = comment;
+    }
+    public String getCondition() {
+        return this.condition;
+    }
+    
+    public void setCondition(String condition) {
+        this.condition = condition;
     }
     public Set<BopRegCon> getBopRegCons() {
         return this.bopRegCons;

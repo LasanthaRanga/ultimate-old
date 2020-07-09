@@ -1,5 +1,5 @@
 package pojo;
-// Generated Sep 6, 2019 4:30:16 PM by Hibernate Tools 4.3.1
+// Generated Jul 9, 2020 11:48:20 AM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -29,6 +29,8 @@ public class User  implements java.io.Serializable {
      private String mobileNo;
      private Set<PrivilageCopy> privilageCopies = new HashSet<PrivilageCopy>(0);
      private Set<UserHasApprovalCat> userHasApprovalCats = new HashSet<UserHasApprovalCat>(0);
+     private Set<WbMChangesRecordTbl> wbMChangesRecordTbls = new HashSet<WbMChangesRecordTbl>(0);
+     private Set<WbTPaid> wbTPaids = new HashSet<WbTPaid>(0);
      private Set<Apprualstatues> apprualstatueses = new HashSet<Apprualstatues>(0);
      private Set<UserHasPrivilage> userHasPrivilages = new HashSet<UserHasPrivilage>(0);
      private Set<Application> applications = new HashSet<Application>(0);
@@ -36,21 +38,24 @@ public class User  implements java.io.Serializable {
      private Set<AssessmentHasProcesstype> assessmentHasProcesstypes = new HashSet<AssessmentHasProcesstype>(0);
      private Set<SendToApprove> sendToApprovesForSendToUser = new HashSet<SendToApprove>(0);
      private Set<SendToApprove> sendToApprovesForSendByUser = new HashSet<SendToApprove>(0);
+     private Set<TlApp> tlApps = new HashSet<TlApp>(0);
      private Set<Assessment> assessments = new HashSet<Assessment>(0);
      private Set<Userhasdivition> userhasdivitions = new HashSet<Userhasdivition>(0);
      private Set<Commetteemembers> commetteememberses = new HashSet<Commetteemembers>(0);
      private Set<UserLogin> userLogins = new HashSet<UserLogin>(0);
+     private Set<WbMNatureChangeTbl> wbMNatureChangeTbls = new HashSet<WbMNatureChangeTbl>(0);
      private Set<UserLog> userLogs = new HashSet<UserLog>(0);
      private Set<UserHasApplicationCatagory> userHasApplicationCatagories = new HashSet<UserHasApplicationCatagory>(0);
      private Set<UserHasDepartment> userHasDepartments = new HashSet<UserHasDepartment>(0);
      private Set<Receipt> receipts = new HashSet<Receipt>(0);
      private Set<UserHasOtheritiscat> userHasOtheritiscats = new HashSet<UserHasOtheritiscat>(0);
+     private Set<WbMDivisionHasMeterReader> wbMDivisionHasMeterReaders = new HashSet<WbMDivisionHasMeterReader>(0);
      private Set<UserHasCatagory> userHasCatagories = new HashSet<UserHasCatagory>(0);
 
     public User() {
     }
 
-    public User(UserLevel userLevel, String userFullName, String userNic, Date userDate, Date userBirthDay, Integer userStatus, Integer userSyn, String userQuestion, String userAnswer, String userUsername, String userPassword, Integer officeIdOffice, String userNameSinhala, String mobileNo, Set<PrivilageCopy> privilageCopies, Set<UserHasApprovalCat> userHasApprovalCats, Set<Apprualstatues> apprualstatueses, Set<UserHasPrivilage> userHasPrivilages, Set<Application> applications, Set<UserHasDipartment> userHasDipartments, Set<AssessmentHasProcesstype> assessmentHasProcesstypes, Set<SendToApprove> sendToApprovesForSendToUser, Set<SendToApprove> sendToApprovesForSendByUser, Set<Assessment> assessments, Set<Userhasdivition> userhasdivitions, Set<Commetteemembers> commetteememberses, Set<UserLogin> userLogins, Set<UserLog> userLogs, Set<UserHasApplicationCatagory> userHasApplicationCatagories, Set<UserHasDepartment> userHasDepartments, Set<Receipt> receipts, Set<UserHasOtheritiscat> userHasOtheritiscats, Set<UserHasCatagory> userHasCatagories) {
+    public User(UserLevel userLevel, String userFullName, String userNic, Date userDate, Date userBirthDay, Integer userStatus, Integer userSyn, String userQuestion, String userAnswer, String userUsername, String userPassword, Integer officeIdOffice, String userNameSinhala, String mobileNo, Set<PrivilageCopy> privilageCopies, Set<UserHasApprovalCat> userHasApprovalCats, Set<WbMChangesRecordTbl> wbMChangesRecordTbls, Set<WbTPaid> wbTPaids, Set<Apprualstatues> apprualstatueses, Set<UserHasPrivilage> userHasPrivilages, Set<Application> applications, Set<UserHasDipartment> userHasDipartments, Set<AssessmentHasProcesstype> assessmentHasProcesstypes, Set<SendToApprove> sendToApprovesForSendToUser, Set<SendToApprove> sendToApprovesForSendByUser, Set<TlApp> tlApps, Set<Assessment> assessments, Set<Userhasdivition> userhasdivitions, Set<Commetteemembers> commetteememberses, Set<UserLogin> userLogins, Set<WbMNatureChangeTbl> wbMNatureChangeTbls, Set<UserLog> userLogs, Set<UserHasApplicationCatagory> userHasApplicationCatagories, Set<UserHasDepartment> userHasDepartments, Set<Receipt> receipts, Set<UserHasOtheritiscat> userHasOtheritiscats, Set<WbMDivisionHasMeterReader> wbMDivisionHasMeterReaders, Set<UserHasCatagory> userHasCatagories) {
        this.userLevel = userLevel;
        this.userFullName = userFullName;
        this.userNic = userNic;
@@ -67,6 +72,8 @@ public class User  implements java.io.Serializable {
        this.mobileNo = mobileNo;
        this.privilageCopies = privilageCopies;
        this.userHasApprovalCats = userHasApprovalCats;
+       this.wbMChangesRecordTbls = wbMChangesRecordTbls;
+       this.wbTPaids = wbTPaids;
        this.apprualstatueses = apprualstatueses;
        this.userHasPrivilages = userHasPrivilages;
        this.applications = applications;
@@ -74,15 +81,18 @@ public class User  implements java.io.Serializable {
        this.assessmentHasProcesstypes = assessmentHasProcesstypes;
        this.sendToApprovesForSendToUser = sendToApprovesForSendToUser;
        this.sendToApprovesForSendByUser = sendToApprovesForSendByUser;
+       this.tlApps = tlApps;
        this.assessments = assessments;
        this.userhasdivitions = userhasdivitions;
        this.commetteememberses = commetteememberses;
        this.userLogins = userLogins;
+       this.wbMNatureChangeTbls = wbMNatureChangeTbls;
        this.userLogs = userLogs;
        this.userHasApplicationCatagories = userHasApplicationCatagories;
        this.userHasDepartments = userHasDepartments;
        this.receipts = receipts;
        this.userHasOtheritiscats = userHasOtheritiscats;
+       this.wbMDivisionHasMeterReaders = wbMDivisionHasMeterReaders;
        this.userHasCatagories = userHasCatagories;
     }
    
@@ -205,6 +215,20 @@ public class User  implements java.io.Serializable {
     public void setUserHasApprovalCats(Set<UserHasApprovalCat> userHasApprovalCats) {
         this.userHasApprovalCats = userHasApprovalCats;
     }
+    public Set<WbMChangesRecordTbl> getWbMChangesRecordTbls() {
+        return this.wbMChangesRecordTbls;
+    }
+    
+    public void setWbMChangesRecordTbls(Set<WbMChangesRecordTbl> wbMChangesRecordTbls) {
+        this.wbMChangesRecordTbls = wbMChangesRecordTbls;
+    }
+    public Set<WbTPaid> getWbTPaids() {
+        return this.wbTPaids;
+    }
+    
+    public void setWbTPaids(Set<WbTPaid> wbTPaids) {
+        this.wbTPaids = wbTPaids;
+    }
     public Set<Apprualstatues> getApprualstatueses() {
         return this.apprualstatueses;
     }
@@ -254,6 +278,13 @@ public class User  implements java.io.Serializable {
     public void setSendToApprovesForSendByUser(Set<SendToApprove> sendToApprovesForSendByUser) {
         this.sendToApprovesForSendByUser = sendToApprovesForSendByUser;
     }
+    public Set<TlApp> getTlApps() {
+        return this.tlApps;
+    }
+    
+    public void setTlApps(Set<TlApp> tlApps) {
+        this.tlApps = tlApps;
+    }
     public Set<Assessment> getAssessments() {
         return this.assessments;
     }
@@ -281,6 +312,13 @@ public class User  implements java.io.Serializable {
     
     public void setUserLogins(Set<UserLogin> userLogins) {
         this.userLogins = userLogins;
+    }
+    public Set<WbMNatureChangeTbl> getWbMNatureChangeTbls() {
+        return this.wbMNatureChangeTbls;
+    }
+    
+    public void setWbMNatureChangeTbls(Set<WbMNatureChangeTbl> wbMNatureChangeTbls) {
+        this.wbMNatureChangeTbls = wbMNatureChangeTbls;
     }
     public Set<UserLog> getUserLogs() {
         return this.userLogs;
@@ -316,6 +354,13 @@ public class User  implements java.io.Serializable {
     
     public void setUserHasOtheritiscats(Set<UserHasOtheritiscat> userHasOtheritiscats) {
         this.userHasOtheritiscats = userHasOtheritiscats;
+    }
+    public Set<WbMDivisionHasMeterReader> getWbMDivisionHasMeterReaders() {
+        return this.wbMDivisionHasMeterReaders;
+    }
+    
+    public void setWbMDivisionHasMeterReaders(Set<WbMDivisionHasMeterReader> wbMDivisionHasMeterReaders) {
+        this.wbMDivisionHasMeterReaders = wbMDivisionHasMeterReaders;
     }
     public Set<UserHasCatagory> getUserHasCatagories() {
         return this.userHasCatagories;

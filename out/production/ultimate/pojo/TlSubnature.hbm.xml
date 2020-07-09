@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.TlSubnature" table="tl_subnature" catalog="ultimate2" optimistic-lock="version">
+        <id name="idTlSubnatuer" type="java.lang.Integer">
+            <column name="idTL_subnatuer" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="tlNature" class="pojo.TlNature" fetch="select">
+            <column name="tl_nature_id" />
+        </many-to-one>
+        <property name="tlSubEname" type="string">
+            <column name="tl_sub_ename" />
+        </property>
+        <property name="tlSubSname" type="string">
+            <column name="tl_sub_sname" />
+        </property>
+        <property name="tlSubStatusId" type="java.lang.Integer">
+            <column name="tl_sub_status_id" />
+        </property>
+        <set name="tlPayDetailses" table="tl_pay_details" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="tl_pay_sub_id" />
+            </key>
+            <one-to-many class="pojo.TlPayDetails" />
+        </set>
+    </class>
+</hibernate-mapping>

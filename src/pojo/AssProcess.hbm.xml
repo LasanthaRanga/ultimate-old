@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.AssProcess" table="ass_process" catalog="ultimate2" optimistic-lock="version">
+        <id name="idProcess" type="java.lang.Integer">
+            <column name="idProcess" />
+            <generator class="identity" />
+        </id>
+        <property name="processDate" type="date">
+            <column name="process_date" length="10" />
+        </property>
+        <property name="quaterNumber" type="java.lang.Integer">
+            <column name="quater_number" />
+        </property>
+        <property name="userId" type="java.lang.Integer">
+            <column name="user_id" />
+        </property>
+        <property name="startTime" type="timestamp">
+            <column name="start_time" length="19" />
+        </property>
+        <property name="endTime" type="timestamp">
+            <column name="end_time" length="19" />
+        </property>
+    </class>
+</hibernate-mapping>

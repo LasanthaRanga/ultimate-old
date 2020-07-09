@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.ExUserCatPriviliages" table="ex_user_cat_priviliages" catalog="ultimate2" optimistic-lock="version">
+        <id name="exUserCatPriviliageId" type="java.lang.Integer">
+            <column name="ex_user_cat_priviliage_id" />
+            <generator class="identity" />
+        </id>
+        <property name="exUserCatId" type="java.lang.Integer">
+            <column name="ex_user_cat_id" />
+        </property>
+        <property name="exPriviliageId" type="java.lang.Integer">
+            <column name="ex_priviliage_id" />
+        </property>
+        <property name="exActiveStatus" type="java.lang.Integer">
+            <column name="ex_active_status" />
+        </property>
+        <property name="isSelect" type="java.lang.Integer">
+            <column name="is_select" />
+        </property>
+    </class>
+</hibernate-mapping>

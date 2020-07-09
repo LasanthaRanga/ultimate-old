@@ -1,5 +1,5 @@
 package pojo;
-// Generated Sep 6, 2019 4:30:16 PM by Hibernate Tools 4.3.1
+// Generated Jul 9, 2020 11:48:20 AM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -23,6 +23,7 @@ public class ApplicationCatagory  implements java.io.Serializable {
      private Set<ApprovalBy> approvalBies = new HashSet<ApprovalBy>(0);
      private Set<UserHasApplicationCatagory> userHasApplicationCatagories = new HashSet<UserHasApplicationCatagory>(0);
      private Set<Needdoc> needdocs = new HashSet<Needdoc>(0);
+     private Set<WbMConnection> wbMConnections = new HashSet<WbMConnection>(0);
      private Set<CustomerHasApplicationCatagory> customerHasApplicationCatagories = new HashSet<CustomerHasApplicationCatagory>(0);
      private Set<Referenceno> referencenos = new HashSet<Referenceno>(0);
      private Set<SlSabhaType> slSabhaTypes = new HashSet<SlSabhaType>(0);
@@ -33,7 +34,7 @@ public class ApplicationCatagory  implements java.io.Serializable {
     public ApplicationCatagory() {
     }
 
-    public ApplicationCatagory(String applicationName, Integer applicationCatagoryStatus, Integer applicationCatagorySyn, Set<Uploads> uploadses, Set<Receipt> receipts, Set<DocHandOderPath> docHandOderPaths, Set<Applications> applicationses, Set<EmployeHasApplicationCatagory> employeHasApplicationCatagories, Set<ApprovalBy> approvalBies, Set<UserHasApplicationCatagory> userHasApplicationCatagories, Set<Needdoc> needdocs, Set<CustomerHasApplicationCatagory> customerHasApplicationCatagories, Set<Referenceno> referencenos, Set<SlSabhaType> slSabhaTypes, Set<ReceiptCodeCreate> receiptCodeCreates, Set<SendToApprove> sendToApproves, Set<ReferencenoTbl> referencenoTbls) {
+    public ApplicationCatagory(String applicationName, Integer applicationCatagoryStatus, Integer applicationCatagorySyn, Set<Uploads> uploadses, Set<Receipt> receipts, Set<DocHandOderPath> docHandOderPaths, Set<Applications> applicationses, Set<EmployeHasApplicationCatagory> employeHasApplicationCatagories, Set<ApprovalBy> approvalBies, Set<UserHasApplicationCatagory> userHasApplicationCatagories, Set<Needdoc> needdocs, Set<WbMConnection> wbMConnections, Set<CustomerHasApplicationCatagory> customerHasApplicationCatagories, Set<Referenceno> referencenos, Set<SlSabhaType> slSabhaTypes, Set<ReceiptCodeCreate> receiptCodeCreates, Set<SendToApprove> sendToApproves, Set<ReferencenoTbl> referencenoTbls) {
        this.applicationName = applicationName;
        this.applicationCatagoryStatus = applicationCatagoryStatus;
        this.applicationCatagorySyn = applicationCatagorySyn;
@@ -45,6 +46,7 @@ public class ApplicationCatagory  implements java.io.Serializable {
        this.approvalBies = approvalBies;
        this.userHasApplicationCatagories = userHasApplicationCatagories;
        this.needdocs = needdocs;
+       this.wbMConnections = wbMConnections;
        this.customerHasApplicationCatagories = customerHasApplicationCatagories;
        this.referencenos = referencenos;
        this.slSabhaTypes = slSabhaTypes;
@@ -136,6 +138,13 @@ public class ApplicationCatagory  implements java.io.Serializable {
     
     public void setNeeddocs(Set<Needdoc> needdocs) {
         this.needdocs = needdocs;
+    }
+    public Set<WbMConnection> getWbMConnections() {
+        return this.wbMConnections;
+    }
+    
+    public void setWbMConnections(Set<WbMConnection> wbMConnections) {
+        this.wbMConnections = wbMConnections;
     }
     public Set<CustomerHasApplicationCatagory> getCustomerHasApplicationCatagories() {
         return this.customerHasApplicationCatagories;

@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.WbProcessPay" table="wb_process_pay" catalog="ultimate2" optimistic-lock="version">
+        <id name="wbProcessPayId" type="java.lang.Integer">
+            <column name="wb_process_pay_id" />
+            <generator class="identity" />
+        </id>
+        <property name="wbProcessPayConId" type="java.lang.Integer">
+            <column name="wb_process_pay_con_id" />
+        </property>
+        <property name="wbProcessPayInvoiceNo" type="string">
+            <column name="wb_process_pay_invoice_no" length="50" />
+        </property>
+        <property name="wbProcessPayLya" type="java.lang.Double">
+            <column name="wb_process_pay_LYA" precision="22" scale="0" />
+        </property>
+        <property name="wbProcessPayLyaBal" type="java.lang.Double">
+            <column name="wb_process_pay_LYA_bal" precision="22" scale="0" />
+        </property>
+        <property name="wbProcessPayLma" type="java.lang.Double">
+            <column name="wb_process_pay_LMA" precision="22" scale="0" />
+        </property>
+        <property name="wbProcessPayLmaBal" type="java.lang.Double">
+            <column name="wb_process_pay_LMA_bal" precision="22" scale="0" />
+        </property>
+        <property name="wbProcessPayTma" type="java.lang.Double">
+            <column name="wb_process_pay_TMA" precision="22" scale="0" />
+        </property>
+        <property name="wbProcessPayTmaBal" type="java.lang.Double">
+            <column name="wb_process_pay_TMA_bal" precision="22" scale="0" />
+        </property>
+        <property name="wbProcessPayVat" type="java.lang.Double">
+            <column name="wb_process_pay_VAT" precision="22" scale="0" />
+        </property>
+        <property name="wbProcessPayNbt" type="java.lang.Double">
+            <column name="wb_process_pay_NBT" precision="22" scale="0" />
+        </property>
+        <property name="wbProcessPayStamp" type="java.lang.Double">
+            <column name="wb_process_pay_STAMP" precision="22" scale="0" />
+        </property>
+        <property name="wbProcessPayYear" type="java.lang.Integer">
+            <column name="wb_process_pay_year" />
+        </property>
+        <property name="wbProcessPayMonth" type="java.lang.Integer">
+            <column name="wb_process_pay_month" />
+        </property>
+        <property name="wbProcessPayComStatus" type="string">
+            <column name="wb_process_pay_com_status" length="11" />
+        </property>
+        <property name="wbProcessPayReceiptNo" type="string">
+            <column name="wb_process_pay_receipt_no" length="20" />
+        </property>
+        <property name="wbProcessPayReceiptId" type="java.lang.Integer">
+            <column name="wb_process_pay_receipt_id" />
+        </property>
+        <property name="wbProcessPayOp" type="java.lang.Double">
+            <column name="wb_process_pay_OP" precision="22" scale="0" />
+        </property>
+        <property name="wbProcessPayCompleteProcessGet" type="string">
+            <column name="wb_process_pay_complete_process_get" length="11" />
+        </property>
+        <property name="wbProcessPayProcId" type="java.lang.Integer">
+            <column name="wb_process_pay_proc_id" />
+        </property>
+        <property name="wbProcessPayDate" type="date">
+            <column name="wb_process_pay_date" length="10" />
+        </property>
+    </class>
+</hibernate-mapping>

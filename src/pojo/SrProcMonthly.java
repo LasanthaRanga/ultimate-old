@@ -1,5 +1,5 @@
 package pojo;
-// Generated Nov 19, 2019 3:39:48 PM by Hibernate Tools 4.3.1
+// Generated Jul 9, 2020 11:48:20 AM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -11,7 +11,7 @@ public class SrProcMonthly  implements java.io.Serializable {
 
 
      private Integer shopProcMonthlyId;
-     private SrShop srShop;
+     private SrShopNow srShopNow;
      private Integer shopProcMonthlyYear;
      private Integer shopProcMonthlyMonth;
      private Double shopProcMonthlyFine;
@@ -23,12 +23,14 @@ public class SrProcMonthly  implements java.io.Serializable {
      private Double shopProcMonthlyVat;
      private Double shopProcMonthlyNbt;
      private Double shopProcMonthlyStamp;
+     private Integer shopNextMonth;
+     private Integer shopNextYear;
 
     public SrProcMonthly() {
     }
 
-    public SrProcMonthly(SrShop srShop, Integer shopProcMonthlyYear, Integer shopProcMonthlyMonth, Double shopProcMonthlyFine, Double shopProcMonthlyRent, Double shopProcMonthlySc1, Double shopProcMonthlySc2, Double shopProcMonthlySc3, Date shopProcMonthlyProcDate, Double shopProcMonthlyVat, Double shopProcMonthlyNbt, Double shopProcMonthlyStamp) {
-       this.srShop = srShop;
+    public SrProcMonthly(SrShopNow srShopNow, Integer shopProcMonthlyYear, Integer shopProcMonthlyMonth, Double shopProcMonthlyFine, Double shopProcMonthlyRent, Double shopProcMonthlySc1, Double shopProcMonthlySc2, Double shopProcMonthlySc3, Date shopProcMonthlyProcDate, Double shopProcMonthlyVat, Double shopProcMonthlyNbt, Double shopProcMonthlyStamp, Integer shopNextMonth, Integer shopNextYear) {
+       this.srShopNow = srShopNow;
        this.shopProcMonthlyYear = shopProcMonthlyYear;
        this.shopProcMonthlyMonth = shopProcMonthlyMonth;
        this.shopProcMonthlyFine = shopProcMonthlyFine;
@@ -40,6 +42,8 @@ public class SrProcMonthly  implements java.io.Serializable {
        this.shopProcMonthlyVat = shopProcMonthlyVat;
        this.shopProcMonthlyNbt = shopProcMonthlyNbt;
        this.shopProcMonthlyStamp = shopProcMonthlyStamp;
+       this.shopNextMonth = shopNextMonth;
+       this.shopNextYear = shopNextYear;
     }
    
     public Integer getShopProcMonthlyId() {
@@ -49,12 +53,12 @@ public class SrProcMonthly  implements java.io.Serializable {
     public void setShopProcMonthlyId(Integer shopProcMonthlyId) {
         this.shopProcMonthlyId = shopProcMonthlyId;
     }
-    public SrShop getSrShop() {
-        return this.srShop;
+    public SrShopNow getSrShopNow() {
+        return this.srShopNow;
     }
     
-    public void setSrShop(SrShop srShop) {
-        this.srShop = srShop;
+    public void setSrShopNow(SrShopNow srShopNow) {
+        this.srShopNow = srShopNow;
     }
     public Integer getShopProcMonthlyYear() {
         return this.shopProcMonthlyYear;
@@ -132,6 +136,20 @@ public class SrProcMonthly  implements java.io.Serializable {
     
     public void setShopProcMonthlyStamp(Double shopProcMonthlyStamp) {
         this.shopProcMonthlyStamp = shopProcMonthlyStamp;
+    }
+    public Integer getShopNextMonth() {
+        return this.shopNextMonth;
+    }
+    
+    public void setShopNextMonth(Integer shopNextMonth) {
+        this.shopNextMonth = shopNextMonth;
+    }
+    public Integer getShopNextYear() {
+        return this.shopNextYear;
+    }
+    
+    public void setShopNextYear(Integer shopNextYear) {
+        this.shopNextYear = shopNextYear;
     }
 
 

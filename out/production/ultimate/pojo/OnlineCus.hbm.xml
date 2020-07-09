@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.OnlineCus" table="online_cus" catalog="ultimate2" optimistic-lock="version">
+        <id name="idOnline" type="java.lang.Integer">
+            <column name="idOnline" />
+            <generator class="identity" />
+        </id>
+        <property name="fullname" type="string">
+            <column name="fullname" />
+        </property>
+        <property name="nic" type="string">
+            <column name="nic" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" />
+        </property>
+        <property name="mobile" type="string">
+            <column name="mobile" />
+        </property>
+        <property name="pword" type="string">
+            <column name="pword" />
+        </property>
+        <property name="status" type="java.lang.Integer">
+            <column name="status" />
+        </property>
+        <property name="code" type="string">
+            <column name="code" />
+        </property>
+    </class>
+</hibernate-mapping>

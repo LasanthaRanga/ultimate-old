@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Sep 6, 2019 4:30:22 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="pojo.Privilage" table="privilage" catalog="ultimate2" optimistic-lock="version">
         <id name="idPrivilage" type="java.lang.Integer">
@@ -20,6 +20,12 @@
         <property name="type" type="string">
             <column name="type" length="45" />
         </property>
+        <set name="privilegesOtherSofts" table="privileges_other_soft" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="privileges_table_id" />
+            </key>
+            <one-to-many class="pojo.PrivilegesOtherSoft" />
+        </set>
         <set name="userHasPrivilages" table="user_has_privilage" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="Privilage_idPrivilage" not-null="true" />

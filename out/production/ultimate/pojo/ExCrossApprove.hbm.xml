@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.ExCrossApprove" table="ex_cross_approve" catalog="ultimate2" optimistic-lock="version">
+        <id name="exCrossApproveId" type="java.lang.Integer">
+            <column name="ex_cross_approve_id" />
+            <generator class="identity" />
+        </id>
+        <property name="exCrossApproveComment" type="string">
+            <column name="ex_cross_approve_comment" />
+        </property>
+        <property name="exCrossApproveStatus" type="java.lang.Integer">
+            <column name="ex_cross_approve_status" />
+        </property>
+        <property name="exCrossApproveUser" type="java.lang.Integer">
+            <column name="ex_cross_approve_user" />
+        </property>
+        <property name="exCrossApproveDate" type="date">
+            <column name="ex_cross_approve_date" length="10" />
+        </property>
+        <property name="exCrossReciptId" type="java.lang.Integer">
+            <column name="ex_cross_recipt_id" />
+        </property>
+    </class>
+</hibernate-mapping>

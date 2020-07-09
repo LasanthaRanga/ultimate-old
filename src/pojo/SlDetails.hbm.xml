@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Sep 6, 2019 4:30:22 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="pojo.SlDetails" table="sl_details" catalog="ultimate2" optimistic-lock="version">
         <id name="idStreetLine" type="int">
@@ -120,7 +120,7 @@
             <column name="slPlceAddress" />
         </property>
         <property name="slloanAmnt" type="string">
-            <column name="slloanAmnt" length="11" />
+            <column name="slloanAmnt" />
         </property>
         <property name="slLandSize" type="string">
             <column name="slLandSize" />
@@ -130,6 +130,12 @@
         </property>
         <property name="engineerApprove" type="string">
             <column name="engineer_approve" />
+        </property>
+        <property name="paymentBtnStatus" type="string">
+            <column name="payment_btn_status" />
+        </property>
+        <property name="slTitle" type="string">
+            <column name="slTitle" />
         </property>
         <set name="slDistances" table="sl_distance" inverse="true" lazy="true" fetch="select">
             <key>

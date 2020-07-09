@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.TlVoteCategory" table="tl_vote_category" catalog="ultimate2" optimistic-lock="version">
+        <id name="tlVoteCatId" type="int">
+            <column name="tl_vote_cat_id" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="office" class="pojo.Office" fetch="select">
+            <column name="tl_office_id" />
+        </many-to-one>
+        <property name="tlVoteCategory" type="string">
+            <column name="tl_vote_category" length="20" />
+        </property>
+        <property name="tlAmountVoteId" type="java.lang.Integer">
+            <column name="tl_amount_vote_id" />
+        </property>
+        <property name="tlVatVoteId" type="java.lang.Integer">
+            <column name="tl_vat_vote_id" />
+        </property>
+        <property name="tlNbtVoteId" type="java.lang.Integer">
+            <column name="tl_nbt_vote_id" />
+        </property>
+        <property name="tlStampVoteId" type="java.lang.Integer">
+            <column name="tl_stamp_vote_id" />
+        </property>
+        <property name="tlCashVoteId" type="java.lang.Integer">
+            <column name="tl_cash_vote_id" />
+        </property>
+        <property name="tlChequeVoteId" type="java.lang.Integer">
+            <column name="tl_cheque_vote_id" />
+        </property>
+        <property name="tlAccountId" type="java.lang.Integer">
+            <column name="tl_account_id" />
+        </property>
+        <set name="tlSubTypes" table="tl_sub_type" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="tl_sub_vote_cat_id" />
+            </key>
+            <one-to-many class="pojo.TlSubType" />
+        </set>
+    </class>
+</hibernate-mapping>

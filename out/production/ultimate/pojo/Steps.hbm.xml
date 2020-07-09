@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.Steps" table="steps" catalog="ultimate2" optimistic-lock="version">
+        <id name="idSteps" type="java.lang.Integer">
+            <column name="idSteps" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="unique" class="pojo.Unique" fetch="select">
+            <column name="unique_id" />
+        </many-to-one>
+        <property name="stepNo" type="java.lang.Integer">
+            <column name="step_no" />
+        </property>
+        <property name="stepName" type="string">
+            <column name="step_name" />
+        </property>
+        <property name="comemts" type="string">
+            <column name="comemts" />
+        </property>
+        <property name="image" type="string">
+            <column name="image" />
+        </property>
+        <property name="sms" type="string">
+            <column name="sms" />
+        </property>
+        <property name="status" type="java.lang.Integer">
+            <column name="status" />
+        </property>
+        <property name="dateandtime" type="timestamp">
+            <column name="dateandtime" length="19" />
+        </property>
+        <property name="userId" type="java.lang.Integer">
+            <column name="user_id" />
+        </property>
+        <property name="userName" type="string">
+            <column name="user_name" />
+        </property>
+        <property name="ucatId" type="java.lang.Integer">
+            <column name="ucat_id" />
+        </property>
+        <property name="userCat" type="string">
+            <column name="user_cat" />
+        </property>
+    </class>
+</hibernate-mapping>

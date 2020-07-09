@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.ExReciptDeduct" table="ex_recipt_deduct" catalog="ultimate2" optimistic-lock="version">
+        <id name="exDepositDeductId" type="java.lang.Integer">
+            <column name="ex_deposit_deduct_id" />
+            <generator class="identity" />
+        </id>
+        <property name="exVoucherInfoId" type="java.lang.Integer">
+            <column name="ex_voucher_info_id" />
+        </property>
+        <property name="exDeductAmount" type="java.lang.Double">
+            <column name="ex_deduct_amount" precision="22" scale="0" />
+        </property>
+        <property name="exDeductDate" type="date">
+            <column name="ex_deduct_date" length="10" />
+        </property>
+        <property name="exApproveStatus" type="java.lang.Integer">
+            <column name="ex_approve_status" />
+        </property>
+        <property name="exActiveStatus" type="java.lang.Integer">
+            <column name="ex_active_status" />
+        </property>
+        <property name="exGridGridId" type="java.lang.Integer">
+            <column name="ex_grid_grid_id" />
+        </property>
+        <property name="exReciptId" type="java.lang.Integer">
+            <column name="ex_recipt_id" />
+        </property>
+    </class>
+</hibernate-mapping>

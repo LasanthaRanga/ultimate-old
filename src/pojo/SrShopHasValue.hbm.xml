@@ -1,14 +1,14 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Sep 6, 2019 4:30:22 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="pojo.SrShopHasValue" table="sr_shop_has_value" catalog="ultimate2" optimistic-lock="version">
         <id name="shopHasValueId" type="java.lang.Integer">
             <column name="shop_has_value_id" />
             <generator class="identity" />
         </id>
-        <many-to-one name="srShop" class="pojo.SrShop" fetch="select">
+        <many-to-one name="srShopNow" class="pojo.SrShopNow" fetch="select">
             <column name="value_shop_id" />
         </many-to-one>
         <many-to-one name="srShopValues" class="pojo.SrShopValues" fetch="select">

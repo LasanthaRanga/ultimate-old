@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Sep 6, 2019 4:30:22 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="pojo.SmsDetails" table="sms_details" catalog="ultimate2" optimistic-lock="version">
         <id name="smsId" type="java.lang.Integer">
@@ -46,6 +46,9 @@
         </property>
         <property name="smsSignature3" type="string">
             <column name="sms_signature_3" />
+        </property>
+        <property name="smsSendOrNot" type="string">
+            <column name="sms_send_or_not" />
         </property>
     </class>
 </hibernate-mapping>

@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.WbMChangesRecordTbl" table="wb_m_changes_record_tbl" catalog="ultimate2" optimistic-lock="version">
+        <id name="wbChangesRecordingId" type="java.lang.Integer">
+            <column name="wb_changes_recording_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="user" class="pojo.User" fetch="select">
+            <column name="wb_changes_user" />
+        </many-to-one>
+        <many-to-one name="wbMConnection" class="pojo.WbMConnection" fetch="select">
+            <column name="wb_change_con_id" />
+        </many-to-one>
+        <property name="wbRecordingUpdateSet" type="string">
+            <column name="wb_recording_update_set" length="100" not-null="true" />
+        </property>
+        <property name="wbChangeDate" type="date">
+            <column name="wb_change_date" length="10" />
+        </property>
+        <property name="wbChangeTime" type="time">
+            <column name="wb_change_time" length="8" />
+        </property>
+    </class>
+</hibernate-mapping>

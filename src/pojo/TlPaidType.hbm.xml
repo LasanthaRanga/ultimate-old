@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.TlPaidType" table="tl_paid_type" catalog="ultimate2" optimistic-lock="version">
+        <id name="tlPaidType" type="java.lang.Integer">
+            <column name="tl_paid_type" />
+            <generator class="identity" />
+        </id>
+        <property name="tlPaidCategory" type="string">
+            <column name="tl_paid_category" />
+        </property>
+        <property name="tlVatPaidNot" type="java.lang.Integer">
+            <column name="tl_vat_paid_not" />
+        </property>
+        <property name="tlNbtPaidNot" type="java.lang.Integer">
+            <column name="tl_nbt_paid_not" />
+        </property>
+        <property name="tlStampPaidNot" type="java.lang.Integer">
+            <column name="tl_stamp_paid_not" />
+        </property>
+        <property name="tlVatId" type="java.lang.Integer">
+            <column name="tl_vat_id" />
+        </property>
+        <property name="tlNbtId" type="java.lang.Integer">
+            <column name="tl_nbt_id" />
+        </property>
+        <property name="tlStampId" type="java.lang.Integer">
+            <column name="tl_stamp_id" />
+        </property>
+        <property name="tlPaidActiveStatus" type="java.lang.Integer">
+            <column name="tl_paid_active_status" />
+        </property>
+        <set name="tlSubTypes" table="tl_sub_type" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="tl_sub_paid_cat_id" />
+            </key>
+            <one-to-many class="pojo.TlSubType" />
+        </set>
+    </class>
+</hibernate-mapping>

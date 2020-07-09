@@ -1,5 +1,5 @@
 package pojo;
-// Generated Sep 6, 2019 4:30:16 PM by Hibernate Tools 4.3.1
+// Generated Jul 9, 2020 11:48:20 AM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -20,15 +20,18 @@ public class Office  implements java.io.Serializable {
      private Integer officeStatus;
      private Integer officeTypeInt;
      private String officeTypeString;
+     private Set<TlVoteCategory> tlVoteCategories = new HashSet<TlVoteCategory>(0);
      private Set<SlDetails> slDetailses = new HashSet<SlDetails>(0);
      private Set<ReceiptCodeCreate> receiptCodeCreates = new HashSet<ReceiptCodeCreate>(0);
+     private Set<TlAppCreateNo> tlAppCreateNos = new HashSet<TlAppCreateNo>(0);
      private Set<SrShop> srShops = new HashSet<SrShop>(0);
      private Set<ReferencenoTbl> referencenoTbls = new HashSet<ReferencenoTbl>(0);
+     private Set<TlCreatePropId> tlCreatePropIds = new HashSet<TlCreatePropId>(0);
 
     public Office() {
     }
 
-    public Office(String officeName, String officeCode, String officeAddress, String officePhone, Integer officeOder, Integer officeStatus, Integer officeTypeInt, String officeTypeString, Set<SlDetails> slDetailses, Set<ReceiptCodeCreate> receiptCodeCreates, Set<SrShop> srShops, Set<ReferencenoTbl> referencenoTbls) {
+    public Office(String officeName, String officeCode, String officeAddress, String officePhone, Integer officeOder, Integer officeStatus, Integer officeTypeInt, String officeTypeString, Set<TlVoteCategory> tlVoteCategories, Set<SlDetails> slDetailses, Set<ReceiptCodeCreate> receiptCodeCreates, Set<TlAppCreateNo> tlAppCreateNos, Set<SrShop> srShops, Set<ReferencenoTbl> referencenoTbls, Set<TlCreatePropId> tlCreatePropIds) {
        this.officeName = officeName;
        this.officeCode = officeCode;
        this.officeAddress = officeAddress;
@@ -37,10 +40,13 @@ public class Office  implements java.io.Serializable {
        this.officeStatus = officeStatus;
        this.officeTypeInt = officeTypeInt;
        this.officeTypeString = officeTypeString;
+       this.tlVoteCategories = tlVoteCategories;
        this.slDetailses = slDetailses;
        this.receiptCodeCreates = receiptCodeCreates;
+       this.tlAppCreateNos = tlAppCreateNos;
        this.srShops = srShops;
        this.referencenoTbls = referencenoTbls;
+       this.tlCreatePropIds = tlCreatePropIds;
     }
    
     public Integer getIdOffice() {
@@ -106,6 +112,13 @@ public class Office  implements java.io.Serializable {
     public void setOfficeTypeString(String officeTypeString) {
         this.officeTypeString = officeTypeString;
     }
+    public Set<TlVoteCategory> getTlVoteCategories() {
+        return this.tlVoteCategories;
+    }
+    
+    public void setTlVoteCategories(Set<TlVoteCategory> tlVoteCategories) {
+        this.tlVoteCategories = tlVoteCategories;
+    }
     public Set<SlDetails> getSlDetailses() {
         return this.slDetailses;
     }
@@ -120,6 +133,13 @@ public class Office  implements java.io.Serializable {
     public void setReceiptCodeCreates(Set<ReceiptCodeCreate> receiptCodeCreates) {
         this.receiptCodeCreates = receiptCodeCreates;
     }
+    public Set<TlAppCreateNo> getTlAppCreateNos() {
+        return this.tlAppCreateNos;
+    }
+    
+    public void setTlAppCreateNos(Set<TlAppCreateNo> tlAppCreateNos) {
+        this.tlAppCreateNos = tlAppCreateNos;
+    }
     public Set<SrShop> getSrShops() {
         return this.srShops;
     }
@@ -133,6 +153,13 @@ public class Office  implements java.io.Serializable {
     
     public void setReferencenoTbls(Set<ReferencenoTbl> referencenoTbls) {
         this.referencenoTbls = referencenoTbls;
+    }
+    public Set<TlCreatePropId> getTlCreatePropIds() {
+        return this.tlCreatePropIds;
+    }
+    
+    public void setTlCreatePropIds(Set<TlCreatePropId> tlCreatePropIds) {
+        this.tlCreatePropIds = tlCreatePropIds;
     }
 
 

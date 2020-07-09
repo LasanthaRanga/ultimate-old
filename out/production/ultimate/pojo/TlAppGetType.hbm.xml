@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.TlAppGetType" table="tl_app_get_type" catalog="ultimate2" optimistic-lock="version">
+        <id name="tlAppGetTypeId" type="int">
+            <column name="tl_app_get_type_id" />
+            <generator class="assigned" />
+        </id>
+        <property name="tlAppGetType" type="string">
+            <column name="tl_app_get_type" length="50" />
+        </property>
+        <set name="tlApps" table="tl_app" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="app_get_type_status" />
+            </key>
+            <one-to-many class="pojo.TlApp" />
+        </set>
+    </class>
+</hibernate-mapping>

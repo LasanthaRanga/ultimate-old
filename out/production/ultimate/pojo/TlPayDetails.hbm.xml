@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.TlPayDetails" table="tl_pay_details" catalog="ultimate2" optimistic-lock="version">
+        <id name="idTlPayDetails" type="int">
+            <column name="idTL_pay_details" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="tlApp" class="pojo.TlApp" fetch="select">
+            <column name="tl_pay_app_id" />
+        </many-to-one>
+        <many-to-one name="tlNature" class="pojo.TlNature" fetch="select">
+            <column name="tl_pay_natue_id" />
+        </many-to-one>
+        <many-to-one name="tlSubType" class="pojo.TlSubType" fetch="select">
+            <column name="tl_pay_subtype_id" />
+        </many-to-one>
+        <many-to-one name="tlSubnature" class="pojo.TlSubnature" fetch="select">
+            <column name="tl_pay_sub_id" />
+        </many-to-one>
+        <property name="tlPayAllocation" type="java.lang.Double">
+            <column name="tl_pay_allocation" precision="22" scale="0" />
+        </property>
+        <property name="tlPayAmount" type="java.lang.Double">
+            <column name="tl_pay_amount" precision="22" scale="0" />
+        </property>
+        <property name="tlPayVat" type="java.lang.Double">
+            <column name="tl_pay_vat" precision="22" scale="0" />
+        </property>
+        <property name="tlPayNbt" type="java.lang.Double">
+            <column name="tl_pay_nbt" precision="22" scale="0" />
+        </property>
+        <property name="tlPayStamp" type="java.lang.Double">
+            <column name="tl_pay_stamp" precision="22" scale="0" />
+        </property>
+        <property name="tlPayTot" type="java.lang.Double">
+            <column name="tl_pay_tot" precision="22" scale="0" />
+        </property>
+        <property name="tlPaidStatus" type="java.lang.Integer">
+            <column name="tl_paid_status" />
+        </property>
+        <property name="tlSendApproveOrNot" type="java.lang.Integer">
+            <column name="tl_send_approve_or_not" />
+        </property>
+        <property name="tlApproveCompleteOrNot" type="java.lang.Integer">
+            <column name="tl_approve_complete_or_not" />
+        </property>
+        <property name="tlPayReceiptNo" type="string">
+            <column name="tl_pay_receipt_no" length="50" />
+        </property>
+        <property name="tlTlLicenceNo" type="string">
+            <column name="tl_tl_licence_no" length="50" />
+        </property>
+        <property name="tlTlLicenceNoOrder" type="java.lang.Integer">
+            <column name="tl_tl_licence_no_order" />
+        </property>
+        <property name="tlReceiptId" type="java.lang.Integer">
+            <column name="tl_receipt_id" />
+        </property>
+        <set name="tlCrossTblDetailses" table="tl_cross_tbl_details" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="tl_pay_details_id" />
+            </key>
+            <one-to-many class="pojo.TlCrossTblDetails" />
+        </set>
+        <set name="tlPays" table="tl_pay" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="tl_pay_detail_tbl_id" />
+            </key>
+            <one-to-many class="pojo.TlPay" />
+        </set>
+    </class>
+</hibernate-mapping>

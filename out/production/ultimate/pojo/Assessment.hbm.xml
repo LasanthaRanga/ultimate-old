@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Sep 6, 2019 4:30:22 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="pojo.Assessment" table="assessment" catalog="ultimate2" optimistic-lock="version">
         <id name="idAssessment" type="java.lang.Integer">
@@ -47,6 +47,9 @@
         <property name="officeIdOffice" type="java.lang.Integer">
             <column name="office_idOffice" />
         </property>
+        <property name="isWarrant" type="java.lang.Integer">
+            <column name="isWarrant" />
+        </property>
         <set name="assAllocations" table="ass_allocation" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="Assessment_idAssessment" not-null="true" />
@@ -88,6 +91,12 @@
                 <column name="Assessment_idAssessment" not-null="true" />
             </key>
             <one-to-many class="pojo.AssPayment" />
+        </set>
+        <set name="wbMConnections" table="wb_m_connection" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="wb_m_assessment_table_id" />
+            </key>
+            <one-to-many class="pojo.WbMConnection" />
         </set>
         <set name="assCreditdebits" table="ass_creditdebit" inverse="true" lazy="true" fetch="select">
             <key>

@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.ExVoucherApproveDetails" table="ex_voucher_approve_details" catalog="ultimate2" optimistic-lock="version">
+        <id name="exApproveInfoId" type="java.lang.Integer">
+            <column name="ex_approve_info_id" />
+            <generator class="identity" />
+        </id>
+        <property name="exVoucherVoucherInformationId" type="java.lang.Integer">
+            <column name="ex_voucher_voucher_information_id" />
+        </property>
+        <property name="exVoucherApproveReject" type="java.lang.Integer">
+            <column name="ex_voucher_approve_reject" />
+        </property>
+        <property name="exAproveUserId" type="java.lang.Integer">
+            <column name="ex_aprove_user_id" />
+        </property>
+        <property name="exApproveDepeartment" type="java.lang.Integer">
+            <column name="ex_approve_depeartment" />
+        </property>
+        <property name="exApproveDate" type="date">
+            <column name="ex_approve_date" length="10" />
+        </property>
+        <property name="exApproveTime" type="time">
+            <column name="ex_approve_time" length="8" />
+        </property>
+        <property name="exApproveActiveStatus" type="java.lang.Integer">
+            <column name="ex_approve_active_status" />
+        </property>
+        <property name="exApproveDescription" type="string">
+            <column name="ex_approve_description" />
+        </property>
+    </class>
+</hibernate-mapping>

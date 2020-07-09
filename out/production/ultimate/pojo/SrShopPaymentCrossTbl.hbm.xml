@@ -1,14 +1,14 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Sep 6, 2019 4:30:22 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="pojo.SrShopPaymentCrossTbl" table="sr_shop_payment_cross_tbl" catalog="ultimate2" optimistic-lock="version">
         <id name="srShopPayment2Id" type="java.lang.Integer">
             <column name="sr_shop_payment2_id" />
             <generator class="identity" />
         </id>
-        <many-to-one name="srShop" class="pojo.SrShop" fetch="select">
+        <many-to-one name="srShopNow" class="pojo.SrShopNow" fetch="select">
             <column name="sr_shop_payment2_shop_id" />
         </many-to-one>
         <property name="srShopPayment2VoteId" type="java.lang.Integer">

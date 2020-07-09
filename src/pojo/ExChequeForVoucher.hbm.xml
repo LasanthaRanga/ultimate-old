@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.ExChequeForVoucher" table="ex_cheque_for_voucher" catalog="ultimate2" optimistic-lock="version">
+        <id name="exSingleChequeDetailsId" type="java.lang.Integer">
+            <column name="ex_single_cheque_details_id" />
+            <generator class="identity" />
+        </id>
+        <property name="exVoucherInfoId" type="java.lang.Integer">
+            <column name="ex_voucher_info_id" />
+        </property>
+        <property name="exChequeNo" type="string">
+            <column name="ex_cheque_no" />
+        </property>
+        <property name="exActiveStatus" type="java.lang.Integer">
+            <column name="ex_active_status" />
+        </property>
+    </class>
+</hibernate-mapping>

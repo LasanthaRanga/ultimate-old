@@ -76,8 +76,8 @@ public class billComplete {
             }
 
 
-            String path = "C:\\Ultimate\\Report\\shoprent\\shopbil_kuli_uc.jrxml";// IN SYSTEM
-//            String path = "C:\\Users\\Ranga\\JaspersoftWorkspace\\MyReports\\shopbil.jrxml";// IN SYSTEM
+            String path = "C:\\Ultimate\\Report\\shoprent\\shopbil.jrxml";// IN SYSTEM
+            //    String path = "C:\\Users\\Ranga\\JaspersoftWorkspace\\MyReports\\shopbil.jrxml";// IN SYSTEM
             JasperReport jr = JasperCompileManager.compileReport(path);
             HashMap param = new HashMap<String, String>();
             param.put("idRecipt", idRecipt);
@@ -182,21 +182,7 @@ public class billComplete {
                         "\t`tl_pay_details_id` = '" + tl_pay_detail_tbl_id + "'");
 
 
-
-
-
-
-
-
-
             }
-
-
-
-
-
-
-
 
 
         } catch (Exception e) {

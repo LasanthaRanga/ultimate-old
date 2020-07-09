@@ -1,5 +1,5 @@
 package pojo;
-// Generated Sep 6, 2019 4:30:16 PM by Hibernate Tools 4.3.1
+// Generated Jul 9, 2020 11:48:20 AM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -13,8 +13,8 @@ public class Bop  implements java.io.Serializable {
 
 
      private Integer idBop;
-     private Customer customer;
      private PersonTitle personTitle;
+     private Integer customerIdCustomer;
      private Date bopApplayDate;
      private String bopPlanNo;
      private String bopUrveyorsName;
@@ -36,6 +36,7 @@ public class Bop  implements java.io.Serializable {
      private String bopRefNo;
      private Integer bopRefNoOrder;
      private String bopPerpose;
+     private Integer bopPaymentBtnStatus;
      private Set<Applications> applicationses = new HashSet<Applications>(0);
      private Set<Bophascommettee> bophascommettees = new HashSet<Bophascommettee>(0);
      private Set<BopHasAssessment> bopHasAssessments = new HashSet<BopHasAssessment>(0);
@@ -44,13 +45,9 @@ public class Bop  implements java.io.Serializable {
     public Bop() {
     }
 
-	
-    public Bop(Customer customer) {
-        this.customer = customer;
-    }
-    public Bop(Customer customer, PersonTitle personTitle, Date bopApplayDate, String bopPlanNo, String bopUrveyorsName, String bopNo, String bopIsMarkonground, String bopDiscription, String bopOwnership, Double bopTotalPrice, Integer bopCompleteStatus, String bopCondtion, String bopRegulation, Double bopLandSize, Date bopSurveyDate, String bopVat, String bopNbt, String bopDbt, String bopStamp, String bopOther, String bopRefNo, Integer bopRefNoOrder, String bopPerpose, Set<Applications> applicationses, Set<Bophascommettee> bophascommettees, Set<BopHasAssessment> bopHasAssessments, Set<Area> areas) {
-       this.customer = customer;
+    public Bop(PersonTitle personTitle, Integer customerIdCustomer, Date bopApplayDate, String bopPlanNo, String bopUrveyorsName, String bopNo, String bopIsMarkonground, String bopDiscription, String bopOwnership, Double bopTotalPrice, Integer bopCompleteStatus, String bopCondtion, String bopRegulation, Double bopLandSize, Date bopSurveyDate, String bopVat, String bopNbt, String bopDbt, String bopStamp, String bopOther, String bopRefNo, Integer bopRefNoOrder, String bopPerpose, Integer bopPaymentBtnStatus, Set<Applications> applicationses, Set<Bophascommettee> bophascommettees, Set<BopHasAssessment> bopHasAssessments, Set<Area> areas) {
        this.personTitle = personTitle;
+       this.customerIdCustomer = customerIdCustomer;
        this.bopApplayDate = bopApplayDate;
        this.bopPlanNo = bopPlanNo;
        this.bopUrveyorsName = bopUrveyorsName;
@@ -72,6 +69,7 @@ public class Bop  implements java.io.Serializable {
        this.bopRefNo = bopRefNo;
        this.bopRefNoOrder = bopRefNoOrder;
        this.bopPerpose = bopPerpose;
+       this.bopPaymentBtnStatus = bopPaymentBtnStatus;
        this.applicationses = applicationses;
        this.bophascommettees = bophascommettees;
        this.bopHasAssessments = bopHasAssessments;
@@ -85,19 +83,19 @@ public class Bop  implements java.io.Serializable {
     public void setIdBop(Integer idBop) {
         this.idBop = idBop;
     }
-    public Customer getCustomer() {
-        return this.customer;
-    }
-    
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
-    }
     public PersonTitle getPersonTitle() {
         return this.personTitle;
     }
     
     public void setPersonTitle(PersonTitle personTitle) {
         this.personTitle = personTitle;
+    }
+    public Integer getCustomerIdCustomer() {
+        return this.customerIdCustomer;
+    }
+    
+    public void setCustomerIdCustomer(Integer customerIdCustomer) {
+        this.customerIdCustomer = customerIdCustomer;
     }
     public Date getBopApplayDate() {
         return this.bopApplayDate;
@@ -245,6 +243,13 @@ public class Bop  implements java.io.Serializable {
     
     public void setBopPerpose(String bopPerpose) {
         this.bopPerpose = bopPerpose;
+    }
+    public Integer getBopPaymentBtnStatus() {
+        return this.bopPaymentBtnStatus;
+    }
+    
+    public void setBopPaymentBtnStatus(Integer bopPaymentBtnStatus) {
+        this.bopPaymentBtnStatus = bopPaymentBtnStatus;
     }
     public Set<Applications> getApplicationses() {
         return this.applicationses;

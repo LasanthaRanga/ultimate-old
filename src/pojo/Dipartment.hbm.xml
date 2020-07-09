@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Sep 6, 2019 4:30:22 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="pojo.Dipartment" table="dipartment" catalog="ultimate2" optimistic-lock="version">
         <id name="idDipartment" type="java.lang.Integer">
@@ -25,6 +25,12 @@
                 <column name="Dipartment_idDipartment" not-null="true" />
             </key>
             <one-to-many class="pojo.UserHasDipartment" />
+        </set>
+        <set name="exVoucherRefNoTbls" table="ex_voucher_ref_no_tbl" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ex_voucher_dept_id" />
+            </key>
+            <one-to-many class="pojo.ExVoucherRefNoTbl" />
         </set>
     </class>
 </hibernate-mapping>

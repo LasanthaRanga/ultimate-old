@@ -1,5 +1,5 @@
 package pojo;
-// Generated Sep 6, 2019 4:30:16 PM by Hibernate Tools 4.3.1
+// Generated Jul 9, 2020 11:48:20 AM by Hibernate Tools 4.3.1
 
 
 
@@ -12,13 +12,19 @@ public class Commetteemembers  implements java.io.Serializable {
      private Integer idCommetteeMembers;
      private Bophascommettee bophascommettee;
      private User user;
+     private Integer bopid;
+     private String vote;
+     private Integer applicationCatId;
 
     public Commetteemembers() {
     }
 
-    public Commetteemembers(Bophascommettee bophascommettee, User user) {
+    public Commetteemembers(Bophascommettee bophascommettee, User user, Integer bopid, String vote, Integer applicationCatId) {
        this.bophascommettee = bophascommettee;
        this.user = user;
+       this.bopid = bopid;
+       this.vote = vote;
+       this.applicationCatId = applicationCatId;
     }
    
     public Integer getIdCommetteeMembers() {
@@ -41,6 +47,27 @@ public class Commetteemembers  implements java.io.Serializable {
     
     public void setUser(User user) {
         this.user = user;
+    }
+    public Integer getBopid() {
+        return this.bopid;
+    }
+    
+    public void setBopid(Integer bopid) {
+        this.bopid = bopid;
+    }
+    public String getVote() {
+        return this.vote;
+    }
+    
+    public void setVote(String vote) {
+        this.vote = vote;
+    }
+    public Integer getApplicationCatId() {
+        return this.applicationCatId;
+    }
+    
+    public void setApplicationCatId(Integer applicationCatId) {
+        this.applicationCatId = applicationCatId;
     }
 
 

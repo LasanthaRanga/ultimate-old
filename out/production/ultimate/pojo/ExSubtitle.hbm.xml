@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.ExSubtitle" table="ex_subtitle" catalog="ultimate2" optimistic-lock="version">
+        <id name="idexprogramSubtitle" type="java.lang.Integer">
+            <column name="idexprogram_subtitle" />
+            <generator class="identity" />
+        </id>
+        <property name="exSubProgramTitle" type="string">
+            <column name="ex_sub_program_title" length="45" />
+        </property>
+        <property name="exSubProgramNameSin" type="string">
+            <column name="ex_sub_program_name_sin" />
+        </property>
+        <property name="exSubProgramNameEng" type="string">
+            <column name="ex_sub_program_name_eng" />
+        </property>
+        <property name="exSubProgramNameTamil" type="string">
+            <column name="ex_sub_program_name_tamil" />
+        </property>
+        <property name="exSubProgramStatus" type="java.lang.Integer">
+            <column name="ex_sub_program_status" />
+        </property>
+        <property name="exSubProgramSyn" type="java.lang.Integer">
+            <column name="ex_sub_program_syn" />
+        </property>
+        <property name="exProgramTitleTitle" type="int">
+            <column name="ex_Program_title_title" not-null="true" />
+        </property>
+        <property name="exIncomeOrExpence" type="java.lang.Integer">
+            <column name="ex_income_or_expence" />
+        </property>
+    </class>
+</hibernate-mapping>

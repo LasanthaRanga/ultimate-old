@@ -1,5 +1,5 @@
 package pojo;
-// Generated Sep 6, 2019 4:30:16 PM by Hibernate Tools 4.3.1
+// Generated Jul 9, 2020 11:48:20 AM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -19,12 +19,13 @@ public class BankInfo  implements java.io.Serializable {
      private Integer status;
      private Integer syn;
      private Set<Vort> vorts = new HashSet<Vort>(0);
+     private Set<ExVoucherCode> exVoucherCodes = new HashSet<ExVoucherCode>(0);
      private Set<CashFlow> cashFlows = new HashSet<CashFlow>(0);
 
     public BankInfo() {
     }
 
-    public BankInfo(String bankName, String acountNo, String acountName, Double currentBallance, Integer status, Integer syn, Set<Vort> vorts, Set<CashFlow> cashFlows) {
+    public BankInfo(String bankName, String acountNo, String acountName, Double currentBallance, Integer status, Integer syn, Set<Vort> vorts, Set<ExVoucherCode> exVoucherCodes, Set<CashFlow> cashFlows) {
        this.bankName = bankName;
        this.acountNo = acountNo;
        this.acountName = acountName;
@@ -32,6 +33,7 @@ public class BankInfo  implements java.io.Serializable {
        this.status = status;
        this.syn = syn;
        this.vorts = vorts;
+       this.exVoucherCodes = exVoucherCodes;
        this.cashFlows = cashFlows;
     }
    
@@ -90,6 +92,13 @@ public class BankInfo  implements java.io.Serializable {
     
     public void setVorts(Set<Vort> vorts) {
         this.vorts = vorts;
+    }
+    public Set<ExVoucherCode> getExVoucherCodes() {
+        return this.exVoucherCodes;
+    }
+    
+    public void setExVoucherCodes(Set<ExVoucherCode> exVoucherCodes) {
+        this.exVoucherCodes = exVoucherCodes;
     }
     public Set<CashFlow> getCashFlows() {
         return this.cashFlows;

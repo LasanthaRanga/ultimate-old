@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.ExVoteTransfer" table="ex_vote_transfer" catalog="ultimate2" optimistic-lock="version">
+        <id name="exTransferId" type="java.lang.Integer">
+            <column name="ex_transfer_id" />
+            <generator class="identity" />
+        </id>
+        <property name="exSendVote" type="string">
+            <column name="ex_send_vote" />
+        </property>
+        <property name="exReciveVote" type="string">
+            <column name="ex_recive_vote" />
+        </property>
+        <property name="exTransferAmount" type="java.lang.Double">
+            <column name="ex_transfer_amount" precision="22" scale="0" />
+        </property>
+        <property name="exTransferUserId" type="java.lang.Integer">
+            <column name="ex_transfer_user_id" />
+        </property>
+        <property name="exTransferDate" type="date">
+            <column name="ex_transfer_date" length="10" />
+        </property>
+    </class>
+</hibernate-mapping>

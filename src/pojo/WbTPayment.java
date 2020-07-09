@@ -1,5 +1,5 @@
 package pojo;
-// Generated Oct 3, 2019 9:56:57 AM by Hibernate Tools 4.3.1
+// Generated Jul 9, 2020 11:48:20 AM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -31,14 +31,16 @@ public class WbTPayment  implements java.io.Serializable {
      private String wbTPayChequeNo;
      private Date wbTPayChequeDate;
      private Integer wbTPayCashStatus;
-     private Integer wbTPayChequeStatus;
+     private String wbTPayChequeStatus;
      private Integer wbTPayCompleteOrNot;
      private Double wbTPayTotal;
+     private Double wbTPayVat;
+     private Integer wbtChequeBnk;
 
     public WbTPayment() {
     }
 
-    public WbTPayment(Receipt receipt, WbMConnection wbMConnection, WbTBillProcess wbTBillProcess, Double wbTPayLya, Double wbTPayLma, Double wbTPayTma, Double wbTPayOp, Double wbTPayLyca, Double wbTPayLmca, Double wbTPayTmca, Double wbTPayCop, String wbTPayReceiptNo, Date wbTPayReceiptDate, Integer wbTPayMonth, Integer wbTPayYear, Double wbTPayCash, Double wbTPayCheque, String wbTPayChequeNo, Date wbTPayChequeDate, Integer wbTPayCashStatus, Integer wbTPayChequeStatus, Integer wbTPayCompleteOrNot, Double wbTPayTotal) {
+    public WbTPayment(Receipt receipt, WbMConnection wbMConnection, WbTBillProcess wbTBillProcess, Double wbTPayLya, Double wbTPayLma, Double wbTPayTma, Double wbTPayOp, Double wbTPayLyca, Double wbTPayLmca, Double wbTPayTmca, Double wbTPayCop, String wbTPayReceiptNo, Date wbTPayReceiptDate, Integer wbTPayMonth, Integer wbTPayYear, Double wbTPayCash, Double wbTPayCheque, String wbTPayChequeNo, Date wbTPayChequeDate, Integer wbTPayCashStatus, String wbTPayChequeStatus, Integer wbTPayCompleteOrNot, Double wbTPayTotal, Double wbTPayVat, Integer wbtChequeBnk) {
        this.receipt = receipt;
        this.wbMConnection = wbMConnection;
        this.wbTBillProcess = wbTBillProcess;
@@ -62,6 +64,8 @@ public class WbTPayment  implements java.io.Serializable {
        this.wbTPayChequeStatus = wbTPayChequeStatus;
        this.wbTPayCompleteOrNot = wbTPayCompleteOrNot;
        this.wbTPayTotal = wbTPayTotal;
+       this.wbTPayVat = wbTPayVat;
+       this.wbtChequeBnk = wbtChequeBnk;
     }
    
     public Integer getWbTPayId() {
@@ -211,11 +215,11 @@ public class WbTPayment  implements java.io.Serializable {
     public void setWbTPayCashStatus(Integer wbTPayCashStatus) {
         this.wbTPayCashStatus = wbTPayCashStatus;
     }
-    public Integer getWbTPayChequeStatus() {
+    public String getWbTPayChequeStatus() {
         return this.wbTPayChequeStatus;
     }
     
-    public void setWbTPayChequeStatus(Integer wbTPayChequeStatus) {
+    public void setWbTPayChequeStatus(String wbTPayChequeStatus) {
         this.wbTPayChequeStatus = wbTPayChequeStatus;
     }
     public Integer getWbTPayCompleteOrNot() {
@@ -231,6 +235,20 @@ public class WbTPayment  implements java.io.Serializable {
     
     public void setWbTPayTotal(Double wbTPayTotal) {
         this.wbTPayTotal = wbTPayTotal;
+    }
+    public Double getWbTPayVat() {
+        return this.wbTPayVat;
+    }
+    
+    public void setWbTPayVat(Double wbTPayVat) {
+        this.wbTPayVat = wbTPayVat;
+    }
+    public Integer getWbtChequeBnk() {
+        return this.wbtChequeBnk;
+    }
+    
+    public void setWbtChequeBnk(Integer wbtChequeBnk) {
+        this.wbtChequeBnk = wbtChequeBnk;
     }
 
 

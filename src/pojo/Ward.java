@@ -1,5 +1,5 @@
 package pojo;
-// Generated Sep 6, 2019 4:30:16 PM by Hibernate Tools 4.3.1
+// Generated Jul 9, 2020 11:48:20 AM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -21,12 +21,13 @@ public class Ward  implements java.io.Serializable {
      private Integer officeIdOffice;
      private Set<StreetCopy> streetCopies = new HashSet<StreetCopy>(0);
      private Set<Street> streets = new HashSet<Street>(0);
+     private Set<TlCreatePropId> tlCreatePropIds = new HashSet<TlCreatePropId>(0);
      private Set<Assessment> assessments = new HashSet<Assessment>(0);
 
     public Ward() {
     }
 
-    public Ward(String wardNo, String wardName, Integer wardStatus, Integer wardSyn, String wardComment, String wardCode, Integer officeIdOffice, Set<StreetCopy> streetCopies, Set<Street> streets, Set<Assessment> assessments) {
+    public Ward(String wardNo, String wardName, Integer wardStatus, Integer wardSyn, String wardComment, String wardCode, Integer officeIdOffice, Set<StreetCopy> streetCopies, Set<Street> streets, Set<TlCreatePropId> tlCreatePropIds, Set<Assessment> assessments) {
        this.wardNo = wardNo;
        this.wardName = wardName;
        this.wardStatus = wardStatus;
@@ -36,6 +37,7 @@ public class Ward  implements java.io.Serializable {
        this.officeIdOffice = officeIdOffice;
        this.streetCopies = streetCopies;
        this.streets = streets;
+       this.tlCreatePropIds = tlCreatePropIds;
        this.assessments = assessments;
     }
    
@@ -108,6 +110,13 @@ public class Ward  implements java.io.Serializable {
     
     public void setStreets(Set<Street> streets) {
         this.streets = streets;
+    }
+    public Set<TlCreatePropId> getTlCreatePropIds() {
+        return this.tlCreatePropIds;
+    }
+    
+    public void setTlCreatePropIds(Set<TlCreatePropId> tlCreatePropIds) {
+        this.tlCreatePropIds = tlCreatePropIds;
     }
     public Set<Assessment> getAssessments() {
         return this.assessments;

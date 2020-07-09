@@ -1,5 +1,5 @@
 package pojo;
-// Generated Sep 6, 2019 4:30:16 PM by Hibernate Tools 4.3.1
+// Generated Jul 9, 2020 11:48:20 AM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -31,7 +31,14 @@ public class Receipt  implements java.io.Serializable {
      private Integer receiptAccountId;
      private String ribno;
      private Date receiptTime;
+     private Integer incomeExpense;
+     private Integer cusId;
+     private Integer crossReciptOrVoucher;
+     private Integer payType;
+     private Double amount;
      private Set<Cheack> cheacks = new HashSet<Cheack>(0);
+     private Set<WbTPayment> wbTPayments = new HashSet<WbTPayment>(0);
+     private Set<WbTPaid> wbTPaids = new HashSet<WbTPaid>(0);
      private Set<AssPayment> assPayments = new HashSet<AssPayment>(0);
 
     public Receipt() {
@@ -41,7 +48,7 @@ public class Receipt  implements java.io.Serializable {
     public Receipt(ApplicationCatagory applicationCatagory) {
         this.applicationCatagory = applicationCatagory;
     }
-    public Receipt(ApplicationCatagory applicationCatagory, User user, Integer receptApplicationId, String receiptPrintNo, Double cheack, Double cesh, Double receiptTotal, Date receiptDay, Integer receiptStatus, Integer receiptSyn, String chqueNo, Date chqueDate, String chqueBank, Integer oder, Integer officeIdOffice, Integer receiptAccountId, String ribno, Date receiptTime, Set<Cheack> cheacks, Set<AssPayment> assPayments) {
+    public Receipt(ApplicationCatagory applicationCatagory, User user, Integer receptApplicationId, String receiptPrintNo, Double cheack, Double cesh, Double receiptTotal, Date receiptDay, Integer receiptStatus, Integer receiptSyn, String chqueNo, Date chqueDate, String chqueBank, Integer oder, Integer officeIdOffice, Integer receiptAccountId, String ribno, Date receiptTime, Integer incomeExpense, Integer cusId, Integer crossReciptOrVoucher, Integer payType, Double amount, Set<Cheack> cheacks, Set<WbTPayment> wbTPayments, Set<WbTPaid> wbTPaids, Set<AssPayment> assPayments) {
        this.applicationCatagory = applicationCatagory;
        this.user = user;
        this.receptApplicationId = receptApplicationId;
@@ -60,7 +67,14 @@ public class Receipt  implements java.io.Serializable {
        this.receiptAccountId = receiptAccountId;
        this.ribno = ribno;
        this.receiptTime = receiptTime;
+       this.incomeExpense = incomeExpense;
+       this.cusId = cusId;
+       this.crossReciptOrVoucher = crossReciptOrVoucher;
+       this.payType = payType;
+       this.amount = amount;
        this.cheacks = cheacks;
+       this.wbTPayments = wbTPayments;
+       this.wbTPaids = wbTPaids;
        this.assPayments = assPayments;
     }
    
@@ -197,12 +211,61 @@ public class Receipt  implements java.io.Serializable {
     public void setReceiptTime(Date receiptTime) {
         this.receiptTime = receiptTime;
     }
+    public Integer getIncomeExpense() {
+        return this.incomeExpense;
+    }
+    
+    public void setIncomeExpense(Integer incomeExpense) {
+        this.incomeExpense = incomeExpense;
+    }
+    public Integer getCusId() {
+        return this.cusId;
+    }
+    
+    public void setCusId(Integer cusId) {
+        this.cusId = cusId;
+    }
+    public Integer getCrossReciptOrVoucher() {
+        return this.crossReciptOrVoucher;
+    }
+    
+    public void setCrossReciptOrVoucher(Integer crossReciptOrVoucher) {
+        this.crossReciptOrVoucher = crossReciptOrVoucher;
+    }
+    public Integer getPayType() {
+        return this.payType;
+    }
+    
+    public void setPayType(Integer payType) {
+        this.payType = payType;
+    }
+    public Double getAmount() {
+        return this.amount;
+    }
+    
+    public void setAmount(Double amount) {
+        this.amount = amount;
+    }
     public Set<Cheack> getCheacks() {
         return this.cheacks;
     }
     
     public void setCheacks(Set<Cheack> cheacks) {
         this.cheacks = cheacks;
+    }
+    public Set<WbTPayment> getWbTPayments() {
+        return this.wbTPayments;
+    }
+    
+    public void setWbTPayments(Set<WbTPayment> wbTPayments) {
+        this.wbTPayments = wbTPayments;
+    }
+    public Set<WbTPaid> getWbTPaids() {
+        return this.wbTPaids;
+    }
+    
+    public void setWbTPaids(Set<WbTPaid> wbTPaids) {
+        this.wbTPaids = wbTPaids;
     }
     public Set<AssPayment> getAssPayments() {
         return this.assPayments;

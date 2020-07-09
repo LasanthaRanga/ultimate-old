@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.TlApp" table="tl_app" catalog="ultimate2" optimistic-lock="version">
+        <id name="idTlApp" type="java.lang.Integer">
+            <column name="idTL_app" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="customer" class="pojo.Customer" fetch="select">
+            <column name="app_cus_id" />
+        </many-to-one>
+        <many-to-one name="tlAppGetType" class="pojo.TlAppGetType" fetch="select">
+            <column name="app_get_type_status" />
+        </many-to-one>
+        <many-to-one name="tlCreatePropId" class="pojo.TlCreatePropId" fetch="select">
+            <column name="tl_create_property_id" />
+        </many-to-one>
+        <many-to-one name="user" class="pojo.User" fetch="select">
+            <column name="app_ri_id" />
+        </many-to-one>
+        <property name="createAppNo" type="string">
+            <column name="create_app_no" length="25" />
+        </property>
+        <property name="appNo" type="string">
+            <column name="app_no" length="25" />
+        </property>
+        <property name="appTlEname" type="string">
+            <column name="app_tl_ename" />
+        </property>
+        <property name="appTlSname" type="string">
+            <column name="app_tl_sname" />
+        </property>
+        <property name="appAssId" type="java.lang.Integer">
+            <column name="app_ass_id" />
+        </property>
+        <property name="appShopId" type="java.lang.Integer">
+            <column name="app_shop_id" />
+        </property>
+        <property name="appUserId" type="java.lang.Integer">
+            <column name="app_user_id" />
+        </property>
+        <property name="appDate" type="date">
+            <column name="app_date" length="10" />
+        </property>
+        <property name="appTime" type="time">
+            <column name="app_time" length="8" />
+        </property>
+        <property name="appStatusAcrive" type="java.lang.Integer">
+            <column name="app_status_acrive" />
+        </property>
+        <property name="appYear" type="java.lang.Integer">
+            <column name="app_year" />
+        </property>
+        <property name="tlAppNoOrder" type="java.lang.Integer">
+            <column name="tl_app_no_order" />
+        </property>
+        <property name="tlAppChairDet" type="java.lang.Integer">
+            <column name="tl_app_chair_det" />
+        </property>
+        <set name="tlCrossTblDetailses" table="tl_cross_tbl_details" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="tl_app_id" />
+            </key>
+            <one-to-many class="pojo.TlCrossTblDetails" />
+        </set>
+        <set name="tlPayDetailses" table="tl_pay_details" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="tl_pay_app_id" />
+            </key>
+            <one-to-many class="pojo.TlPayDetails" />
+        </set>
+        <set name="tlPays" table="tl_pay" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="tl_pay_app_id" />
+            </key>
+            <one-to-many class="pojo.TlPay" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,5 +1,5 @@
 package pojo;
-// Generated Sep 6, 2019 4:30:16 PM by Hibernate Tools 4.3.1
+// Generated Jul 9, 2020 11:48:20 AM by Hibernate Tools 4.3.1
 
 
 
@@ -15,21 +15,22 @@ public class Referenceno  implements java.io.Serializable {
      private Integer appId;
      private String refno;
      private Integer oder;
+     private Integer officeId;
 
     public Referenceno() {
     }
 
 	
-    public Referenceno(ApplicationCatagory applicationCatagory, Customer customer) {
+    public Referenceno(ApplicationCatagory applicationCatagory) {
         this.applicationCatagory = applicationCatagory;
-        this.customer = customer;
     }
-    public Referenceno(ApplicationCatagory applicationCatagory, Customer customer, Integer appId, String refno, Integer oder) {
+    public Referenceno(ApplicationCatagory applicationCatagory, Customer customer, Integer appId, String refno, Integer oder, Integer officeId) {
        this.applicationCatagory = applicationCatagory;
        this.customer = customer;
        this.appId = appId;
        this.refno = refno;
        this.oder = oder;
+       this.officeId = officeId;
     }
    
     public Integer getIdReferenceNo() {
@@ -73,6 +74,13 @@ public class Referenceno  implements java.io.Serializable {
     
     public void setOder(Integer oder) {
         this.oder = oder;
+    }
+    public Integer getOfficeId() {
+        return this.officeId;
+    }
+    
+    public void setOfficeId(Integer officeId) {
+        this.officeId = officeId;
     }
 
 

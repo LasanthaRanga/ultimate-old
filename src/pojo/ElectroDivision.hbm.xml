@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Oct 3, 2019 9:57:03 AM by Hibernate Tools 4.3.1 -->
+<!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="pojo.ElectroDivision" table="electro_division" catalog="kuliuc" optimistic-lock="version">
+    <class name="pojo.ElectroDivision" table="electro_division" catalog="ultimate2" optimistic-lock="version">
         <id name="elId" type="int">
             <column name="el_id" />
             <generator class="assigned" />
@@ -14,5 +14,11 @@
         <property name="elDivStatus" type="java.lang.Integer">
             <column name="el_div_status" />
         </property>
+        <set name="tlCreatePropIds" table="tl_create_prop_id" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="tl_create_electro_id" />
+            </key>
+            <one-to-many class="pojo.TlCreatePropId" />
+        </set>
     </class>
 </hibernate-mapping>

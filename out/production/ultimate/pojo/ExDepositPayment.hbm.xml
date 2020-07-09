@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.ExDepositPayment" table="ex_deposit_payment" catalog="ultimate2" optimistic-lock="version">
+        <id name="exTitlePaidId" type="java.lang.Integer">
+            <column name="ex_title_paid_id" />
+            <generator class="identity" />
+        </id>
+        <property name="exTitleVoucherInfoId" type="java.lang.Integer">
+            <column name="ex_title_voucher_info_id" />
+        </property>
+        <property name="exDepositUserId" type="java.lang.Integer">
+            <column name="ex_deposit_user_id" />
+        </property>
+        <property name="exPayAmount" type="java.lang.Double">
+            <column name="ex_pay_amount" precision="22" scale="0" />
+        </property>
+        <property name="exActiveStatus" type="java.lang.Integer">
+            <column name="ex_active_status" />
+        </property>
+    </class>
+</hibernate-mapping>

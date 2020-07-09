@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.TlChargingScheme" table="tl_charging_scheme" catalog="ultimate2" optimistic-lock="version">
+        <id name="tlChargingSchemeId" type="java.lang.Integer">
+            <column name="tl_charging_scheme_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="tlSubType" class="pojo.TlSubType" fetch="select">
+            <column name="tl_type_id_type_tbl" />
+        </many-to-one>
+        <many-to-one name="tlUseWhatStatus" class="pojo.TlUseWhatStatus" fetch="select">
+            <column name="tl_charging_status_for_use_what" />
+        </many-to-one>
+        <property name="tlChargingStart" type="java.lang.Double">
+            <column name="tl_charging_start" precision="22" scale="0" />
+        </property>
+        <property name="tlChargingEnd" type="java.lang.Double">
+            <column name="tl_charging_end" precision="22" scale="0" />
+        </property>
+        <property name="tlChargeAmount" type="java.lang.Double">
+            <column name="tl_charge_amount" precision="22" scale="0" />
+        </property>
+        <property name="tlChargePrecentage" type="java.lang.Double">
+            <column name="tl_charge_precentage" precision="22" scale="0" />
+        </property>
+        <property name="tlChargingStatus" type="java.lang.Integer">
+            <column name="tl_charging_status" />
+        </property>
+    </class>
+</hibernate-mapping>

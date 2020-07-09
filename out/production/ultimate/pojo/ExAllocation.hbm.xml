@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.ExAllocation" table="ex_allocation" catalog="ultimate2" optimistic-lock="version">
+        <id name="exAllocationId" type="java.lang.Integer">
+            <column name="ex_allocation_id" />
+            <generator class="identity" />
+        </id>
+        <property name="exAllocationVoteId" type="string">
+            <column name="ex_allocation_vote_id" />
+        </property>
+        <property name="exAllocationYear" type="java.lang.Integer">
+            <column name="ex_allocation_year" />
+        </property>
+        <property name="exAllocationAllocation" type="java.lang.Double">
+            <column name="ex_allocation_allocation" precision="22" scale="0" />
+        </property>
+        <property name="exAllocationActiveStatus" type="java.lang.Integer">
+            <column name="ex_allocation_active_status" />
+        </property>
+        <property name="exAllocation" type="java.lang.Integer">
+            <column name="ex_allocation" />
+        </property>
+        <property name="exAllocationBalance" type="java.lang.Double">
+            <column name="ex_allocation_balance" precision="22" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

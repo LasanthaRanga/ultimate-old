@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.WebPrivilages" table="web_privilages" catalog="ultimate2" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="routerLink" type="string">
+            <column name="routerLink" />
+        </property>
+        <property name="caption" type="string">
+            <column name="caption" />
+        </property>
+        <property name="image" type="string">
+            <column name="image" />
+        </property>
+        <property name="status" type="java.lang.Integer">
+            <column name="status" />
+        </property>
+        <set name="webPrivHasApproveCats" table="web_priv_has_approve_cat" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="web_priv_id" />
+            </key>
+            <one-to-many class="pojo.WebPrivHasApproveCat" />
+        </set>
+    </class>
+</hibernate-mapping>

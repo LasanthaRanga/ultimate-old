@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.ExDuty" table="ex_duty" catalog="ultimate2" optimistic-lock="version">
+        <id name="exDutyId" type="java.lang.Integer">
+            <column name="ex_duty_id" />
+            <generator class="identity" />
+        </id>
+        <property name="exDutyUserId" type="java.lang.Integer">
+            <column name="ex_duty_user_id" />
+        </property>
+        <property name="exDutyLocationId" type="java.lang.Integer">
+            <column name="ex_duty_location_id" />
+        </property>
+        <property name="exDutyStatus" type="java.lang.Integer">
+            <column name="ex_duty_status" />
+        </property>
+    </class>
+</hibernate-mapping>

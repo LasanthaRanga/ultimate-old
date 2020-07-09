@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.ExCrossVotes" table="ex_cross_votes" catalog="ultimate2" optimistic-lock="version">
+        <id name="exCrossId" type="java.lang.Integer">
+            <column name="ex__cross_id" />
+            <generator class="identity" />
+        </id>
+        <property name="exCrossVoteId" type="java.lang.Integer">
+            <column name="ex_cross_vote_id" />
+        </property>
+        <property name="exCrossActiveStatus" type="java.lang.Integer">
+            <column name="ex_cross_active_status" />
+        </property>
+    </class>
+</hibernate-mapping>

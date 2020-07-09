@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Sep 6, 2019 4:30:22 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="pojo.Commetteemembers" table="commetteemembers" catalog="ultimate2" optimistic-lock="version">
         <id name="idCommetteeMembers" type="java.lang.Integer">
@@ -14,5 +14,14 @@
         <many-to-one name="user" class="pojo.User" fetch="select">
             <column name="memberId" />
         </many-to-one>
+        <property name="bopid" type="java.lang.Integer">
+            <column name="bopid" />
+        </property>
+        <property name="vote" type="string">
+            <column name="vote" />
+        </property>
+        <property name="applicationCatId" type="java.lang.Integer">
+            <column name="application_cat_id" />
+        </property>
     </class>
 </hibernate-mapping>

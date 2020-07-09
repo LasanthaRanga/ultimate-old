@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.TlSubType" table="tl_sub_type" catalog="ultimate2" optimistic-lock="version">
+        <id name="tlSubTypeId" type="java.lang.Integer">
+            <column name="tl_sub_type_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="tlPaidType" class="pojo.TlPaidType" fetch="select">
+            <column name="tl_sub_paid_cat_id" />
+        </many-to-one>
+        <many-to-one name="tlType" class="pojo.TlType" fetch="select">
+            <column name="tl_type_id" />
+        </many-to-one>
+        <many-to-one name="tlVoteCategory" class="pojo.TlVoteCategory" fetch="select">
+            <column name="tl_sub_vote_cat_id" />
+        </many-to-one>
+        <property name="tlSubTypeEng" type="string">
+            <column name="tl_sub_type_eng" />
+        </property>
+        <property name="tlSubTypeSin" type="string">
+            <column name="tl_sub_type_sin" />
+        </property>
+        <property name="tlSubTypeStatus" type="java.lang.Integer">
+            <column name="tl_sub_type_status" />
+        </property>
+        <property name="tlSubApproveSendOrNot" type="java.lang.Integer">
+            <column name="tl_sub_approve_send_or_not">
+                <comment>send 1 no 0</comment>
+            </column>
+        </property>
+        <property name="tlApproveSendPath" type="java.lang.Integer">
+            <column name="tl_approve_send_path" />
+        </property>
+        <set name="tlChargingSchemes" table="tl_charging_scheme" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="tl_type_id_type_tbl" />
+            </key>
+            <one-to-many class="pojo.TlChargingScheme" />
+        </set>
+        <set name="tlNatures" table="tl_nature" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="tl_subtype_id" />
+            </key>
+            <one-to-many class="pojo.TlNature" />
+        </set>
+        <set name="tlAppLicenceNoTbls" table="tl_app_licence_no_tbl" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="tl_app_sub_id" />
+            </key>
+            <one-to-many class="pojo.TlAppLicenceNoTbl" />
+        </set>
+        <set name="tlPayDetailses" table="tl_pay_details" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="tl_pay_subtype_id" />
+            </key>
+            <one-to-many class="pojo.TlPayDetails" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Sep 6, 2019 4:30:22 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="pojo.AccountReceiptTitle" table="account_receipt_title" catalog="ultimate2" optimistic-lock="version">
         <id name="idAccountReceiptTitle" type="java.lang.Integer">
@@ -9,7 +9,7 @@
             <generator class="identity" />
         </id>
         <property name="artVoteAndBal" type="string">
-            <column name="ART_vote_and_bal" length="45" />
+            <column name="ART_vote_and_bal" length="45" not-null="true" />
         </property>
         <property name="artProNameEng" type="string">
             <column name="ART_Pro_name_eng" />
@@ -58,6 +58,51 @@
         </property>
         <property name="artSubtitleNameSinhala" type="string">
             <column name="ART_Subtitle_name_sinhala" />
+        </property>
+        <property name="artVoteAndBalCode" type="string">
+            <column name="ART_vote_and_bal_code" />
+        </property>
+        <property name="artVoteAndBalName" type="string">
+            <column name="ART_vote_and_bal_name" />
+        </property>
+        <property name="artVoteAndBalNameSinhala" type="string">
+            <column name="ART_vote_and_bal_name_sinhala" />
+        </property>
+        <property name="artProjectId" type="java.lang.Integer">
+            <column name="ART_Project_id" />
+        </property>
+        <property name="artTitleId" type="java.lang.Integer">
+            <column name="ART_Title_id" />
+        </property>
+        <property name="artSubTitleId" type="java.lang.Integer">
+            <column name="ART_Sub_title_id" />
+        </property>
+        <property name="artProNameTamil" type="string">
+            <column name="ART__Pro_name_tamil" />
+        </property>
+        <property name="artSubtitleNameTamil" type="string">
+            <column name="ART_Subtitle_name_tamil" />
+        </property>
+        <property name="artVoteAndBalNameTamil" type="string">
+            <column name="ART_vote_and_bal_name_tamil" />
+        </property>
+        <property name="artProjectNameSin" type="string">
+            <column name="ART_project_name_sin" />
+        </property>
+        <property name="artProjectNameEng" type="string">
+            <column name="ART_project_name_eng" />
+        </property>
+        <property name="artProjectNameTamil" type="string">
+            <column name="ART_project_name_tamil" />
+        </property>
+        <property name="artProId" type="string">
+            <column name="ART_Pro_id" />
+        </property>
+        <property name="artVoteTypeStatus" type="java.lang.Integer">
+            <column name="ART_vote_type_status" />
+        </property>
+        <property name="exIncomeOrExpence" type="java.lang.Integer">
+            <column name="ex_income_or_expence" />
         </property>
         <set name="mixintypes" table="mixintype" inverse="true" lazy="true" fetch="select">
             <key>

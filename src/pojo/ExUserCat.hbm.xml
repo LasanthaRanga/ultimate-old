@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.ExUserCat" table="ex_user_cat" catalog="ultimate2" optimistic-lock="version">
+        <id name="exUserCatId" type="java.lang.Integer">
+            <column name="ex_user_cat_id" />
+            <generator class="identity" />
+        </id>
+        <property name="exApprovalCatId" type="java.lang.Integer">
+            <column name="ex_approval_cat_id" />
+        </property>
+        <property name="exCatDescription" type="string">
+            <column name="ex_cat_description" length="225" />
+        </property>
+        <property name="exActiveStatus" type="java.lang.Integer">
+            <column name="ex_active_status" />
+        </property>
+    </class>
+</hibernate-mapping>

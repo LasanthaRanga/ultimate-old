@@ -1,5 +1,5 @@
 package pojo;
-// Generated Sep 6, 2019 4:30:16 PM by Hibernate Tools 4.3.1
+// Generated Jul 9, 2020 11:48:20 AM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -22,11 +22,12 @@ public class AccountPsThree  implements java.io.Serializable {
      private Integer reportApplicationCatId;
      private Integer reportStatus;
      private Integer officeIdOffice;
+     private Integer incomeOrExpence;
 
     public AccountPsThree() {
     }
 
-    public AccountPsThree(Date reportDate, String reportRiciptNo, Integer reportRiciptId, Integer reportVortId, Integer reportAccountId, Double reportAmount, Integer reportUserId, Integer reportApplicationId, Integer reportApplicationCatId, Integer reportStatus, Integer officeIdOffice) {
+    public AccountPsThree(Date reportDate, String reportRiciptNo, Integer reportRiciptId, Integer reportVortId, Integer reportAccountId, Double reportAmount, Integer reportUserId, Integer reportApplicationId, Integer reportApplicationCatId, Integer reportStatus, Integer officeIdOffice, Integer incomeOrExpence) {
        this.reportDate = reportDate;
        this.reportRiciptNo = reportRiciptNo;
        this.reportRiciptId = reportRiciptId;
@@ -38,6 +39,7 @@ public class AccountPsThree  implements java.io.Serializable {
        this.reportApplicationCatId = reportApplicationCatId;
        this.reportStatus = reportStatus;
        this.officeIdOffice = officeIdOffice;
+       this.incomeOrExpence = incomeOrExpence;
     }
    
     public Integer getIdReport() {
@@ -123,6 +125,13 @@ public class AccountPsThree  implements java.io.Serializable {
     
     public void setOfficeIdOffice(Integer officeIdOffice) {
         this.officeIdOffice = officeIdOffice;
+    }
+    public Integer getIncomeOrExpence() {
+        return this.incomeOrExpence;
+    }
+    
+    public void setIncomeOrExpence(Integer incomeOrExpence) {
+        this.incomeOrExpence = incomeOrExpence;
     }
 
 

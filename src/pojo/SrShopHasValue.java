@@ -1,5 +1,5 @@
 package pojo;
-// Generated Sep 6, 2019 4:30:16 PM by Hibernate Tools 4.3.1
+// Generated Jul 9, 2020 11:48:20 AM by Hibernate Tools 4.3.1
 
 
 
@@ -10,15 +10,15 @@ public class SrShopHasValue  implements java.io.Serializable {
 
 
      private Integer shopHasValueId;
-     private SrShop srShop;
+     private SrShopNow srShopNow;
      private SrShopValues srShopValues;
      private Integer valueStatus;
 
     public SrShopHasValue() {
     }
 
-    public SrShopHasValue(SrShop srShop, SrShopValues srShopValues, Integer valueStatus) {
-       this.srShop = srShop;
+    public SrShopHasValue(SrShopNow srShopNow, SrShopValues srShopValues, Integer valueStatus) {
+       this.srShopNow = srShopNow;
        this.srShopValues = srShopValues;
        this.valueStatus = valueStatus;
     }
@@ -30,12 +30,12 @@ public class SrShopHasValue  implements java.io.Serializable {
     public void setShopHasValueId(Integer shopHasValueId) {
         this.shopHasValueId = shopHasValueId;
     }
-    public SrShop getSrShop() {
-        return this.srShop;
+    public SrShopNow getSrShopNow() {
+        return this.srShopNow;
     }
     
-    public void setSrShop(SrShop srShop) {
-        this.srShop = srShop;
+    public void setSrShopNow(SrShopNow srShopNow) {
+        this.srShopNow = srShopNow;
     }
     public SrShopValues getSrShopValues() {
         return this.srShopValues;

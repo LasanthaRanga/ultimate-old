@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.Job" table="job" catalog="ultimate2" optimistic-lock="version">
+        <id name="idJob" type="java.lang.Integer">
+            <column name="idJob" />
+            <generator class="identity" />
+        </id>
+        <property name="jobNumber" type="string">
+            <column name="job_number" />
+        </property>
+        <property name="jobName" type="string">
+            <column name="job_name" />
+        </property>
+        <property name="jobTypeId" type="java.lang.Integer">
+            <column name="job_type_id" />
+        </property>
+        <property name="jobDescription" type="string">
+            <column name="job_description" length="65535" />
+        </property>
+        <property name="jobInstruction" type="string">
+            <column name="job_instruction" length="65535" />
+        </property>
+        <property name="jobDipId" type="java.lang.Integer">
+            <column name="job_dip_id" />
+        </property>
+        <property name="jobDedline" type="date">
+            <column name="job_dedline" length="10" />
+        </property>
+        <property name="jobCreateDatetime" type="timestamp">
+            <column name="job_create_datetime" length="19" />
+        </property>
+        <property name="jobStatus" type="java.lang.Integer">
+            <column name="job_status" />
+        </property>
+        <property name="jobCat" type="java.lang.Integer">
+            <column name="job_cat" />
+        </property>
+        <property name="jobCatName" type="string">
+            <column name="job_cat_name" />
+        </property>
+        <property name="cusName" type="string">
+            <column name="cus_name" />
+        </property>
+        <property name="cusEmail" type="string">
+            <column name="cus_email" />
+        </property>
+        <property name="cusMobile" type="string">
+            <column name="cus_mobile" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.TlType" table="tl_type" catalog="ultimate2" optimistic-lock="version">
+        <id name="idTlType" type="java.lang.Integer">
+            <column name="idTl_type" />
+            <generator class="identity" />
+        </id>
+        <property name="tlTypeEname" type="string">
+            <column name="tl_type_ename" />
+        </property>
+        <property name="tlTypeSname" type="string">
+            <column name="tl_type_sname" />
+        </property>
+        <property name="tlTypeStatus" type="java.lang.Integer">
+            <column name="tl_type_status" />
+        </property>
+        <set name="tlSubTypes" table="tl_sub_type" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="tl_type_id" />
+            </key>
+            <one-to-many class="pojo.TlSubType" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,5 +1,5 @@
 package pojo;
-// Generated Sep 6, 2019 4:30:16 PM by Hibernate Tools 4.3.1
+// Generated Jul 9, 2020 11:48:20 AM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -17,16 +17,18 @@ public class Dipartment  implements java.io.Serializable {
      private Integer dipStatus;
      private Integer dipSyn;
      private Set<UserHasDipartment> userHasDipartments = new HashSet<UserHasDipartment>(0);
+     private Set<ExVoucherRefNoTbl> exVoucherRefNoTbls = new HashSet<ExVoucherRefNoTbl>(0);
 
     public Dipartment() {
     }
 
-    public Dipartment(String dipName, String dipHead, Integer dipStatus, Integer dipSyn, Set<UserHasDipartment> userHasDipartments) {
+    public Dipartment(String dipName, String dipHead, Integer dipStatus, Integer dipSyn, Set<UserHasDipartment> userHasDipartments, Set<ExVoucherRefNoTbl> exVoucherRefNoTbls) {
        this.dipName = dipName;
        this.dipHead = dipHead;
        this.dipStatus = dipStatus;
        this.dipSyn = dipSyn;
        this.userHasDipartments = userHasDipartments;
+       this.exVoucherRefNoTbls = exVoucherRefNoTbls;
     }
    
     public Integer getIdDipartment() {
@@ -70,6 +72,13 @@ public class Dipartment  implements java.io.Serializable {
     
     public void setUserHasDipartments(Set<UserHasDipartment> userHasDipartments) {
         this.userHasDipartments = userHasDipartments;
+    }
+    public Set<ExVoucherRefNoTbl> getExVoucherRefNoTbls() {
+        return this.exVoucherRefNoTbls;
+    }
+    
+    public void setExVoucherRefNoTbls(Set<ExVoucherRefNoTbl> exVoucherRefNoTbls) {
+        this.exVoucherRefNoTbls = exVoucherRefNoTbls;
     }
 
 

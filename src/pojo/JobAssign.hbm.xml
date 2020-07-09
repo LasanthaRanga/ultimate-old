@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.JobAssign" table="job_assign" catalog="ultimate2" optimistic-lock="version">
+        <id name="idJobAssign" type="java.lang.Integer">
+            <column name="idJob_assign" />
+            <generator class="identity" />
+        </id>
+        <property name="jobId" type="java.lang.Integer">
+            <column name="job_id" />
+        </property>
+        <property name="userId" type="java.lang.Integer">
+            <column name="user_id" />
+        </property>
+        <property name="subjectId" type="java.lang.Integer">
+            <column name="subject_id" />
+        </property>
+        <property name="dateTime" type="timestamp">
+            <column name="date_time" length="19" />
+        </property>
+        <property name="statusId" type="java.lang.Integer">
+            <column name="status_id" />
+        </property>
+        <property name="step" type="java.lang.Integer">
+            <column name="step" />
+        </property>
+        <property name="stepName" type="string">
+            <column name="step_name" />
+        </property>
+    </class>
+</hibernate-mapping>

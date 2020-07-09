@@ -1,5 +1,5 @@
 package pojo;
-// Generated Oct 3, 2019 9:56:57 AM by Hibernate Tools 4.3.1
+// Generated Jul 9, 2020 11:48:20 AM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -12,7 +12,7 @@ public class WbTCusMeterRead  implements java.io.Serializable {
 
      private Integer id;
      private WbMConnection wbMConnection;
-     private Date date;
+     private Date dateStart;
      private Integer month;
      private String invoiceNo;
      private Integer prevReading;
@@ -29,7 +29,7 @@ public class WbTCusMeterRead  implements java.io.Serializable {
      private String status;
      private String resetDescription;
      private Integer year;
-     private String userId;
+     private Integer userId;
      private String nextInvoice;
      private Double monthlyAvg;
      private Double arrears;
@@ -38,8 +38,9 @@ public class WbTCusMeterRead  implements java.io.Serializable {
      private Integer paymentCompleteStatus;
      private Double paymentAmountSusMrInvo;
      private Double amountPaidTotpay;
-     private Double amountPaidOverPay;
+     private Double havingOverPay;
      private Integer amountPaidOverPayhaveHavent;
+     private Date dateEnd;
 
     public WbTCusMeterRead() {
     }
@@ -48,9 +49,9 @@ public class WbTCusMeterRead  implements java.io.Serializable {
     public WbTCusMeterRead(WbMConnection wbMConnection) {
         this.wbMConnection = wbMConnection;
     }
-    public WbTCusMeterRead(WbMConnection wbMConnection, Date date, Integer month, String invoiceNo, Integer prevReading, Integer currReading, Integer consumption, Double tax, Double waterCharge, Double fixedCharge, Double totalPayable, Date dateCreated, String createdBy, String comments, Double dueAmount, String status, String resetDescription, Integer year, String userId, String nextInvoice, Double monthlyAvg, Double arrears, Integer nextMonth, Integer nextYear, Integer paymentCompleteStatus, Double paymentAmountSusMrInvo, Double amountPaidTotpay, Double amountPaidOverPay, Integer amountPaidOverPayhaveHavent) {
+    public WbTCusMeterRead(WbMConnection wbMConnection, Date dateStart, Integer month, String invoiceNo, Integer prevReading, Integer currReading, Integer consumption, Double tax, Double waterCharge, Double fixedCharge, Double totalPayable, Date dateCreated, String createdBy, String comments, Double dueAmount, String status, String resetDescription, Integer year, Integer userId, String nextInvoice, Double monthlyAvg, Double arrears, Integer nextMonth, Integer nextYear, Integer paymentCompleteStatus, Double paymentAmountSusMrInvo, Double amountPaidTotpay, Double havingOverPay, Integer amountPaidOverPayhaveHavent, Date dateEnd) {
        this.wbMConnection = wbMConnection;
-       this.date = date;
+       this.dateStart = dateStart;
        this.month = month;
        this.invoiceNo = invoiceNo;
        this.prevReading = prevReading;
@@ -76,8 +77,9 @@ public class WbTCusMeterRead  implements java.io.Serializable {
        this.paymentCompleteStatus = paymentCompleteStatus;
        this.paymentAmountSusMrInvo = paymentAmountSusMrInvo;
        this.amountPaidTotpay = amountPaidTotpay;
-       this.amountPaidOverPay = amountPaidOverPay;
+       this.havingOverPay = havingOverPay;
        this.amountPaidOverPayhaveHavent = amountPaidOverPayhaveHavent;
+       this.dateEnd = dateEnd;
     }
    
     public Integer getId() {
@@ -94,12 +96,12 @@ public class WbTCusMeterRead  implements java.io.Serializable {
     public void setWbMConnection(WbMConnection wbMConnection) {
         this.wbMConnection = wbMConnection;
     }
-    public Date getDate() {
-        return this.date;
+    public Date getDateStart() {
+        return this.dateStart;
     }
     
-    public void setDate(Date date) {
-        this.date = date;
+    public void setDateStart(Date dateStart) {
+        this.dateStart = dateStart;
     }
     public Integer getMonth() {
         return this.month;
@@ -213,11 +215,11 @@ public class WbTCusMeterRead  implements java.io.Serializable {
     public void setYear(Integer year) {
         this.year = year;
     }
-    public String getUserId() {
+    public Integer getUserId() {
         return this.userId;
     }
     
-    public void setUserId(String userId) {
+    public void setUserId(Integer userId) {
         this.userId = userId;
     }
     public String getNextInvoice() {
@@ -276,12 +278,12 @@ public class WbTCusMeterRead  implements java.io.Serializable {
     public void setAmountPaidTotpay(Double amountPaidTotpay) {
         this.amountPaidTotpay = amountPaidTotpay;
     }
-    public Double getAmountPaidOverPay() {
-        return this.amountPaidOverPay;
+    public Double getHavingOverPay() {
+        return this.havingOverPay;
     }
     
-    public void setAmountPaidOverPay(Double amountPaidOverPay) {
-        this.amountPaidOverPay = amountPaidOverPay;
+    public void setHavingOverPay(Double havingOverPay) {
+        this.havingOverPay = havingOverPay;
     }
     public Integer getAmountPaidOverPayhaveHavent() {
         return this.amountPaidOverPayhaveHavent;
@@ -289,6 +291,13 @@ public class WbTCusMeterRead  implements java.io.Serializable {
     
     public void setAmountPaidOverPayhaveHavent(Integer amountPaidOverPayhaveHavent) {
         this.amountPaidOverPayhaveHavent = amountPaidOverPayhaveHavent;
+    }
+    public Date getDateEnd() {
+        return this.dateEnd;
+    }
+    
+    public void setDateEnd(Date dateEnd) {
+        this.dateEnd = dateEnd;
     }
 
 

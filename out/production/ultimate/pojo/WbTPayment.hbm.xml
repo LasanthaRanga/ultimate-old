@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Oct 3, 2019 9:57:03 AM by Hibernate Tools 4.3.1 -->
+<!-- Generated Jul 9, 2020 11:48:33 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="pojo.WbTPayment" table="wb_t_payment" catalog="kuliuc" optimistic-lock="version">
+    <class name="pojo.WbTPayment" table="wb_t_payment" catalog="ultimate2" optimistic-lock="version">
         <id name="wbTPayId" type="java.lang.Integer">
             <column name="wb_t_pay_id" />
             <generator class="identity" />
@@ -68,14 +68,20 @@
         <property name="wbTPayCashStatus" type="java.lang.Integer">
             <column name="wb_t_pay_cash_status" />
         </property>
-        <property name="wbTPayChequeStatus" type="java.lang.Integer">
-            <column name="wb_t_pay_cheque_status" />
+        <property name="wbTPayChequeStatus" type="string">
+            <column name="wb_t_pay_cheque_status" length="1" />
         </property>
         <property name="wbTPayCompleteOrNot" type="java.lang.Integer">
             <column name="wb_t_pay_complete_or_not" />
         </property>
         <property name="wbTPayTotal" type="java.lang.Double">
             <column name="wb_t_pay_total" precision="22" scale="0" />
+        </property>
+        <property name="wbTPayVat" type="java.lang.Double">
+            <column name="wb_t_pay_vat" precision="22" scale="0" />
+        </property>
+        <property name="wbtChequeBnk" type="java.lang.Integer">
+            <column name="wbt_cheque_bnk" />
         </property>
     </class>
 </hibernate-mapping>

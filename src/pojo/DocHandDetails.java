@@ -1,5 +1,5 @@
 package pojo;
-// Generated Sep 6, 2019 4:30:16 PM by Hibernate Tools 4.3.1
+// Generated Jul 9, 2020 11:48:20 AM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -18,11 +18,13 @@ public class DocHandDetails  implements java.io.Serializable {
      private Date time;
      private String comment;
      private Integer isapprove;
+     private Integer applicationCatId;
+     private String toComment;
 
     public DocHandDetails() {
     }
 
-    public DocHandDetails(Integer bopId, Integer userId, Integer userCatId, Date date, Date time, String comment, Integer isapprove) {
+    public DocHandDetails(Integer bopId, Integer userId, Integer userCatId, Date date, Date time, String comment, Integer isapprove, Integer applicationCatId, String toComment) {
        this.bopId = bopId;
        this.userId = userId;
        this.userCatId = userCatId;
@@ -30,6 +32,8 @@ public class DocHandDetails  implements java.io.Serializable {
        this.time = time;
        this.comment = comment;
        this.isapprove = isapprove;
+       this.applicationCatId = applicationCatId;
+       this.toComment = toComment;
     }
    
     public Integer getDocHandDetailsid() {
@@ -87,6 +91,20 @@ public class DocHandDetails  implements java.io.Serializable {
     
     public void setIsapprove(Integer isapprove) {
         this.isapprove = isapprove;
+    }
+    public Integer getApplicationCatId() {
+        return this.applicationCatId;
+    }
+    
+    public void setApplicationCatId(Integer applicationCatId) {
+        this.applicationCatId = applicationCatId;
+    }
+    public String getToComment() {
+        return this.toComment;
+    }
+    
+    public void setToComment(String toComment) {
+        this.toComment = toComment;
     }
 
 

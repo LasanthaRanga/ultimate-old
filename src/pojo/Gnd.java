@@ -1,5 +1,5 @@
 package pojo;
-// Generated Sep 6, 2019 4:30:16 PM by Hibernate Tools 4.3.1
+// Generated Jul 9, 2020 11:48:20 AM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -14,15 +14,19 @@ public class Gnd  implements java.io.Serializable {
      private Integer idGnd;
      private String gndName;
      private String gndCode;
+     private Integer eiId;
      private Set<Userhasdivition> userhasdivitions = new HashSet<Userhasdivition>(0);
+     private Set<TlCreatePropId> tlCreatePropIds = new HashSet<TlCreatePropId>(0);
 
     public Gnd() {
     }
 
-    public Gnd(String gndName, String gndCode, Set<Userhasdivition> userhasdivitions) {
+    public Gnd(String gndName, String gndCode, Integer eiId, Set<Userhasdivition> userhasdivitions, Set<TlCreatePropId> tlCreatePropIds) {
        this.gndName = gndName;
        this.gndCode = gndCode;
+       this.eiId = eiId;
        this.userhasdivitions = userhasdivitions;
+       this.tlCreatePropIds = tlCreatePropIds;
     }
    
     public Integer getIdGnd() {
@@ -46,12 +50,26 @@ public class Gnd  implements java.io.Serializable {
     public void setGndCode(String gndCode) {
         this.gndCode = gndCode;
     }
+    public Integer getEiId() {
+        return this.eiId;
+    }
+    
+    public void setEiId(Integer eiId) {
+        this.eiId = eiId;
+    }
     public Set<Userhasdivition> getUserhasdivitions() {
         return this.userhasdivitions;
     }
     
     public void setUserhasdivitions(Set<Userhasdivition> userhasdivitions) {
         this.userhasdivitions = userhasdivitions;
+    }
+    public Set<TlCreatePropId> getTlCreatePropIds() {
+        return this.tlCreatePropIds;
+    }
+    
+    public void setTlCreatePropIds(Set<TlCreatePropId> tlCreatePropIds) {
+        this.tlCreatePropIds = tlCreatePropIds;
     }
 
 
