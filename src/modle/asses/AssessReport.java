@@ -730,7 +730,7 @@ public class AssessReport {
     public void getReciptPrintBOP(String slid, boolean print) {
         try {
 
-            String path = "C:\\Ultimate\\Report\\streetline\\strretline.jrxml";// IN SYSTEM
+            String path = "C:\\Ultimate\\Report\\bop\\bop.jrxml";// IN SYSTEM
             JasperReport jr = JasperCompileManager.compileReport(path);
             HashMap param = new HashMap<String, Integer>();
             param.put("reciptid", slid);

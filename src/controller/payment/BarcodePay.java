@@ -116,7 +116,7 @@ public class BarcodePay implements Initializable {
             case 3:
                 modle.Payment.PaymentByID.genarateRisiptNo(3, "", appid);
                 updateBOP(appid);
-                modle.GetInstans.getAssessReport().getReciptPrintStrretLine(idRecipt + "", false);
+                modle.GetInstans.getAssessReport().getReciptPrintBOP(idRecipt + "", false);
                 modle.Allert.notificationGood("Completed", "Street Line " + idRecipt);
                 clearAll();
                 break;
@@ -197,7 +197,7 @@ public class BarcodePay implements Initializable {
                 clearAll();
                 break;
             case 3:
-                modle.GetInstans.getAssessReport().getReciptPrintStrretLine(idRecipt + "", false);
+                modle.GetInstans.getAssessReport().getReciptPrintBOP(idRecipt + "", false);
                 clearAll();
                 break;
 
@@ -1222,7 +1222,7 @@ public class BarcodePay implements Initializable {
 
                         modle.Payment.PaymentByID.genarateRisiptNo(3, "", appid);
                         updateStreetLineStatus(appid);
-                        modle.GetInstans.getAssessReport().getReciptPrintStrretLine(idRecipt + "", true);
+                        modle.GetInstans.getAssessReport().getReciptPrintBOP(idRecipt + "", true);
                         modle.Allert.notificationGood("Completed", "BOP" + idRecipt);
                         // updateReciptNewCollom(idRecipt, 1, 1, 1, fullTot);
 
