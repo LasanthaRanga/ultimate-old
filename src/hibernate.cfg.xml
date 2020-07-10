@@ -45,10 +45,12 @@ Contributor(s):
     <!--<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>-->
 
     <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
-    <property name="hibernate.connection.url">jdbc:mysql://124.43.11.162:3307/ultimate2?zeroDateTimeBehavior=convertToNull</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/ultimate2?zeroDateTimeBehavior=convertToNull</property>
 
     <property name="hibernate.connection.username">root</property>
-    <property name="hibernate.connection.password">3ta@kela#una@</property>
+    <property name="hibernate.connection.password">root</property>
+
+
 
 
     <mapping resource="pojo/SubNature.hbm.xml"/>
