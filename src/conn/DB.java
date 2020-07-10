@@ -12,10 +12,11 @@ public class DB {
 
     static Connection c = null;
 //
-    public static final String DBPATH = "jdbc:mysql://127.0.0.1:3306/ultimate2?zeroDateTimeBehavior=convertToNull";
+    public static final String DBPATH = "jdbc:mysql://localhost:3306/ultimate2?zeroDateTimeBehavior=convertToNull";
     public static final String USER = "root";
     public static final String PASS = "root";
 
+    //Comment updated
 
 //    public static final String DBPATH = "jdbc:mysql://124.43.8.250:3306/ultimate2?zeroDateTimeBehavior=convertToNull";
 //    public static final String USER = "root";
