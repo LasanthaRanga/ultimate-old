@@ -10,6 +10,8 @@ import java.sql.ResultSet;
  */
 public class DB {
 
+
+
     static Connection c = null;
 //
     public static final String DBPATH = "jdbc:mysql://localhost:3306/ultimate2?zeroDateTimeBehavior=convertToNull";
@@ -21,6 +23,8 @@ public class DB {
 //    public static final String DBPATH = "jdbc:mysql://124.43.8.250:3306/ultimate2?zeroDateTimeBehavior=convertToNull";
 //    public static final String USER = "root";
 //    public static final String PASS = "CHI@#321#";
+
+    
 
 
     // Panduwasnuwara local server
