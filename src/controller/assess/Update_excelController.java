@@ -10,11 +10,7 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.net.URL;
 import java.sql.ResultSet;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-import java.util.ResourceBundle;
-import java.util.Set;
+import java.util.*;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -42,6 +38,7 @@ import modle.ComboLoad;
 import modle.GetInstans;
 import modle.StaticBadu;
 import modle.asses.OldDataSave;
+import modle.asses.Quater;
 import modle.asses.TableAsses;
 import org.controlsfx.control.textfield.TextFields;
 import org.hibernate.Session;
@@ -352,6 +349,63 @@ public class Update_excelController implements Initializable {
                     allocation.setAssAllocation(alo);
                     allocation.setAssAllocationStatus(1);
                     session.save(allocation);
+
+                    double qval = allocation.getAssAllocation() * n.getAssNatureYearRate() / 400;
+
+
+                    Quater quater = GetInstans.getQuater();
+                    Date selectedSystemDate = quater.getSystemDate();
+                    int currentYear = quater.getCurrentYear();
+                    int currentQuater = quater.getCurrentQuater();
+
+                    AssQstart qs = new AssQstart();
+                    qs.setAssessment(asess);
+                    qs.setAssQstartQuaterNumber(currentQuater);
+                    qs.setAssQstartProcessDate(selectedSystemDate);
+                    qs.setAssQstartLyArreas(0.0);
+                    qs.setAssQstartLycArreas(0.0);
+                    qs.setAssQstartLqcArreas(0.0);
+                    qs.setAssQstartLqArreas(0.0);
+                    qs.setAssQstartLyWarrant(0.0);
+                    qs.setAssQstartLycWarrant(0.0);
+                    qs.setAssQstartLqWarrant(0.0);
+                    qs.setAssQstartLqcWarrant(0.0);
+                    qs.setAssQstartHaveToQpay(qval);
+                    qs.setAssQstartQpay(0.0);
+                    qs.setAssQstartQdiscont(0.0);
+                    qs.setAssQstartQtot(0.0);
+                    qs.setAssQstartFullTotal(0.0);
+                    qs.setAssQstartStatus(1);
+                    qs.setAssQstartYear(currentYear);
+                    qs.setProcessUpdateArrears(0.0);
+                    qs.setProcessUpdateWarant(0.0);
+                    qs.setAssQstartTyoldArrias(0.0);
+                    qs.setAssQstartTyoldWarant(0.0);
+                    session.save(qs);
+
+                    AssPayhistry ph = new AssPayhistry();
+                    ph.setAssessment(asess);
+                    ph.setAssPayHistryQcunt(currentQuater);
+                    ph.setAssPayHistryYear(currentYear);
+                    ph.setAssPayHistryDate(selectedSystemDate);
+                    ph.setAssPayHistryStatus(1);
+                    ph.setAssPayHistryComment("new");
+                    ph.setAssPayHistryTotalPayid(0.0);
+                    ph.setAssPayHistryQ1(0.0);
+                    ph.setAssPayHistryQ2(0.0);
+                    ph.setAssPayHistryQ3(0.0);
+                    ph.setAssPayHistryQ4(0.0);
+                    ph.setAssPayHistryOver(0.0);
+                    ph.setAssPayHistryQ1status(0);
+                    ph.setAssPayHistryQ2status(0);
+                    ph.setAssPayHistryQ3status(0);
+                    ph.setAssPayHistryQ4status(0);
+                    ph.setAssPayHistryDrq1(0.0);
+                    ph.setAssPayHistryDrq2(0.0);
+                    ph.setAssPayHistryDrq3(0.0);
+                    ph.setAssPayHistryDrq4(0.0);
+                    session.save(ph);
+
 
                     transaction.commit();
 

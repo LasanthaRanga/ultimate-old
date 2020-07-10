@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="625.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.mix.Advance">
+   <children>
+      <JFXComboBox fx:id="com_1" layoutX="76.0" layoutY="448.0" onAction="#com1Action" prefHeight="31.0" prefWidth="246.0" promptText="Titel" />
+      <JFXComboBox fx:id="com2" layoutX="377.0" layoutY="448.0" onAction="#com2Action" prefHeight="31.0" prefWidth="246.0" promptText="Sub Title" />
+      <TableView fx:id="tbl" layoutX="77.0" layoutY="99.0" onMouseClicked="#clickOnTable" prefHeight="317.0" prefWidth="1178.0">
+        <columns>
+          <TableColumn fx:id="id" prefWidth="75.0" text="#" />
+          <TableColumn fx:id="vid" prefWidth="295.9999694824219" text="Voucher ID" />
+            <TableColumn fx:id="name" prefWidth="381.0" text="Name" />
+            <TableColumn fx:id="amount" prefWidth="399.0" text="Amount" />
+        </columns>
+      </TableView>
+      <JFXButton fx:id="btn_pay" layoutX="1131.0" layoutY="525.0" onMouseClicked="#clickOnPay" prefHeight="31.0" prefWidth="126.0" style="-fx-background-color: #D84315;" text="Pay" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></JFXButton>
+      <JFXTextField fx:id="txt_search" layoutX="77.0" layoutY="37.0" onKeyReleased="#searchKeyRelese" prefHeight="29.0" prefWidth="378.0" />
+      <JFXTextField fx:id="txt_amount" layoutX="696.0" layoutY="449.0" prefHeight="29.0" prefWidth="246.0" promptText="Amount" />
+      <JFXTextField fx:id="txt_description" layoutX="1008.0" layoutY="449.0" prefHeight="29.0" prefWidth="246.0" promptText="Description" />
+      <JFXButton fx:id="btn_close" layoutX="1257.0" layoutY="14.0" onAction="#cloce" text="X" textFill="RED" />
+   </children>
+</AnchorPane>

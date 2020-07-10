@@ -242,25 +242,33 @@
       <JFXTextField fx:id="txt_chequeNo" labelFloat="true" layoutX="384.0" layoutY="572.0" prefHeight="29.0" prefWidth="147.0" promptText="Check No" />
       <JFXDatePicker fx:id="dp_chque" layoutX="591.0" layoutY="572.0" prefHeight="30.0" prefWidth="177.0" promptText="Cheque Date" />
       <JFXComboBox fx:id="com_bank" labelFloat="true" layoutX="814.0" layoutY="571.0" onAction="#selectBank" prefHeight="31.0" prefWidth="177.0" promptText="Bank" />
-      <JFXRadioButton fx:id="radio_no" layoutX="519.0" layoutY="38.0" mnemonicParsing="false" onAction="#noCashRadio" text="CROSS" toggleGroup="$cc">
+      <JFXRadioButton fx:id="radio_no" layoutX="519.0" layoutY="38.0" mnemonicParsing="false" onAction="#noCashRadio" text="CROSS" visible="false">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
+         <toggleGroup>
+            <ToggleGroup fx:id="groupe" />
+         </toggleGroup>
       </JFXRadioButton>
-      <JFXTextField fx:id="txt_ref" disable="true" labelFloat="true" layoutX="624.0" layoutY="34.0" prefHeight="25.0" prefWidth="343.0" promptText="Voucher Reference Number">
+      <JFXTextField fx:id="txt_ref" disable="true" labelFloat="true" layoutX="624.0" layoutY="34.0" prefHeight="25.0" prefWidth="343.0" promptText="Voucher Reference Number" visible="false">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </JFXTextField>
-      <JFXButton fx:id="btn_search" disable="true" layoutX="984.0" layoutY="35.0" onAction="#clickOnSearch" prefHeight="25.0" prefWidth="126.0" style="-fx-background-color: #4CAF50;" text="Search Voucher">
+      <JFXButton fx:id="btn_search" disable="true" layoutX="984.0" layoutY="35.0" onAction="#clickOnSearch" prefHeight="25.0" prefWidth="126.0" style="-fx-background-color: #4CAF50;" text="Search Voucher" visible="false">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </JFXButton>
-      <JFXButton fx:id="btn_clear" disable="true" layoutX="1147.0" layoutY="35.0" onAction="#clearVoucher" prefHeight="25.0" prefWidth="126.0" style="-fx-background-color: #FF5722;" text="Clear Voucher">
+      <JFXButton fx:id="btn_clear" disable="true" layoutX="1147.0" layoutY="35.0" onAction="#clearVoucher" prefHeight="25.0" prefWidth="126.0" style="-fx-background-color: #FF5722;" text="Clear Voucher" visible="false">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </JFXButton>
+      <JFXRadioButton fx:id="radio_no1" layoutX="1158.0" layoutY="42.0" mnemonicParsing="false" onAction="#advance" text="Advance " toggleGroup="$groupe">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </JFXRadioButton>
    </children>
 </AnchorPane>

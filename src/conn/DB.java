@@ -12,7 +12,7 @@ public class DB {
 
     static Connection c = null;
 //
-    public static final String DBPATH = "jdbc:mysql://124.43.11.162:3307/narammalaps?zeroDateTimeBehavior=convertToNull";
+    public static final String DBPATH = "jdbc:mysql://124.43.11.162:3307/ultimate2?zeroDateTimeBehavior=convertToNull";
     public static final String USER = "root";
     public static final String PASS = "3ta@kela#una@";
 

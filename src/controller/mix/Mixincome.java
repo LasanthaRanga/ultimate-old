@@ -26,29 +26,23 @@ import javafx.stage.StageStyle;
 import modle.GetInstans;
 import modle.KeyVal;
 import modle.StaticBadu;
-import modle.StaticViews;
-import modle.asses.PayNowModle;
 import modle.popup.BarcodeStatic;
 import org.hibernate.Session;
-import org.hibernate.Transaction;
-import org.hibernate.criterion.Restrictions;
-import org.hibernate.event.spi.LoadEventListener;
 import pojo.Customer;
 import pojo.Mixdata;
-import pojo.Receipt;
-import pojo.User;
 import view.buttons.BTN;
-
 
 import java.io.IOException;
 import java.io.Serializable;
 import java.net.URL;
 import java.sql.ResultSet;
-import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.ZoneId;
-import java.util.*;
+import java.util.Date;
+import java.util.Optional;
+import java.util.ResourceBundle;
+import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -179,6 +173,12 @@ public class Mixincome implements Initializable {
     @FXML
     private JFXButton btn_clear;
 
+    @FXML
+    private JFXRadioButton radio_no1;
+
+    @FXML
+    private ToggleGroup groupe;
+
     public static boolean hasCustomer = false;
     public static int idcustomer = 0;
     public static String sdate = "";
@@ -220,12 +220,14 @@ public class Mixincome implements Initializable {
 
     public static Search.Cross cross = null;
 
-    public void loadCrossData(Search.Cross cross) {
-        this.cross = cross;
-        txt_ref.setText(cross.ref);
-        int cusID = cross.getCusID();
+    public void loadCrossData(int cusID) {
+
+        //  this.cross = cross;
+        //  txt_ref.setText(cross.ref);
+        //  int cusID = cross.getCusID();
         getCustomerById(cusID);
         btn_clear.setDisable(false);
+
     }
 
 
@@ -600,8 +602,9 @@ public class Mixincome implements Initializable {
                     mixincome.setMixincomeStatus(0);
                     mixincome.setMixincomePaytype(paytype);
 
-                    if (cross != null) {
-                        mixincome.setCrosRef(cross.getRef());
+                    if (radio_no1.isSelected()) {
+                        mixincome.setCrosRef(StaticBadu.getAdvancData().getId() + "");
+                        mixincome.setOthers(StaticBadu.getAdvancData().getRef());
                     }
 
 
@@ -757,10 +760,22 @@ public class Mixincome implements Initializable {
                             "LIMIT 1");
 
 
-
-
                     if (data.next()) {
                         riciptid = data.getInt("idReceipt");
+                    }
+
+                    if (radio_no1.isSelected()) {
+                        try {
+                            String text = txt_fullTot.getText();
+                            Integer id = StaticBadu.getAdvancData().getId();
+                            double v = Double.parseDouble(text);
+                            conn.DB.setData("INSERT INTO `ex_advance_settle` ( `ex_info_id`, `ex_amount`, `ex_for_info_id`, `ex_active_status`, `ex_voucher_or_recipt` )\n" +
+                                    "VALUES\n" +
+                                    "\t( '" + riciptid + "', '" + v + "', '" + id + "', '0', '1' )");
+//                            conn.DB.setData("UPDATE `mixincome` SET `cros_ref`='" + id + "' WHERE `idMixincome`=" + mixindi);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
                     }
 
                     session.beginTransaction().commit();
@@ -913,6 +928,8 @@ public class Mixincome implements Initializable {
         radio_cash.setSelected(false);
         txt_fullTot.setText(null);
 
+        StaticBadu.setAdvancData(null);
+        radio_no1.setSelected(false);
         // loadCombo(null);
 
     }
@@ -1311,6 +1328,34 @@ public class Mixincome implements Initializable {
             ex.printStackTrace();
             //   Logger.getLogger(AssessmangController.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    @FXML
+    void advance(ActionEvent event) {
+        modle.StaticBadu.setAdvancData(null);
+        Parent root;
+        try {
+
+            root = FXMLLoader.load(getClass().getResource("/view/mix/advance.fxml"));
+
+            Stage stage = new Stage();
+
+            stage.initStyle(StageStyle.TRANSPARENT);
+
+
+            stage.getIcons().add(new Image("/grafics/info.png"));
+            Scene scene = new Scene(root);
+            scene.setFill(Color.TRANSPARENT);
+            stage.setResizable(false);
+            stage.setScene(scene);
+
+            stage.show();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+            //   Logger.getLogger(AssessmangController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+
     }
 
 

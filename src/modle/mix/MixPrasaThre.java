@@ -68,6 +68,7 @@ public class MixPrasaThre {
                 receipt_total = data1.getDouble("receipt_total");
                 payType = data1.getInt("mixincome_paytype");
                 cros_ref = data1.getString("cros_ref");
+                System.out.println(cros_ref + " ----------------- Advance ");
                 cusid = data1.getInt("customer_idCustomer");
             }
 
@@ -109,59 +110,70 @@ public class MixPrasaThre {
 
                 if (md_amount > 0) {
                     if (payType == 3) {
-                        insertToCross(cros_ref, md_amount, idVote, date, cusid, idRecipt);
-                        modle.Payment.CompleteAcc.insertToAccount(date, reciptNo, idRecipt, idVote, bankinfo_idBank, md_amount, mixincome_userid, appid, appcat,3);
+
+                        //   insertToCross(cros_ref, md_amount, idVote, date, cusid, idRecipt);
+
+                        modle.Payment.CompleteAcc.insertToAccount(date, reciptNo, idRecipt, idVote, bankinfo_idBank, md_amount, mixincome_userid, appid, appcat, 3);
                     } else {
-                        modle.Payment.CompleteAcc.insertToAccount(date, reciptNo, idRecipt, idVote, bankinfo_idBank, md_amount, mixincome_userid, appid, appcat,1);
+
+                        if (cros_ref != null) {
+                            System.out.println("PS3 Update By Addvance");
+                            modle.Payment.CompleteAcc.insertToAccount(date, reciptNo, idRecipt, idVote, bankinfo_idBank, md_amount, mixincome_userid, appid, appcat, 2);
+                            advancSetle(appid);
+                        } else {
+                            modle.Payment.CompleteAcc.insertToAccount(date, reciptNo, idRecipt, idVote, bankinfo_idBank, md_amount, mixincome_userid, appid, appcat, 1);
+                        }
+
                     }
                 }
 
                 double vat = data.getDouble("md_vat");
                 if (vat > 0) {
                     if (payType == 3) {
-                        insertToCross(cros_ref, vat, VATID, date, cusid, idRecipt);
-                        modle.Payment.CompleteAcc.insertToAccount(date, reciptNo, idRecipt, VATID, bankinfo_idBank, vat, mixincome_userid, appid, appcat,3);
+
+                        //       insertToCross(cros_ref, vat, VATID, date, cusid, idRecipt);
+                        // modle.Payment.CompleteAcc.insertToAccount(date, reciptNo, idRecipt, VATID, bankinfo_idBank, vat, mixincome_userid, appid, appcat, 3);
                     } else {
-                        modle.Payment.CompleteAcc.insertToAccount(date, reciptNo, idRecipt, VATID, bankinfo_idBank, vat, mixincome_userid, appid, appcat,1);
+                        modle.Payment.CompleteAcc.insertToAccount(date, reciptNo, idRecipt, VATID, bankinfo_idBank, vat, mixincome_userid, appid, appcat, 1);
                     }
                 }
 
                 double nbt = data.getDouble("md_nbt");
                 if (nbt > 0) {
                     if (payType == 3) {
-                        insertToCross(cros_ref, nbt, NBTID, date, cusid, idRecipt);
-                        modle.Payment.CompleteAcc.insertToAccount(date, reciptNo, idRecipt, NBTID, bankinfo_idBank, nbt, mixincome_userid, appid, appcat,3);
+                        //   insertToCross(cros_ref, nbt, NBTID, date, cusid, idRecipt);
+                        //  modle.Payment.CompleteAcc.insertToAccount(date, reciptNo, idRecipt, NBTID, bankinfo_idBank, nbt, mixincome_userid, appid, appcat, 3);
                     } else {
-                        modle.Payment.CompleteAcc.insertToAccount(date, reciptNo, idRecipt, NBTID, bankinfo_idBank, nbt, mixincome_userid, appid, appcat,1);
+                        modle.Payment.CompleteAcc.insertToAccount(date, reciptNo, idRecipt, NBTID, bankinfo_idBank, nbt, mixincome_userid, appid, appcat, 1);
                     }
                 }
 
                 double stamp = data.getDouble("md_stamp");
                 if (stamp > 0) {
                     if (payType == 3) {
-                        insertToCross(cros_ref, stamp, STAMPID, date, cusid, idRecipt);
-                        modle.Payment.CompleteAcc.insertToAccount(date, reciptNo, idRecipt, STAMPID, bankinfo_idBank, stamp, mixincome_userid, appid, appcat,3);
+                        // insertToCross(cros_ref, stamp, STAMPID, date, cusid, idRecipt);
+                        //  modle.Payment.CompleteAcc.insertToAccount(date, reciptNo, idRecipt, STAMPID, bankinfo_idBank, stamp, mixincome_userid, appid, appcat, 3);
                     } else {
-                        modle.Payment.CompleteAcc.insertToAccount(date, reciptNo, idRecipt, STAMPID, bankinfo_idBank, stamp, mixincome_userid, appid, appcat,1);
+                        modle.Payment.CompleteAcc.insertToAccount(date, reciptNo, idRecipt, STAMPID, bankinfo_idBank, stamp, mixincome_userid, appid, appcat, 1);
                     }
                 }
             }
 
 
             if (cesh > 0) {
-                modle.Payment.CompleteAcc.insertToAccount(date, reciptNo, idRecipt, CASH, bankinfo_idBank, cesh, mixincome_userid, appid, appcat,1);
+                modle.Payment.CompleteAcc.insertToAccount(date, reciptNo, idRecipt, CASH, bankinfo_idBank, cesh, mixincome_userid, appid, appcat, 1);
                 UpdateStatus.updateRecipt(idRecipt + "", 1, 0, 1, cesh); // update Recipt Status
             }
 
 
             if (cheack > 0) {
-                modle.Payment.CompleteAcc.insertToAccount(date, reciptNo, idRecipt, CHQUE, bankinfo_idBank, cheack, mixincome_userid, appid, appcat,1);
+                modle.Payment.CompleteAcc.insertToAccount(date, reciptNo, idRecipt, CHQUE, bankinfo_idBank, cheack, mixincome_userid, appid, appcat, 1);
                 UpdateStatus.updateRecipt(idRecipt + "", 2, 0, 1, cheack); // update Recipt Status
             }
 
 
             if (cheack == 0 && cesh == 0) {
-                modle.Payment.CompleteAcc.insertToAccount(date, reciptNo, idRecipt, NOCASH, bankinfo_idBank, receipt_total, mixincome_userid, appid, appcat,3);
+                modle.Payment.CompleteAcc.insertToAccount(date, reciptNo, idRecipt, NOCASH, bankinfo_idBank, receipt_total, mixincome_userid, appid, appcat, 3);
                 UpdateStatus.updateRecipt(idRecipt + "", 3, 0, 1, receipt_total); // update Recipt Status
             }
 
@@ -180,6 +192,64 @@ public class MixPrasaThre {
 
     }
 
+
+    public void advancSetle(int appid) {
+        try {
+            ResultSet data = DB.getData("SELECT mixincome.idMixincome,mixincome.cros_ref,mixincome.others,mixincome.mixincome_fulltotal FROM mixincome WHERE mixincome.idMixincome= " + appid);
+            if (data.last()) {
+                String cros_ref = data.getString("cros_ref");
+                System.out.println(cros_ref + "  voucher ID");
+
+                ResultSet data1 = DB.getData("SELECT\n" +
+                        "\tex_advance.advance_detail_id,\n" +
+                        "\tex_advance.voucher_info_id,\n" +
+                        "\tex_advance.voucher_amount,\n" +
+                        "\tex_advance.active_status \n" +
+                        "FROM\n" +
+                        "\tex_advance \n" +
+                        "WHERE\n" +
+                        "\tex_advance.active_status = 1 \n" +
+                        "\tAND ex_advance.voucher_info_id = " + cros_ref);
+
+                if (data1.last()) {
+                    double voucher_amount = data1.getDouble("voucher_amount");
+                    System.out.println(voucher_amount + "   voucher amount");
+                    int advance_detail_id = data1.getInt("advance_detail_id");
+
+                    ResultSet data2 = DB.getData("SELECT\n" +
+                            "ex_advance_settle.ex_advance_set_detail_id,\n" +
+                            "ex_advance_settle.ex_info_id,\n" +
+                            "Sum(ex_advance_settle.ex_amount) as tot,\n" +
+                            "ex_advance_settle.ex_for_info_id,\n" +
+                            "ex_advance_settle.ex_active_status,\n" +
+                            "ex_advance_settle.ex_voucher_or_recipt\n" +
+                            "FROM\n" +
+                            "ex_advance_settle \n" +
+                            "WHERE ex_advance_settle.ex_for_info_id = '" + cros_ref + "'\n" +
+                            "GROUP BY\n" +
+                            "ex_advance_settle.ex_for_info_id");
+
+                    if (data2.next()) {
+                        double tot = data2.getDouble("tot");
+                        if (voucher_amount == tot) {
+                            System.out.println("Equal");
+
+                            conn.DB.setData("UPDATE `ex_advance` SET `active_status`=2 WHERE `advance_detail_id`=" + advance_detail_id);
+
+                        } else {
+                            System.out.println("Samana Nehe");
+                        }
+
+                    }
+
+                }
+
+
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
     public void insertToCross(String ref, double ex_amount, int vote, String date, int cusid, int reciptid) {
         try {

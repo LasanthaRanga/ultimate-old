@@ -50,7 +50,7 @@ public class Vehicle implements Initializable {
     private JFXTextField txt_mobile;
 
     @FXML
-    private JFXComboBox<Vehicle.MixCombo> com_type;
+    private JFXComboBox<MixCombo> com_type;
 
     @FXML
     private JFXTextField txt_des;
@@ -74,7 +74,7 @@ public class Vehicle implements Initializable {
     private JFXButton btn_add;
 
     @FXML
-    private TableView<Vehicle.MixData> tbl_mix;
+    private TableView<MixData> tbl_mix;
 
     @FXML
     private TableColumn<Mixincome.MixData, String> col_appname;
@@ -435,7 +435,7 @@ public class Vehicle implements Initializable {
         cal();
     }
 
-    ObservableList<Vehicle.MixData> tbl = FXCollections.observableArrayList();
+    ObservableList<MixData> tbl = FXCollections.observableArrayList();
 
     public void addToTable() {
         System.out.println("ok");
@@ -773,7 +773,7 @@ public class Vehicle implements Initializable {
 
 
     public void loadCombo(String vote) {
-        ObservableList<Vehicle.MixCombo> applist = FXCollections.observableArrayList();
+        ObservableList<MixCombo> applist = FXCollections.observableArrayList();
         try {
 
             String quary = "SELECT\n" +

@@ -2,6 +2,7 @@ package modle;
 
 import controller.assess.AppLaters;
 import controller.assess.Applications;
+import controller.mix.Advance;
 import controller.mix.Mixincome;
 import controller.mix.Search;
 import javafx.collections.ObservableList;
@@ -20,6 +21,12 @@ public class StaticBadu {
     private static SearchHolder sh;
     private static Search.Cross cross;
     private static Mixincome mixincome;
+    private static Advance.AdvancData advancData;
+
+    public static void setAdvancData(Advance.AdvancData advancData) {StaticBadu.advancData = advancData;   }
+
+    public static Advance.AdvancData getAdvancData() {return advancData;}
+
 
     public static void setMixincome(Mixincome mixincome) {
         StaticBadu.mixincome = mixincome;

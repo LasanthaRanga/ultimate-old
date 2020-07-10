@@ -21,7 +21,6 @@ import modle.ComboItem;
 import modle.ComboLoad;
 import modle.GetInstans;
 import modle.asses.OfficeHolder;
-import modle.asses.PayNowModle;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import pojo.Mixintype;

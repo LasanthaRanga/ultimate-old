@@ -5,7 +5,6 @@ import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
 import conn.DB;
-import groovy.transform.ToString;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -20,7 +19,6 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
-import pojo.Receipt;
 
 import java.net.URL;
 import java.sql.ResultSet;
@@ -70,7 +68,7 @@ public class Cancel implements Initializable {
     private Text txt_count;
 
     @FXML
-    private JFXComboBox<Cancel.App> com_application;
+    private JFXComboBox<App> com_application;
 
 
     @Override
@@ -309,7 +307,7 @@ public class Cancel implements Initializable {
 
     }
 
-    ObservableList<Cancel.App> applist = FXCollections.observableArrayList();
+    ObservableList<App> applist = FXCollections.observableArrayList();
 
     public void loadApplicationCombo() {
 
@@ -358,7 +356,7 @@ public class Cancel implements Initializable {
     }
 
 
-    ObservableList<Cancel.User> ulit = FXCollections.observableArrayList();
+    ObservableList<User> ulit = FXCollections.observableArrayList();
 
     public void loadUserCombo() {
 
@@ -434,7 +432,7 @@ public class Cancel implements Initializable {
     }
 
 
-    ObservableList<Cancel.Mix> mixlist = FXCollections.observableArrayList();
+    ObservableList<Mix> mixlist = FXCollections.observableArrayList();
 
     public void loadTable(String date, int uid, int id) {
         App selectedItem = com_application.getSelectionModel().getSelectedItem();

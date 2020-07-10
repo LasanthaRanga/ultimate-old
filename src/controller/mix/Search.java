@@ -50,7 +50,7 @@ public class Search implements Initializable {
     @FXML
     private JFXButton btn_close;
 
-    ObservableList<Search.Cross> croslist = FXCollections.observableArrayList();
+    ObservableList<Cross> croslist = FXCollections.observableArrayList();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -75,7 +75,7 @@ public class Search implements Initializable {
     void clickOnUsethis(ActionEvent event) {
         if (tbl.getSelectionModel().getSelectedItem() != null) {
             StaticBadu.setCross(tbl.getSelectionModel().getSelectedItem());
-            StaticBadu.getMixincome().loadCrossData(tbl.getSelectionModel().getSelectedItem());
+       //     StaticBadu.getMixincome().loadCrossData(tbl.getSelectionModel().getSelectedItem());
         }
         select.getScene().getWindow().hide();
     }
