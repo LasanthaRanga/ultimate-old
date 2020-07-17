@@ -114,7 +114,7 @@ public class Pay {
                 x = data.getInt("count");
             }
             x++;
-            rn = "MCK/ADV:"+currentYear+"/ " + (x);
+            rn = "MCK/ADV:" + currentYear + "/ " + (x);
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -128,7 +128,7 @@ public class Pay {
         System.out.println(payid);
         try {
             conn.DB.setData("UPDATE `adv_advertising` SET   `adv_paid_notpaid`='1' WHERE (`receipt_idReceipt`='" + payid + "')");
-            conn.DB.setData("UPDATE `receipt` SET  `receipt_status`='1', receipt_time='" + modle.Time.getTeime() + "' WHERE (`idReceipt`='" + payid + "')");
+            conn.DB.setData("UPDATE `receipt` SET  `receipt_status`='1',income_expense='1', cross_recipt_or_voucher='1' , receipt_time='" + modle.Time.getTeime() + "' WHERE (`idReceipt`='" + payid + "')");
             ResultSet data = DB.getData("SELECT\n" +
                     "adv_advertising.idAdv_Advertising,\n" +
                     "adv_advertising.adv_total,\n" +
@@ -173,37 +173,37 @@ public class Pay {
                 int idAdv_advertising = data.getInt("idAdv_Advertising");
 
                 if (adv_total > 0) {
-                    modle.Payment.CompleteAcc.insertToAccount(receipt_day, receipt_print_no, payid, getVoteId("AF"), 1, adv_total, user_idUser, idAdv_advertising, 1,1);
+                    modle.Payment.CompleteAcc.insertToAccount(receipt_day, receipt_print_no, payid, getVoteId("AF"), 1, adv_total, user_idUser, idAdv_advertising, 1, 1);
                 }
                 if (adv_vat > 0) {
-                    modle.Payment.CompleteAcc.insertToAccount(receipt_day, receipt_print_no, payid, getVoteId("VAT"), 1, adv_vat, user_idUser, idAdv_advertising, 1,1);
+                    modle.Payment.CompleteAcc.insertToAccount(receipt_day, receipt_print_no, payid, getVoteId("VAT"), 1, adv_vat, user_idUser, idAdv_advertising, 1, 1);
                 }
                 if (adv_nbt > 0) {
-                    modle.Payment.CompleteAcc.insertToAccount(receipt_day, receipt_print_no, payid, getVoteId("NBT"), 1, adv_nbt, user_idUser, idAdv_advertising, 1,1);
+                    modle.Payment.CompleteAcc.insertToAccount(receipt_day, receipt_print_no, payid, getVoteId("NBT"), 1, adv_nbt, user_idUser, idAdv_advertising, 1, 1);
                 }
                 if (adv_stamp > 0) {
-                    modle.Payment.CompleteAcc.insertToAccount(receipt_day, receipt_print_no, payid, getVoteId("STAMP"), 1, adv_stamp, user_idUser, idAdv_advertising, 1,1);
+                    modle.Payment.CompleteAcc.insertToAccount(receipt_day, receipt_print_no, payid, getVoteId("STAMP"), 1, adv_stamp, user_idUser, idAdv_advertising, 1, 1);
                 }
                 if (adv_diposit > 0) {
-                    modle.Payment.CompleteAcc.insertToAccount(receipt_day, receipt_print_no, payid, getVoteId("DE"), 1, adv_diposit, user_idUser, idAdv_advertising, 1,1);
+                    modle.Payment.CompleteAcc.insertToAccount(receipt_day, receipt_print_no, payid, getVoteId("DE"), 1, adv_diposit, user_idUser, idAdv_advertising, 1, 1);
                 }
                 if (adv_ground_total > 0) {
-                    modle.Payment.CompleteAcc.insertToAccount(receipt_day, receipt_print_no, payid, getVoteId("GR"), 1, adv_ground_total, user_idUser, idAdv_advertising, 1,1);
+                    modle.Payment.CompleteAcc.insertToAccount(receipt_day, receipt_print_no, payid, getVoteId("GR"), 1, adv_ground_total, user_idUser, idAdv_advertising, 1, 1);
                 }
                 if (adv_visiting_price > 0) {
-                    modle.Payment.CompleteAcc.insertToAccount(receipt_day, receipt_print_no, payid, getVoteId("SV"), 1, adv_visiting_price, user_idUser, idAdv_advertising, 1,1);
+                    modle.Payment.CompleteAcc.insertToAccount(receipt_day, receipt_print_no, payid, getVoteId("SV"), 1, adv_visiting_price, user_idUser, idAdv_advertising, 1, 1);
                 }
                 if (adv_visiting_price > 0) {
-                    modle.Payment.CompleteAcc.insertToAccount(receipt_day, receipt_print_no, payid, getVoteId("SV"), 1, adv_visiting_price, user_idUser, idAdv_advertising, 1,1);
+                    modle.Payment.CompleteAcc.insertToAccount(receipt_day, receipt_print_no, payid, getVoteId("SV"), 1, adv_visiting_price, user_idUser, idAdv_advertising, 1, 1);
                 }
                 if (adv_others > 0) {
-                    modle.Payment.CompleteAcc.insertToAccount(receipt_day, receipt_print_no, payid, getVoteId("Others"), 1, adv_others, user_idUser, idAdv_advertising, 1,1);
+                    modle.Payment.CompleteAcc.insertToAccount(receipt_day, receipt_print_no, payid, getVoteId("Others"), 1, adv_others, user_idUser, idAdv_advertising, 1, 1);
                 }
                 if (adv_cheque > 0) {
-                    modle.Payment.CompleteAcc.insertToAccount(receipt_day, receipt_print_no, payid, getVoteId("CHQUE"), 1, adv_cheque, user_idUser, idAdv_advertising, 1,1);
+                    modle.Payment.CompleteAcc.insertToAccount(receipt_day, receipt_print_no, payid, getVoteId("CHQUE"), 1, adv_cheque, user_idUser, idAdv_advertising, 1, 1);
                 }
                 if (adv_cash > 0) {
-                    modle.Payment.CompleteAcc.insertToAccount(receipt_day, receipt_print_no, payid, getVoteId("CASH"), 1, adv_cash, user_idUser, idAdv_advertising, 1,1);
+                    modle.Payment.CompleteAcc.insertToAccount(receipt_day, receipt_print_no, payid, getVoteId("CASH"), 1, adv_cash, user_idUser, idAdv_advertising, 1, 1);
                 }
             }
         } catch (Exception e) {

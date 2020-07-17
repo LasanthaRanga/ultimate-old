@@ -13,10 +13,18 @@ public class DB {
 
 
     static Connection c = null;
-//
-    public static final String DBPATH = "jdbc:mysql://localhost:3306/ultimate2?zeroDateTimeBehavior=convertToNull";
-    public static final String USER = "root";
-    public static final String PASS = "root";
+
+
+//   MCK
+//    public static final String DBPATH = "jdbc:mysql://124.43.9.57:3306/ultimate2?zeroDateTimeBehavior=convertToNull";
+//    public static final String USER = "root";
+//    public static final String PASS = "@Mck_#321";
+
+
+//    Polghawela
+//    public static final String DBPATH = "jdbc:mysql://124.43.8.99:3306/ultimate2?zeroDateTimeBehavior=convertToNull";
+//    public static final String USER = "root";
+//    public static final String PASS = "Pol@#522#";
 
     //Comment updated
 
@@ -24,13 +32,13 @@ public class DB {
 //    public static final String USER = "root";
 //    public static final String PASS = "CHI@#321#";
 
-    
+
 
 
     // Panduwasnuwara local server
-//    public static final String DBPATH = "jdbc:mysql://localhost:3306/ultimate2?zeroDateTimeBehavior=convertToNull";
-//    public static final String USER = "root";
-//    public static final String PASS = "root";
+    public static final String DBPATH = "jdbc:mysql://localhost:3306/ultimate2?zeroDateTimeBehavior=convertToNull";
+    public static final String USER = "root";
+    public static final String PASS = "root";
 
 //    Kuliuc
 //    public static final String DBPATH = "jdbc:mysql://124.43.11.162:3307/ibbagamuwaps?zeroDateTimeBehavior=convertToNull";

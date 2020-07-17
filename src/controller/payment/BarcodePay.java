@@ -889,7 +889,7 @@ public class BarcodePay implements Initializable {
                     "receipt.idReceipt,\n" +
                     "sl_details.idStreetLine,\n" +
                     "receipt.receipt_print_no,\n" +
-                    "receipt.receipt_day\n" +
+                    "receipt.receipt_day, receipt.receipt_total\n" +
                     "FROM\n" +
                     "receipt\n" +
                     "INNER JOIN sl_details ON sl_details.idStreetLine = receipt.recept_applicationId\n" +
@@ -901,12 +901,15 @@ public class BarcodePay implements Initializable {
                 int idReceipt = data1.getInt("idReceipt");
                 String receipt_day = data1.getString("receipt_day");
                 String receipt_print_no = data1.getString("receipt_print_no");
+                double receipt_total = data1.getDouble("receipt_total");
                 conn.DB.setData("UPDATE `account_ps_three`\n" +
                         "SET `report_date` = '" + receipt_day + "',\n" +
                         " `report_ricipt_no` = '" + receipt_print_no + "',\n" +
-                        " `report_status` = '1'\n" +
+                        " `report_status` = '1'," +
+                        " income_or_expence = '1'\n" +
                         "WHERE\n" +
                         "\t`report_ricipt_id` = '" + idReceipt + "'");
+                updateReciptNewCollom(idRecipt, 1, 1, 1, receipt_total);
             }
 
 

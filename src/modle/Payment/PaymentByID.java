@@ -235,7 +235,7 @@ public class PaymentByID {
     }
 
 
-    public static boolean genarateRisiptNo(int applicationcat, String ricipt, int idApp) {
+    public static boolean genarateRisiptNo(int applicationcat, String ricipt, int idApp) {  //nonvesting
         boolean status = false;
         try {
 

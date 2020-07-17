@@ -144,9 +144,11 @@ public class CreditAss implements Initializable {
         modle.StaticViews.getMc().changeTitle("Credit Assessment");
 
         boolean b = new modle.asses.Process().anableProcessPayment();
+        System.out.println(b);
         if (b) {
+
             payObj = new CreditObj();
-            btn_pay.setDisable(true);
+
             if (modle.asses.StaticBadu.getIdAssessment() != null && modle.asses.StaticBadu.getIdAssessment() != 0) {
                 txt_idAssess.setText(modle.asses.StaticBadu.getIdAssessment() + "");
                 autoRady();
@@ -154,6 +156,7 @@ public class CreditAss implements Initializable {
             }
         } else {
             modle.Allert.notificationError("Quarter End Process Not Completed", "Please Do Quarter End");
+            btn_pay.setDisable(true);
             txt_idAssess.setDisable(true);
             btn_search.setDisable(true);
             btn_histry.setDisable(true);

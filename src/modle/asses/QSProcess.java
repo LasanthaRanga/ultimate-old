@@ -420,13 +420,12 @@ public class QSProcess {
 
                 ResultSet tyaw = DB.getData(tycaq);
 
-
+                double tyfa = 0;
+                double tyfw = 0;
                 while (tyaw.next()) {
                     int qsid = tyaw.getInt("idass_Qstart");
                     int qn = tyaw.getInt("ass_Qstart_QuaterNumber");
 
-                    double tyfa = 0;
-                    double tyfw = 0;
 
                     if (qn == 2) {
                         tyfa += tyaw.getDouble("ass_Qstart_LQC_Arreas");
@@ -445,19 +444,16 @@ public class QSProcess {
                         tyfw += tyaw.getDouble("ass_Qstart_LQC_Warrant");
                     }
 
-                    System.out.println("tyfa == " + tyfa);
-                    System.out.println("tyfw == " + tyfw);
-
-                    conn.DB.setData("UPDATE `ass_qstart` \n" +
-                            "SET \n" +
-                            "`ass_Qstart_tyold_arrias` = '" + modle.Round.round(tyfa) + "',\n" +
-                            "`ass_Qstart_tyold_warant` = '" + modle.Round.round(tyfw) + "' \n" +
-                            "WHERE\t\n" +
-                            "\tAssessment_idAssessment = '" + idAssessment + "'\n" +
-                            "\tAND\n" +
-                            "\tass_Qstart_status = 1");
                 }
 
+                conn.DB.setData("UPDATE `ass_qstart` \n" +
+                        "SET \n" +
+                        "`ass_Qstart_tyold_arrias` = '" + modle.Round.round(tyfa) + "',\n" +
+                        "`ass_Qstart_tyold_warant` = '" + modle.Round.round(tyfw) + "' \n" +
+                        "WHERE\t\n" +
+                        "\tAssessment_idAssessment = '" + idAssessment + "'\n" +
+                        "\tAND\n" +
+                        "\tass_Qstart_status = 1");
 
                 if (q1s == 0) {
                     if (currentQuater == 1) {
