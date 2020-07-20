@@ -1463,16 +1463,26 @@ public class PayObj {
         }
 
         if (b1) {
-            Q1pay = Q1pay - Q1paid; ///============================================================================================================
-        }  // Else if mekuwa
+            if (Q1pay > 0) {
+                Q1pay = Q1pay - Q1paid;
+            }
+        }
         if (b2) {
-            Q2pay = Q2pay - Q2paid;
+
+            if (Q2pay > 0) {
+                Q2pay = Q2pay - Q2paid;
+            }
         }
         if (b3) {
-            Q3pay = Q3pay - Q3paid;
+            if (Q3pay > 0) {
+                Q3pay = Q3pay - Q3paid;
+            }
+
         }
         if (b4) {
-            Q4pay = Q4pay - Q4paid;
+            if (Q4pay > 0) {
+                Q4pay = Q4pay - Q4paid;
+            }
         }
 
         Q1pay = modle.Round.round(Q1pay);
