@@ -121,8 +121,8 @@ public class BarcodePay implements Initializable {
                 clearAll();
                 break;
             case 4:
-
-
+                shopRent(idRecipt + "");
+                clearAll();
                 break;
             case 5:
                 break;
@@ -156,9 +156,8 @@ public class BarcodePay implements Initializable {
 
 
             case 12:
-
                 System.out.println("Water");
-
+                waterBillInfo(0, idRecipt + "");
                 break;
 
 
@@ -202,7 +201,7 @@ public class BarcodePay implements Initializable {
                 break;
 
             case 4:
-
+                shopRent(idRecipt + "");
 
                 break;
 
@@ -316,7 +315,8 @@ public class BarcodePay implements Initializable {
 
                         case 4:
                             //Shop Rent
-                            shopRent(text);
+                            // shopRent(text);
+                            ShopRentBillDetails(text);
                             break;
 
                         case 5:
@@ -347,7 +347,8 @@ public class BarcodePay implements Initializable {
 
                         case 12:
                             System.out.println("Water Bill" + text);
-                            waterBillInfo(receipt_status, text);
+                            waterBillInfo(text);
+                            //
 
 
                             break;
@@ -372,6 +373,37 @@ public class BarcodePay implements Initializable {
             } finally {
             }
         }
+    }
+
+
+    public void waterBillInfo(String text) {
+        idRecipt = Integer.parseInt(text);
+        catid = 12;
+        try {
+            ResultSet data = DB.getData("SELECT\n" +
+                    "wb_m_sub_owner_active.sub_owner_name,\n" +
+                    "receipt.receipt_total,\n" +
+                    "application_catagory.application_name,\n" +
+                    "wb_m_connection.wb_m_customer_id\n" +
+                    "FROM\n" +
+                    "receipt\n" +
+                    "INNER JOIN wb_m_connection ON receipt.recept_applicationId = wb_m_connection.wb_m_connection_id\n" +
+                    "INNER JOIN wb_m_sub_owner_active ON wb_m_connection.wb_m_connection_id = wb_m_sub_owner_active.wb_m_sub_owner_cus_tbl_id\n" +
+                    "INNER JOIN application_catagory ON receipt.Application_Catagory_idApplication_Catagory = application_catagory.idApplication_Catagory\n" +
+                    "WHERE\n" +
+                    "receipt.idReceipt = '" + text + "'\n" +
+                    "AND receipt.Application_Catagory_idApplication_Catagory = '12'");
+            if (data.last()) {
+                txt_tot.setText(data.getString("receipt_total"));
+                txt_dis1.setText(data.getString("sub_owner_name") + " - " + data.getString("application_name"));
+                payAnable();
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
     }
 
 
@@ -1121,6 +1153,7 @@ public class BarcodePay implements Initializable {
 
                 if (number.last()) {
                     x = number.getInt("max");
+                    x++;
                 }
                 if (x == 0) {
                     x = 1;
@@ -1611,6 +1644,37 @@ public class BarcodePay implements Initializable {
 
 
     }
+
+    public void ShopRentBillDetails(String text) {
+        idRecipt = Integer.parseInt(text);
+        catid = 4;
+        try {
+            ResultSet data = DB.getData("SELECT\n" +
+                    "customer.cus_name,\n" +
+                    "sr_shop.sr_shop_no,\n" +
+                    "receipt.receipt_total,\n" +
+                    "application_catagory.application_name\n" +
+                    "FROM\n" +
+                    "receipt\n" +
+                    "INNER JOIN sr_shop_now ON receipt.recept_applicationId = sr_shop_now.sr_shop_now_category_id\n" +
+                    "INNER JOIN sr_shop ON sr_shop_now.sr_shop_id = sr_shop.idsr_shop\n" +
+                    "INNER JOIN customer ON sr_shop_now.sr_shop_cus_id = customer.idCustomer\n" +
+                    "INNER JOIN application_catagory ON receipt.Application_Catagory_idApplication_Catagory = application_catagory.idApplication_Catagory\n" +
+                    "WHERE\n" +
+                    "receipt.idReceipt = '" + idRecipt + "' AND\n" +
+                    "receipt.Application_Catagory_idApplication_Catagory = '4'\n");
+            if (data.last()) {
+                txt_tot.setText(data.getString("receipt_total"));
+                txt_dis1.setText(data.getString("cus_name") + " - " + data.getString("sr_shop_no"));
+                payAnable();
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        // shopRent(text);
+    }
+
 
     public void ViewAdvBillDetails(String text) {
         idRecipt = Integer.parseInt(text);
