@@ -231,6 +231,11 @@ public class BarcodePay implements Initializable {
                 clearAll();
                 break;
 
+            case 12:
+                System.out.println("Water");
+                waterBillInfo(0, idRecipt + "");
+                break;
+
             case 13:
                 new modle.asses.RiBillPrint().PrintRiBill(idRecipt, false);
                 clearAll();
@@ -385,7 +390,7 @@ public class BarcodePay implements Initializable {
                     "receipt.receipt_total,\n" +
                     "application_catagory.application_name,\n" +
                     "wb_m_connection.wb_m_customer_id,\n" +
-                    "receipt.idReceipt\n" +
+                    "receipt.idReceipt, receipt.receipt_status\n" +
                     "FROM\n" +
                     "receipt\n" +
                     "LEFT JOIN wb_m_connection ON receipt.recept_applicationId = wb_m_connection.wb_m_connection_id\n" +
@@ -397,7 +402,13 @@ public class BarcodePay implements Initializable {
             if (data.last()) {
                 txt_tot.setText(data.getString("receipt_total"));
                 txt_dis1.setText(data.getString("sub_owner_name") + " - " + data.getString("application_name"));
-                payAnable();
+                int receipt_status = data.getInt("receipt_status");
+                if (receipt_status == 0) {
+                    payAnable();
+                } else {
+                    printAnable();
+                }
+
             }
 
         } catch (Exception e) {

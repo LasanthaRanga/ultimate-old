@@ -36,7 +36,7 @@ public class DB {
 
 
     // Panduwasnuwara local server
-//    public static final String DBPATH = "jdbc:mysql://localhost:3306/ibbagamuwaps?zeroDateTimeBehavior=convertToNull";
+//    public static final String DBPATH = "jdbc:mysql://localhost:3306/kakkapalliya?zeroDateTimeBehavior=convertToNull";
 //    public static final String USER = "root";
 //    public static final String PASS = "root";
 
