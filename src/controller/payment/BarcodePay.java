@@ -384,15 +384,16 @@ public class BarcodePay implements Initializable {
                     "wb_m_sub_owner_active.sub_owner_name,\n" +
                     "receipt.receipt_total,\n" +
                     "application_catagory.application_name,\n" +
-                    "wb_m_connection.wb_m_customer_id\n" +
+                    "wb_m_connection.wb_m_customer_id,\n" +
+                    "receipt.idReceipt\n" +
                     "FROM\n" +
                     "receipt\n" +
-                    "INNER JOIN wb_m_connection ON receipt.recept_applicationId = wb_m_connection.wb_m_connection_id\n" +
-                    "INNER JOIN wb_m_sub_owner_active ON wb_m_connection.wb_m_connection_id = wb_m_sub_owner_active.wb_m_sub_owner_cus_tbl_id\n" +
-                    "INNER JOIN application_catagory ON receipt.Application_Catagory_idApplication_Catagory = application_catagory.idApplication_Catagory\n" +
+                    "LEFT JOIN wb_m_connection ON receipt.recept_applicationId = wb_m_connection.wb_m_connection_id\n" +
+                    "LEFT JOIN wb_m_sub_owner_active ON wb_m_connection.wb_m_connection_id = wb_m_sub_owner_active.wb_m_sub_owner_cus_id\n" +
+                    "LEFT JOIN application_catagory ON receipt.Application_Catagory_idApplication_Catagory = application_catagory.idApplication_Catagory\n" +
                     "WHERE\n" +
-                    "receipt.idReceipt = '" + text + "'\n" +
-                    "AND receipt.Application_Catagory_idApplication_Catagory = '12'");
+                    "receipt.idReceipt = '" + text + "' AND\n" +
+                    "receipt.Application_Catagory_idApplication_Catagory = '12'");
             if (data.last()) {
                 txt_tot.setText(data.getString("receipt_total"));
                 txt_dis1.setText(data.getString("sub_owner_name") + " - " + data.getString("application_name"));
