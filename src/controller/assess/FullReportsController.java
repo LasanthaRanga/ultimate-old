@@ -294,94 +294,133 @@ public class FullReportsController implements Initializable {
         }
     }
 
+    public static String natureList = "";
+
+    public void genarateNature() {
+        try {
+            natureList = "";
+            ObservableList<NatureHolder> items = tbl_nature.getItems();
+            ObservableList<NatureHolder> items2 = FXCollections.observableArrayList();
+//            items2.removeAll();
+            for (NatureHolder na : items) {
+                if (na.getCheckBox().isSelected()) {
+                    items2.add(na);
+                }
+            }
+
+            int size = items2.size();
+            for (int x = 0; x < size; x++) {
+                if (x == size - 1) {
+                    natureList += items2.get(x).getId();
+                } else {
+                    natureList += items2.get(x).getId() + ",";
+                }
+            }
+            System.out.println(natureList);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 
     public void searchAssessment() {
 
-        boolean where = false;
+        genarateNature();
+        if (!natureList.equals("")) {
 
-        if (w) {
-            where = true;
-        }
-        if (s) {
-            where = true;
-        }
-        if (n) {
-            where = true;
-        }
-        if (a) {
-            where = true;
-        }
-        if (o) {
-            where = true;
-        }
-        if (c) {
-            where = true;
-        }
+            boolean where = false;
 
-        String qq = "SELECT\n"
-                + "	assessment.idAssessment,\n"
-                + "	assessment.Customer_idCustomer,\n"
-                + "	assessment.Ward_idWard,\n"
-                + "	assessment.Street_idStreet,\n"
-                + "	assessment.ass_nature_idass_nature,\n"
-                + "	assessment.ass_discription_idass_discription,\n"
-                + "	assessment.User_idUser,\n"
-                + "	assessment.assessment_oder,\n"
-                + "	assessment.assessment_no,\n"
-                + "	assessment.assessment_status,\n"
-                + "	assessment.assessment_syn,\n"
-                + "	assessment.assessment_comment,\n"
-                + "	assessment.assessment_obsolete,\n"
-                + "	customer.cus_name,\n"
-                + "	customer.cus_nic,\n"
-                + "	customer.cus_mobile,\n"
-                + "	customer.cus_address_l1,\n"
-                + "	customer.cus_tel,\n"
-                + "	customer.cus_address_l2,\n"
-                + "	customer.cus_address_l3,\n"
-                + "	customer.cus_sity,\n"
-                + "	customer.cus_status,\n"
-                + "	customer.idCustomer,\n"
-                + "	ward.ward_name,\n"
-                + "	ward.idWard,\n"
-                + "	street.idStreet,\n"
-                + "	street.street_name,\n"
-                + "	ass_nature.idass_nature,\n "
-                + "     ass_allocation.ass_allocation, \n"
-                + "	ass_nature.ass_nature_name \n"
-                + "FROM\n"
-                + "	assessment\n"
-                + "	INNER JOIN customer ON assessment.Customer_idCustomer = customer.idCustomer\n"
-                + "	INNER JOIN ward ON assessment.Ward_idWard = ward.idWard\n"
-                + "	INNER JOIN street ON street.Ward_idWard = ward.idWard \n"
-                + "	AND assessment.Street_idStreet = street.idStreet\n"
-                + "	INNER JOIN ass_nature ON assessment.ass_nature_idass_nature = ass_nature.idass_nature "
-                + "     INNER JOIN ass_allocation ON ass_allocation.Assessment_idAssessment = assessment.idAssessment WHERE ass_allocation.ass_allocation_status = 1";
-
-        if (where) {
             if (w) {
-                qq += " AND ward.ward_name = '" + ward + "' ";
+                where = true;
             }
             if (s) {
-                qq += " AND street.street_name = '" + street + "' ";
+                where = true;
             }
             if (n) {
-                qq += " AND ass_nature.ass_nature_name = '" + nature + "' ";
-                //  qq += "AND (ass_nature.ass_nature_name = 'House' OR ass_nature.ass_nature_name ='Bussines' OR ass_nature.ass_nature_name ='Land' OR ass_nature.ass_nature_name ='Paddy Field')";
+                where = true;
             }
             if (a) {
-                qq += " AND assessment.assessment_no LIKE '%" + assessment + "%' ";
+                where = true;
             }
             if (o) {
-                qq += " AND assessment.assessment_obsolete LIKE '%" + obsolete + "%' ";
+                where = true;
             }
             if (c) {
-                qq += " AND customer.cus_name LIKE '%" + customer + "%' ";
+                where = true;
             }
-        }
 
-        qq += " ORDER BY assessment.assessment_oder ASC ";
-        executeQuary(qq);
+            String qq = "SELECT\n"
+                    + "	assessment.idAssessment,\n"
+                    + "	assessment.Customer_idCustomer,\n"
+                    + "	assessment.Ward_idWard,\n"
+                    + "	assessment.Street_idStreet,\n"
+                    + "	assessment.ass_nature_idass_nature,\n"
+                    + "	assessment.ass_discription_idass_discription,\n"
+                    + "	assessment.User_idUser,\n"
+                    + "	assessment.assessment_oder,\n"
+                    + "	assessment.assessment_no,\n"
+                    + "	assessment.assessment_status,\n"
+                    + "	assessment.assessment_syn,\n"
+                    + "	assessment.assessment_comment,\n"
+                    + "	assessment.assessment_obsolete,\n"
+                    + "	customer.cus_name,\n"
+                    + "	customer.cus_nic,\n"
+                    + "	customer.cus_mobile,\n"
+                    + "	customer.cus_address_l1,\n"
+                    + "	customer.cus_tel,\n"
+                    + "	customer.cus_address_l2,\n"
+                    + "	customer.cus_address_l3,\n"
+                    + "	customer.cus_sity,\n"
+                    + "	customer.cus_status,\n"
+                    + "	customer.idCustomer,\n"
+                    + "	ward.ward_name,\n"
+                    + "	ward.idWard,\n"
+                    + "	street.idStreet,\n"
+                    + "	street.street_name,\n"
+                    + "	ass_nature.idass_nature,\n "
+                    + "     ass_allocation.ass_allocation, \n"
+                    + "	ass_nature.ass_nature_name \n"
+                    + "FROM\n"
+                    + "	assessment\n"
+                    + "	INNER JOIN customer ON assessment.Customer_idCustomer = customer.idCustomer\n"
+                    + "	INNER JOIN ward ON assessment.Ward_idWard = ward.idWard\n"
+                    + "	INNER JOIN street ON street.Ward_idWard = ward.idWard \n"
+                    + "	AND assessment.Street_idStreet = street.idStreet\n"
+                    + "	INNER JOIN ass_nature ON assessment.ass_nature_idass_nature = ass_nature.idass_nature "
+                    + "     INNER JOIN ass_allocation ON ass_allocation.Assessment_idAssessment = assessment.idAssessment WHERE ass_allocation.ass_allocation_status = 1";
+
+            if (where) {
+                if (w) {
+                    qq += " AND ward.ward_name = '" + ward + "' ";
+                }
+                if (s) {
+                    qq += " AND street.street_name = '" + street + "' ";
+                }
+
+
+//            if (n) {
+//                qq += " AND ass_nature.ass_nature_name = '" + nature + "' ";
+//                //  qq += "AND (ass_nature.ass_nature_name = 'House' OR ass_nature.ass_nature_name ='Bussines' OR ass_nature.ass_nature_name ='Land' OR ass_nature.ass_nature_name ='Paddy Field')";
+//            }
+
+                if (a) {
+                    qq += " AND assessment.assessment_no LIKE '%" + assessment + "%' ";
+                }
+                if (o) {
+                    qq += " AND assessment.assessment_obsolete LIKE '%" + obsolete + "%' ";
+                }
+                if (c) {
+                    qq += " AND customer.cus_name LIKE '%" + customer + "%' ";
+                }
+            }
+
+            qq += " AND  assessment.ass_nature_idass_nature IN (" + natureList + ")";
+            qq += " ORDER BY assessment.assessment_oder ASC ";
+            // System.out.println(qq);
+            executeQuary(qq);
+        } else {
+            List.clear();
+        }
     }
 
     public ObservableList<HolderAssess> List = FXCollections.observableArrayList();
@@ -434,8 +473,10 @@ public class FullReportsController implements Initializable {
 
     @FXML
     private void selectFormTable(MouseEvent event) {
-        idAssess = tbl_assess.getSelectionModel().getSelectedItem().getIdAssess();
-        txt_selected.setText(idAssess + "");
+        if (tbl_assess.getSelectionModel().getSelectedItem() != null) {
+            idAssess = tbl_assess.getSelectionModel().getSelectedItem().getIdAssess();
+            txt_selected.setText(idAssess + "");
+        }
     }
 
     @FXML
