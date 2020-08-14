@@ -19,7 +19,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="625.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.assess.PayViewController">
    <children>
-      <VBox layoutX="93.0" layoutY="36.0" prefHeight="200.0" prefWidth="225.0">
+      <VBox layoutX="92.0" layoutY="38.0" prefHeight="200.0" prefWidth="225.0">
          <children>
             <HBox prefHeight="29.0" prefWidth="225.0">
                <children>
@@ -171,12 +171,12 @@
             </HBox>
             <HBox prefHeight="29.0" prefWidth="225.0">
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Current Year :" textAlignment="RIGHT" wrappingWidth="150.0">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Current Year :" textAlignment="RIGHT" visible="false" wrappingWidth="150.0">
                      <HBox.margin>
                         <Insets bottom="5.0" left="5.0" right="10.0" top="5.0" />
                      </HBox.margin>
                   </Text>
-                  <Text fx:id="txt_currentYear" strokeType="OUTSIDE" strokeWidth="0.0" text="00" wrappingWidth="289.0">
+                  <Text fx:id="txt_currentYear" strokeType="OUTSIDE" strokeWidth="0.0" text="00" visible="false" wrappingWidth="289.0">
                      <HBox.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </HBox.margin>

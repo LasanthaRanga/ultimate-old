@@ -633,17 +633,18 @@ public class FullReportsController implements Initializable {
             XSSFWorkbook wb = new XSSFWorkbook();
             XSSFSheet ws = wb.createSheet();
 
-            TreeMap<String, Object[]> tm = new TreeMap<>();
-            tm.put("-1", new Object[]{"Assess ID", "Ward", "Street", "Assess NO", "Customer Name", "Quarter Value", "Last Year Warrant", "Last Year Arrears", "This Year Warrant", "This Year Arrears", "Additional Debit", "Total"});
+            TreeMap<Integer, Object[]> tm = new TreeMap<>();
+            tm.put(-1, new Object[]{"Assess ID", "Ward", "Street", "Assess NO", "Customer Name", "Quarter Value", "Last Year Warrant", "Last Year Arrears", "This Year Warrant", "This Year Arrears", "Additional Debit", "Total"});
 
 
             int x = 0;
 
             for (RipHolder rh : list) {
                 x++;
-                System.out.println("export");
                 System.out.println(rh.getIdAssessment());
-                tm.put(x + "", new Object[]{
+                System.out.println("export");
+
+                tm.put(x , new Object[]{
                         rh.getIdAssessment(),
                         rh.getIdWard(),
                         rh.getStreetName(),
@@ -659,11 +660,18 @@ public class FullReportsController implements Initializable {
             }
 
 
-            Set<String> ids = tm.keySet();
+            Set<Integer> ids = tm.keySet();
+
+            System.out.println("================");
+            System.out.println(tm.keySet());
+            System.out.println("================");
+            System.out.println(tm.size());
+            System.out.println("================");
+
             XSSFRow row;
             int rowId = 0;
 
-            for (String id : ids) {
+            for (Integer id : ids) {
                 row = ws.createRow(rowId++);
 
                 Object[] values = tm.get(id);
@@ -683,7 +691,7 @@ public class FullReportsController implements Initializable {
                 String excelExportPath = KeyVal.getVal("ExcelExportPath");
                 FileOutputStream fos = new FileOutputStream(new File(excelExportPath + format + "report.xlsx"));
                 wb.write(fos);
-                fos.close();
+             //   fos.close();
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -691,6 +699,8 @@ public class FullReportsController implements Initializable {
         } catch (Exception ex) {
             ex.printStackTrace();
             //  Logger.getLogger(ExportTo_excel.class.getName()).log(Level.SEVERE, null, ex);
+        }finally {
+
         }
 
     }

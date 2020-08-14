@@ -54,8 +54,8 @@ Contributor(s):
     <!--<property name="hibernate.connection.url">jdbc:mysql://124.43.11.162:3307/ibbagamuwaps?zeroDateTimeBehavior=convertToNull</property>-->
     <!--<property name="hibernate.connection.password">3ta@kela#una@</property>-->
 
-    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/waththegama?zeroDateTimeBehavior=convertToNull&amp;useUnicode=true&amp;characterEncoding=utf8&amp;useSSL=no&amp;autoReconnect=true</property>
-    <property name="hibernate.connection.password">root</property>
+    <property name="hibernate.connection.url">jdbc:mysql://KULIPS_SERVER:3306/ultimate2?zeroDateTimeBehavior=convertToNull&amp;useUnicode=true&amp;characterEncoding=utf8&amp;useSSL=no&amp;autoReconnect=true</property>
+    <property name="hibernate.connection.password">Kulips@#321#</property>
 
     <!--MCK-->
     <!--<property name="hibernate.connection.url">jdbc:mysql://124.43.9.57:3306/ultimate2?zeroDateTimeBehavior=convertToNull</property>-->

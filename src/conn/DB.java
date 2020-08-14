@@ -16,9 +16,9 @@ public class DB {
 
 
 //   MCK
-    public static final String DBPATH = "jdbc:mysql://localhost:3306/waththegama?zeroDateTimeBehavior=convertToNull";
+    public static final String DBPATH = "jdbc:mysql://KULIPS_SERVER:3306/ultimate2?zeroDateTimeBehavior=convertToNull";
     public static final String USER = "root";
-    public static final String PASS = "root";
+    public static final String PASS = "Kulips@#321#";
 
 
 //    Polghawela
