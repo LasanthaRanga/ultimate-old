@@ -79,14 +79,19 @@ public class OnlineApprove implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        col_index.setCellValueFactory(new PropertyValueFactory<>("onpayid"));
-        col_customer.setCellValueFactory(new PropertyValueFactory<>("cus_name"));
-        col_appcat.setCellValueFactory(new PropertyValueFactory<>("appcat"));
-        col_amount.setCellValueFactory(new PropertyValueFactory<>("amount"));
-        col_status.setCellValueFactory(new PropertyValueFactory<>("status"));
-        col_checks.setCellValueFactory(new PropertyValueFactory<>("select"));
+        try {
+            col_index.setCellValueFactory(new PropertyValueFactory<>("onpayid"));
+            col_customer.setCellValueFactory(new PropertyValueFactory<>("cus_name"));
+            col_appcat.setCellValueFactory(new PropertyValueFactory<>("appcat"));
+            col_amount.setCellValueFactory(new PropertyValueFactory<>("amount"));
+            col_status.setCellValueFactory(new PropertyValueFactory<>("status"));
+            col_checks.setCellValueFactory(new PropertyValueFactory<>("select"));
 
-        loadTable(1);
+            loadTable(1);
+        } catch (Exception e) {
+
+        }
+
     }
 
 
@@ -143,21 +148,22 @@ public class OnlineApprove implements Initializable {
 
 
     public void loadTable(int status) {
-        list.clear();
-        String st = "";
-        if (status == 1) {
-            st = "Paid Confirmed";
-        }
-
-        if (status == 0 || status == 3) {
-            st = "rejected";
-        }
-
-        if (status == 2) {
-            st = "completed";
-        }
-
         try {
+            list.clear();
+            String st = "";
+            if (status == 1) {
+                st = "Paid Confirmed";
+            }
+
+            if (status == 0 || status == 3) {
+                st = "rejected";
+            }
+
+            if (status == 2) {
+                st = "completed";
+            }
+
+
             String query = "SELECT\n" +
                     "online_pay.idOnPaid,\n" +
                     "online_pay.oncus_id,\n" +

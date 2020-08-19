@@ -64,6 +64,8 @@ public class DayEndProcess {
                 "receipt.receipt_total,\n" +
                 "receipt.receipt_day,\n" +
                 "receipt.receipt_status,\n" +
+                "receipt.amount,\n" +
+                "receipt.pay_type,\n" +
                 "receipt.receipt_syn,\n" +
                 "receipt.chque_no,\n" +
                 "receipt.chque_date,\n" +
@@ -86,7 +88,8 @@ public class DayEndProcess {
                 int office_idOffice = data.getInt("office_idOffice");
                 int ass_payment_idUser = data.getInt("ass_Payment_idUser");
                 int recept_applicationId = data.getInt("recept_applicationId");
-
+                int pay_type = data.getInt("pay_type");
+                double amount = data.getDouble("amount");
                 int assessment_idAssessment = data.getInt("Assessment_idAssessment");
 
                 System.out.println(" PS3 Running =============  6");
@@ -202,6 +205,14 @@ public class DayEndProcess {
                     // }
                 }
 
+                if (dis > 0) {// discount
+                    insertToPrasa3(day, recitno, Integer.parseInt(text), vids.get("D"), ACCOUNTID, modle.Round.round(dis), ass_payment_idUser, recept_applicationId, 2, 1, office_idOffice);
+                }
+
+                if (ass_payment_goto_debit > 0) {// over pay to next year
+                    insertToPrasa3(day, recitno, Integer.parseInt(text), vids.get("OP"), ACCOUNTID, modle.Round.round(ass_payment_goto_debit), ass_payment_idUser, recept_applicationId, 2, 1, office_idOffice);
+                }
+
                 if (ass_cash > 0) {// Cahs
                     insertToPrasa3(day, recitno, Integer.parseInt(text), vids.get("CASH"), ACCOUNTID, modle.Round.round(ass_cash), ass_payment_idUser, recept_applicationId, 2, 1, office_idOffice);
                 }
@@ -210,12 +221,8 @@ public class DayEndProcess {
                     insertToPrasa3(day, recitno, Integer.parseInt(text), vids.get("CHQUE"), ACCOUNTID, modle.Round.round(ass_check), ass_payment_idUser, recept_applicationId, 2, 1, office_idOffice);
                 }
 
-                if (dis > 0) {// discount
-                    insertToPrasa3(day, recitno, Integer.parseInt(text), vids.get("D"), ACCOUNTID, modle.Round.round(dis), ass_payment_idUser, recept_applicationId, 2, 1, office_idOffice);
-                }
-
-                if (ass_payment_goto_debit > 0) {// over pay to next year
-                    insertToPrasa3(day, recitno, Integer.parseInt(text), vids.get("OP"), ACCOUNTID, modle.Round.round(ass_payment_goto_debit), ass_payment_idUser, recept_applicationId, 2, 1, office_idOffice);
+                if (pay_type == 5) {// chque
+                    insertToPrasa3(day, recitno, Integer.parseInt(text), vids.get("ON"), ACCOUNTID, modle.Round.round(amount), ass_payment_idUser, recept_applicationId, 2, 1, office_idOffice);
                 }
 
 

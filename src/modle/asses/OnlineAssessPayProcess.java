@@ -10,6 +10,7 @@ import javafx.scene.control.ButtonType;
 
 import modle.GetInstans;
 import modle.KeyVal;
+import modle.StaticViews;
 import modle.popup.BarcodeStatic;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
@@ -51,7 +52,7 @@ public class OnlineAssessPayProcess {
 
     int cheackDiscountDate;
 
-    Assessment assessment;
+    pojo.Assessment assessment;
     AssAllocation allocationPojo;
     pojo.AssNature nature;
 
@@ -193,8 +194,11 @@ public class OnlineAssessPayProcess {
 
 
         try {
+            System.out.println(idAssess + "  ====");
             assessment = (Assessment) session.get(Assessment.class, idAssess);
 
+
+            assessment = (pojo.Assessment) session.createCriteria(pojo.Assessment.class).add(Restrictions.eq("idAssessment", idAssess)).uniqueResult();
 
             if (assessment.getAssessmentSyn() == 0) {
 
@@ -1336,16 +1340,26 @@ public class OnlineAssessPayProcess {
 
 
         if (b1) {
-            Q1pay = Q1pay - Q1paid; ///============================================================================================================
-        }  // Else if mekuwa
+            if (Q1pay > 0) {
+                Q1pay = Q1pay - Q1paid;
+            }
+        }
         if (b2) {
-            Q2pay = Q2pay - Q2paid;
+
+            if (Q2pay > 0) {
+                Q2pay = Q2pay - Q2paid;
+            }
         }
         if (b3) {
-            Q3pay = Q3pay - Q3paid;
+            if (Q3pay > 0) {
+                Q3pay = Q3pay - Q3paid;
+            }
+
         }
         if (b4) {
-            Q4pay = Q4pay - Q4paid;
+            if (Q4pay > 0) {
+                Q4pay = Q4pay - Q4paid;
+            }
         }
 
         Q1pay = modle.Round.round(Q1pay);
@@ -1395,7 +1409,7 @@ public class OnlineAssessPayProcess {
                 // Me tika fill karanna
                 receipt.setCesh(ca);
                 receipt.setCheack(ch);
-                receipt.setReceiptTotal(ca + ch);
+                receipt.setReceiptTotal(fulpay);
 
                 receipt.setReceiptStatus(0);
                 receipt.setReceiptSyn(1);
@@ -1529,6 +1543,10 @@ public class OnlineAssessPayProcess {
                 //   BarcodeStatic.reTotal = fulpay;
                 //  BarcodeStatic.idRecipt = rno;
 
+
+                transaction.commit();
+                session.beginTransaction().commit();
+
                 System.out.println("+++++++++++++++++++++++++++++++");
                 System.out.println();
                 System.out.println("ID : " + rno);
@@ -1537,36 +1555,12 @@ public class OnlineAssessPayProcess {
                 System.out.println("+++++++++++++++++++++++++++++++");
 
 
-                transaction.commit();
-
                 genarateRisitNoByOfficeAndOder(1, rn.getIdReceipt(), idOnPay);
-
-                clearPay();
-
-                //      String assessbilltype = KeyVal.getVal("ass_barcode_yes_no");
-
-                //     System.out.println(assessbilltype);
-
-
-                //    if (assessbilltype.equals("no")) {
-                //          new DayendController().reprintAssessBill(rno);
-                //   } else {
-                //           viewId();
-                //      }
-
-
-                conn.DB.setData("UPDATE `receipt` \n" +
-                        "SET \n" +
-                        "`income_expense` = 1,\n" +
-                        "`cus_id` = " + assessment.getCustomer().getIdCustomer() + " ,\n" +
-                        "`cross_recipt_or_voucher` = 1 ,\n" +
-                        "`pay_type` = 4 ,\n" +
-                        "`amount` = " + fulpay + " \n" +
-                        "WHERE\n" +
-                        "\t`idReceipt` = " + rno);
 
 
                 re = Integer.parseInt(rno);
+                //  UpdateStatus.updateRecipt(rno + "", 5, 0, 1, payTot); // update Recipt Status
+                clearPay();
 
                 return re;
 
@@ -1638,15 +1632,22 @@ public class OnlineAssessPayProcess {
 
 
             no += currentYear + "/ " + xx;
-            conn.DB.setData("UPDATE `receipt`\n" +
+            int i = DB.setData("UPDATE `receipt`\n" +
                     "SET \n" +
                     " `receipt_print_no` = '" + no + "', \n" +
-                    " `oder` = '0',\n" +
+                    " `oder` = '" + xx + "',\n" +
                     " `office_idOffice` = '" + officeid + "',\n" +
                     " `receipt_account_id` = '" + bankinfo_id + "',\n" +
-                    " `receipt_user_id` = '" + modle.StaticViews.getLogUser().getIdUser() + "'\n" +
-                    "WHERE\n" +
+                    " `receipt_user_id` = '" + StaticViews.getLogUser().getIdUser() + "',\n" +
+                    " `income_expense` = 1,\n" +
+                    " `cross_recipt_or_voucher` = 1, \n" +
+                    " `pay_type` = 5,\n" +
+                    " `amount` = " + fulpay + " \n" +
+                    " WHERE\n" +
                     "\t(`idReceipt` = '" + idRecipt + "')");
+
+            System.out.println("Updated Recipt ------------>    " + i);
+
 
             conn.DB.setData("UPDATE `online_pay` \n" +
                     "SET \n" +
@@ -1708,7 +1709,7 @@ public class OnlineAssessPayProcess {
                     "\t`de`\n" +
                     "WHERE\n" +
                     "de.staus = 0 AND\n" +
-                    "de.receipt_id = " + rdate);
+                    "de.receipt_id = " + idRecipt);
 
             int idde = 0;
             if (data.last()) {
@@ -1716,6 +1717,7 @@ public class OnlineAssessPayProcess {
             }
 
             if (new modle.asses.DayEndProcess().dayEndProcessForOne(idRecipt, systemDate)) {
+
                 conn.DB.setData("UPDATE `de`\n"
                         + "SET \n"
                         + " `staus` = '1' \n"
@@ -1737,7 +1739,6 @@ public class OnlineAssessPayProcess {
         return re;
 
     }
-
 
 
 }

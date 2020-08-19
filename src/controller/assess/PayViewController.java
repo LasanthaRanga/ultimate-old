@@ -341,6 +341,7 @@ public class PayViewController implements Initializable {
             txt_currentQuater.setText("");
             txt_currentYear.setText("");
 
+
             txt_lyArrears.setText("");
             txt_lyWarrant.setText("");
             txt_tyArrears.setText("");
