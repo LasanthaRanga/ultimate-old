@@ -644,7 +644,7 @@ public class FullReportsController implements Initializable {
                 System.out.println(rh.getIdAssessment());
                 System.out.println("export");
 
-                tm.put(x , new Object[]{
+                tm.put(x, new Object[]{
                         rh.getIdAssessment(),
                         rh.getIdWard(),
                         rh.getStreetName(),
@@ -691,7 +691,7 @@ public class FullReportsController implements Initializable {
                 String excelExportPath = KeyVal.getVal("ExcelExportPath");
                 FileOutputStream fos = new FileOutputStream(new File(excelExportPath + format + "report.xlsx"));
                 wb.write(fos);
-             //   fos.close();
+                //   fos.close();
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -699,7 +699,7 @@ public class FullReportsController implements Initializable {
         } catch (Exception ex) {
             ex.printStackTrace();
             //  Logger.getLogger(ExportTo_excel.class.getName()).log(Level.SEVERE, null, ex);
-        }finally {
+        } finally {
 
         }
 
@@ -783,6 +783,11 @@ public class FullReportsController implements Initializable {
                 cdval = cdResult.getDouble("ass_creditdebit.Ass_balance");
             }
             ripHolder.setCd(cdval);
+
+//            if (cdResult.last()) {
+//                cdval = cdResult.getDouble("ass_creditdebit.Ass_balance");
+//            }
+//            ripHolder.setCd(cdval);
 
             double quval = 0.0;
 
@@ -932,46 +937,90 @@ public class FullReportsController implements Initializable {
     public RipHolder getAssessDataByIDAssess(int assessID) {
 
 
+//        String quary = "SELECT\n" +
+//                "\tass_qstart.idass_Qstart,\n" +
+//                "\tass_qstart.ass_Qstart_QuaterNumber,\n" +
+//                "\tass_qstart.ass_Qstart_process_date,\n" +
+//                "\tass_qstart.ass_Qstart_LY_Arreas,\n" +
+//                "\tass_qstart.ass_Qstart_LY_Warrant,\n" +
+//                "\tass_qstart.ass_Qstart_LYC_Arreas,\n" +
+//                "\tass_qstart.ass_Qstart_LYC_Warrant,\n" +
+//                "\tass_qstart.ass_Qstart_LQ_Arreas,\n" +
+//                "\tass_qstart.ass_Qstart_LQC_Arreas,\n" +
+//                "\tass_qstart.ass_Qstart_LQ_Warrant,\n" +
+//                "\tass_qstart.ass_Qstart_LQC_Warrant,\n" +
+//                "\tass_qstart.ass_Qstart_HaveToQPay,\n" +
+//                "\tass_qstart.ass_Qstart_QPay,\n" +
+//                "\tass_qstart.ass_Qstart_QDiscont,\n" +
+//                "\tass_qstart.ass_Qstart_QTot,\n" +
+//                "\tass_qstart.ass_Qstart_FullTotal,\n" +
+//                "\tass_qstart.ass_Qstart_status,\n" +
+//                "\tass_qstart.Assessment_idAssessment,\n" +
+//                "\tass_qstart.ass_Qstart_year,\n" +
+//                "\tassessment.assessment_no,\n" +
+//                "\tstreet.street_name,\n" +
+//                "\tward.ward_no,\n" +
+//                "\tcustomer.cus_name\n" +
+//                "FROM\n" +
+//                "\tass_qstart\n" +
+//                "INNER JOIN assessment ON ass_qstart.Assessment_idAssessment = assessment.idAssessment\n" +
+//                "INNER JOIN street ON assessment.Street_idStreet = street.idStreet\n" +
+//                "INNER JOIN ward ON assessment.Ward_idWard = ward.idWard\n" +
+//                "AND street.Ward_idWard = ward.idWard\n" +
+//                "\n" +
+//                "INNER JOIN customer ON assessment.Customer_idCustomer = customer.idCustomer\n" +
+//                "WHERE\n" +
+//                "ass_qstart.ass_Qstart_year = '" + currentYear + "' AND\n" +
+//                "(ass_qstart.ass_Qstart_LYC_Arreas > 0 OR\n" +
+//                "ass_qstart.ass_Qstart_LYC_Warrant > 0 OR\n" +
+//                "ass_qstart.ass_Qstart_LQC_Arreas > 0 OR\n" +
+//                "ass_qstart.ass_Qstart_LQC_Warrant > 0) AND\n" +
+//                "ass_qstart.Assessment_idAssessment = '" + assessID + "'  AND\n" +
+//                " assessment.assessment_syn = 0";
+
+
         String quary = "SELECT\n" +
-                "\tass_qstart.idass_Qstart,\n" +
-                "\tass_qstart.ass_Qstart_QuaterNumber,\n" +
-                "\tass_qstart.ass_Qstart_process_date,\n" +
-                "\tass_qstart.ass_Qstart_LY_Arreas,\n" +
-                "\tass_qstart.ass_Qstart_LY_Warrant,\n" +
-                "\tass_qstart.ass_Qstart_LYC_Arreas,\n" +
-                "\tass_qstart.ass_Qstart_LYC_Warrant,\n" +
-                "\tass_qstart.ass_Qstart_LQ_Arreas,\n" +
-                "\tass_qstart.ass_Qstart_LQC_Arreas,\n" +
-                "\tass_qstart.ass_Qstart_LQ_Warrant,\n" +
-                "\tass_qstart.ass_Qstart_LQC_Warrant,\n" +
-                "\tass_qstart.ass_Qstart_HaveToQPay,\n" +
-                "\tass_qstart.ass_Qstart_QPay,\n" +
-                "\tass_qstart.ass_Qstart_QDiscont,\n" +
-                "\tass_qstart.ass_Qstart_QTot,\n" +
-                "\tass_qstart.ass_Qstart_FullTotal,\n" +
-                "\tass_qstart.ass_Qstart_status,\n" +
-                "\tass_qstart.Assessment_idAssessment,\n" +
-                "\tass_qstart.ass_Qstart_year,\n" +
-                "\tassessment.assessment_no,\n" +
-                "\tstreet.street_name,\n" +
-                "\tward.ward_no,\n" +
-                "\tcustomer.cus_name\n" +
+                "ass_qstart.idass_Qstart,\n" +
+                "ass_qstart.ass_Qstart_QuaterNumber,\n" +
+                "ass_qstart.ass_Qstart_process_date,\n" +
+                "ass_qstart.ass_Qstart_LY_Arreas,\n" +
+                "ass_qstart.ass_Qstart_LY_Warrant,\n" +
+                "ass_qstart.ass_Qstart_LYC_Arreas,\n" +
+                "ass_qstart.ass_Qstart_LYC_Warrant,\n" +
+                "ass_qstart.ass_Qstart_LQ_Arreas,\n" +
+                "ass_qstart.ass_Qstart_LQC_Arreas,\n" +
+                "ass_qstart.ass_Qstart_LQ_Warrant,\n" +
+                "ass_qstart.ass_Qstart_LQC_Warrant,\n" +
+                "ass_qstart.ass_Qstart_HaveToQPay,\n" +
+                "ass_qstart.ass_Qstart_QPay,\n" +
+                "ass_qstart.ass_Qstart_QDiscont,\n" +
+                "ass_qstart.ass_Qstart_QTot,\n" +
+                "ass_qstart.ass_Qstart_FullTotal,\n" +
+                "ass_qstart.ass_Qstart_status,\n" +
+                "ass_qstart.Assessment_idAssessment,\n" +
+                "ass_qstart.ass_Qstart_year,\n" +
+                "assessment.assessment_no,\n" +
+                "street.street_name,\n" +
+                "ward.ward_no,\n" +
+                "customer.cus_name,\n" +
+                "ass_creditdebit.Ass_balance,\n" +
+                "ass_creditdebit.idAss_CreditDebit\n" +
                 "FROM\n" +
-                "\tass_qstart\n" +
+                "ass_qstart\n" +
                 "INNER JOIN assessment ON ass_qstart.Assessment_idAssessment = assessment.idAssessment\n" +
                 "INNER JOIN street ON assessment.Street_idStreet = street.idStreet\n" +
-                "INNER JOIN ward ON assessment.Ward_idWard = ward.idWard\n" +
-                "AND street.Ward_idWard = ward.idWard\n" +
-                "\n" +
+                "INNER JOIN ward ON assessment.Ward_idWard = ward.idWard AND street.Ward_idWard = ward.idWard\n" +
                 "INNER JOIN customer ON assessment.Customer_idCustomer = customer.idCustomer\n" +
+                "LEFT JOIN ass_creditdebit ON ass_creditdebit.Assessment_idAssessment = assessment.idAssessment\n" +
                 "WHERE\n" +
                 "ass_qstart.ass_Qstart_year = '" + currentYear + "' AND\n" +
-                "(ass_qstart.ass_Qstart_LYC_Arreas > 0 OR\n" +
+                "(ass_creditdebit.Ass_balance > 0 OR\n" +
+                "ass_qstart.ass_Qstart_LYC_Arreas > 0 OR\n" +
                 "ass_qstart.ass_Qstart_LYC_Warrant > 0 OR\n" +
                 "ass_qstart.ass_Qstart_LQC_Arreas > 0 OR\n" +
                 "ass_qstart.ass_Qstart_LQC_Warrant > 0) AND\n" +
-                "ass_qstart.Assessment_idAssessment = '" + assessID + "'  AND\n" +
-                " assessment.assessment_syn = 0";
+                "ass_qstart.Assessment_idAssessment = '" + assessID + "' AND\n" +
+                "assessment.assessment_syn = 0";
 
 
         String cdbal = "SELECT\n" +

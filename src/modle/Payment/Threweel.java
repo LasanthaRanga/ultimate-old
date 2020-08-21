@@ -23,8 +23,10 @@ public class Threweel {
     }
 
     public void getVehiclepassReport(String riciptID, boolean print) {
+
         System.out.println("awa");
         System.out.println(riciptID);
+
         try {
             String path = "C:\\Ultimate\\Report\\mix\\threeweel.jrxml";// IN SYSTEM
             JasperReport jr = JasperCompileManager.compileReport(path);
@@ -46,6 +48,7 @@ public class Threweel {
                     .hideAfter(Duration.seconds(3))
                     .position(Pos.BOTTOM_RIGHT).showWarning();
         }
+
     }
 
 
