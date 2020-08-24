@@ -73,6 +73,7 @@ public class BarcodePay implements Initializable {
     public static DayendController dec;
 
 
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
