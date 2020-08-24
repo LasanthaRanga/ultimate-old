@@ -24,6 +24,13 @@ public class Threweel {
 
     public void getVehiclepassReport(String riciptID, boolean print) {
 
+
+
+        //
+
+
+
+
         System.out.println("awa");
         System.out.println(riciptID);
 

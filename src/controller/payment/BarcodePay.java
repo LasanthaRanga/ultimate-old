@@ -130,6 +130,10 @@ public class BarcodePay implements Initializable {
                 tradeLicensUpdate(false);
                 break;
 
+            case 8:
+                payThreWheel(idRecipt + "");
+                clearAll();
+                break;
 
             case 7:
                 modle.Payment.PaymentByID.genarateRisiptNo(7, "", appid);
@@ -217,8 +221,8 @@ public class BarcodePay implements Initializable {
                 break;
 
             case 8:
-
-
+                printThreeWheel(idRecipt + "");
+                clearAll();
                 break;
 
             case 9:
@@ -338,12 +342,15 @@ public class BarcodePay implements Initializable {
                             break;
 
                         case 8:
-                            if (radio_print.isSelected()) {
-                                modle.GetInstans.getThreweel().getVehiclepassReport(text + "", true);
-                            } else {
-                                modle.GetInstans.getThreweel().getVehiclepassReport(text + "", false);
-                            }
-                            clearAll();
+
+                            threeWheelData(text);
+
+//                            if (radio_print.isSelected()) {
+//                                modle.GetInstans.getThreweel().getVehiclepassReport(text + "", true);
+//                            } else {
+//                                modle.GetInstans.getThreweel().getVehiclepassReport(text + "", false);
+//                            }
+
                             break;
 
                         case 9:
@@ -964,6 +971,83 @@ public class BarcodePay implements Initializable {
 
 
     }
+
+    public void threeWheelData(String text) {
+
+        try {
+            ResultSet data = DB.getData("SELECT\n" +
+                    "application_catagory.application_name,\n" +
+                    "receipt.Application_Catagory_idApplication_Catagory,\n" +
+                    "customer.cus_name,\n" +
+                    "receipt.receipt_total,\n" +
+                    "receipt.idReceipt,\n" +
+                    "receipt.receipt_status,\n" +
+                    "receipt.recept_applicationId\n" +
+                    "FROM\n" +
+                    "3weel_payment\n" +
+                    "INNER JOIN receipt ON 3weel_payment.3weel_receipt_no = receipt.receipt_print_no\n" +
+                    "INNER JOIN 3weel_customer_has_vehicle ON 3weel_payment.3weel_pay_customer_vehi_id = 3weel_customer_has_vehicle.3weel_customer_has_vehicle_id\n" +
+                    "INNER JOIN customer ON 3weel_customer_has_vehicle.3weel_customer_idtbl = customer.idCustomer\n" +
+                    "INNER JOIN application_catagory ON receipt.Application_Catagory_idApplication_Catagory = application_catagory.idApplication_Catagory\n" +
+                    "WHERE\n" +
+                    "receipt.idReceipt ='" + text + "'");
+
+            if (data.last()) {
+                int receipt_status = data.getInt("receipt_status");
+                catid = data.getInt("Application_Catagory_idApplication_Catagory");
+                appid = data.getInt("recept_applicationId");
+                double fullTot = data.getDouble("receipt_total");
+                idRecipt = data.getInt("idReceipt");
+                txt_dis1.setText(data.getString("cus_name"));
+                txt_tot.setText(fullTot + "");
+
+                if (receipt_status == 0) {
+                    if (radio_print.isSelected()) {
+                        payThreWheel(text);
+                    } else {
+                        payAnable();
+                    }
+                } else {
+                    printAnable();
+                }
+
+
+            }
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void printThreeWheel(String text) {
+        if (radio_print.isSelected()) {
+            modle.GetInstans.getThreweel().getVehiclepassReport(text + "", true);
+        } else {
+            modle.GetInstans.getThreweel().getVehiclepassReport(text + "", false);
+        }
+        clearAll();
+    }
+
+    public void payThreWheel(String text) {
+        try {
+            ResultSet data = DB.getData("SELECT 3weel_process.3weel_process_id, 3weel_process.3weel_process_amount + 3weel_process.3weel_process_vat_amount + 3weel_process.3weel_process_stamp_amount + 3weel_process.3weel_process_nbt_amount + 3weel_process.3weel_process_other_charges, 3weel_payment.3weel_pay_id, 3weel_stick_print.3weel_stick_print_id, receipt.idReceipt, weel_paid_process_check.weel_paid_process_check_id FROM 3weel_stick_print INNER JOIN 3weel_payment ON 3weel_stick_print.3weel_receipt_no = 3weel_payment.3weel_receipt_no INNER JOIN 3weel_process ON 3weel_payment.3weel_pay_customer_vehi_id = 3weel_process.3weel_process_vehi_has_cus_id INNER JOIN receipt ON 3weel_stick_print.3weel_receipt_no = receipt.receipt_print_no INNER JOIN weel_paid_process_check ON weel_paid_process_check.weel_paid_process_check_proc_id = 3weel_process.3weel_process_id AND 3weel_stick_print.3weel_receipt_no = weel_paid_process_check.weel_paid_process_check_receipt_no WHERE 3weel_process.3weel_process_payment_complete_or_not = '0' AND receipt.idReceipt = '" + text + "'");
+            while (data.next()) {
+                int weel_process_id = data.getInt("3weel_process_id");
+                int weel_pay_id = data.getInt("3weel_pay_id");
+                int weel_paid_process_check_id = data.getInt("weel_paid_process_check_id ");
+                conn.DB.setData("UPDATE `3weel_process` SET `3weel_process_payment_complete_or_not` = '1' WHERE `3weel_process_id` = '" + weel_process_id + "'");
+                conn.DB.setData("UPDATE `3weel_payment` SET `3weel_pay_complete_status`='1' WHERE `3weel_pay_id`='" + weel_pay_id + "'");
+                conn.DB.setData("UPDATE `account_ps_three` SET `report_status`='1' WHERE `report_ricipt_id`='" + weel_paid_process_check_id + "'");
+            }
+            DB.setData("UPDATE `receipt` SET `receipt_status`='1' WHERE `idReceipt`='" + text + "'");
+            DB.setData("UPDATE `account_ps_three` SET `report_status`='1' WHERE `report_ricipt_id`='" + text + "'");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        printThreeWheel(text);
+    }
+
 
     public void mixIncomeBillData(String text) {
         try {
