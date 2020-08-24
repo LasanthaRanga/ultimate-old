@@ -63,13 +63,15 @@ public class BarcodePay implements Initializable {
     @FXML
     private JFXButton btn_print;
 
+    @FXML
+    private JFXTextField txt_rn;
 
     public int catid;
     public int idRecipt;
     public int appid;
+    public boolean isReprint = false;
 
     public static DayendController dec;
-
 
 
     @Override
@@ -90,11 +92,35 @@ public class BarcodePay implements Initializable {
 
 
     @FXML
+    void receiptEnter(KeyEvent event) {
+        if (event.getCode() == KeyCode.ENTER) {
+
+
+            try {
+                String text = txt_rn.getText();
+
+                ResultSet data = DB.getData("SELECT receipt.idReceipt FROM receipt WHERE receipt.receipt_print_no = '" + text + "'");
+
+                if (data.last()) {
+                    isReprint = true;
+                    String idReceipt = data.getString("idReceipt");
+                    txt_barcode.setText(idReceipt);
+                    barcodeEntered(event);
+                } else {
+                    modle.Allert.notificationWorning("Not found", text);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+
+    @FXML
     void barcodeEntered(KeyEvent event) {
         if (event.getCode() == KeyCode.ENTER) {
             System.out.println("barcode enter");
             loadDataByEnter();
-
         }
     }
 
@@ -1678,7 +1704,39 @@ public class BarcodePay implements Initializable {
 
                 }
             } else {
-                modle.Allert.notificationWorning("Please Create New Barcode", "Expired Barcode");
+
+                if (isReprint) {
+                    String query2 = "SELECT\n" +
+                            "receipt.idReceipt,\n" +
+                            "receipt.cheack,\n" +
+                            "receipt.cesh,\n" +
+                            "receipt.amount,\n" +
+                            "receipt.receipt_day,\n" +
+                            "customer.cus_name,\n" +
+                            "customer.idCustomer,\n" +
+                            "receipt.receipt_status\n" +
+                            "FROM\n" +
+                            "receipt\n" +
+                            "INNER JOIN assessment ON assessment.idAssessment = receipt.recept_applicationId\n" +
+                            "INNER JOIN customer ON assessment.Customer_idCustomer = customer.idCustomer\n" +
+                            "WHERE\n" +
+                            "receipt.idReceipt = '" + text + "' AND\n" +
+                            "receipt.Application_Catagory_idApplication_Catagory = 2";
+
+                    ResultSet data2 = DB.getData(query2);
+
+                    if (data2.last()) {
+                        int receipt_status = data2.getInt("receipt_status");
+                        if (receipt_status == 1) {
+                            idRecipt = Integer.parseInt(text);
+                            printAnable();
+                        } else {
+
+                        }
+                    }
+                } else {
+                    modle.Allert.notificationWorning("Please Create New Barcode", "Expired Barcode");
+                }
             }
 
         } catch (Exception e) {
@@ -1879,6 +1937,7 @@ public class BarcodePay implements Initializable {
         txt_dis3.setText(null);
         btn_pay.setDisable(true);
         btn_print.setDisable(true);
+        isReprint = false;
     }
 
     public void payAnable() {
