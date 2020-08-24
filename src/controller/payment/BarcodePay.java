@@ -63,8 +63,6 @@ public class BarcodePay implements Initializable {
     @FXML
     private JFXButton btn_print;
 
-    @FXML
-    private JFXTextField txt_rn;
 
     public int catid;
     public int idRecipt;
@@ -88,30 +86,6 @@ public class BarcodePay implements Initializable {
 
         }
         modle.StaticViews.getMc().changeTitle("Barcode Pay");
-    }
-
-
-    @FXML
-    void receiptEnter(KeyEvent event) {
-        if (event.getCode() == KeyCode.ENTER) {
-            try {
-
-                String text = txt_rn.getText();
-
-                ResultSet data = DB.getData("SELECT receipt.idReceipt FROM receipt WHERE receipt.receipt_print_no = '" + text + "'");
-
-                if (data.last()) {
-                    String idReceipt = data.getString("idReceipt");
-                    txt_barcode.setText(idReceipt);
-                    barcodeEntered(event);
-                } else {
-                    modle.Allert.notificationWorning("Not found", text);
-                }
-
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
     }
 
 

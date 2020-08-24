@@ -87,10 +87,5 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </JFXButton>
-      <JFXTextField fx:id="txt_rn" labelFloat="true" layoutX="922.0" layoutY="498.0" onKeyReleased="#receiptEnter" prefHeight="35.0" prefWidth="351.0" promptText="Receipt Number">
-         <font>
-            <Font name="System Bold" size="18.0" />
-         </font>
-      </JFXTextField>
    </children>
 </AnchorPane>
