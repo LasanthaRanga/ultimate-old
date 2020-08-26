@@ -63,6 +63,8 @@ public class RipHolder {
     private Double fullTotalPay = 0.0;
 
     private String chequeNo;
+    private String description;
+
 
 
     private Double cash = 0.0;
@@ -585,5 +587,8 @@ public class RipHolder {
         return cd;
     }
 
+    public void setDescription(String description) {        this.description = description;    }
+
+    public String getDescription() {        return description;    }
 
 }

@@ -15,7 +15,7 @@ public class DB {
 
 
     //   local
-    public static final String DBPATH = "jdbc:mysql://localhost:3306/arachchi?zeroDateTimeBehavior=convertToNull";
+    public static final String DBPATH = "jdbc:mysql://localhost:3306/ultimate2?zeroDateTimeBehavior=convertToNull";
     public static final String USER = "root";
     public static final String PASS = "root";
 
