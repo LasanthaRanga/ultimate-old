@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="625.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.assess.AssDelete">
+   <children>
+      <JFXTextField fx:id="recipt_no" alignment="CENTER" layoutX="530.0" layoutY="232.0" onKeyReleased="#enterRNo" prefHeight="29.0" prefWidth="242.0" promptText="Recipt Number" />
+      <JFXButton fx:id="btn_delete" layoutX="530.0" layoutY="362.0" onMouseClicked="#clickOnDelete" prefHeight="31.0" prefWidth="242.0" text="Delete">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </JFXButton>
+      <Label fx:id="idRecipt" alignment="CENTER" layoutX="529.0" layoutY="295.0" prefHeight="21.0" prefWidth="242.0" textAlignment="CENTER" />
+   </children>
+</AnchorPane>

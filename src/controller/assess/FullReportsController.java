@@ -802,7 +802,6 @@ public class FullReportsController implements Initializable {
                 int ass_qstart_quaterNumber = data.getInt("ass_Qstart_QuaterNumber");
                 int ass_qstart_status = data.getInt("ass_Qstart_status");
                 String ass_discription = data.getString("ass_discription");
-                System.out.println(ass_discription);
                 ripHolder.setDescription(ass_discription);
                 ripHolder.setAssessData(assessID, data.getInt("ward_no"), data.getString("street_name"), data.getString("cus_name"));
                 int qn = data.getInt("ass_Qstart_QuaterNumber");
@@ -1081,7 +1080,7 @@ public class FullReportsController implements Initializable {
                 int ass_qstart_status = data.getInt("ass_Qstart_status");
 
                 String ass_discription = data.getString("ass_discription");
-                System.out.println(ass_discription);
+
                 ripHolder.setDescription(ass_discription);
 
                 ripHolder.setAssessData(assessID, data.getInt("ward_no"), data.getString("street_name"), data.getString("cus_name"));

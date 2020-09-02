@@ -172,6 +172,7 @@ public class Pay {
                 int user_idUser = data.getInt("user_idUser");
                 int idAdv_advertising = data.getInt("idAdv_Advertising");
 
+
                 if (adv_total > 0) {
                     modle.Payment.CompleteAcc.insertToAccount(receipt_day, receipt_print_no, payid, getVoteId("AF"), 1, adv_total, user_idUser, idAdv_advertising, 1, 1);
                 }
@@ -201,9 +202,11 @@ public class Pay {
                 }
                 if (adv_cheque > 0) {
                     modle.Payment.CompleteAcc.insertToAccount(receipt_day, receipt_print_no, payid, getVoteId("CHQUE"), 1, adv_cheque, user_idUser, idAdv_advertising, 1, 1);
+                    conn.DB.setData("UPDATE `receipt` SET `pay_type`=2,`amount`='" + adv_cheque + "' WHERE `idReceipt`= " + payid);
                 }
                 if (adv_cash > 0) {
                     modle.Payment.CompleteAcc.insertToAccount(receipt_day, receipt_print_no, payid, getVoteId("CASH"), 1, adv_cash, user_idUser, idAdv_advertising, 1, 1);
+                    conn.DB.setData("UPDATE `receipt` SET `pay_type`=1,`amount`='" + adv_cash + "' WHERE `idReceipt`= " + payid);
                 }
             }
         } catch (Exception e) {
