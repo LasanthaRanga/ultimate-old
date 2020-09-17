@@ -15,9 +15,9 @@ public class DB {
 
 
     //   local
-//    public static final String DBPATH = "jdbc:mysql://localhost:3306/ultimate2?zeroDateTimeBehavior=convertToNull";
-//    public static final String USER = "root";
-//    public static final String PASS = "root";
+    public static final String DBPATH = "jdbc:mysql://localhost:3306/ultimate2?zeroDateTimeBehavior=convertToNull";
+    public static final String USER = "root";
+    public static final String PASS = "root";
 
 
 //    Polghawela
@@ -38,9 +38,9 @@ public class DB {
 //    public static final String PASS = "root";
 
 //    Kuliuc
-    public static final String DBPATH = "jdbc:mysql://124.43.11.162:3307/wariyapolaps?zeroDateTimeBehavior=convertToNull";
-    public static final String USER = "root";
-    public static final String PASS = "3ta@kela#una@";
+//    public static final String DBPATH = "jdbc:mysql://124.43.11.162:3307/wariyapolaps?zeroDateTimeBehavior=convertToNull";
+//    public static final String USER = "root";
+//    public static final String PASS = "3ta@kela#una@";
 
 
 //    Kuliuc
@@ -252,7 +252,7 @@ public class DB {
 //    public static final String USER = "root";
 //    public static final String PASS = "root";
 
-//    public static final String DBPATH = "jdbc:mysql://124.43.8.99:3306/ultimate2?zeroDateTimeBehavior=convertToNull&useUnicode=true&amp;characterEncoding=utf8&amp;useSSL=no&amp;autoReconnect=true";
+//    public static final String DBPATH = "jdbc:mysql://124.43.8.99:3306/ultimate2?zeroDateTimeBehavior=convertToNull";
 //    public static final String USER = "root";
 //    public static final String PASS = "Pol@#522#";
 
