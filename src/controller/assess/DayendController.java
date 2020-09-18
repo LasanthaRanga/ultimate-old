@@ -23,10 +23,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -430,22 +427,41 @@ public class DayendController implements Initializable {
     private void clickOnCancleBill(MouseEvent event) {
         // Integer id = tbl_DE_completed.getSelectionModel().getSelectedItem().getId();
         // Integer idPay = tbl_DE.getSelectionModel().getSelectedItem().getIdPay();
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Cancle Bill");
-        alert.setHeaderText("You are going to cancle This Bill \n Are you sure to delete this? \n Click Ok");
-        alert.setContentText("Recipt ID :" + idrecit);
+//        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+//        alert.setTitle("Cancle Bill");
+//        alert.setHeaderText("You are going to cancle This Bill \n Are you sure to delete this? \n Click Ok");
+//        alert.setContentText("Recipt ID :" + idrecit);
+//
+//        Optional<ButtonType> result = alert.showAndWait();
+//        if (result.get() == ButtonType.OK) {
+//            // ... user chose OK
+//           cancleBill(idrecit);
+//            loadTodayPaid(null);
+//        } else {
+//            // ... user chose CANCEL or closed the dialog්‍
+//        }
 
-        Optional<ButtonType> result = alert.showAndWait();
-        if (result.get() == ButtonType.OK) {
-            // ... user chose OK
-            cancleBill(idrecit);
-            loadTodayPaid(null);
-        } else {
-            // ... user chose CANCEL or closed the dialog්‍
+
+        TextInputDialog dialog = new TextInputDialog("");
+        dialog.setTitle("Confirm");
+        dialog.setHeaderText("Are you sure to cancel this receipt ? \nRecipt ID : " + idrecit);
+        dialog.setContentText("Please enter the reason :");
+
+        Optional<String> result = dialog.showAndWait();
+        if (result.isPresent()) {
+            if (result.get().length() > 0) {
+                System.out.println("Reason : " + result.get());
+                cancleBill(idrecit, result.get());
+            } else {
+                clickOnCancleBill(event);
+            }
+
         }
+
+
     }
 
-    public void cancleBill(int idRecipt) {
+    public void cancleBill(int idRecipt, String reason) {
 
         int appid = 0;
 
@@ -464,11 +480,7 @@ public class DayendController implements Initializable {
 
             switch (appcat) {
                 case 1:
-                    conn.DB.setData("UPDATE `receipt`\n" +
-                            "SET \n" +
-                            " receipt_status = 2\n" +
-                            "WHERE\n" +
-                            "\t(`idReceipt` = '" + idRecipt + "')");
+                    modle.Payment.CancleRecipt.cancleRecipt(idRecipt, reason);
 
                     conn.DB.setData("UPDATE `adv_advertising` SET   `adv_paid_notpaid`='2' WHERE (`receipt_idReceipt`='" + idRecipt + "')");
                     break;
@@ -486,11 +498,7 @@ public class DayendController implements Initializable {
                     if (com.last()) {
                         int ass_payment_status = com.getInt("ass_Payment_Status");
                         if (ass_payment_status == 0) {
-                            conn.DB.setData("UPDATE `receipt`\n" +
-                                    "SET \n" +
-                                    " receipt_status = 2\n" +
-                                    "WHERE\n" +
-                                    "\t(`idReceipt` = '" + idRecipt + "')");
+                            modle.Payment.CancleRecipt.cancleRecipt(idRecipt, reason);
 
                             conn.DB.setData("UPDATE `ass_payment`\n" +
                                     "SET \n" +
@@ -514,11 +522,8 @@ public class DayendController implements Initializable {
                             "WHERE\n" +
                             "\t(`idMixincome` = '" + appid + "')");
 
-                    conn.DB.setData("UPDATE `receipt`\n" +
-                            "SET \n" +
-                            " `receipt_status` = '2' \n" +
-                            "WHERE\n" +
-                            "\t(`idReceipt` = '" + idRecipt + "')");
+                    modle.Payment.CancleRecipt.cancleRecipt(idRecipt, reason);
+
                     conn.DB.setData("UPDATE `account_ps_three`\n" +
                             "SET \n" +
                             " `report_status` = '2'\n" +
@@ -526,11 +531,7 @@ public class DayendController implements Initializable {
                             "\t(`report_ricipt_id` = '" + idRecipt + "')");
                     break;
                 case 10:
-                    conn.DB.setData("UPDATE `receipt`\n" +
-                            "SET \n" +
-                            " receipt_status = 2\n" +
-                            "WHERE\n" +
-                            "\t(`idReceipt` = '" + idRecipt + "')");
+                    modle.Payment.CancleRecipt.cancleRecipt(idRecipt, reason);
                     conn.DB.setData("UPDATE `account_ps_three` \n" +
                             "SET \n" +
                             "`report_status` = 2\n" +

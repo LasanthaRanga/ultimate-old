@@ -7,10 +7,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
@@ -212,38 +209,51 @@ public class Ribill implements Initializable {
 
 
     public void cancleRiBill(int idRibill) {
+
         try {
-            ResultSet data = DB.getData("SELECT\n" +
-                    "ribill.idRibill,\n" +
-                    "ribill_list.idRicit,\n" +
-                    "ribill.ribill_status\n" +
-                    "FROM\n" +
-                    "ribill\n" +
-                    "INNER JOIN ribill_list ON ribill_list.Ribill_idRibill = ribill.idRibill\n" +
-                    "WHERE\n" +
-                    "ribill.idRibill = " + idRibill);
-            while (data.next()) {
-                int idRicit = data.getInt("idRicit");
-                conn.DB.setData("UPDATE `receipt`\n" +
-                        "SET `receipt_status` = '2'\n" +
-                        "WHERE\n" +
-                        "\t(`idReceipt` = '" + idRicit + "')");
 
-                conn.DB.setData("UPDATE `ass_payment`\n" +
-                        "SET \n" +
-                        " `ass_Payment_Status` = '2' \n" +
-                        "WHERE\n" +
-                        "\t(`Receipt_idReceipt` = '"+idRicit+"')");
+            TextInputDialog dialog = new TextInputDialog("");
+            dialog.setTitle("Confirm");
+            dialog.setHeaderText("Are you sure to cancel this receipt ? \nRecipt ID : " + idRibill);
+            dialog.setContentText("Please enter the reason :");
 
+            Optional<String> result = dialog.showAndWait();
+            if (result.isPresent()) {
+                if (result.get().length() > 0) {
+                    String reason = result.get();
+                    System.out.println("Reason : " + result.get());
+
+                    ResultSet data = DB.getData("SELECT\n" +
+                            "ribill.idRibill,\n" +
+                            "ribill_list.idRicit,\n" +
+                            "ribill.ribill_status\n" +
+                            "FROM\n" +
+                            "ribill\n" +
+                            "INNER JOIN ribill_list ON ribill_list.Ribill_idRibill = ribill.idRibill\n" +
+                            "WHERE\n" +
+                            "ribill.idRibill = " + idRibill);
+                    while (data.next()) {
+                        int idRicit = data.getInt("idRicit");
+                        modle.Payment.CancleRecipt.cancleRecipt(idRicit, reason);
+                        conn.DB.setData("UPDATE `ass_payment`\n" +
+                                "SET \n" +
+                                " `ass_Payment_Status` = '2' \n" +
+                                "WHERE\n" +
+                                "\t(`Receipt_idReceipt` = '" + idRicit + "')");
+
+                    }
+                    conn.DB.setData("UPDATE `ribill`\n" +
+                            "SET \n" +
+                            " `ribill_status` = '2'\n" +
+                            "WHERE\n" +
+                            "\t(`idRibill` = '" + idRibill + "')");
+                    modle.Allert.notificationGood("Cancel Complete", billno);
+                } else {
+                    cancleRiBill(idRibill);
+                }
 
             }
-            conn.DB.setData("UPDATE `ribill`\n" +
-                    "SET \n" +
-                    " `ribill_status` = '2'\n" +
-                    "WHERE\n" +
-                    "\t(`idRibill` = '" + idRibill + "')");
 
-            modle.Allert.notificationGood("Cancel Complete", billno);
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -467,7 +477,7 @@ public class Ribill implements Initializable {
 
             String ass_barcode_yes_no = KeyVal.getVal("ass_barcode_yes_no");
             if (ass_barcode_yes_no.equals("no")) {
-                modle.GetInstans.getAssessReport().RiBill(ribillid + "", ricitnos, chequenos,false);
+                modle.GetInstans.getAssessReport().RiBill(ribillid + "", ricitnos, chequenos, false);
             } else {
                 BarcodeStatic.subject = "Assessment RI Bill";
                 BarcodeStatic.customerName = modle.StaticViews.getLogUser().getUserFullName();

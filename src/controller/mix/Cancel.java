@@ -10,10 +10,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -109,75 +106,73 @@ public class Cancel implements Initializable {
             int idAppCat = selectedItem.getIdAppCat();
 
 
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setTitle("Confirmation Dialog");
-            alert.setHeaderText("Are You Sure to Cancel This Bill");
-            alert.setContentText(idRecipt + "");
+            TextInputDialog dialog = new TextInputDialog("");
+            dialog.setTitle("Confirm");
+            dialog.setHeaderText("Are you sure to cancel this receipt ? \nRecipt ID : " + idRecipt);
+            dialog.setContentText("Please enter the reason :");
 
+            Optional<String> result = dialog.showAndWait();
+            if (result.isPresent()) {
+                if (result.get().length() > 0) {
+                    String reason = result.get();
 
-            Optional<ButtonType> result = alert.showAndWait();
-            if (result.get() == ButtonType.OK) {
-                if (idAppCat == 9 || idAppCat == 11) {
-                    try {
-                        conn.DB.setData("UPDATE `mixincome`\n" +
-                                "SET \n" +
-                                " `mixincome_status` = '2' \n" +
-                                "WHERE\n" +
-                                "\t(`idMixincome` = '" + idMix + "')");
+                    if (idAppCat == 9 || idAppCat == 11) {
+                        try {
+                            conn.DB.setData("UPDATE `mixincome`\n" +
+                                    "SET \n" +
+                                    " `mixincome_status` = '2' \n" +
+                                    "WHERE\n" +
+                                    "\t(`idMixincome` = '" + idMix + "')");
 
-                        conn.DB.setData("UPDATE `receipt`\n" +
-                                "SET \n" +
-                                " `receipt_status` = '2' \n" +
-                                "WHERE\n" +
-                                "\t(`idReceipt` = '" + idRecipt + "')");
-                        conn.DB.setData("UPDATE `account_ps_three`\n" +
-                                "SET \n" +
-                                " `report_status` = '2'\n" +
-                                "WHERE\n" +
-                                "\t(`report_ricipt_id` = '" + idRecipt + "')");
+                            modle.Payment.CancleRecipt.cancleRecipt(idRecipt, reason);
+                            conn.DB.setData("UPDATE `account_ps_three`\n" +
+                                    "SET \n" +
+                                    " `report_status` = '2'\n" +
+                                    "WHERE\n" +
+                                    "\t(`report_ricipt_id` = '" + idRecipt + "')");
 
-                    } catch (Exception e) {
-                        e.printStackTrace();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
                     }
-                }
 
-                if (idAppCat == 10) {
-                    try {
-                        conn.DB.setData("UPDATE `book`\n" +
-                                "SET book_book_pay_status = '2',\n" +
-                                " book_book_status = '0'\n" +
-                                "WHERE\n" +
-                                "\t(`idbook` = '" + idMix + "')");
+                    if (idAppCat == 10) {
+                        try {
+                            conn.DB.setData("UPDATE `book`\n" +
+                                    "SET book_book_pay_status = '2',\n" +
+                                    " book_book_status = '0'\n" +
+                                    "WHERE\n" +
+                                    "\t(`idbook` = '" + idMix + "')");
 
-                        conn.DB.setData("UPDATE `receipt`\n" +
-                                "SET \n" +
-                                " `receipt_status` = '2' \n" +
-                                "WHERE\n" +
-                                "\t(`idReceipt` = '" + idRecipt + "')");
+                            modle.Payment.CancleRecipt.cancleRecipt(idRecipt, reason);
 
-                        conn.DB.setData("UPDATE `account_ps_three`\n" +
-                                "SET \n" +
-                                " `report_status` = '2'\n" +
-                                "WHERE\n" +
-                                "\t(`report_ricipt_id` = '" + idRecipt + "')");
+                            conn.DB.setData("UPDATE `account_ps_three`\n" +
+                                    "SET \n" +
+                                    " `report_status` = '2'\n" +
+                                    "WHERE\n" +
+                                    "\t(`report_ricipt_id` = '" + idRecipt + "')");
 
-                    } catch (Exception e) {
-                        e.printStackTrace();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
                     }
-                }
 
 
-                modle.Allert.notificationGood("Canceled", idRecipt + "");
-                LocalDate value = dp_day.getValue();
-                if (value != null) {
-                    Date selectDate = Date.from(dp_day.getValue().atStartOfDay().atZone(ZoneId.of("Asia/Colombo")).toInstant());
-                    String date = new SimpleDateFormat("yyyy-MM-dd").format(selectDate);
-                    loadTable(date, 0, 0);
+                    modle.Allert.notificationGood("Canceled", idRecipt + "");
+                    LocalDate value = dp_day.getValue();
+                    if (value != null) {
+                        Date selectDate = Date.from(dp_day.getValue().atStartOfDay().atZone(ZoneId.of("Asia/Colombo")).toInstant());
+                        String date = new SimpleDateFormat("yyyy-MM-dd").format(selectDate);
+                        loadTable(date, 0, 0);
+                    }
+
+                } else {
+                    clickOnCancel(event);
                 }
+
             } else {
                 modle.Allert.notificationInfo("Not Canceled", idRecipt + "");
             }
-
 
         } else {
             modle.Allert.notificationInfo("Not Selected ", "Plz.. Select One Form Table");
@@ -201,10 +196,10 @@ public class Cancel implements Initializable {
             if (data.last()) {
                 int apc = data.getInt("Application_Catagory_idApplication_Catagory");
                 if (apc == 9 || apc == 11) {
-                    modle.GetInstans.getGenarateRecipt().genarateRecipt(Integer.parseInt(idRecipt),false);
+                    modle.GetInstans.getGenarateRecipt().genarateRecipt(Integer.parseInt(idRecipt), false);
                 }
                 if (apc == 10) {
-                    modle.book.Recipt.genarateBookingRecipt(idRecipt,false);
+                    modle.book.Recipt.genarateBookingRecipt(idRecipt, false);
                 }
             } else {
                 modle.Allert.notificationInfo("No Recipt", "Place Recheck");
