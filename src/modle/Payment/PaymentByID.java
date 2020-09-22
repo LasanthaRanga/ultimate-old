@@ -236,6 +236,8 @@ public class PaymentByID {
 
 
     public static boolean genarateRisiptNo(int applicationcat, String ricipt, int idApp) {  //nonvesting
+
+
         boolean status = false;
         try {
 
@@ -252,7 +254,6 @@ public class PaymentByID {
             }
 
 
-
             int currentYear = GetInstans.getQuater().getCurrentYear();
 
             // By Account
@@ -267,7 +268,6 @@ public class PaymentByID {
                     " EXTRACT(YEAR FROM receipt.receipt_day)= " + currentYear);
 
 
-
             ResultSet data3 = DB.getData("SELECT\n" +
                     "\treceipt_code_create.receipt_code \n" +
                     "FROM\n" +
@@ -278,6 +278,13 @@ public class PaymentByID {
                     "\tAND receipt_code_create.account_id = '" + receipt_account_id + "'");
 
             String receipt_code = "";
+
+            System.out.println("==================================");
+            System.out.println("app cat " + applicationcat);
+            System.out.println("office  " + modle.StaticViews.getLogUser().getOfficeIdOffice() );
+            System.out.println("acoount " + receipt_account_id);
+            System.out.println("==================================");
+
             if (data3.last()) {
                 receipt_code = data3.getString("receipt_code");
             }

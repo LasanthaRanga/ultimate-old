@@ -14,10 +14,10 @@ public class DB {
     static Connection c = null;
 
 
-    //   local
-    public static final String DBPATH = "jdbc:mysql://localhost:3306/atd?zeroDateTimeBehavior=convertToNull";
-    public static final String USER = "root";
-    public static final String PASS = "root";
+//       local
+//    public static final String DBPATH = "jdbc:mysql://localhost:3306/chilaw?zeroDateTimeBehavior=convertToNull";
+//    public static final String USER = "root";
+//    public static final String PASS = "root";
 
 
 //    Polghawela
@@ -50,13 +50,18 @@ public class DB {
 
 
     //    MCK
-//    public static final String DBPATH = "jdbc:mysql://124.43.9.57:3306/angi?zeroDateTimeBehavior=convertToNull";
+//    public static final String DBPATH = "jdbc:mysql://124.43.9.57:3306/ultimate2?zeroDateTimeBehavior=convertToNull";
 //    public static final String USER = "root";
 //    public static final String PASS = "@Mck_#321";
 
-//    public static final String DBPATH = "jdbc:mysql://124.43.11.162:3307/wennappuwaps?zeroDateTimeBehavior=convertToNull";
+//    public static final String DBPATH = "jdbc:mysql://MCK_SERVER:3306/ultimate2?zeroDateTimeBehavior=convertToNull";
 //    public static final String USER = "root";
-//    public static final String PASS = "3ta@kela#una@";
+//    public static final String PASS = "@Mck_#321";
+
+    //    CHILAW
+    public static final String DBPATH = "jdbc:mysql://124.43.8.250:3306/ultimate2?zeroDateTimeBehavior=convertToNull";
+    public static final String USER = "root";
+    public static final String PASS = "CHI@#321#";
 
     //    // Pannala Online
 //    public static final String DBPATH = "jdbc:mysql://124.43.11.162:3306/pannala?zeroDateTimeBehavior=convertToNull";

@@ -902,10 +902,10 @@ public class Book implements Initializable {
                     }
 
 
-                    int appAccountByOffice = GetInstans.getAha().getAppAccountByOffice(10, StaticViews.getLogUser().getOfficeIdOffice());
+                  //  int appAccountByOffice = GetInstans.getAha().getAppAccountByOffice(10, StaticViews.getLogUser().getOfficeIdOffice());
 
 
-                    int riciptID = Recipt.insertReciptWithoutNo(10, idBook, cheque, cahs, fulltotal, today, chno, chdate, idbank, StaticViews.getLogUser().getOfficeIdOffice(), appAccountByOffice, StaticViews.getLogUser().getIdUser());
+                    int riciptID = Recipt.insertReciptWithoutNo(10, idBook, cheque, cahs, fulltotal, today, chno, chdate, idbank, StaticViews.getLogUser().getOfficeIdOffice(), idAccount, StaticViews.getLogUser().getIdUser());
                     if (riciptID > 0) {
                         conn.DB.setData("UPDATE `book`\n" +
                                 "SET \n" +

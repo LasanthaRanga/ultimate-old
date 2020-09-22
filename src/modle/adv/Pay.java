@@ -114,7 +114,27 @@ public class Pay {
                 x = data.getInt("count");
             }
             x++;
-            rn = "MCK/ADV:" + currentYear + "/ " + (x);
+
+            String code = "";
+
+            ResultSet data1 = DB.getData("SELECT\n" +
+                    "receipt_code_create.receipt_code_id,\n" +
+                    "receipt_code_create.receipt_code,\n" +
+                    "receipt_code_create.application_id,\n" +
+                    "receipt_code_create.cheque_code,\n" +
+                    "receipt_code_create.receipt_code_office_id,\n" +
+                    "receipt_code_create.account_id\n" +
+                    "FROM\n" +
+                    "receipt_code_create\n" +
+                    "WHERE\n" +
+                    "receipt_code_create.application_id = 1");
+
+
+            if (data1.last()) {
+                code = data1.getString("receipt_code");
+            }
+
+            rn = code + currentYear + "/ " + (x);
         } catch (Exception e) {
             e.printStackTrace();
         } finally {

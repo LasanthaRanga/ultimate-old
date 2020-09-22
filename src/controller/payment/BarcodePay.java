@@ -1186,22 +1186,38 @@ public class BarcodePay implements Initializable {
         //  modle.GetInstans.getBillComplete().tradeLicensBill(text, true); old version
         System.out.println("TL");
         try {
+//            String qq = "SELECT\n" +
+//                    "\ttl_pay.tl_ricipt_id,\n" +
+//                    "\ttl_pay.tl_receipt_no,\n" +
+//                    "\tcustomer.cus_name,\n" +
+//                    "\ttl_pay.tl_pay_tot,\n" +
+//                    "\ttl_pay_details.tl_paid_status\n" +
+//                    "FROM\n" +
+//                    "\ttl_pay\n" +
+//                    "INNER JOIN tl_pay_details ON tl_pay.tl_pay_detail_tbl_id = tl_pay_details.idTL_pay_details\n" +
+//                    "INNER JOIN tl_app ON tl_pay.tl_pay_app_id = tl_app.idTL_app\n" +
+//                    "AND tl_pay_details.tl_pay_app_id = tl_app.idTL_app\n" +
+//                    "INNER JOIN customer ON tl_app.app_cus_id = customer.idCustomer\n" +
+//                    "WHERE\n" +
+//                    "\ttl_pay.tl_ricipt_id = '" + text + "'\n" +
+//                    "GROUP BY\n" +
+//                    "\ttl_pay.tl_ricipt_id";
+
             String qq = "SELECT\n" +
-                    "\ttl_pay.tl_ricipt_id,\n" +
-                    "\ttl_pay.tl_receipt_no,\n" +
-                    "\tcustomer.cus_name,\n" +
-                    "\ttl_pay.tl_pay_tot,\n" +
-                    "\ttl_pay_details.tl_paid_status\n" +
+                    "tl_pay.tl_ricipt_id,\n" +
+                    "tl_pay.tl_receipt_no,\n" +
+                    "tl_pay.tl_pay_tot,\n" +
+                    "tl_pay_details.tl_paid_status,\n" +
+                    "tl_cus_name_concat_view.cus_name_sinh\n" +
                     "FROM\n" +
-                    "\ttl_pay\n" +
+                    "tl_pay\n" +
                     "INNER JOIN tl_pay_details ON tl_pay.tl_pay_detail_tbl_id = tl_pay_details.idTL_pay_details\n" +
-                    "INNER JOIN tl_app ON tl_pay.tl_pay_app_id = tl_app.idTL_app\n" +
-                    "AND tl_pay_details.tl_pay_app_id = tl_app.idTL_app\n" +
-                    "INNER JOIN customer ON tl_app.app_cus_id = customer.idCustomer\n" +
+                    "INNER JOIN tl_app ON tl_pay.tl_pay_app_id = tl_app.idTL_app AND tl_pay_details.tl_pay_app_id = tl_app.idTL_app\n" +
+                    "INNER JOIN tl_cus_name_concat_view ON tl_app.idTL_app = tl_cus_name_concat_view.tl_app_has_cus_app_id\n" +
                     "WHERE\n" +
-                    "\ttl_pay.tl_ricipt_id = '" + text + "'\n" +
+                    "tl_pay.tl_ricipt_id = '" + text + "'\n" +
                     "GROUP BY\n" +
-                    "\ttl_pay.tl_ricipt_id";
+                    "tl_pay.tl_ricipt_id";
 
             ResultSet data = DB.getData(qq);
 
@@ -1209,7 +1225,7 @@ public class BarcodePay implements Initializable {
                 System.out.println("data");
                 int tl_paid_status = data.getInt("tl_paid_status");
                 String tl_receipt_no = data.getString("tl_receipt_no");
-                String cus_name = data.getString("cus_name");
+                String cus_name = data.getString("cus_name_sinh");
                 String tl_pay_tot = data.getString("tl_pay_tot");
                 System.out.println(tl_paid_status + " - " + tl_receipt_no + " - " + cus_name + " - " + " " + tl_pay_tot);
                 catid = 6;
