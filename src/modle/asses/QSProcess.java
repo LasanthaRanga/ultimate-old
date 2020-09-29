@@ -530,6 +530,8 @@ public class QSProcess {
             String end = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(new Date());
             conn.DB.setData("UPDATE `ass_process` SET `end_time`='" + end + "' WHERE process_date='" + stringDate + "' AND quater_number=" + currentQuater);
 
+       //     modle.Allert.notificationGood("Quarter End Process Done", "Thank You");
+            progras.setProgress(0.0);
 
         } catch (Exception e) {
             e.printStackTrace();

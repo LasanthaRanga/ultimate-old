@@ -281,6 +281,10 @@ public class YQendProcess {
                     payHistry(idAssessment, 1, currentYear, stringDate, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
                 }
             }// Get All Activ Assessment
+
+
+            modle.Allert.notificationGood("Quarter End Process Done", "Thank You");
+            progras.setProgress(0.0);
         } catch (Exception e) {
             e.printStackTrace();
         } finally {

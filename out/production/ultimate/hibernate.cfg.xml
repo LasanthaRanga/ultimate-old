@@ -47,9 +47,12 @@ Contributor(s):
         <property name="hibernate.connection.username">root</property>
         <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
 
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/ultimate2?zeroDateTimeBehavior=convertToNull</property>
+        <property name="hibernate.connection.password">root</property>
+
         <!--MCK-->
-        <!--<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/chilaw?zeroDateTimeBehavior=convertToNull</property>-->
-        <!--<property name="hibernate.connection.password">root</property>-->
+        <!--<property name="hibernate.connection.url">jdbc:mysql://124.43.4.213:3306/ultimate2?zeroDateTimeBehavior=convertToNull</property>-->
+        <!--<property name="hibernate.connection.password">padu@#$075%$</property>-->
 
 
         <!--<property name="hibernate.connection.url">jdbc:mysql://124.43.8.99:3306/ultimate2?zeroDateTimeBehavior=convertToNull</property>-->
@@ -59,15 +62,15 @@ Contributor(s):
         <!--<property name="hibernate.connection.password">@Mck_#321</property>-->
 
         <!--MCK-->
-        <!--<property name="hibernate.connection.url">jdbc:mysql://124.43.9.57:3306/ultimate2?zeroDateTimeBehavior=convertToNull&amp;useUnicode=true&amp;characterEncoding=utf8&amp;useSSL=no&amp;autoReconnect=true</property>-->
+        <!--<property name="hibernate.connection.url">jdbc:mysql://124.43.9.57:3306/atd2?zeroDateTimeBehavior=convertToNull&amp;useUnicode=true&amp;characterEncoding=utf8&amp;useSSL=no&amp;autoReconnect=true</property>-->
         <!--<property name="hibernate.connection.password">@Mck_#321</property>-->
 
         <!--<property name="hibernate.connection.url">jdbc:mysql://MCK_SERVER:3306/ultimate2?zeroDateTimeBehavior=convertToNull&amp;useUnicode=true&amp;characterEncoding=utf8&amp;useSSL=no&amp;autoReconnect=true</property>-->
         <!--<property name="hibernate.connection.password">@Mck_#321</property>-->
 
         <!--CHILAW-->
-        <property name="hibernate.connection.url">jdbc:mysql://124.43.8.250:3306/ultimate2?zeroDateTimeBehavior=convertToNull&amp;useUnicode=true&amp;characterEncoding=utf8&amp;useSSL=no&amp;autoReconnect=true</property>
-        <property name="hibernate.connection.password">CHI@#321#</property>
+        <!--<property name="hibernate.connection.url">jdbc:mysql://124.43.8.250:3306/ultimate2?zeroDateTimeBehavior=convertToNull&amp;useUnicode=true&amp;characterEncoding=utf8&amp;useSSL=no&amp;autoReconnect=true</property>-->
+        <!--<property name="hibernate.connection.password">CHI@#321#</property>-->
 
 
         <!--<property name="hibernate.connection.url">jdbc:mysql://124.43.8.99:3306/ultimate2?zeroDateTimeBehavior=convertToNull</property>-->

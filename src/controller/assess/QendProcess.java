@@ -690,8 +690,9 @@ public class QendProcess implements Initializable {
 
     @FXML
     void startProcess(MouseEvent event) {
-        System.out.println("click On Quater End");
-
+        btn_process.setDisable(true);
+        System.out.println("Please Wait");
+        modle.Allert.notificationGood("Quarter End Process Started", "Please Wait ");
 
         new Thread(() -> {
 
