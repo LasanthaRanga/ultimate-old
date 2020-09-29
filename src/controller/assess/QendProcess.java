@@ -698,8 +698,10 @@ public class QendProcess implements Initializable {
 
             int currentQuater = GetInstans.getQuater().getCurrentQuater();
             if (currentQuater == 1) {
+                System.out.println("current Quater 1");
                 YQendProcess.collectMainData(progress);
             } else {
+                System.out.println("current Quater <> 1");
                 QSProcess.startProcess(progress);
             }
 
