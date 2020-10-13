@@ -10,6 +10,7 @@ import conn.DB;
 import javafx.geometry.Pos;
 import javafx.util.Duration;
 import modle.KeyVal;
+import modle.Round;
 import modle.StaticViews;
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
@@ -756,7 +757,6 @@ public class AssessReport {
     }
 
 
-
     public void PrintTradeLicens(String slid, boolean print) {
         try {
 
@@ -1088,6 +1088,58 @@ public class AssessReport {
             JasperViewer.viewReport(jp, false);
         } catch (Exception jRException) {
             jRException.printStackTrace();
+            jRException.printStackTrace();
+        }
+    }
+
+
+    public void mobileAssessTotalBill(String id) {
+        try {
+            String path = "C:\\Ultimate\\Report\\mobile\\mobile_total.jrxml";// IN SYSTEM
+
+
+            ResultSet data = DB.getData("SELECT\n" +
+                    "mobile_pay.idMobilePay,\n" +
+                    "mobile_pay.app_id,\n" +
+                    "mobile_pay.amount,\n" +
+                    "mobile_pay.pay_type,\n" +
+                    "mobile_pay.cheque_no,\n" +
+                    "mobile_pay.bank_id,\n" +
+                    "mobile_pay.oder,\n" +
+                    "mobile_pay.mobile_recipt_no,\n" +
+                    "mobile_pay.recipt_id,\n" +
+                    "mobile_pay.recipt_no,\n" +
+                    "mobile_pay.mob_tot_id,\n" +
+                    "mobile_pay.user_id\n" +
+                    "FROM\n" +
+                    "mobile_pay\n" +
+                    "WHERE\n" +
+                    "mobile_pay.mob_tot_id = " + id);
+
+            String details = "";
+
+            while (data.next()) {
+
+                String rn = data.getString("mobile_recipt_no");
+                String amount = Round.roundFormat(data.getDouble("amount"));
+
+                details += rn + " = " + amount + ",  ";
+
+            }
+
+            JasperReport jr = JasperCompileManager.compileReport(path);
+            HashMap param = new HashMap<String, String>();
+
+            param.put("bills", details);
+            param.put("id", id);
+
+            Connection connection = this.getConnection();
+            connection.commit();
+            JasperPrint jp = JasperFillManager.fillReport(jr, param, connection);
+            JasperViewer.viewReport(jp, false);
+
+
+        } catch (Exception jRException) {
             jRException.printStackTrace();
         }
     }

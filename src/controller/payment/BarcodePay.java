@@ -8,6 +8,7 @@ import controller.assess.DayendController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ProgressBar;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -43,28 +44,31 @@ public class BarcodePay implements Initializable {
     private JFXTextField txt_barcode;
 
     @FXML
-    private Text txt_tot;
+    public Text txt_tot;
 
     @FXML
-    private Text txt_dis1;
+    public Text txt_dis1;
 
     @FXML
-    private Text txt_dis2;
+    public Text txt_dis2;
 
     @FXML
-    private Text txt_dis3;
+    public Text txt_dis3;
 
     @FXML
-    private Text txt_dis4;
+    public Text txt_dis4;
 
     @FXML
-    private JFXButton btn_pay;
+    public JFXButton btn_pay;
 
     @FXML
     private JFXButton btn_print;
 
     @FXML
     private JFXTextField txt_rn;
+
+    @FXML
+    private ProgressBar progras;
 
     public int catid;
     public int idRecipt;
@@ -308,8 +312,31 @@ public class BarcodePay implements Initializable {
             String s = ss[1];
             System.out.println(s);
             String idRi = ss[0];
-            modle.Allert.notificationGood("RI Assessment Receipt", text);
-            riBillData(idRi);
+
+            if (s.equals("m") || s.equals("M")) {
+                System.out.println("mobile");
+                progras.setVisible(true);
+                txt_barcode.setDisable(true);
+                btn_pay.setDisable(true);
+                modle.Allert.notificationGood("Mobile Collection", text);
+
+                new Thread(() -> {
+                    new modle.Payment.MobileAssessPay().showInfor(idRi, txt_tot, txt_dis1, txt_dis2);
+                    new modle.Payment.MobileAssessPay().getData(idRi);
+                    txt_barcode.setDisable(false);
+                    //  btn_pay.setDisable(false);
+                    progras.setVisible(false);
+                    clearAll();
+                }).start();
+
+                new modle.asses.AssessReport().mobileAssessTotalBill(idRi);
+
+            } else {
+                riBillData(idRi);
+                modle.Allert.notificationGood("RI Assessment Receipt", text);
+
+            }
+
 
         } else {
             String qq = "SELECT\n" +
@@ -1981,7 +2008,6 @@ public class BarcodePay implements Initializable {
             e.printStackTrace();
         } finally {
         }
-
     }
 
 

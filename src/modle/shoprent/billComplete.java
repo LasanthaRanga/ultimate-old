@@ -105,25 +105,49 @@ public class billComplete {
         try {
 
 
+//            ResultSet data = DB.getData("SELECT\n" +
+//                    "GROUP_CONCAT(CONCAT( sr_shop_payment.sr_shop_proc_year, '-', w_month.`month` )) as months,\n" +
+//                    "sr_shop_payment.sr_receipt_no,\n" +
+//                    "sr_shop.sr_shop_no,\n" +
+//                    "CONCAT( sr_building.sr_building_name, ',', sr_flow.sr_flow_name ) as shop,\n" +
+//                    "receipt.idReceipt\n" +
+//                    "FROM\n" +
+//                    "sr_shop_payment\n" +
+//                    "INNER JOIN w_month ON sr_shop_payment.sr_shop_proc_month = w_month.id\n" +
+//                    "INNER JOIN sr_shop ON sr_shop_payment.sr_shop_shop_id = sr_shop.idsr_shop\n" +
+//                    "INNER JOIN sr_flow ON sr_shop.sr_flow_idsr_flow = sr_flow.idsr_flow\n" +
+//                    "INNER JOIN sr_building ON sr_shop.sr_building_idsr_building = sr_building.idsr_building AND sr_flow.sr_building_idsr_building = sr_building.idsr_building\n" +
+//                    "INNER JOIN receipt ON sr_shop_payment.sr_receipt_no = receipt.receipt_print_no\n" +
+//                    "WHERE\n" +
+//                    "sr_shop_payment.sr_shop_paid_over_pay_bal >= 0 AND\n" +
+//                    "sr_shop_payment.sr_shop_paid_arrears_bal = 0 AND\n" +
+//                    "sr_shop_payment.sr_shop_paid_rental_tot_bal = 0 AND\n" +
+//                    "receipt.idReceipt =  '" + idRecipt + "'\n" +
+//                    "ORDER BY sr_shop_payment.sr_shop_paid_id ASC");
+
             ResultSet data = DB.getData("SELECT\n" +
-                    "GROUP_CONCAT(CONCAT( sr_shop_payment.sr_shop_proc_year, '-', w_month.`month` )) as months,\n" +
+                    "GROUP_CONCAT(CONCAT( sr_shop_payment.sr_shop_proc_year, '/', w_month.`month`,'-',sr_payment_status.sr_paid_status )) AS months,\n" +
                     "sr_shop_payment.sr_receipt_no,\n" +
                     "sr_shop.sr_shop_no,\n" +
-                    "CONCAT( sr_building.sr_building_name, ',', sr_flow.sr_flow_name ) as shop,\n" +
-                    "receipt.idReceipt\n" +
+                    "CONCAT( sr_building.sr_building_name, ',', sr_flow.sr_flow_name ) AS shop,\n" +
+                    "receipt.idReceipt,\n" +
+                    "sr_shop_payment.sr_shop_paid_proc_complete\n" +
+                    "\n" +
                     "FROM\n" +
                     "sr_shop_payment\n" +
-                    "INNER JOIN w_month ON sr_shop_payment.sr_shop_proc_month = w_month.id\n" +
-                    "INNER JOIN sr_shop ON sr_shop_payment.sr_shop_shop_id = sr_shop.idsr_shop\n" +
-                    "INNER JOIN sr_flow ON sr_shop.sr_flow_idsr_flow = sr_flow.idsr_flow\n" +
-                    "INNER JOIN sr_building ON sr_shop.sr_building_idsr_building = sr_building.idsr_building AND sr_flow.sr_building_idsr_building = sr_building.idsr_building\n" +
-                    "INNER JOIN receipt ON sr_shop_payment.sr_receipt_no = receipt.receipt_print_no\n" +
+                    "LEFT JOIN w_month ON sr_shop_payment.sr_shop_proc_month = w_month.id\n" +
+                    "LEFT JOIN sr_shop ON sr_shop_payment.sr_shop_shop_id = sr_shop.idsr_shop\n" +
+                    "LEFT JOIN sr_flow ON sr_shop.sr_flow_idsr_flow = sr_flow.idsr_flow\n" +
+                    "LEFT JOIN sr_building ON sr_flow.sr_building_idsr_building = sr_building.idsr_building\n" +
+                    "LEFT JOIN receipt ON sr_shop_payment.sr_receipt_no = receipt.receipt_print_no\n" +
+                    "INNER JOIN sr_payment_status ON sr_shop_payment.sr_shop_paid_proc_complete = sr_payment_status.sr_paid_status_id\n" +
                     "WHERE\n" +
-                    "sr_shop_payment.sr_shop_paid_over_pay_bal >= 0 AND\n" +
-                    "sr_shop_payment.sr_shop_paid_arrears_bal = 0 AND\n" +
-                    "sr_shop_payment.sr_shop_paid_rental_tot_bal = 0 AND\n" +
-                    "receipt.idReceipt =  '" + idRecipt + "'\n" +
-                    "ORDER BY sr_shop_payment.sr_shop_paid_id ASC");
+                    "sr_shop_payment.sr_shop_payment_complete_or_not = 1 AND\n" +
+                    "receipt.idReceipt = '" + idRecipt + "'\n" +
+                    "ORDER BY\n" +
+                    "        sr_shop_payment.sr_shop_paid_id ASC");
+
+
             String shops = "";
             String months = "";
             while (data.next()) {
