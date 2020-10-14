@@ -7,7 +7,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="625.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.assess.SystemSettingsController">
+<AnchorPane id="AnchorPane" prefHeight="625.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.assess.SystemSettingsController">
    <children>
       <JFXDatePicker fx:id="dp_systemDate" layoutX="60.0" layoutY="49.0" onAction="#dateOnAction" promptText="SelectSystemDate" />
       <AnchorPane layoutX="52.0" layoutY="461.0" prefHeight="140.0" prefWidth="982.0" style="-fx-border-color: #673AB7;">
@@ -21,6 +21,6 @@
             </JFXButton>
          </children>
       </AnchorPane>
-      <JFXButton layoutX="1084.0" layoutY="546.0" onAction="#clickOn10" style="-fx-background-color: #673AB7;" text="10 discount process button" textFill="WHITE" />
+      <JFXButton disable="true" layoutX="1084.0" layoutY="546.0" onAction="#clickOn10" style="-fx-background-color: #673AB7;" text="10 discount process button" textFill="WHITE" />
    </children>
 </AnchorPane>

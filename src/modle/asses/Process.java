@@ -142,19 +142,22 @@ public class Process {
         boolean allow = false;
         try {
             String format = new SimpleDateFormat("yyyy-MM-dd").format(date);
+            String year = new SimpleDateFormat("yyyy").format(date);
             int currentQuater = GetInstans.getQuater().getCurrentQuaterByDate(date);
+
             ResultSet data = DB.getData("SELECT\n" +
-                    "\tass_process.idProcess,\n" +
-                    "\tass_process.process_date,\n" +
-                    "\tass_process.quater_number,\n" +
-                    "\tass_process.user_id,\n" +
-                    "\tass_process.start_time,\n" +
-                    "\tass_process.end_time \n" +
+                    "ass_process.idProcess,\n" +
+                    "ass_process.process_date,\n" +
+                    "ass_process.quater_number,\n" +
+                    "ass_process.user_id,\n" +
+                    "ass_process.start_time,\n" +
+                    "ass_process.end_time\n" +
                     "FROM\n" +
-                    "\tass_process \n" +
+                    "ass_process\n" +
                     "WHERE\n" +
-                    "\tass_process.process_date <= '" + format + "' \n" +
-                    "\tAND ass_process.quater_number =" + currentQuater);
+                    "ass_process.process_date <= '" + format + "' AND\n" +
+                    "ass_process.quater_number = '" + currentQuater + "' AND\n" +
+                    "year(ass_process.process_date) = " + year);
 
             if (data.last()) {
                 allow = true;

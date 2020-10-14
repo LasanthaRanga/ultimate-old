@@ -8,10 +8,12 @@ import java.net.URL;
 import java.sql.ResultSet;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 
+import conn.DB;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -39,6 +41,7 @@ import org.hibernate.criterion.Restrictions;
 import pojo.Systemdate;
 
 import static javax.swing.text.StyleConstants.Background;
+
 
 /**
  * FXML Controller class
@@ -72,11 +75,25 @@ public class SystemSettingsController implements Initializable {
 
         Date selectDate = Date.from(dp_systemDate.getValue().atStartOfDay().atZone(ZoneId.of("Asia/Colombo")).toInstant());
 
-        Date systemdate = new Date();
 
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+
+
+        Calendar c = Calendar.getInstance();
+        c.setTime(selectDate);
+        c.add(Calendar.MONTH, -3);
+        Date date = c.getTime();
+
+
+        Date systemdate = new Date();
+
+
         String system = format.format(systemdate);
         String selected = format.format(selectDate);
+        String priviars = format.format(date);
+
+        System.out.println(priviars + " -- " + selected);
+
 
         boolean b = new Process().allwDateChange(selectDate);
         if (b) {
@@ -100,8 +117,19 @@ public class SystemSettingsController implements Initializable {
         } else {
 
             String today = new SimpleDateFormat("MM-dd").format(selectDate);
-            if (today.equals("01-01") ||  today.equals("04-01") || today.equals("07-01") || today.equals("10-01")) {
-                setSystemDate(selectDate);
+            if (today.equals("01-01") || today.equals("04-01") || today.equals("07-01") || today.equals("10-01")) {
+
+                boolean dayEnded = checkDayEnd(priviars, selected);
+
+                if (dayEnded) {
+                    setSystemDate(selectDate);
+                } else {
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Check Day End");
+                    alert.setHeaderText("Please recheck the day end process before the date change");
+                    alert.setContentText("day end not completed");
+                    alert.show();
+                }
             }
 
 
@@ -159,7 +187,6 @@ public class SystemSettingsController implements Initializable {
             }
 
 
-
             transaction.commit();
         } catch (Exception e) {
             e.printStackTrace();
@@ -179,6 +206,48 @@ public class SystemSettingsController implements Initializable {
     }
 
 
+    public boolean checkDayEnd(String from, String to) {
+        boolean dayEnded = true;
+        try {
+
+            ResultSet data = DB.getData("SELECT\n" +
+                    "receipt.idReceipt,\n" +
+                    "de.receipt_id,\n" +
+                    "receipt.receipt_total,\n" +
+                    "receipt.receipt_day,\n" +
+                    "de.staus,\n" +
+                    "assessment.idAssessment,\n" +
+                    "assessment.office_idOffice\n" +
+                    "FROM\n" +
+                    "receipt\n" +
+                    "LEFT JOIN de ON de.receipt_id = receipt.idReceipt\n" +
+                    "INNER JOIN assessment ON assessment.idAssessment = receipt.recept_applicationId\n" +
+                    "WHERE\n" +
+                    "receipt.Application_Catagory_idApplication_Catagory = 2 AND\n" +
+                    "receipt.receipt_status = 1 AND\n" +
+                    "(de.receipt_id IS NULL OR de.staus = 0) AND\n" +
+                    "receipt.receipt_day BETWEEN '" + from + "' AND '" + to + "'\n" +
+                    "ORDER BY\n" +
+                    "receipt.idReceipt ASC");
+
+            String pd = "";
+
+            while (data.next()) {
+                String receipt_day = data.getString("receipt_day");
+                if (!pd.equals(receipt_day)) {
+                    pd = receipt_day;
+                    modle.Allert.notificationInfo("Not Day Ended ", pd);
+                }
+                dayEnded = false;
+            }
+            return dayEnded;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return dayEnded;
+    }
+
+
     @FXML
     void clickOn10(ActionEvent event) {
         System.out.println("click on 10 persont");
@@ -192,7 +261,7 @@ public class SystemSettingsController implements Initializable {
 
         new Thread(() -> {
 
-            YQendProcess.collectMainData(progras);
+            //  YQendProcess.collectMainData(progras);
 
             // new QSProcess().startProcess(progras);
 
