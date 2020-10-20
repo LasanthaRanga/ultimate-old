@@ -1086,11 +1086,26 @@ public class BarcodePay implements Initializable {
     public void payThreWheel(String text) {
         try {
             // ResultSet data = DB.getData("SELECT 3weel_process.3weel_process_id, 3weel_process.3weel_process_amount + 3weel_process.3weel_process_vat_amount + 3weel_process.3weel_process_stamp_amount + 3weel_process.3weel_process_nbt_amount + 3weel_process.3weel_process_other_charges, 3weel_payment.3weel_pay_id, 3weel_stick_print.3weel_stick_print_id, receipt.idReceipt, weel_paid_process_check.weel_paid_process_check_id FROM 3weel_stick_print INNER JOIN 3weel_payment ON 3weel_stick_print.3weel_receipt_no = 3weel_payment.3weel_receipt_no INNER JOIN 3weel_process ON 3weel_payment.3weel_pay_customer_vehi_id = 3weel_process.3weel_process_vehi_has_cus_id INNER JOIN receipt ON 3weel_stick_print.3weel_receipt_no = receipt.receipt_print_no INNER JOIN weel_paid_process_check ON weel_paid_process_check.weel_paid_process_check_proc_id = 3weel_process.3weel_process_id AND 3weel_stick_print.3weel_receipt_no = weel_paid_process_check.weel_paid_process_check_receipt_no WHERE 3weel_process.3weel_process_payment_complete_or_not = '0' AND receipt.idReceipt = '" + text + "'");
-            ResultSet data = DB.getData("SELECT 3 weel_process.3 weel_process_id,3 weel_process.3 weel_process_amount+3 weel_process.3 weel_process_vat_amount+3 weel_process.3 weel_process_stamp_amount+3 weel_process.3 weel_process_nbt_amount+3 weel_process.3 weel_process_other_charges,3 weel_payment.3 weel_pay_id,receipt.idReceipt,weel_paid_process_check.weel_paid_process_check_id FROM 3 weel_payment LEFT JOIN 3 weel_process ON 3 weel_payment.3 weel_pay_customer_vehi_id=3 weel_process.3 weel_process_vehi_has_cus_id INNER JOIN receipt ON 3 weel_payment.3 weel_receipt_no=receipt.receipt_print_no LEFT JOIN weel_paid_process_check ON weel_paid_process_check.weel_paid_process_check_proc_id=3 weel_process.3 weel_process_id WHERE 3 weel_process.3 weel_process_payment_complete_or_not='0' AND receipt.idReceipt='" + text + "' GROUP BY 3 weel_process.3 weel_process_id");
+            ResultSet data = DB.getData("SELECT\n" +
+                    "3weel_process.3weel_process_id,\n" +
+                    "3weel_process.3weel_process_amount + 3weel_process.3weel_process_vat_amount + 3weel_process.3weel_process_stamp_amount + 3weel_process.3weel_process_nbt_amount + 3weel_process.3weel_process_other_charges,\n" +
+                    "3weel_payment.3weel_pay_id,\n" +
+                    "receipt.idReceipt,\n" +
+                    "weel_paid_process_check.weel_paid_process_check_id\n" +
+                    "FROM\n" +
+                    "3weel_payment\n" +
+                    "LEFT JOIN 3weel_process ON 3weel_payment.3weel_pay_customer_vehi_id = 3weel_process.3weel_process_vehi_has_cus_id\n" +
+                    "INNER JOIN receipt ON 3weel_payment.3weel_receipt_no = receipt.receipt_print_no\n" +
+                    "LEFT JOIN weel_paid_process_check ON weel_paid_process_check.weel_paid_process_check_proc_id = 3weel_process.3weel_process_id\n" +
+                    "WHERE\n" +
+                    "3weel_process.3weel_process_payment_complete_or_not = '0' AND\n" +
+                    "receipt.idReceipt = '" + text + "'\n" +
+                    "GROUP BY\n" +
+                    "3weel_process.3weel_process_id");
             while (data.next()) {
                 int weel_process_id = data.getInt("3weel_process_id");
                 int weel_pay_id = data.getInt("3weel_pay_id");
-                int weel_paid_process_check_id = data.getInt("weel_paid_process_check_id ");
+                int weel_paid_process_check_id = data.getInt("weel_paid_process_check_id");
                 conn.DB.setData("UPDATE `3weel_process` SET `3weel_process_payment_complete_or_not` = '1' WHERE `3weel_process_id` = '" + weel_process_id + "'");
                 conn.DB.setData("UPDATE `3weel_payment` SET `3weel_pay_complete_status`='1' WHERE `3weel_pay_id`='" + weel_pay_id + "'");
                 conn.DB.setData("UPDATE `account_ps_three` SET `report_status`='1' WHERE `report_ricipt_id`='" + weel_paid_process_check_id + "'");
