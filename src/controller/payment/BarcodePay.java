@@ -1867,7 +1867,9 @@ public class BarcodePay implements Initializable {
                     "customer.cus_name,\n" +
                     "sr_shop.sr_shop_no,\n" +
                     "receipt.receipt_total,\n" +
-                    "application_catagory.application_name\n" +
+                    "application_catagory.application_name,\n" +
+                    "receipt.idReceipt,\n" +
+                    "receipt.receipt_status\n" +
                     "FROM\n" +
                     "receipt\n" +
                     "INNER JOIN sr_shop_now ON receipt.recept_applicationId = sr_shop_now.sr_shop_now_category_id\n" +
@@ -1875,12 +1877,20 @@ public class BarcodePay implements Initializable {
                     "INNER JOIN customer ON sr_shop_now.sr_shop_cus_id = customer.idCustomer\n" +
                     "INNER JOIN application_catagory ON receipt.Application_Catagory_idApplication_Catagory = application_catagory.idApplication_Catagory\n" +
                     "WHERE\n" +
-                    "receipt.idReceipt = '" + idRecipt + "' AND\n" +
-                    "receipt.Application_Catagory_idApplication_Catagory = '4'\n");
+                    "receipt.idReceipt = '" + text + "' AND\n" +
+                    "receipt.Application_Catagory_idApplication_Catagory = '4'");
             if (data.last()) {
-                txt_tot.setText(data.getString("receipt_total"));
-                txt_dis1.setText(data.getString("cus_name") + " - " + data.getString("sr_shop_no"));
-                payAnable();
+                int receipt_status = data.getInt("receipt_status");
+                if (receipt_status == 0) {
+                    txt_tot.setText(data.getString("receipt_total"));
+                    txt_dis1.setText(data.getString("cus_name") + " - " + data.getString("sr_shop_no"));
+                    payAnable();
+                } else {
+                    txt_tot.setText(data.getString("receipt_total"));
+                    txt_dis1.setText(data.getString("cus_name") + " - " + data.getString("sr_shop_no"));
+                    printAnable();
+                }
+
             }
 
         } catch (Exception e) {

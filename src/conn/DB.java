@@ -14,9 +14,9 @@ public class DB {
     static Connection c = null;
 
     //       local
-    public static final String DBPATH = "jdbc:mysql://124.43.8.250:3306/tempory?zeroDateTimeBehavior=convertToNull";
+    public static final String DBPATH = "jdbc:mysql://localhost:3306/atd?zeroDateTimeBehavior=convertToNull";
     public static final String USER = "root";
-    public static final String PASS = "CHI@#321#";
+    public static final String PASS = "root";
 
 //       local
 //    public static final String DBPATH = "jdbc:mysql://124.43.4.213:3306/ultimate2?zeroDateTimeBehavior=convertToNull";
