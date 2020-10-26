@@ -20,6 +20,11 @@
         <property name="type" type="string">
             <column name="type" length="45" />
         </property>
+
+        <property name="catID" type="java.lang.Integer">
+            <column name="catID" length="11" />
+        </property>
+
         <set name="privilegesOtherSofts" table="privileges_other_soft" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="privileges_table_id" />

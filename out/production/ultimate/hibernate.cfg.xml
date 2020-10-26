@@ -58,7 +58,7 @@ Contributor(s):
         <!--<property name="hibernate.connection.url">jdbc:mysql://124.43.8.99:3306/ultimate2?zeroDateTimeBehavior=convertToNull</property>-->
         <!--<property name="hibernate.connection.password">Pol@#522#</property>-->
 
-        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/atd?zeroDateTimeBehavior=convertToNull&amp;useUnicode=true&amp;characterEncoding=utf8&amp;useSSL=no&amp;autoReconnect=true</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/ultimate2?zeroDateTimeBehavior=convertToNull&amp;useUnicode=true&amp;characterEncoding=utf8&amp;useSSL=no&amp;autoReconnect=true</property>
         <property name="hibernate.connection.password">root</property>
 
         <!--MCK-->

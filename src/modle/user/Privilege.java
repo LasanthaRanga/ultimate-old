@@ -1,11 +1,13 @@
 package modle.user;
 
 import conn.DB;
+
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -15,7 +17,6 @@ import pojo.User;
 import pojo.UserHasPrivilage;
 
 /**
- *
  * @author RM.LasanthaRanga@gmail.com
  */
 public class Privilege {
@@ -26,6 +27,22 @@ public class Privilege {
         Transaction transaction = session.beginTransaction();
         try {
             return session.createCriteria(Privilage.class).list();
+        } catch (Exception e) {
+            transaction.rollback();
+            return null;
+        } finally {
+            session.close();
+        }
+    }
+
+    public List<Privilage> getPrivilagesById(int id) {
+
+        Session session = conn.NewHibernateUtil.getSessionFactory().openSession();
+        Transaction transaction = session.beginTransaction();
+        try {
+            Criteria criteria = session.createCriteria(Privilage.class);
+            List catID = criteria.add(Restrictions.eq("catID", id)).list();
+            return catID;
         } catch (Exception e) {
             transaction.rollback();
             return null;
@@ -57,6 +74,7 @@ public class Privilege {
 
             Criteria cry = session.createCriteria(UserHasPrivilage.class);
             cry.add(Restrictions.eq("user", user));
+
             List list = cry.add(Restrictions.eq("privilage", privilage)).list();
             if (list.size() > 0) {
 
@@ -151,11 +169,10 @@ public class Privilege {
             ArrayList<String> hashSet = new ArrayList<String>();
 
             while (data.next()) {
-               System.out.println(data.getString("view")+"   ---------");
-                 hashSet.add(data.getString("view"));
+                System.out.println(data.getString("view") + "   ---------");
+                hashSet.add(data.getString("view"));
             }
 
-           
 
             return hashSet;
         } catch (Exception e) {

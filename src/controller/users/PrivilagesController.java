@@ -2,10 +2,13 @@ package controller.users;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXCheckBox;
+
 import java.net.URL;
 import java.util.HashMap;
 import java.util.List;
 import java.util.ResourceBundle;
+
+import com.jfoenix.controls.JFXComboBox;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -16,6 +19,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.input.MouseEvent;
+import modle.ComboItem;
+import modle.ComboLoad;
 import modle.TableLoad;
 import pojo.Privilage;
 import pojo.User;
@@ -41,8 +46,8 @@ public class PrivilagesController implements Initializable {
     private TableView<Privilege> tbl_privilege;
     @FXML
     private TableColumn<Privilege, String> col_priv_id;
-    @FXML
-    private TableColumn<Privilege, String> col_prive;
+    //    @FXML
+//    private TableColumn<Privilege, String> col_prive;
     @FXML
     private TableColumn<Privilege, String> col_btn;
     @FXML
@@ -51,8 +56,11 @@ public class PrivilagesController implements Initializable {
     private JFXButton btn_set;
     @FXML
     private Label lbl_uid;
+    @FXML
+    private JFXComboBox<ComboItem> apps;
 
     modle.user.Privilege privilege;
+    int selectedAppCat = 0;
 
     /**
      * Initializes the controller class.
@@ -64,7 +72,20 @@ public class PrivilagesController implements Initializable {
         loadPrivilageTable();
         privilege = new modle.user.Privilege();
         modle.StaticViews.getMc().changeTitle("Privilege");
+        loadAppsCombo();
 
+    }
+
+    public void loadAppsCombo() {
+        ObservableList<ComboItem> comboItems = ComboLoad.loadCombo("SELECT application_catagory.idApplication_Catagory,application_catagory.application_name FROM application_catagory");
+        this.apps.setItems(comboItems);
+    }
+
+    @FXML
+    void appsOnAction(ActionEvent event) {
+        int id = apps.getSelectionModel().getSelectedItem().getId();
+        selectedAppCat = id;
+        loadPrivilageTableByApp(id);
     }
 
     public void loadUserTable() {
@@ -100,7 +121,7 @@ public class PrivilagesController implements Initializable {
             JFXCheckBox select = item.getSelect();
             if (select.isSelected()) {
                 privilege.setPrivilage(idPrivilege, Integer.parseInt(lbl_uid.getText()));
-            }else{
+            } else {
                 privilege.removePrivilage(idPrivilege, Integer.parseInt(lbl_uid.getText()));
             }
         }
@@ -150,7 +171,7 @@ public class PrivilagesController implements Initializable {
         }
         HashMap<TableColumn, String> hashMap = new HashMap();
         hashMap.put(col_priv_id, "idPrivilege");
-        hashMap.put(col_prive, "View");
+//        hashMap.put(col_prive, "View");
         hashMap.put(col_btn, "btn");
         hashMap.put(col_set, "select");
 
@@ -158,8 +179,56 @@ public class PrivilagesController implements Initializable {
 
     }
 
+    public void loadPrivilageTableByApp(int appid) {
+
+        int i = Integer.parseInt(lbl_uid.getText());
+        if (i == 0) {
+
+            List<Privilage> prv = modle.GetInstans.getPrivilege().getPrivilagesById(appid);
+            ObservableList<Privilege> privilagess = FXCollections.observableArrayList();
+            for (Privilage privilage : prv) {
+                privilagess.add(new Privilege(privilage.getIdPrivilage(), privilage.getView(), privilage.getBtn()));
+            }
+            HashMap<TableColumn, String> hashMap = new HashMap();
+            hashMap.put(col_priv_id, "idPrivilege");
+//        hashMap.put(col_prive, "View");
+            hashMap.put(col_btn, "btn");
+            hashMap.put(col_set, "select");
+
+            modle.GetInstans.getTableLoad().load(privilagess, tbl_privilege, hashMap);
+
+        } else {
+            List<Privilage> prv = modle.GetInstans.getPrivilege().getPrivilagesById(appid);
+            ObservableList<Privilege> privilagess = FXCollections.observableArrayList();
+            for (Privilage privilage : prv) {
+                Privilege pri = new Privilege(privilage.getIdPrivilage(), privilage.getView(), privilage.getBtn());
+                if (privilege.havePrivilage(Integer.parseInt(lbl_uid.getText()), privilage.getIdPrivilage())) {
+                    pri.getSelect().setSelected(true);
+                }
+                privilagess.add(pri);
+            }
+            HashMap<TableColumn, String> hashMap = new HashMap();
+            hashMap.put(col_priv_id, "idPrivilege");
+//        hashMap.put(col_prive, "View");
+            hashMap.put(col_btn, "btn");
+            hashMap.put(col_set, "select");
+
+            modle.GetInstans.getTableLoad().load(privilagess, tbl_privilege, hashMap);
+
+        }
+
+    }
+
+
     public void loadPrivilageTableByUser() {
-        List<Privilage> prv = modle.GetInstans.getPrivilege().getPrivilages();
+        List<Privilage> prv = null;
+        if (selectedAppCat == 0) {
+            prv = modle.GetInstans.getPrivilege().getPrivilages();
+        } else {
+            prv = modle.GetInstans.getPrivilege().getPrivilagesById(selectedAppCat);
+        }
+
+
         ObservableList<Privilege> privilagess = FXCollections.observableArrayList();
         for (Privilage privilage : prv) {
             Privilege pri = new Privilege(privilage.getIdPrivilage(), privilage.getView(), privilage.getBtn());
@@ -170,7 +239,7 @@ public class PrivilagesController implements Initializable {
         }
         HashMap<TableColumn, String> hashMap = new HashMap();
         hashMap.put(col_priv_id, "idPrivilege");
-        hashMap.put(col_prive, "View");
+//        hashMap.put(col_prive, "View");
         hashMap.put(col_btn, "btn");
         hashMap.put(col_set, "select");
 

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -20,12 +21,11 @@
          <font>
             <Font name="System Bold" size="14.0" />
          </font></Label>
-      <TableView fx:id="tbl_privilege" layoutX="726.0" layoutY="58.0" prefHeight="489.0" prefWidth="455.0">
+      <TableView fx:id="tbl_privilege" layoutX="726.0" layoutY="127.0" prefHeight="420.0" prefWidth="455.0">
         <columns>
-          <TableColumn fx:id="col_priv_id" prefWidth="35.0" text="#" />
-          <TableColumn fx:id="col_prive" prefWidth="247.0" text="Privilege" />
-            <TableColumn fx:id="col_btn" prefWidth="120.0" text="BTN" />
-            <TableColumn fx:id="col_set" prefWidth="34.0" text="SET" />
+          <TableColumn fx:id="col_priv_id" prefWidth="48.0" text="#" />
+            <TableColumn fx:id="col_btn" prefWidth="349.0" text="BTN" />
+            <TableColumn fx:id="col_set" prefWidth="38.0" text="SET" />
         </columns>
       </TableView>
       <JFXButton fx:id="btn_set" layoutX="1036.0" layoutY="564.0" onAction="#setPrivilage" prefHeight="36.0" prefWidth="145.0" style="-fx-background-color: #047f00;" text="Set Privileges" textFill="WHITE">
@@ -36,5 +36,6 @@
          <font>
             <Font name="System Bold" size="14.0" />
          </font></Label>
+      <JFXComboBox fx:id="apps" labelFloat="true" layoutX="726.0" layoutY="71.0" onAction="#appsOnAction" prefHeight="31.0" prefWidth="455.0" promptText="Application Category" />
    </children>
 </AnchorPane>
