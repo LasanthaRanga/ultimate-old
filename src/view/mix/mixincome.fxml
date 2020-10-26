@@ -265,7 +265,7 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </JFXButton>
-      <JFXRadioButton fx:id="radio_no1" disable="true" layoutX="1158.0" layoutY="42.0" mnemonicParsing="false" onAction="#advance" text="Advance " toggleGroup="$groupe">
+      <JFXRadioButton fx:id="radio_no1" layoutX="1158.0" layoutY="42.0" mnemonicParsing="false" onAction="#advance" text="Advance " toggleGroup="$groupe">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
