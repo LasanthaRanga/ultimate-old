@@ -28,7 +28,7 @@
         </columns>
       </TableView>
       <JFXDatePicker fx:id="dp" layoutX="127.0" layoutY="33.0" onAction="#dateChange" />
-      <JFXRadioButton fx:id="radio_confirmed" layoutX="335.0" layoutY="38.0" onAction="#radioOnAction" selected="true" text="Paid confirmed" textFill="#0a7900">
+      <JFXRadioButton fx:id="radio_confirmed" layoutX="335.0" layoutY="38.0" onAction="#radioOnAction" selected="true" text="Paid confirmed" textFill="#0a7900" visible="false">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
@@ -36,12 +36,7 @@
             <ToggleGroup fx:id="confirmed" />
          </toggleGroup>
       </JFXRadioButton>
-      <JFXRadioButton fx:id="radio_reject" layoutX="484.0" layoutY="38.0" onAction="#radioOnAction" text="Rejected Or Pending" textFill="#cd0000" toggleGroup="$confirmed">
-         <font>
-            <Font name="System Bold" size="13.0" />
-         </font>
-      </JFXRadioButton>
-      <JFXRadioButton fx:id="radio_completed" layoutX="1132.0" layoutY="37.0" onAction="#radioOnAction" text="Completed" textFill="#0a7900">
+      <JFXRadioButton fx:id="radio_reject" layoutX="1012.0" layoutY="38.0" onAction="#radioOnAction" text="Rejected" textFill="#cd0000">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
@@ -49,7 +44,12 @@
             <ToggleGroup fx:id="finish" />
          </toggleGroup>
       </JFXRadioButton>
-      <JFXRadioButton fx:id="radio_pending" layoutX="1010.0" layoutY="37.0" onAction="#radioOnAction" selected="true" text="Pendig" textFill="#1200d7" toggleGroup="$finish">
+      <JFXRadioButton fx:id="radio_completed" layoutX="1132.0" layoutY="37.0" onAction="#radioOnAction" text="Completed" textFill="#0a7900" toggleGroup="$finish">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </JFXRadioButton>
+      <JFXRadioButton fx:id="radio_pending" layoutX="891.0" layoutY="38.0" onAction="#radioOnAction" selected="true" text="Pendig" textFill="#1200d7" toggleGroup="$finish">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>

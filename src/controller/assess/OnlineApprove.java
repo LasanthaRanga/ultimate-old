@@ -98,6 +98,19 @@ public class OnlineApprove implements Initializable {
     @FXML
     void checkAll(ActionEvent event) {
 
+        ObservableList<Online> items = tbl.getItems();
+
+        if (check.isSelected()) {
+            items.forEach(online -> {
+                online.select.setSelected(true);
+            });
+        } else {
+            items.forEach(online -> {
+                online.select.setSelected(false);
+            });
+        }
+
+
     }
 
     @FXML
@@ -108,6 +121,10 @@ public class OnlineApprove implements Initializable {
     @FXML
     void completeOnAction(ActionEvent event) {
         new OnlinePay().startProcess(list);
+        loadTable(1);
+
+        modle.Allert.notificationGood("Done", "Online Payment Confirm");
+
     }
 
     @FXML
@@ -122,27 +139,26 @@ public class OnlineApprove implements Initializable {
 
         int status = 0;
 
-        if (radio_confirmed.isSelected()) {
-            radio_completed.setDisable(false);
-            radio_pending.setDisable(false);
-            if (radio_completed.isSelected()) {
-                status = 2;
-                loadTable(status);
-            }
-            if (radio_pending.isSelected()) {
-                status = 1;
-                loadTable(status);
-            }
-        }
-
-
-        if (radio_reject.isSelected()) {
-            status = 0;
-            radio_completed.setDisable(true);
-            radio_pending.setDisable(true);
+        if (radio_pending.isSelected()) {
+            status = 1;
             loadTable(status);
         }
 
+        if (radio_reject.isSelected()) {
+            status = 0;
+            loadTable(status);
+        }
+
+        if (radio_completed.isSelected()) {
+            status = 2;
+            loadTable(status);
+        }
+
+        if (status == 1) {
+            btn_complete.setDisable(false);
+        } else {
+            btn_complete.setDisable(true);
+        }
 
     }
 
