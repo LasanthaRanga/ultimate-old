@@ -387,7 +387,7 @@ public class FullReportsController implements Initializable {
                     + "	INNER JOIN street ON street.Ward_idWard = ward.idWard \n"
                     + "	AND assessment.Street_idStreet = street.idStreet\n"
                     + "	INNER JOIN ass_nature ON assessment.ass_nature_idass_nature = ass_nature.idass_nature "
-                    + "     INNER JOIN ass_allocation ON ass_allocation.Assessment_idAssessment = assessment.idAssessment WHERE ass_allocation.ass_allocation_status = 1";
+                    + "     INNER JOIN ass_allocation ON ass_allocation.Assessment_idAssessment = assessment.idAssessment WHERE ass_allocation.ass_allocation_status = 1  AND assessment.assessment_syn = 0 ";
 
             if (where) {
                 if (w) {
@@ -396,12 +396,6 @@ public class FullReportsController implements Initializable {
                 if (s) {
                     qq += " AND street.street_name = '" + street + "' ";
                 }
-
-
-//            if (n) {
-//                qq += " AND ass_nature.ass_nature_name = '" + nature + "' ";
-//                //  qq += "AND (ass_nature.ass_nature_name = 'House' OR ass_nature.ass_nature_name ='Bussines' OR ass_nature.ass_nature_name ='Land' OR ass_nature.ass_nature_name ='Paddy Field')";
-//            }
 
                 if (a) {
                     qq += " AND assessment.assessment_no LIKE '%" + assessment + "%' ";
@@ -1173,9 +1167,85 @@ public class FullReportsController implements Initializable {
             ss += holderAssess.getIdAssess();
         }
         ss = ss.substring(1);
+        String asl = "";
 
-        System.out.println(ss);
-        modle.GetInstans.getAssessReport().getWarrantLatter(ss, format, GetInstans.getQuater().getCurrentYear(), GetInstans.getQuater().getCurrentQuater());
+        try {
+
+            String text = txt_more.getText();
+            double g = Double.parseDouble(text);
+
+            String les = txt_less.getText();
+            double l = 0;
+            if (les.equals("∞")) {
+                l = Double.MAX_VALUE;
+            } else {
+                l = Double.parseDouble(les);
+            }
+
+
+
+            System.out.println(l + "  --  " + g);
+
+            ResultSet data = DB.getData("SELECT\n" +
+                    "\tward.ward_name,\n" +
+                    "\tstreet.street_name,\n" +
+                    "\tassessment.idAssessment,\n" +
+                    "\tassessment.assessment_no,\n" +
+                    "\tass_qstart.ass_Qstart_QuaterNumber,\n" +
+                    "\tass_qstart.ass_Qstart_LYC_Arreas,\n" +
+                    "\tass_qstart.ass_Qstart_LYC_Warrant,\n" +
+                    "\tass_qstart.ass_Qstart_LQC_Arreas,\n" +
+                    "\tass_qstart.ass_Qstart_LQC_Warrant,\n" +
+                    "\tass_qstart.ass_Qstart_HaveToQPay,\n" +
+                    "\tass_qstart.ass_Qstart_year,\n" +
+                    "\tSum( ass_qstart.ass_Qstart_LYC_Arreas + ass_qstart.ass_Qstart_LYC_Warrant + ass_qstart.ass_Qstart_LQC_Arreas + ass_qstart.ass_Qstart_LQC_Warrant + ass_qstart.ass_Qstart_HaveToQPay ) AS total,\n" +
+                    "\tass_creditdebit.idAss_CreditDebit,\n" +
+                    "\tass_creditdebit.Ass_balance,\n" +
+                    "\tass_creditdebit.Ass_CreditDebit_status \n" +
+                    "FROM\n" +
+                    "\tward\n" +
+                    "\tINNER JOIN street ON street.Ward_idWard = ward.idWard\n" +
+                    "\tINNER JOIN assessment ON assessment.Street_idStreet = street.idStreet \n" +
+                    "\tAND assessment.Ward_idWard = ward.idWard\n" +
+                    "\tINNER JOIN ass_qstart ON ass_qstart.Assessment_idAssessment = assessment.idAssessment\n" +
+                    "\tLEFT JOIN ass_creditdebit ON ass_creditdebit.Assessment_idAssessment = assessment.idAssessment \n" +
+                    "WHERE\n" +
+                    "\tass_qstart.ass_Qstart_QuaterNumber = '" + GetInstans.getQuater().getCurrentQuater() + "'\n" +
+                    "\tAND ass_qstart.ass_Qstart_year =  '" + GetInstans.getQuater().getCurrentYear() + "'\n" +
+                    "\tAND ( ass_qstart.ass_Qstart_LYC_Arreas > 0 OR ass_qstart.ass_Qstart_LQC_Arreas > 0 OR ass_creditdebit.Ass_balance > 0 OR ass_creditdebit.Ass_CreditDebit_status = 1 ) \n" +
+                    "\tAND assessment.idAssessment IN ( " + ss + " ) \n" +
+                    "GROUP BY\n" +
+                    "\tassessment.idAssessment \n" +
+                    "ORDER BY\n" +
+                    "\tFIELD( idAssessment, " + ss + "  )");
+
+
+            while (data.next()) {
+                int idAssessment = data.getInt("idAssessment");
+                double total = data.getDouble("total");
+                double ass_balance = data.getDouble("Ass_balance");
+
+                double tot = total + ass_balance;
+
+                if (g <= tot && tot <= l) {
+
+                    asl += ",";
+                    asl += idAssessment;
+                }
+
+            }
+
+
+            asl = asl.substring(1);
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
+
+        modle.GetInstans.getAssessReport().getWarrantLatter(asl, format, GetInstans.getQuater().getCurrentYear(), GetInstans.getQuater().getCurrentQuater());
 
 
     }
