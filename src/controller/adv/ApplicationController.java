@@ -661,6 +661,91 @@ public class ApplicationController implements Initializable {
     }
 
     @FXML
+    void addStamp(KeyEvent event) {
+
+        fullTOT = 0;
+
+        fullTOT += modle.Round.round(Double.parseDouble(txt_tot.getText()));
+        fullTOT += modle.Round.round(Double.parseDouble(txt_groundTot.getText()));
+        //vat
+        if (check_vat.isSelected()) {
+            double interestRate = modle.GetInstans.getInterest().getInterestRate("VAT");
+            vat = modle.Round.round(calVNS * interestRate / 100);
+            txt_vat.setText(vat + "");
+            fullTOT += Double.parseDouble(txt_vat.getText());
+        } else {
+            vat = 00;
+            txt_vat.setText("00");
+        }
+        //nbt
+        if (check_nbt.isSelected()) {
+            double interestRate = modle.GetInstans.getInterest().getInterestRate("NBT");
+            nbt = modle.Round.round(calVNS * interestRate / 100);
+            txt_nbt.setText(nbt + "");
+            fullTOT += Double.parseDouble(txt_nbt.getText());
+        } else {
+            nbt = 00;
+            txt_nbt.setText("00");
+        }
+
+        //Diposit
+        try {
+            if (txt_dipositPrice.getText().length() > 0) {
+                diposit = modle.Round.round(Double.parseDouble(txt_dipositPrice.getText()));
+            } else {
+                diposit = 0;
+            }
+        } catch (NumberFormatException e) {
+        }
+        //Visiting
+        try {
+            if (txt_visitPrice.getText().length() > 0) {
+                visitAndCheack = modle.Round.round(Double.parseDouble(txt_visitPrice.getText()));
+            } else {
+                visitAndCheack = 0;
+            }
+        } catch (NumberFormatException e) {
+        }
+        //Other Price
+        try {
+            if (txt_otherPrice.getText().length() > 0) {
+                otherPrice = modle.Round.round(Double.parseDouble(txt_otherPrice.getText()));
+            } else {
+                otherPrice = 0;
+            }
+        } catch (NumberFormatException e) {
+        }
+
+        if (btn_diposit.isSelected()) {
+
+        } else {
+            fullTOT += modle.Round.round(diposit);
+        }
+
+
+        String text = txt_stamp.getText();
+        try {
+            if (text != null) {
+                stamp = Double.parseDouble(text);
+            } else {
+                stamp = 00;
+                txt_stamp.setText("00");
+            }
+        } catch (Exception e) {
+            stamp = 00;
+            txt_stamp.setText("00");
+        }
+
+        fullTOT += stamp;
+
+        fullTOT += modle.Round.round(visitAndCheack);
+        fullTOT += modle.Round.round(otherPrice);
+
+        txt_full_total.setText(modle.Round.round(fullTOT) + "");
+
+    }
+
+    @FXML
     private void dipositKeyReeased(KeyEvent event) {
         if (txt_dipositPrice.getText().matches("\\d*(\\.\\d*)?")) {
             callFullTotal();

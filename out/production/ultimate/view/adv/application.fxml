@@ -84,7 +84,7 @@
       <JFXCheckBox fx:id="check_stamp" layoutX="480.0" layoutY="587.0" onAction="#stampCheack" text=" " />
       <JFXTextField fx:id="txt_vat" editable="false" labelFloat="true" layoutX="531.0" layoutY="483.0" prefHeight="25.0" prefWidth="88.0" promptText="VAT" />
       <JFXTextField fx:id="txt_nbt" editable="false" labelFloat="true" layoutX="531.0" layoutY="532.0" prefHeight="25.0" prefWidth="88.0" promptText="NBT" />
-      <JFXTextField fx:id="txt_stamp" labelFloat="true" layoutX="531.0" layoutY="580.0" prefHeight="25.0" prefWidth="88.0" promptText="STAMP" />
+      <JFXTextField fx:id="txt_stamp" labelFloat="true" layoutX="531.0" layoutY="580.0" onKeyReleased="#addStamp" prefHeight="25.0" prefWidth="88.0" promptText="STAMP" />
       <JFXButton fx:id="btn_save" layoutX="1150.0" layoutY="475.0" onMouseClicked="#clickOnSave" prefHeight="39.0" prefWidth="139.0" style="-fx-background-color: #8BC34A;" text="Save" textFill="WHITE">
          <font>
             <Font name="System Bold" size="14.0" />
