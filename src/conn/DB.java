@@ -14,7 +14,7 @@ public class DB {
     static Connection c = null;
 
     //       local
-    public static final String DBPATH = "jdbc:mysql://localhost:3306/atd?zeroDateTimeBehavior=convertToNull";
+    public static final String DBPATH = "jdbc:mysql://localhost:3306/kalpitiya?zeroDateTimeBehavior=convertToNull";
     public static final String USER = "root";
     public static final String PASS = "root";
 

@@ -281,8 +281,11 @@ public class QSProcess {
 
                     if (priviasQuater != 1) {
                         //Last Quater eke arriars eka witharai mekata enne; me aurudde hema quater ekakama arriars eka enne ne
+
                         qslqca = data.getDouble("ass_Qstart_LQC_Arreas");
+
                         qslqcw = data.getDouble("ass_Qstart_LQC_Warrant");
+
                     }
 
 
@@ -358,7 +361,7 @@ public class QSProcess {
                     }
                 }
 
-                if (newHaveToPay > minValue) {  //                    arriars eka min value ekata wedi waraant wadinawa
+                if (qslyca + newHaveToPay > minValue) {  //                    arriars eka min value ekata wedi waraant wadinawa
                     if (priviasQuater == 1) {
                         if (q1s == 0) {
                             newWarrant = modle.Maths.round2(quatervalue * warantRate / 100);
@@ -530,7 +533,7 @@ public class QSProcess {
             String end = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(new Date());
             conn.DB.setData("UPDATE `ass_process` SET `end_time`='" + end + "' WHERE process_date='" + stringDate + "' AND quater_number=" + currentQuater);
 
-       //     modle.Allert.notificationGood("Quarter End Process Done", "Thank You");
+            //     modle.Allert.notificationGood("Quarter End Process Done", "Thank You");
             progras.setProgress(0.0);
 
         } catch (Exception e) {
