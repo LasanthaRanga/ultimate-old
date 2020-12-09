@@ -269,6 +269,20 @@ public class QSProcess {
                         "AND ass_payhistry.ass_PayHistry_year = '" + currentYear + "'\n" +
                         "AND ass_payhistry.ass_PayHistry_status = 1";
 
+                double priviarsarrears = 0.0;
+
+                ResultSet ddd = DB.getData("SELECT\n" +
+                        "ROUND(SUM(ass_qstart.ass_Qstart_LQC_Arreas) ,2)as priviarsarrears\n" +
+                        "FROM\n" +
+                        "ass_qstart\n" +
+                        "WHERE\n" +
+                        "ass_qstart.Assessment_idAssessment = '" + idAssessment + "' AND\n" +
+                        "ass_qstart.ass_Qstart_year = " + currentYear);
+
+                if (ddd.last()) {
+                    priviarsarrears = ddd.getDouble("priviarsarrears");
+                }
+
 
                 ResultSet data = DB.getData(getQstart);
 
@@ -361,7 +375,8 @@ public class QSProcess {
                     }
                 }
 
-                if (qslyca + newHaveToPay > minValue) {  //                    arriars eka min value ekata wedi waraant wadinawa
+
+                if (priviarsarrears + qslyca + newHaveToPay > minValue) {  //                    arriars eka min value ekata wedi waraant wadinawa
                     if (priviasQuater == 1) {
                         if (q1s == 0) {
                             newWarrant = modle.Maths.round2(quatervalue * warantRate / 100);
