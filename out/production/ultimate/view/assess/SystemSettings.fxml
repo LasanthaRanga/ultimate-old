@@ -21,6 +21,6 @@
             </JFXButton>
          </children>
       </AnchorPane>
-      <JFXButton disable="true" layoutX="1084.0" layoutY="546.0" onAction="#clickOn10" style="-fx-background-color: #673AB7;" text="10 discount process button" textFill="WHITE" />
+      <JFXButton layoutX="1084.0" layoutY="546.0" onAction="#clickOn10" style="-fx-background-color: #673AB7;" text="10 discount process button" textFill="WHITE" />
    </children>
 </AnchorPane>

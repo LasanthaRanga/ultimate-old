@@ -3,6 +3,7 @@ package modle.asses;
 import com.jfoenix.controls.JFXProgressBar;
 import conn.DB;
 import modle.GetInstans;
+import modle.KeyVal;
 import modle.StaticViews;
 
 import java.sql.ResultSet;
@@ -269,11 +270,22 @@ public class YQendProcess {
                         q4warrant = modle.Maths.round2(quater * warrantrate / 100);
                     }
 
+                    arriars += havetopay;
+
+
+                    String val = KeyVal.getVal("Min_Arriars_For_Warrant");
+                    double minValue = Double.parseDouble(val);
+
+                    if (arriars < minValue) {
+                        q4warrant = 0;
+                    }
+
                     if (isWarrant == 0) {
                         q4warrant = 0;
                     }
 
-                    arriars += havetopay;
+                    System.out.println(q4warrant);
+
                     warrant += q4warrant;
 
                     saveQstart(1, stringDate, idAssessment, currentYear, modle.Maths.round2(arriars + lya), modle.Maths.round2(warrant + lyw), modle.Maths.round2(havetopay), modle.Maths.round2(q4warrant), quater, 0, 0, 0, 0, 0, 0, "Year Start Process", modle.Maths.round2(arriars), modle.Maths.round2(warrant));
@@ -283,7 +295,10 @@ public class YQendProcess {
             }// Get All Activ Assessment
 
 
-            modle.Allert.notificationGood("Quarter End Process Done", "Thank You");
+            String end = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(new Date());
+            conn.DB.setData("UPDATE `ass_process` SET `end_time`='" + end + "' WHERE process_date='" + stringDate + "' AND quater_number=" + currentQuater);
+
+
             progras.setProgress(0.0);
         } catch (Exception e) {
             e.printStackTrace();

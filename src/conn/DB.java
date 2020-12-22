@@ -14,7 +14,7 @@ public class DB {
     static Connection c = null;
 
     //       local
-    public static final String DBPATH = "jdbc:mysql://localhost:3306/kalpitiya?zeroDateTimeBehavior=convertToNull";
+    public static final String DBPATH = "jdbc:mysql://localhost:3306/ultimate2?zeroDateTimeBehavior=convertToNull";
     public static final String USER = "root";
     public static final String PASS = "root";
 
@@ -53,7 +53,7 @@ public class DB {
 
 
 //    Kuliuc
-//    public static final String DBPATH = "jdbc:mysql://124.43.11.162:3307/chilaw?zeroDateTimeBehavior=convertToNull";
+//    public static final String DBPATH = "jdbc:mysql://124.43.11.162:3307/narammalaps?zeroDateTimeBehavior=convertToNull";
 //    public static final String USER = "root";
 //    public static final String PASS = "3ta@kela#una@";
 
@@ -204,8 +204,6 @@ public class DB {
 //    public static final String DBPATH = "jdbc:mysql://124.43.11.162:3306/ultimate2?zeroDateTimeBehavior=convertToNull";
 //    public static final String USER = "root";
 //    public static final String PASS = "3ta@kela#una@";
-
-
 
 
 //    Galgamuwa

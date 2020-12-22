@@ -159,6 +159,24 @@ public class Process {
                     "ass_process.quater_number = '" + currentQuater + "' AND\n" +
                     "year(ass_process.process_date) = " + year);
 
+
+            ResultSet data1 = DB.getData("SELECT\n" +
+                    "\tass_process.idProcess,\n" +
+                    "\tass_process.process_date,\n" +
+                    "\tass_process.quater_number,\n" +
+                    "\tass_process.user_id,\n" +
+                    "\tass_process.start_time,\n" +
+                    "\tass_process.end_time \n" +
+                    "FROM\n" +
+                    "\tass_process \n" +
+                    "WHERE\n" +
+                    "\tass_process.process_date = '2020-02-01' \n" +
+                    "\tAND ass_process.quater_number = '1' \n" +
+                    "\tAND YEAR ( ass_process.process_date ) = '2020'");
+
+
+
+
             if (data.last()) {
                 allow = true;
                 System.out.println("data thiyanawa");

@@ -134,7 +134,7 @@ public class FullReportsController implements Initializable {
 
         tbl_nature.setItems(modle.GetInstans.getNature().getNatureSelectList());
         cq = GetInstans.getQuater().getPrviasQuater();
-
+        searchAssessment();
     }
 
     boolean w = false;
