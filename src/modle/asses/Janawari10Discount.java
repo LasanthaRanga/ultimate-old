@@ -3,6 +3,7 @@ package modle.asses;
 import conn.DB;
 import modle.GetInstans;
 
+import java.sql.Date;
 import java.sql.ResultSet;
 
 public class Janawari10Discount {
@@ -11,6 +12,10 @@ public class Janawari10Discount {
     public static void getOverPay() {
         try {
             Quater qqq = GetInstans.getQuater();
+
+
+
+
             int currentYear = qqq.getCurrentYear();
 
             ResultSet data = DB.getData("SELECT\n" +
@@ -22,7 +27,7 @@ public class Janawari10Discount {
                     "FROM\n" +
                     "ass_qstart\n" +
                     "WHERE\n" +
-                    "ass_qstart.ass_Qstart_year = 2020 AND\n" +
+                    "ass_qstart.ass_Qstart_year = '" + currentYear + "' AND\n" +
                     "ass_qstart.ass_Qstart_QuaterNumber = 1 AND\n" +
                     "ass_qstart.process_update_arrears > 0");
 
@@ -94,6 +99,13 @@ public class Janawari10Discount {
 
 
             }
+
+            conn.DB.setData("INSERT INTO `ass_process` ( `process_date`, `quater_number`, `user_id`, `start_time`, `end_time` )\n" +
+                    "VALUES\n" +
+                    "\t( '2020-02-01', 10, 1, '2020-12-18 09:17:40', '2020-12-18 09:17:40' )");
+
+
+            //insert ass process 10% is done
 
 
         } catch (Exception e) {

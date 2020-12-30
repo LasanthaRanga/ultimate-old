@@ -19,7 +19,7 @@ public class DB {
     public static final String PASS = "root";
 
     ////    MCK Online
-//    public static final String DBPATH = "jdbc:mysql://124.43.9.57:3306/atd2?zeroDateTimeBehavior=convertToNull";
+//    public static final String DBPATH = "jdbc:mysql://124.43.9.57:3306/ultimate2?zeroDateTimeBehavior=convertToNull";
 //    public static final String USER = "root";
 //    public static final String PASS = "@Mck_#321";
 

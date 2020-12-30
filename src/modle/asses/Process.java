@@ -144,6 +144,7 @@ public class Process {
             String format = new SimpleDateFormat("yyyy-MM-dd").format(date);
             String year = new SimpleDateFormat("yyyy").format(date);
             int currentQuater = GetInstans.getQuater().getCurrentQuaterByDate(date);
+            int currentYear = GetInstans.getQuater().getCurrentYear();
 
             ResultSet data = DB.getData("SELECT\n" +
                     "ass_process.idProcess,\n" +
@@ -159,22 +160,17 @@ public class Process {
                     "ass_process.quater_number = '" + currentQuater + "' AND\n" +
                     "year(ass_process.process_date) = " + year);
 
+            String day = currentYear + "-02-01";
 
-            ResultSet data1 = DB.getData("SELECT\n" +
-                    "\tass_process.idProcess,\n" +
-                    "\tass_process.process_date,\n" +
-                    "\tass_process.quater_number,\n" +
-                    "\tass_process.user_id,\n" +
-                    "\tass_process.start_time,\n" +
-                    "\tass_process.end_time \n" +
-                    "FROM\n" +
-                    "\tass_process \n" +
-                    "WHERE\n" +
-                    "\tass_process.process_date = '2020-02-01' \n" +
-                    "\tAND ass_process.quater_number = '1' \n" +
-                    "\tAND YEAR ( ass_process.process_date ) = '2020'");
+            Date parse = new SimpleDateFormat("yyyy-MM-dd").parse(day);
+            Date format1 = new SimpleDateFormat("yyyy-MM-dd").parse(format);
+
+            int i = parse.compareTo(format1);
 
 
+            System.out.println(parse + "    ---02-01");
+            System.out.println(format1);
+            System.out.println(i);
 
 
             if (data.last()) {
@@ -182,6 +178,32 @@ public class Process {
                 System.out.println("data thiyanawa");
             } else {
                 System.out.println(" data ne ");
+            }
+
+            if (i < 0) {
+
+                ResultSet data1 = DB.getData("SELECT\n" +
+                        "\tass_process.idProcess,\n" +
+                        "\tass_process.process_date,\n" +
+                        "\tass_process.quater_number,\n" +
+                        "\tass_process.user_id,\n" +
+                        "\tass_process.start_time,\n" +
+                        "\tass_process.end_time \n" +
+                        "FROM\n" +
+                        "\tass_process \n" +
+                        "WHERE\n" +
+                        "\tass_process.process_date = '" + currentYear + "-02-01' \n" +
+                        "\tAND ass_process.quater_number = '10' \n" +
+                        "\tAND YEAR ( ass_process.process_date ) = '" + currentYear + "'");
+
+                if (data1.last()) {
+                    allow = true;
+                    System.out.println("data thiyanawa");
+                } else {
+                    allow = false;
+                    System.out.println("Data Nehe 10%");
+                }
+
             }
 
 

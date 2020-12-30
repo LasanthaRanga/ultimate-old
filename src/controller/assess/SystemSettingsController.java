@@ -259,13 +259,13 @@ public class SystemSettingsController implements Initializable {
         btn_process.setDisable(true);
         System.out.println("click");
 
-        new Thread(() -> {
+       // new Thread(() -> {
 
             //  YQendProcess.collectMainData(progras);
 
             // new QSProcess().startProcess(progras);
 
-        }).start();
+       // }).start();
 
     }
 
