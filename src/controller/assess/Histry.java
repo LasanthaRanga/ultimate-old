@@ -219,7 +219,7 @@ public class Histry {
 
     public void save() {
         try {
-            int i = DB.setData("INSERT INTO `ultimate2`.`assessmenthistry` (`idAssessment`,`lya`,`lyw`,`over`,`debit`,`credit`,`lqa`,`lqw`,`quaterAmount`,`allocation`,`yearRate`,`warantRate`,`year`,`quater`,`date`,`cus_name`,`cus_id`,`wardName`,`streetName`,`assessmentNo`)" +
+            int i = DB.setData("INSERT INTO `assessmenthistry` (`idAssessment`,`lya`,`lyw`,`over`,`debit`,`credit`,`lqa`,`lqw`,`quaterAmount`,`allocation`,`yearRate`,`warantRate`,`year`,`quater`,`date`,`cus_name`,`cus_id`,`wardName`,`streetName`,`assessmentNo`)" +
                     " VALUES (" + this.idAssessment + "," + this.lya + "," + this.lyw + "," + this.over + "," + this.debit + "," + this.credit + "," + this.lqa + "," + this.lqw + "," + this.quaterAmount + "," + this.allocation + "," + this.yearRate + "," + this.warantRate + "," + this.year + "," + this.quater + "," + this.date + ",'" + this.cus_name + "','" + this.cus_id + "','" + this.wardName + "','" + this.streetName + "','" + this.assessmentNo + "')");
             System.out.println(i);
         } catch (Exception e) {
