@@ -2,6 +2,7 @@ package modle.asses;
 
 import com.jfoenix.controls.JFXProgressBar;
 import conn.DB;
+import controller.assess.Histry;
 import modle.GetInstans;
 import modle.KeyVal;
 import modle.StaticViews;
@@ -72,7 +73,7 @@ public class YQendProcess {
         try {
             ResultSet allAssess = DB.getData("SELECT assessment.idAssessment, assessment.isWarrant FROM assessment WHERE assessment_syn = 0");
             while ((allAssess.next())) {// Get All Activ Assessment
-
+                Histry histry = new Histry();
                 x = x + 1;
                 pro = x / count;
                 progras.setProgress(pro);
@@ -203,6 +204,8 @@ public class YQendProcess {
                     saveQstart(1, stringDate, idAssessment, currentYear, 0, 0, 0, 0, quater,
                             0, 0, 0, 0, 0, over, "Collect Over Payment", 0, 0);
 
+                    histry.setOver(over);
+
                     updateQstartOldStatus(idAssessment, currentYear - 1, 4);
                     payHistry(idAssessment, 1, currentYear, stringDate, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 
@@ -289,9 +292,63 @@ public class YQendProcess {
                     warrant += q4warrant;
 
                     saveQstart(1, stringDate, idAssessment, currentYear, modle.Maths.round2(arriars + lya), modle.Maths.round2(warrant + lyw), modle.Maths.round2(havetopay), modle.Maths.round2(q4warrant), quater, 0, 0, 0, 0, 0, 0, "Year Start Process", modle.Maths.round2(arriars), modle.Maths.round2(warrant));
+
+                    histry.setLqa(modle.Maths.round2(havetopay));
+                    histry.setLqw(modle.Maths.round2(q4warrant));
+                    histry.setLya(modle.Maths.round2(arriars + lya));
+                    histry.setLyw(modle.Maths.round2(warrant + lyw));
+
                     updateQstartOldStatus(idQstart);
                     payHistry(idAssessment, 1, currentYear, stringDate, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
                 }
+
+
+                histry.setIdAssessment(idAssessment);
+                histry.setYear(currentYear);
+                histry.setDate(01);
+                histry.setQuater(1);
+                histry.setYearRate(yearrate);
+                histry.setWarantRate(warrantrate);
+                histry.setAllocation(allocation);
+                histry.setQuaterAmount(quater);
+                histry.setCredit(0);
+                histry.setDebit(0);
+                histry.setLqw(0);
+
+
+
+
+                ResultSet data = DB.getData("SELECT\n" +
+                        "assessment.idAssessment,\n" +
+                        "assessment.assessment_no,\n" +
+                        "ward.ward_name,\n" +
+                        "street.street_name,\n" +
+                        "customer.idCustomer,\n" +
+                        "customer.cus_name\n" +
+                        "FROM\n" +
+                        "assessment\n" +
+                        "INNER JOIN ward ON assessment.Ward_idWard = ward.idWard\n" +
+                        "INNER JOIN street ON street.Ward_idWard = ward.idWard AND assessment.Street_idStreet = street.idStreet\n" +
+                        "INNER JOIN customer ON assessment.Customer_idCustomer = customer.idCustomer\n" +
+                        "WHERE\n" +
+                        "assessment.idAssessment = " + idAssessment);
+
+                if (data.last()) {
+                    String assessment_no = data.getString("assessment_no");
+                    String ward_name = data.getString("ward_name");
+                    String street_name = data.getString("street_name");
+                    String idCustomer = data.getString("idCustomer");
+                    String cus_name = data.getString("cus_name");
+
+                    histry.setAssessmentNo(assessment_no);
+                    histry.setStreetName(street_name);
+                    histry.setWardName(ward_name);
+                    histry.setCus_id(idCustomer);
+                    histry.setCus_name(cus_name);
+                }
+
+                histry.save();
+
             }// Get All Activ Assessment
 
 
