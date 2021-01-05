@@ -1586,44 +1586,51 @@ public class BarcodePay implements Initializable {
 //                "WHERE\n" +
 //                "receipt.idReceipt = " + idRecipt;
 
-//        qu = "SELECT\n" +
+        String  qu = "SELECT\n" +
+                "sr_shop_payment.sr_shop_proc_id1,\n" +
+                "sr_shop_payment.sr_shop_paid_arrears_bal,\n" +
+                "sr_shop_payment.sr_shop_paid_fine_bal,\n" +
+                "sr_shop_payment.sr_shop_paid_rental_tot_bal,\n" +
+                "sr_shop_opay_paid_proc.sr_shop_opay_paid_proc_opay_amount,\n" +
+                "sr_shop_payment.sr_shop_paid_proc_complete,\n" +
+                "sr_shop_payment.sr_shop_last_year_arrears_bal,\n" +
+                "sr_shop_payment.sr_shop_last_year_fine_bal,\n" +
+                "sr_shop_payment.sr_shop_sc1_balance,\n" +
+                "sr_shop_payment.sr_shop_sc2_balance,\n" +
+                "sr_shop_payment.sr_shop_sc3_balance,\n" +
+                "sr_shop_payment.sr_shop_paid_over_pay_bal,\n" +
+                "receipt.receipt_print_no,\n" +
+                "sr_shop_payment.sr_shop_shop_id,\n" +
+                "sr_shop_opay.sr_shop_opay_overpay\n" +
+                "FROM\n" +
+                "sr_shop_payment\n" +
+                "INNER JOIN receipt ON sr_shop_payment.sr_receipt_no = receipt.receipt_print_no\n" +
+                "INNER JOIN sr_shop_opay_paid_proc ON sr_shop_payment.sr_receipt_no = sr_shop_opay_paid_proc.sr_shop_opay_paid_proc_rec_no\n" +
+                "INNER JOIN sr_shop_opay ON sr_shop_payment.sr_shop_shop_id = sr_shop_opay.sr_shop_opay_shop_id\n" +
+                "WHERE  \n" +
+                " receipt.idReceipt = "+idRecipt;
+
+//        String qu = "SELECT\n" +
 //                "\tsr_shop_payment.sr_shop_proc_id1,\n" +
 //                "\tsr_shop_payment.sr_shop_paid_arrears_bal,\n" +
 //                "\tsr_shop_payment.sr_shop_paid_fine_bal,\n" +
 //                "\tsr_shop_payment.sr_shop_paid_rental_tot_bal,\n" +
-//                "\tsr_shop_payment.sr_shop_paid_over_pay_bal,\n" +
+//                "\tsr_shop_opay_paid_proc.sr_shop_opay_paid_proc_opay_amount,\n" +
 //                "\tsr_shop_payment.sr_shop_paid_proc_complete,\n" +
 //                "\tsr_shop_payment.sr_shop_last_year_arrears_bal,\n" +
 //                "\tsr_shop_payment.sr_shop_last_year_fine_bal,\n" +
 //                "\tsr_shop_payment.sr_shop_sc1_balance,\n" +
 //                "\tsr_shop_payment.sr_shop_sc2_balance,\n" +
-//                "\tsr_shop_payment.sr_shop_sc3_balance, receipt.receipt_print_no \n" +
+//                "\tsr_shop_payment.sr_shop_sc3_balance,\n" +
+//                "\tsr_shop_payment.sr_shop_paid_over_pay_bal,\n" +
+//                "\treceipt.receipt_print_no,\n" +
+//                "\tsr_shop_payment.sr_shop_shop_id \n" +
 //                "FROM\n" +
 //                "\tsr_shop_payment\n" +
-//                "\tINNER JOIN receipt ON sr_shop_payment.sr_receipt_no = receipt.receipt_print_no \n" +
+//                "\tINNER JOIN receipt ON sr_shop_payment.sr_receipt_no = receipt.receipt_print_no\n" +
+//                "\tINNER JOIN sr_shop_opay_paid_proc ON sr_shop_payment.sr_receipt_no = sr_shop_opay_paid_proc.sr_shop_opay_paid_proc_rec_no \n" +
 //                "WHERE\n" +
-//                "\treceipt.idReceipt = '" + idRecipt + "'";
-
-        String qu = "SELECT\n" +
-                "\tsr_shop_payment.sr_shop_proc_id1,\n" +
-                "\tsr_shop_payment.sr_shop_paid_arrears_bal,\n" +
-                "\tsr_shop_payment.sr_shop_paid_fine_bal,\n" +
-                "\tsr_shop_payment.sr_shop_paid_rental_tot_bal,\n" +
-                "\tsr_shop_opay_paid_proc.sr_shop_opay_paid_proc_opay_amount,\n" +
-                "\tsr_shop_payment.sr_shop_paid_proc_complete,\n" +
-                "\tsr_shop_payment.sr_shop_last_year_arrears_bal,\n" +
-                "\tsr_shop_payment.sr_shop_last_year_fine_bal,\n" +
-                "\tsr_shop_payment.sr_shop_sc1_balance,\n" +
-                "\tsr_shop_payment.sr_shop_sc2_balance,\n" +
-                "\tsr_shop_payment.sr_shop_sc3_balance,\n" +
-                "\treceipt.receipt_print_no,\n" +
-                "\tsr_shop_payment.sr_shop_shop_id \n" +
-                "FROM\n" +
-                "\tsr_shop_payment\n" +
-                "\tINNER JOIN receipt ON sr_shop_payment.sr_receipt_no = receipt.receipt_print_no\n" +
-                "\tINNER JOIN sr_shop_opay_paid_proc ON sr_shop_payment.sr_receipt_no = sr_shop_opay_paid_proc.sr_shop_opay_paid_proc_rec_no \n" +
-                "WHERE\n" +
-                "\treceipt.idReceipt = " + idRecipt;
+//                "\treceipt.idReceipt = " + idRecipt;
 
 
         try {
@@ -1657,7 +1664,7 @@ public class BarcodePay implements Initializable {
 
                 int sr_shop_shop_id = data.getInt("sr_shop_shop_id");
 
-                conn.DB.setData("UPDATE `sr_shop_opay` SET sr_shop_opay_overpay =sr_shop_opay_overpay+'" + data.getDouble("sr_shop_paid_over_pay_bal") + "' WHERE  `sr_shop_opay_shop_id` = '" + sr_shop_shop_id + "' ");
+                conn.DB.setData("UPDATE `sr_shop_opay` SET sr_shop_opay_overpay =  '" +(data.getDouble("sr_shop_opay_overpay") + data.getDouble("sr_shop_paid_over_pay_bal")) + "' WHERE  `sr_shop_opay_shop_id` = '" + sr_shop_shop_id + "' ");
 
                 conn.DB.setData(qu2);
                 reciptNo = data.getString("receipt_print_no");
