@@ -1664,7 +1664,15 @@ public class BarcodePay implements Initializable {
 
                 int sr_shop_shop_id = data.getInt("sr_shop_shop_id");
 
-                conn.DB.setData("UPDATE `sr_shop_opay` SET sr_shop_opay_overpay =  '" +(data.getDouble("sr_shop_opay_overpay") + data.getDouble("sr_shop_paid_over_pay_bal")) + "' WHERE  `sr_shop_opay_shop_id` = '" + sr_shop_shop_id + "' ");
+               double x =  data.getDouble("sr_shop_opay_overpay");
+               double y =  data.getDouble("sr_shop_opay_paid_proc_opay_amount");
+
+                System.out.println(x+"   "+ y);
+                double z = x+y;
+                System.out.println(z);
+
+
+                conn.DB.setData("UPDATE `sr_shop_opay` SET sr_shop_opay_overpay =  " +z+ " WHERE  `sr_shop_opay_shop_id` = '" + sr_shop_shop_id + "' ");
 
                 conn.DB.setData(qu2);
                 reciptNo = data.getString("receipt_print_no");
