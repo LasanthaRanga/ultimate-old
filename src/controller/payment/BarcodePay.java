@@ -15,6 +15,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import modle.GetInstans;
+import modle.KeyVal;
 import modle.Payment.StaticPay;
 
 import org.hibernate.Session;
@@ -98,8 +99,6 @@ public class BarcodePay implements Initializable {
     @FXML
     void receiptEnter(KeyEvent event) {
         if (event.getCode() == KeyCode.ENTER) {
-
-
             try {
                 String text = txt_rn.getText();
 
@@ -161,11 +160,6 @@ public class BarcodePay implements Initializable {
                 tradeLicensUpdate(false);
                 break;
 
-            case 8:
-                payThreWheel(idRecipt + "");
-                clearAll();
-                break;
-
             case 7:
                 modle.Payment.PaymentByID.genarateRisiptNo(7, "", appid);
                 updateStreetLineStatus(appid);
@@ -173,6 +167,12 @@ public class BarcodePay implements Initializable {
                 modle.Allert.notificationGood("Completed", "Street Line " + idRecipt);
                 clearAll();
                 break;
+
+            case 8:
+                payThreWheel(idRecipt + "");
+                clearAll();
+                break;
+
             case 9:
                 modle.Payment.PaymentByID.genarateRisiptNo(9, "", appid);
                 modle.GetInstans.getMixPrasaThre().updateMixIncomeStatus(appid, 9);
@@ -189,6 +189,8 @@ public class BarcodePay implements Initializable {
                 clearAll();
                 break;
 
+            case 11:
+                break;
 
             case 12:
                 System.out.println("Water");
@@ -209,6 +211,14 @@ public class BarcodePay implements Initializable {
                 modle.GetInstans.getAssessReport().getReciptPrintNonVesting(idRecipt + "", false);
                 modle.Allert.notificationGood("Completed", "Non Vesting " + idRecipt);
                 clearAll();
+                break;
+
+            case 15:
+                break;
+
+            case 16:
+                payEnv();
+
                 break;
 
 
@@ -279,6 +289,35 @@ public class BarcodePay implements Initializable {
             case 14:
                 modle.GetInstans.getAssessReport().getReciptPrintNonVesting(idRecipt + "", false);
                 clearAll();
+                break;
+
+            case 16:
+                try {
+                    ResultSet data1 = DB.getData("SELECT\n" +
+                            "Count(receipt.idReceipt) count\n" +
+                            "FROM\n" +
+                            "receipt\n" +
+                            "WHERE\n" +
+                            "receipt.Application_Catagory_idApplication_Catagory = 16 AND\n" +
+                            "receipt.recept_applicationId = " + appid);
+
+                    int count = 0;
+                    if (data1.last()) {
+                        count = data1.getInt("count");
+                    }
+
+                    if (count == 1) {
+                        modle.GetInstans.getAssessReport().getReciptPrintEnv(idRecipt + "", KeyVal.getVal("env_des_1"), false);
+                    }
+
+                    if (count == 2) {
+                        modle.GetInstans.getAssessReport().getReciptPrintEnv(idRecipt + "", KeyVal.getVal("env_des_2"), false);
+                    }
+
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
                 break;
 
 
@@ -426,6 +465,12 @@ public class BarcodePay implements Initializable {
 
                         case 14:
                             nonvesting(text);
+                            break;
+
+                        case 15:
+                            break;
+                        case 16:
+                            env(text);
                             break;
 
                         default:
@@ -782,6 +827,96 @@ public class BarcodePay implements Initializable {
     }
 
 
+    public void env(String text) {
+
+        String query = "SELECT\n" +
+                "assessment.assessment_no,\n" +
+                "env_details.env_details_applicant_name,\n" +
+                "`user`.user_full_name,\n" +
+                "receipt.receipt_total,\n" +
+                "receipt.receipt_print_no,\n" +
+                "receipt.receipt_day,\n" +
+                "receipt.Application_Catagory_idApplication_Catagory,\n" +
+                "receipt.recept_applicationId, receipt.idReceipt, receipt.receipt_status\n" +
+                "FROM\n" +
+                "receipt\n" +
+                "INNER JOIN env_details ON receipt.recept_applicationId = env_details.env_details_id\n" +
+                "LEFT JOIN assessment ON env_details.env_details_ass_id = assessment.idAssessment\n" +
+                "INNER JOIN `user` ON env_details.env_details_user_id = `user`.idUser\n" +
+                "WHERE\n" +
+                "receipt.idReceipt = '" + text + "'";
+
+
+        try {
+
+            ResultSet data = DB.getData(query);
+
+            if (data.last()) {
+                if (data.getInt("receipt_status") == 0) {
+
+                    catid = data.getInt("Application_Catagory_idApplication_Catagory");
+                    appid = data.getInt("recept_applicationId");
+                    double fullTot = data.getDouble("receipt_total");
+                    idRecipt = data.getInt("idReceipt");
+                    txt_dis1.setText(data.getString("env_details_applicant_name"));
+                    txt_tot.setText(fullTot + "");
+
+
+                    ResultSet data1 = DB.getData("SELECT\n" +
+                            "Count(receipt.idReceipt) count\n" +
+                            "FROM\n" +
+                            "receipt\n" +
+                            "WHERE\n" +
+                            "receipt.Application_Catagory_idApplication_Catagory = 16 AND\n" +
+                            "receipt.recept_applicationId = " + appid);
+
+                    int count = 0;
+
+                    if (data1.last()) {
+                        count = data1.getInt("count");
+                    }
+
+                    System.out.println(" ------------------------------------------------- ");
+                    System.out.println(count);
+                    System.out.println(" ------------------------------------------------- ");
+
+                    if (radio_print.isSelected()) {
+                        modle.Payment.PaymentByID.genarateRisiptNoForENV(16, text, appid);
+                        if (count == 1) {
+                            modle.GetInstans.getAssessReport().getReciptPrintEnv(idRecipt + "", KeyVal.getVal("env_des_1"), true);
+                        }
+                        if (count == 2) {
+                            modle.GetInstans.getAssessReport().getReciptPrintEnv(idRecipt + "", KeyVal.getVal("env_des_2"), true);
+                        }
+                        updateNonEnv(appid, count, idRecipt);
+                        modle.Allert.notificationGood("Completed", "Environment" + idRecipt);
+                        //  clearAll();
+                    } else {
+                        payAnable();
+                    }
+
+
+                } else if (data.getInt("receipt_status") == 1) {
+                    catid = data.getInt("Application_Catagory_idApplication_Catagory");
+                    appid = data.getInt("recept_applicationId");
+                    double fullTot = data.getDouble("receipt_total");
+                    idRecipt = data.getInt("idReceipt");
+                    txt_dis1.setText(data.getString("env_details_applicant_name"));
+                    txt_tot.setText(fullTot + "");
+                    printAnable();
+                } else {
+
+                }
+
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
+    }
+
     public void bop(String text) {
         String query = "SELECT\n" +
                 "receipt.idReceipt,\n" +
@@ -1025,6 +1160,105 @@ public class BarcodePay implements Initializable {
 
 
     }
+
+    public void payEnv() {
+
+        try {
+
+            ResultSet data1 = DB.getData("SELECT\n" +
+                    "Count(receipt.idReceipt) count\n" +
+                    "FROM\n" +
+                    "receipt\n" +
+                    "WHERE\n" +
+                    "receipt.Application_Catagory_idApplication_Catagory = 16 AND\n" +
+                    "receipt.recept_applicationId = " + appid);
+
+            int count = 0;
+
+            if (data1.last()) {
+                count = data1.getInt("count");
+            }
+
+            modle.Payment.PaymentByID.genarateRisiptNoForENV(16, idRecipt + "", appid);
+            if (count == 1) {
+                modle.GetInstans.getAssessReport().getReciptPrintEnv(idRecipt + "", KeyVal.getVal("env_des_1"), false);
+            }
+            if (count == 2) {
+                modle.GetInstans.getAssessReport().getReciptPrintEnv(idRecipt + "", KeyVal.getVal("env_des_2"), false);
+            }
+
+            updateNonEnv(appid, count, idRecipt);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
+    }
+
+
+    public void updateNonEnv(int appid, int count, int idRecipt) {
+        try {
+
+            String qq = "";
+
+            if (count == 1) {
+                qq = "UPDATE `env_details` \n" +
+                        "SET `env_details_approve_status` = '2',\n" +
+                        "`env_details_complete` = '0' \n" +
+                        "WHERE\n" +
+                        "\t`env_details_id` = '" + appid + "'";
+
+            }
+
+            if (count == 2) {
+                qq = "UPDATE `env_details` \n" +
+                        "SET `env_details_approve_status` = '11',\n" +
+                        "`env_details_complete` = '1' \n" +
+                        "WHERE\n" +
+                        "\t`env_details_id` = '" + appid + "'";
+            }
+
+            DB.setData(qq);
+
+
+            String query = "SELECT\n" +
+                    "assessment.assessment_no,\n" +
+                    "env_details.env_details_applicant_name,\n" +
+                    "`user`.user_full_name,\n" +
+                    "receipt.receipt_total,\n" +
+                    "receipt.receipt_print_no,\n" +
+                    "receipt.receipt_day,\n" +
+                    "receipt.Application_Catagory_idApplication_Catagory,\n" +
+                    "receipt.recept_applicationId, receipt.idReceipt, receipt.receipt_status\n" +
+                    "FROM\n" +
+                    "receipt\n" +
+                    "INNER JOIN env_details ON receipt.recept_applicationId = env_details.env_details_id\n" +
+                    "LEFT JOIN assessment ON env_details.env_details_ass_id = assessment.idAssessment\n" +
+                    "INNER JOIN `user` ON env_details.env_details_user_id = `user`.idUser\n" +
+                    "WHERE\n" +
+                    "receipt.idReceipt = '" + idRecipt + "'";
+
+            ResultSet data = DB.getData(query);
+
+            if (data.last()) {
+                conn.DB.setData("UPDATE `account_ps_three`\n" +
+                        "SET `report_date` = '" + data.getString("receipt_day") + "',\n" +
+                        " `report_ricipt_no` = '" + data.getString("receipt_print_no") + "',\n" +
+                        " `report_status` = '1'," +
+                        " income_or_expence = '1'\n" +
+                        "WHERE\n" +
+                        "\t`report_ricipt_id` = '" + idRecipt + "'");
+                updateReciptNewCollom(idRecipt, 1, 1, 1, data.getDouble("receipt_total"));
+            }
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
 
     public void threeWheelData(String text) {
 
@@ -1586,7 +1820,7 @@ public class BarcodePay implements Initializable {
 //                "WHERE\n" +
 //                "receipt.idReceipt = " + idRecipt;
 
-        String  qu = "SELECT\n" +
+        String qu = "SELECT\n" +
                 "sr_shop_payment.sr_shop_proc_id1,\n" +
                 "sr_shop_payment.sr_shop_paid_arrears_bal,\n" +
                 "sr_shop_payment.sr_shop_paid_fine_bal,\n" +
@@ -1608,7 +1842,7 @@ public class BarcodePay implements Initializable {
                 "INNER JOIN sr_shop_opay_paid_proc ON sr_shop_payment.sr_receipt_no = sr_shop_opay_paid_proc.sr_shop_opay_paid_proc_rec_no\n" +
                 "INNER JOIN sr_shop_opay ON sr_shop_payment.sr_shop_shop_id = sr_shop_opay.sr_shop_opay_shop_id\n" +
                 "WHERE  \n" +
-                " receipt.idReceipt = "+idRecipt;
+                " receipt.idReceipt = " + idRecipt;
 
 //        String qu = "SELECT\n" +
 //                "\tsr_shop_payment.sr_shop_proc_id1,\n" +
@@ -1664,15 +1898,15 @@ public class BarcodePay implements Initializable {
 
                 int sr_shop_shop_id = data.getInt("sr_shop_shop_id");
 
-               double x =  data.getDouble("sr_shop_opay_overpay");
-               double y =  data.getDouble("sr_shop_opay_paid_proc_opay_amount");
+                double x = data.getDouble("sr_shop_opay_overpay");
+                double y = data.getDouble("sr_shop_opay_paid_proc_opay_amount");
 
-                System.out.println(x+"   "+ y);
-                double z = x+y;
+                System.out.println(x + "   " + y);
+                double z = x + y;
                 System.out.println(z);
 
 
-                conn.DB.setData("UPDATE `sr_shop_opay` SET sr_shop_opay_overpay =  " +z+ " WHERE  `sr_shop_opay_shop_id` = '" + sr_shop_shop_id + "' ");
+                conn.DB.setData("UPDATE `sr_shop_opay` SET sr_shop_opay_overpay =  " + z + " WHERE  `sr_shop_opay_shop_id` = '" + sr_shop_shop_id + "' ");
 
                 conn.DB.setData(qu2);
                 reciptNo = data.getString("receipt_print_no");

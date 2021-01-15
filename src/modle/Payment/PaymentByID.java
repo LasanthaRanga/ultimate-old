@@ -296,7 +296,7 @@ public class PaymentByID {
                 anInt++;
             }
 
-            rn = receipt_code + currentYear + "/ " + anInt;
+            rn = receipt_code + currentYear + "/" + anInt;
             String qu = "UPDATE `receipt`\n" +
                     "SET `Application_Catagory_idApplication_Catagory` = '" + applicationcat + "',\n" +
                     " `receipt_print_no` = '" + rn + "',\n" +
@@ -317,4 +317,87 @@ public class PaymentByID {
     }
 
 
+
+
+
+    public static boolean genarateRisiptNoForENV(int applicationcat, String ricipt, int idApp) {  //nonvesting
+
+
+        boolean status = false;
+        try {
+
+            int receipt_account_id = 0;
+            ResultSet acc = DB.getData("SELECT\n" +
+                    "receipt.receipt_account_id\n" +
+                    "FROM\n" +
+                    "receipt\n" +
+                    "Where Application_Catagory_idApplication_Catagory = '" + applicationcat + "' \n" +
+                    "AND recept_applicationId = " + idApp);
+
+            if (acc.last()) {
+                receipt_account_id = acc.getInt("receipt_account_id");
+            }
+
+
+            int currentYear = GetInstans.getQuater().getCurrentYear();
+
+            // By Account
+            ResultSet data = DB.getData("SELECT\n" +
+                    "\tMax(receipt.oder)\t\n" +
+                    "FROM\n" +
+                    "\treceipt \n" +
+                    "WHERE\n" +
+                    "\treceipt.Application_Catagory_idApplication_Catagory = '" + applicationcat + "' \n" +
+                    "\tAND receipt.office_idOffice = '" + modle.StaticViews.getLogUser().getOfficeIdOffice() + "' \n" +
+                    "\tAND receipt.receipt_account_id = '" + receipt_account_id + "' AND" +
+                    " EXTRACT(YEAR FROM receipt.receipt_day)= " + currentYear);
+
+
+            ResultSet data3 = DB.getData("SELECT\n" +
+                    "\treceipt_code_create.receipt_code \n" +
+                    "FROM\n" +
+                    "\treceipt_code_create \n" +
+                    "WHERE\n" +
+                    "\treceipt_code_create.application_id = '" + applicationcat + "' \n" +
+                    "\tAND receipt_code_create.receipt_code_office_id = '" + modle.StaticViews.getLogUser().getOfficeIdOffice() + "' \n" +
+                    "\tAND receipt_code_create.account_id = '" + receipt_account_id + "'");
+
+            String receipt_code = "";
+
+            System.out.println("==================================");
+            System.out.println("app cat " + applicationcat);
+            System.out.println("office  " + modle.StaticViews.getLogUser().getOfficeIdOffice() );
+            System.out.println("acoount " + receipt_account_id);
+            System.out.println("==================================");
+
+            if (data3.last()) {
+                receipt_code = data3.getString("receipt_code");
+            }
+
+            String rn = "";
+            int anInt = 1;
+            if (data.last()) {
+                anInt = data.getInt("MAX(receipt.oder)");
+                anInt++;
+            }
+
+            rn = receipt_code + currentYear + "/" + anInt;
+            String qu = "UPDATE `receipt`\n" +
+                    "SET `Application_Catagory_idApplication_Catagory` = '" + applicationcat + "',\n" +
+                    " `receipt_print_no` = '" + rn + "',\n" +
+                    " `receipt_status` = '1',\n" +
+                    " `oder` = '" + anInt + "',\n" +
+                    " `office_idOffice` = '" + modle.StaticViews.getLogUser().getOfficeIdOffice() + "', receipt_time='" + modle.Time.getTeime() + "' \n" +
+                    "WHERE\n" +
+                    "\tApplication_Catagory_idApplication_Catagory = '" + applicationcat + "'\n" +
+                    "AND recept_applicationId = '" + idApp + "' AND idReceipt = '"+ricipt+"' ";
+            conn.DB.setData(qu);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+
+        }
+        return status;
+    }
 }
