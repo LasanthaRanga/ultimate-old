@@ -19,14 +19,14 @@ public class DB {
 //    public static final String PASS = "root";
 
     ////    MCK Online
-//    public static final String DBPATH = "jdbc:mysql://localhost:3306/mck?zeroDateTimeBehavior=convertToNull";
-//    public static final String USER = "root";
-//    public static final String PASS = "root";
+    public static final String DBPATH = "jdbc:mysql://localhost:3306/atd2?zeroDateTimeBehavior=convertToNull";
+    public static final String USER = "root";
+    public static final String PASS = "root";
 
 //       local
-//    public static final String DBPATH = "jdbc:mysql://124.43.4.213:3306/ultimate2?zeroDateTimeBehavior=convertToNull";
+//    public static final String DBPATH = "jdbc:mysql://124.43.8.191:3306/ultimate2?zeroDateTimeBehavior=convertToNull";
 //    public static final String USER = "root";
-//    public static final String PASS = "padu@#$075%$";
+//    public static final String PASS = "Arac@%4576y$";
 
 
 //    Polghawela
@@ -59,9 +59,9 @@ public class DB {
 
 
     //    MCK
-    public static final String DBPATH = "jdbc:mysql://localhost:3306/kuliuc?zeroDateTimeBehavior=convertToNull";
-    public static final String USER = "root";
-    public static final String PASS = "root";
+//    public static final String DBPATH = "jdbc:mysql://localhost:3306/kuliuc?zeroDateTimeBehavior=convertToNull";
+//    public static final String USER = "root";
+//    public static final String PASS = "root";
 
 //    public static final String DBPATH = "jdbc:mysql://MCK_SERVER:3306/ultimate2?zeroDateTimeBehavior=convertToNull";
 //    public static final String USER = "root";

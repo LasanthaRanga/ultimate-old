@@ -100,6 +100,8 @@ public class Pay {
         int currentYear = GetInstans.getQuater().getCurrentYear();
         String rn = "";
         try {
+
+
             ResultSet data = DB.getData("SELECT\n" +
                     "\tcount(idReceipt) as count\n" +
                     "FROM\n" +
@@ -108,7 +110,7 @@ public class Pay {
                     "\treceipt.Application_Catagory_idApplication_Catagory = 1 \n" +
                     "\tAND receipt.office_idOffice = 1 \n" +
                     "\tAND receipt.receipt_account_id = 1 \n" +
-                    "\tAND EXTRACT( YEAR FROM receipt.receipt_day ) = 2020");
+                    "\tAND EXTRACT( YEAR FROM receipt.receipt_day ) = " + currentYear);
             int x = 0;
             if (data.last()) {
                 x = data.getInt("count");
