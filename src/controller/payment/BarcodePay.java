@@ -561,7 +561,7 @@ public class BarcodePay implements Initializable {
                 System.out.println("data");
                 int recept_applicationId = data.getInt("recept_applicationId");
                 int i = DB.setData("UPDATE `doc_hand_approve` SET `doc_hand_complete_status` = '0', `doc_hand_accept_or_reject` = '1' WHERE ( `doc_hand_subject_id` = '" + recept_applicationId + "' AND `application_doc_hand_category_id` = '5' )");
-
+                modle.Payment.PaymentByID.genarateRisiptNo(5, "", recept_applicationId);
                 //if (radio_print.isSelected()) {
                     buildingPermitPrint(idRecipt , true);
                //     clearAll();
