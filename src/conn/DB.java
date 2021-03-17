@@ -14,14 +14,14 @@ public class DB {
     static Connection c = null;
 
     //       local
-//    public static final String DBPATH = "jdbc:mysql://localhost:3306/ultimate?zeroDateTimeBehavior=convertToNull";
-//    public static final String USER = "root";
-//    public static final String PASS = "root";
-
-    ////    MCK Online
-    public static final String DBPATH = "jdbc:mysql://localhost:3306/atd2?zeroDateTimeBehavior=convertToNull";
+    public static final String DBPATH = "jdbc:mysql://localhost:3306/naveen?zeroDateTimeBehavior=convertToNull";
     public static final String USER = "root";
     public static final String PASS = "root";
+
+    ////    MCK Online
+//    public static final String DBPATH = "jdbc:mysql://124.43.11.162:3307/wariyapolaps?zeroDateTimeBehavior=convertToNull";
+//    public static final String USER = "root";
+//    public static final String PASS = "3ta@kela#una@";
 
 //       local
 //    public static final String DBPATH = "jdbc:mysql://124.43.8.191:3306/ultimate2?zeroDateTimeBehavior=convertToNull";

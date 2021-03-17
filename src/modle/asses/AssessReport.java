@@ -1174,4 +1174,36 @@ public class AssessReport {
     }
 
 
+
+    public void buildingApplicationPrint(String id, boolean print) {
+        System.out.println("printing building");
+        try {
+            String path = "C:\\Ultimate\\Report\\building\\building.jrxml";// IN SYSTEM
+            JasperReport jr = JasperCompileManager.compileReport(path);
+            HashMap param = new HashMap<String, Integer>();
+            param.put("id", id);
+            this.getConnection().commit();
+            JasperPrint jp = JasperFillManager.fillReport(jr, param, this.getConnection());
+            if (print) {
+                JasperPrintManager.printReport(jp, false);
+            } else {
+                JasperViewer.viewReport(jp, false);
+            }
+
+        } catch (Exception jRException) {
+            jRException.printStackTrace();
+            modle.ErrorLog.writeLog(jRException.getMessage(), "AssessReport", "Ricipt", "modle.assess.AssessReport");
+            //./ jRException.printStackTrace();
+            Notifications.create()
+                    .title("Warning")
+                    .text("Can not generate report. Something went wrong.\n(" + jRException.getMessage() + ")")
+                    .hideAfter(Duration.seconds(3))
+                    .position(Pos.BOTTOM_RIGHT).showWarning();
+        }
+    }
+
+
+
+
+
 }

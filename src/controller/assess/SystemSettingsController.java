@@ -80,6 +80,9 @@ public class SystemSettingsController implements Initializable {
 
 
         Calendar c = Calendar.getInstance();
+
+        System.out.println(c);
+
         c.setTime(selectDate);
         c.add(Calendar.MONTH, -3);
         Date date = c.getTime();
@@ -96,15 +99,19 @@ public class SystemSettingsController implements Initializable {
 
 
         boolean b = new Process().allwDateChange(selectDate);
+
         if (b) {
+
             if (system.equals(selected)) {
                 setSystemDate(selectDate);
             } else {
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+
                 alert.setTitle("System Date");
                 alert.setHeaderText("You are going to apply wrong system date please check again");
                 alert.setContentText("If you want to apply this date \n click ok");
                 Optional<ButtonType> result = alert.showAndWait();
+
                 if (result.get() == ButtonType.OK) {
                     modle.StaticBadu.setSelectedSystemDate(selectDate);
                     setSystemDate(selectDate);
@@ -112,6 +119,7 @@ public class SystemSettingsController implements Initializable {
                     modle.StaticBadu.setSelectedSystemDate(null);
                 }
             }
+
             System.out.println(modle.StaticBadu.getSelectedSystemDate());
 
         } else {

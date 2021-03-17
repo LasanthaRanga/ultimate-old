@@ -102,7 +102,7 @@ public class Janawari10Discount {
 
             conn.DB.setData("INSERT INTO `ass_process` ( `process_date`, `quater_number`, `user_id`, `start_time`, `end_time` )\n" +
                     "VALUES\n" +
-                    "\t( '2020-02-01', 10, 1, '2020-12-18 09:17:40', '2020-12-18 09:17:40' )");
+                    "\t( '"+currentYear+"-02-01', 10, 1, '"+currentYear+"-12-18 09:17:40', '"+currentYear+"-12-18 09:17:40' )");
 
 
             //insert ass process 10% is done

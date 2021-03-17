@@ -155,6 +155,7 @@ public class BarcodePay implements Initializable {
                 clearAll();
                 break;
             case 5:
+                buildingPermitPay(idRecipt);
                 break;
             case 6:
                 tradeLicensUpdate(false);
@@ -251,6 +252,7 @@ public class BarcodePay implements Initializable {
                 break;
 
             case 5:
+                buildingPermitPrint(idRecipt, false);
                 break;
             case 6:
                 tradeLicensPrint(false);
@@ -423,6 +425,8 @@ public class BarcodePay implements Initializable {
 
                         case 5:
 
+                            buildingPermit(text);
+
                             break;
 
                         case 6:
@@ -483,6 +487,105 @@ public class BarcodePay implements Initializable {
                 e.printStackTrace();
             } finally {
             }
+        }
+    }
+
+
+    public void buildingPermit(String text){
+        idRecipt = Integer.parseInt(text);
+        catid = 5;
+        try {
+            ResultSet data = DB.getData("SELECT\n" +
+                    "customer.cus_name,\n" +
+                    "assessment.assessment_no,\n" +
+                    "`user`.user_full_name,\n" +
+                    "receipt.receipt_total,\n" +
+                    "receipt.receipt_print_no,\n" +
+                    "receipt.receipt_day,\n" +
+                    "receipt.cheack,\n" +
+                    "receipt.cesh,\n" +
+                    "receipt.idReceipt,\n" +
+                    "receipt.recept_applicationId,\n" +
+                    "receipt.receipt_status\n" +
+                    "FROM\n" +
+                    "receipt\n" +
+                    "INNER JOIN ba_has_assessment ON receipt.recept_applicationId = ba_has_assessment.BA_id\n" +
+                    "INNER JOIN customer ON ba_has_assessment.ba_cus_id = customer.idCustomer\n" +
+                    "LEFT JOIN assessment ON ba_has_assessment.BA_assessment_id = assessment.idAssessment\n" +
+                    "INNER JOIN `user` ON receipt.receipt_user_id = `user`.idUser\n" +
+                    "WHERE\n" +
+                    "receipt.Application_Catagory_idApplication_Catagory = '5' AND\n" +
+                    "receipt.idReceipt = "+text);
+
+            if (data.last()) {
+                txt_tot.setText(data.getString("receipt_total"));
+                txt_dis1.setText(data.getString("user_full_name"));
+                int receipt_status = data.getInt("receipt_status");
+                if (receipt_status == 0) {
+                    payAnable();
+                } else {
+                    printAnable();
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void buildingPermitPay(int text){
+        System.out.println("call pay" + text);
+        try {
+            ResultSet data = DB.getData("SELECT\n" +
+                    "customer.cus_name,\n" +
+                    "assessment.assessment_no,\n" +
+                    "`user`.user_full_name,\n" +
+                    "receipt.receipt_total,\n" +
+                    "receipt.receipt_print_no,\n" +
+                    "receipt.receipt_day,\n" +
+                    "receipt.cheack,\n" +
+                    "receipt.cesh,\n" +
+                    "receipt.idReceipt,\n" +
+                    "receipt.recept_applicationId,\n" +
+                    "receipt.receipt_status\n" +
+                    "FROM\n" +
+                    "receipt\n" +
+                    "INNER JOIN ba_has_assessment ON receipt.recept_applicationId = ba_has_assessment.BA_id\n" +
+                    "INNER JOIN customer ON ba_has_assessment.ba_cus_id = customer.idCustomer\n" +
+                    "LEFT JOIN assessment ON ba_has_assessment.BA_assessment_id = assessment.idAssessment\n" +
+                    "INNER JOIN `user` ON receipt.receipt_user_id = `user`.idUser\n" +
+                    "WHERE\n" +
+                    "receipt.Application_Catagory_idApplication_Catagory = '5' AND\n" +
+                    "receipt.idReceipt = "+text);
+
+            if (data.last()) {
+                System.out.println("data");
+                int recept_applicationId = data.getInt("recept_applicationId");
+                int i = DB.setData("UPDATE `doc_hand_approve` SET `doc_hand_complete_status` = '0', `doc_hand_accept_or_reject` = '1' WHERE ( `doc_hand_subject_id` = '" + recept_applicationId + "' AND `application_doc_hand_category_id` = '5' )");
+
+                //if (radio_print.isSelected()) {
+                    buildingPermitPrint(idRecipt , true);
+               //     clearAll();
+               // } else {
+                //    payAnable();
+               // }
+
+            }
+
+
+
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    public void buildingPermitPrint(int text, boolean print){
+        System.out.println("print method call");
+        try {
+            modle.GetInstans.getAssessReport().buildingApplicationPrint(text + "", false);
+            clearAll();
+        }catch (Exception e){
+            e.printStackTrace();
         }
     }
 

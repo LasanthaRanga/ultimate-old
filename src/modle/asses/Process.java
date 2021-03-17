@@ -175,7 +175,7 @@ public class Process {
 
             if (data.last()) {
                 allow = true;
-                System.out.println("data thiyanawa");
+                System.out.println("data thiyanawa 00");
             } else {
                 System.out.println(" data ne ");
             }
@@ -198,7 +198,7 @@ public class Process {
 
                 if (data1.last()) {
                     allow = true;
-                    System.out.println("data thiyanawa");
+                    System.out.println("data thiyanawa ---------------   ");
                 } else {
                     allow = false;
                     System.out.println("Data Nehe 10%");

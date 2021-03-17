@@ -268,16 +268,17 @@ public class YQendProcess {
                     }
 
                     double q4warrant = 0;
+                    String val = KeyVal.getVal("Min_Arriars_For_Warrant");
+                    double minValue = Double.parseDouble(val);
 
-                    if (q4status == 0 && havetopay > 10) {
+                    if (q4status == 0 && havetopay > minValue) {
                         q4warrant = modle.Maths.round2(quater * warrantrate / 100);
                     }
 
                     arriars += havetopay;
 
+                    System.out.println(arriars+ "       ======     =====     ======    ======");
 
-                    String val = KeyVal.getVal("Min_Arriars_For_Warrant");
-                    double minValue = Double.parseDouble(val);
 
                     if (arriars < minValue) {
                         q4warrant = 0;
@@ -287,7 +288,9 @@ public class YQendProcess {
                         q4warrant = 0;
                     }
 
-                    System.out.println(q4warrant);
+                    System.out.println(q4warrant+ "       ======     =====     ======    ======");
+
+
 
                     warrant += q4warrant;
 
@@ -299,6 +302,7 @@ public class YQendProcess {
                     histry.setLyw(modle.Maths.round2(warrant + lyw));
 
                     updateQstartOldStatus(idQstart);
+
                     payHistry(idAssessment, 1, currentYear, stringDate, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
                 }
 

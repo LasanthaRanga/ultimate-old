@@ -48,12 +48,12 @@ Contributor(s):
         <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
 
         <!--<property name="hibernate.connection.url">-->
-        <!--jdbc:mysql://124.43.9.57:3306/ultimate2?zeroDateTimeBehavior=convertToNull-->
+        <!--jdbc:mysql://124.43.9.57:3306/atd2?zeroDateTimeBehavior=convertToNull-->
     <!--</property>-->
         <!--<property name="hibernate.connection.password">@Mck_#321</property>-->
 
         <!--MCK-->
-        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/atd2?zeroDateTimeBehavior=convertToNull</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/naveen?zeroDateTimeBehavior=convertToNull</property>
         <property name="hibernate.connection.password">root</property>
 
 
