@@ -1092,55 +1092,58 @@ public class BarcodePay implements Initializable {
 
 
         try {
-            ResultSet data = DB.getData("SELECT\n" +
-                    "doc_hand_approve.approve_doc_hand_id,\n" +
-                    "bop.idBOP\n" +
-                    "FROM\n" +
-                    "doc_hand_approve\n" +
-                    "INNER JOIN bop ON doc_hand_approve.doc_hand_subject_id = bop.idBOP\n" +
-                    "WHERE\n" +
-                    "doc_hand_approve.application_doc_hand_category_id = 3 AND\n" +
-                    "bop.idBOP = " + appid);
+//            ResultSet data = DB.getData("SELECT\n" +
+//                    "doc_hand_approve.approve_doc_hand_id,\n" +
+//                    "bop.idBOP\n" +
+//                    "FROM\n" +
+//                    "doc_hand_approve\n" +
+//                    "INNER JOIN bop ON doc_hand_approve.doc_hand_subject_id = bop.idBOP\n" +
+//                    "WHERE\n" +
+//                    "doc_hand_approve.application_doc_hand_category_id = 3 AND\n" +
+//                    "bop.idBOP = " + appid);
+//
+//            if (data.last()) {
+//                int approve_doc_hand_id = data.getInt("approve_doc_hand_id");
+//
+//                conn.DB.setData("UPDATE `doc_hand_approve`\n" +
+//                        "SET `doc_hand_recevied_user_category` = '3',\n" +
+//                        " `doc_hand_accept_or_reject` = '1'\n" +
+//                        "WHERE\n" +
+//                        "\t(`approve_doc_hand_id` = " + approve_doc_hand_id + ")");
+//
+//
+//            }
 
-            if (data.last()) {
-                int approve_doc_hand_id = data.getInt("approve_doc_hand_id");
+//            ResultSet data1 = DB.getData("SELECT\n" +
+//                    "receipt.idReceipt,\n" +
+//                    "sl_details.idStreetLine,\n" +
+//                    "receipt.receipt_print_no,\n" +
+//                    "receipt.receipt_day, receipt.receipt_total\n" +
+//                    "FROM\n" +
+//                    "receipt\n" +
+//                    "INNER JOIN sl_details ON sl_details.idStreetLine = receipt.recept_applicationId\n" +
+//                    "WHERE\n" +
+//                    "receipt.Application_Catagory_idApplication_Catagory = 3 AND\n" +
+//                    "sl_details.idStreetLine = '" + appid + "'");
 
-                conn.DB.setData("UPDATE `doc_hand_approve`\n" +
-                        "SET `doc_hand_recevied_user_category` = '3',\n" +
-                        " `doc_hand_accept_or_reject` = '1'\n" +
-                        "WHERE\n" +
-                        "\t(`approve_doc_hand_id` = " + approve_doc_hand_id + ")");
+//            if (data1.last()) {
+//                int idReceipt = data1.getInt("idReceipt");
+//                String receipt_day = data1.getString("receipt_day");
+//                String receipt_print_no = data1.getString("receipt_print_no");
+//                double receipt_total = data1.getDouble("receipt_total");
+//
+//                conn.DB.setData("UPDATE `account_ps_three`\n" +
+//                        "SET `report_date` = '" + receipt_day + "',\n" +
+//                        " `report_ricipt_no` = '" + receipt_print_no + "',\n" +
+//                        " `report_status` = '1' , `income_or_expence` = '1'\n" +
+//                        "WHERE\n" +
+//                        "\t`report_ricipt_id` = '" + idReceipt + "'");
+//
+//                updateReciptNewCollom(idRecipt, 1, 1, 1, receipt_total);
+//            }
 
 
-            }
-
-            ResultSet data1 = DB.getData("SELECT\n" +
-                    "receipt.idReceipt,\n" +
-                    "sl_details.idStreetLine,\n" +
-                    "receipt.receipt_print_no,\n" +
-                    "receipt.receipt_day, receipt.receipt_total\n" +
-                    "FROM\n" +
-                    "receipt\n" +
-                    "INNER JOIN sl_details ON sl_details.idStreetLine = receipt.recept_applicationId\n" +
-                    "WHERE\n" +
-                    "receipt.Application_Catagory_idApplication_Catagory = 3 AND\n" +
-                    "sl_details.idStreetLine = '" + appid + "'");
-
-            if (data1.last()) {
-                int idReceipt = data1.getInt("idReceipt");
-                String receipt_day = data1.getString("receipt_day");
-                String receipt_print_no = data1.getString("receipt_print_no");
-                double receipt_total = data1.getDouble("receipt_total");
-
-                conn.DB.setData("UPDATE `account_ps_three`\n" +
-                        "SET `report_date` = '" + receipt_day + "',\n" +
-                        " `report_ricipt_no` = '" + receipt_print_no + "',\n" +
-                        " `report_status` = '1' , `income_or_expence` = '1'\n" +
-                        "WHERE\n" +
-                        "\t`report_ricipt_id` = '" + idReceipt + "'");
-
-                updateReciptNewCollom(idRecipt, 1, 1, 1, receipt_total);
-            }
+            conn.DB.setData("UPDATE `doc_hand_approve` SET `doc_hand_complete_status` = '0', `doc_hand_accept_or_reject` = '1' WHERE ( `doc_hand_subject_id` = '"+appid+"' AND `application_doc_hand_category_id` = '3' )");
 
 
         } catch (Exception e) {
