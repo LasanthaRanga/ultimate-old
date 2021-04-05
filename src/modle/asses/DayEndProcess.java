@@ -375,7 +375,6 @@ public class DayEndProcess {
             System.out.println("---------------");
 
             Criteria cry = session.createCriteria(AssPayment.class);
-        //    cry.add(Restrictions.eq("assPaymentDate", systemDate));
             cry.add(Restrictions.eq("assPaymentStatus", 0));
             cry.add(Restrictions.eq("receipt", re));
             List<AssPayment> list = cry.list();

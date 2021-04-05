@@ -128,7 +128,7 @@ public class SystemSettingsController implements Initializable {
             if (today.equals("01-01") || today.equals("04-01") || today.equals("07-01") || today.equals("10-01")) {
 
                 boolean dayEnded = checkDayEnd(priviars, selected);
-
+                System.out.println(dayEnded);
                 if (dayEnded) {
                     setSystemDate(selectDate);
                 } else {

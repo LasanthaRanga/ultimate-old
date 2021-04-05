@@ -12,6 +12,10 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import modle.ComboItem;
+import modle.ComboLoad;
+import modle.GetInstans;
+import modle.StaticBadu;
 import modle.asses.OnlinePay;
 
 import java.net.URL;
@@ -31,6 +35,9 @@ public class OnlineApprove implements Initializable {
 
     @FXML
     private TableColumn<Online, String> col_customer;
+
+    @FXML
+    private TableColumn<Online, Integer> col_appno;
 
     @FXML
     private TableColumn<Online, String> col_appcat;
@@ -74,14 +81,19 @@ public class OnlineApprove implements Initializable {
     @FXML
     private JFXProgressBar progress;
 
+    @FXML
+    private JFXComboBox<ComboItem> combo;
+
+
     ObservableList<Online> list = FXCollections.observableArrayList();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        loadCombo();
         try {
             col_index.setCellValueFactory(new PropertyValueFactory<>("onpayid"));
             col_customer.setCellValueFactory(new PropertyValueFactory<>("cus_name"));
+            col_appno.setCellValueFactory(new PropertyValueFactory<>("appno"));
             col_appcat.setCellValueFactory(new PropertyValueFactory<>("appcat"));
             col_amount.setCellValueFactory(new PropertyValueFactory<>("amount"));
             col_status.setCellValueFactory(new PropertyValueFactory<>("status"));
@@ -95,11 +107,22 @@ public class OnlineApprove implements Initializable {
     }
 
 
+    int appcat = 0;
+    int status = 0;
+
+    @FXML
+    void filterByAppCat(ActionEvent event) {
+        ComboItem selectedItem = combo.getSelectionModel().getSelectedItem();
+        System.out.println(selectedItem);
+        System.out.println(selectedItem.getId());
+        appcat = selectedItem.getId();
+        loadTable(status);
+    }
+
+
     @FXML
     void checkAll(ActionEvent event) {
-
         ObservableList<Online> items = tbl.getItems();
-
         if (check.isSelected()) {
             items.forEach(online -> {
                 online.select.setSelected(true);
@@ -109,9 +132,21 @@ public class OnlineApprove implements Initializable {
                 online.select.setSelected(false);
             });
         }
-
-
     }
+
+
+
+    void loadCombo(){
+        String qq = "SELECT\n" +
+                "application_catagory.idApplication_Catagory,\n" +
+                "application_catagory.application_name\n" +
+                "FROM\n" +
+                "application_catagory";
+
+        ObservableList<ComboItem> comboItems = ComboLoad.loadCombo(qq);
+        combo.setItems(comboItems);
+    }
+
 
     @FXML
     void clickOnTbl(MouseEvent event) {
@@ -137,7 +172,7 @@ public class OnlineApprove implements Initializable {
     @FXML
     void radioOnAction(ActionEvent event) {
 
-        int status = 0;
+
 
         if (radio_pending.isSelected()) {
             status = 1;
@@ -204,6 +239,10 @@ public class OnlineApprove implements Initializable {
                     "WHERE\n" +
                     "online_pay.`status` = '" + status + "' ";
 
+            if(appcat>0){
+                query+= " AND application_catagory.idApplication_Catagory = "+ appcat;
+            }
+
             if (dp.getValue() != null) {
 
                 Date selectDate = Date.from(dp.getValue().atStartOfDay().atZone(ZoneId.of("Asia/Colombo")).toInstant());
@@ -217,7 +256,7 @@ public class OnlineApprove implements Initializable {
             ResultSet data = DB.getData(query);
 
             while (data.next()) {
-                list.add(new Online(data.getInt("idOnPaid"), data.getInt("oncus_id"), data.getString("fullname"), data.getInt("appcat_id"), data.getString("application_name"),
+                list.add(new Online(data.getInt("idOnPaid"), data.getInt("oncus_id"), data.getString("fullname"), data.getInt("app_id"), data.getInt("appcat_id"), data.getString("application_name"),
                         data.getInt("app_id"), data.getDouble("amount"), data.getInt("status"), st));
                 // System.out.println(list.size());
             }
@@ -234,10 +273,11 @@ public class OnlineApprove implements Initializable {
 
     public class Online {
 
-        public Online(int onpayid, int cusid, String cus_name, int appcatid, String appcat, int appid, double amount, int statusid, String status) {
+        public Online(int onpayid, int cusid,  String cus_name,int appno, int appcatid, String appcat, int appid, double amount, int statusid, String status) {
             this.onpayid = onpayid;
             this.cusid = cusid;
             this.cus_name = cus_name;
+            this.appno = appno;
             this.appcatid = appcatid;
             this.appcat = appcat;
             this.appid = appid;
@@ -250,6 +290,7 @@ public class OnlineApprove implements Initializable {
         private int onpayid;
         private int cusid;
         private String cus_name;
+        private int appno;
         private int appcatid;
         private String appcat;
         private int appid;
@@ -320,6 +361,10 @@ public class OnlineApprove implements Initializable {
 
         public int getAppid() {
             return appid;
+        }
+
+        public int getAppno() {
+            return appno;
         }
 
         public double getAmount() {
