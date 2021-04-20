@@ -1840,7 +1840,7 @@ public class PayObj {
                 xx++;
             }
 
-            if (data.last()) {
+            if (data.first()) {
                 String receipt_code = data.getString("receipt_code");
                 no += receipt_code;
             }
