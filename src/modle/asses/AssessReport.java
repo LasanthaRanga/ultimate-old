@@ -731,10 +731,12 @@ public class AssessReport {
     public void getReciptPrintBOP(String slid, boolean print) {
         try {
 
-            String path = "C:\\Ultimate\\Report\\bop\\bop.jrxml";// IN SYSTEM
-            JasperReport jr = JasperCompileManager.compileReport(path);
+            String bop_recipt_path = KeyVal.getVal("BOP_recipt_path");
+
+          //  String path = "C:\\Ultimate\\Report\\bop\\Blank_A4.jrxml";// IN SYSTEM
+            JasperReport jr = JasperCompileManager.compileReport(bop_recipt_path);
             HashMap param = new HashMap<String, Integer>();
-            param.put("reciptid", slid);
+            param.put("id", slid);
             System.out.println(slid);
             this.getConnection().commit();
             JasperPrint jp = JasperFillManager.fillReport(jr, param, this.getConnection());
