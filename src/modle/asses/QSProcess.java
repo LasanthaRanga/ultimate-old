@@ -3,6 +3,7 @@ package modle.asses;
 import com.jfoenix.controls.JFXProgressBar;
 import conn.DB;
 import conn.NewHibernateUtil;
+import controller.assess.Histry;
 import javassist.bytecode.stackmap.BasicBlock;
 import modle.GetInstans;
 import modle.KeyVal;
@@ -375,6 +376,7 @@ public class QSProcess {
                     }
                 }
 
+                Histry histryy = new Histry();
 
                 if (priviarsarrears + qslyca + newHaveToPay > minValue) {  //                    arriars eka min value ekata wedi waraant wadinawa
                     if (priviasQuater == 1) {
@@ -417,13 +419,33 @@ public class QSProcess {
 
                 if (isWarrant == 1) {
                     saveQstart(idAssessment, qslyca, qslycw, newHaveToPay, newWarrant, qsHtoPay, qsLqPaid, 0, qsLqPaidQtot, qsLqPaidFullTot);
+                    histryy.setLqw(modle.Maths.round2(qslycw));
                 } else {
                     saveQstart(idAssessment, qslyca, qslycw, newHaveToPay, 0.0, qsHtoPay, qsLqPaid, 0, qsLqPaidQtot, qsLqPaidFullTot);
                 }
 
                 updateQstartOld(idQstart);
-
-
+//                histryy.setOver(over);
+                histryy.setLqa(modle.Maths.round2(qslyca));
+                histryy.setLya(modle.Maths.round2(qslya));
+                histryy.setLyw(modle.Maths.round2(qslyw));
+                histryy.setIdAssessment(idAssessment);
+                histryy.setYear(currentYear);
+//                histryy.setDate(currentDate);
+                histryy.setQuater(currentQuater);
+                histryy.setYearRate(currentYear);
+                histryy.setWarantRate(warantRate);
+                histryy.setAllocation(allocation);
+                histryy.setQuaterAmount(currentQuater);
+                histryy.setCredit(credit);
+                histryy.setDebit(0);
+//                histryy.setLqw(qslqw);
+//                histryy.setAssessmentNo();
+//                histryy.setStreetName();
+//                histryy.setWardName();
+//                histryy.setCus_id(idCustomer);
+//                histryy.setCus_name(cus_name);
+                histryy.save();
                 String tycaq = "SELECT\n" +
                         "\tass_qstart.idass_Qstart,\n" +
                         "\tass_qstart.ass_Qstart_QuaterNumber,\n" +
