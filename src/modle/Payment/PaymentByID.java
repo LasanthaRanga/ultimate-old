@@ -283,7 +283,7 @@ public class PaymentByID {
             System.out.println("app cat " + applicationcat);
             System.out.println("office  " + modle.StaticViews.getLogUser().getOfficeIdOffice() );
             System.out.println("acoount " + receipt_account_id);
-            System.out.println("==================================");
+            System.out.println("==================================" +ricipt);
 
             if (data3.last()) {
                 receipt_code = data3.getString("receipt_code");
@@ -307,6 +307,15 @@ public class PaymentByID {
                     "\tApplication_Catagory_idApplication_Catagory = '" + applicationcat + "'\n" +
                     "AND recept_applicationId = '" + idApp + "'";
             conn.DB.setData(qu);
+
+
+            String quu = "UPDATE `account_ps_three` SET `report_ricipt_no` = '"+rn+"', `report_status` = '1', `income_or_expence` = '1' WHERE `report_ricipt_id` = '"+ricipt+"'";
+            System.out.println(quu);
+            conn.DB.setData(quu);
+
+
+
+
 
         } catch (Exception e) {
             e.printStackTrace();

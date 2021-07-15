@@ -144,7 +144,7 @@ public class BarcodePay implements Initializable {
                 clearAll();
                 break;
             case 3:
-                modle.Payment.PaymentByID.genarateRisiptNo(3, "", appid);
+                modle.Payment.PaymentByID.genarateRisiptNo(3, idRecipt+"", appid);
                 updateBOP(appid);
                 modle.GetInstans.getAssessReport().getReciptPrintBOP(idRecipt + "", false);
                 modle.Allert.notificationGood("Completed", "Street Line " + idRecipt);
