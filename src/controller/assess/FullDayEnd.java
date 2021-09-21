@@ -211,7 +211,7 @@ public class FullDayEnd implements Initializable {
                                 + "\t(`idde` = '" + idde + "')");
                     } else {
                         //  conn.DB.setData("DELETE from de WHERE idde = " + idde);
-                        modle.Allert.notificationWorning("Day End Not Completed", "Please Recheck  -  " + idde);
+                     //   modle.Allert.notificationWorning("Day End Not Completed", "Please Recheck  -  " + idde);
                         break;
                     }
 

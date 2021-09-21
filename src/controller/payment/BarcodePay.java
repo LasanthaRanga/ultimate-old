@@ -1756,8 +1756,8 @@ public class BarcodePay implements Initializable {
                 "\tcustomer.cus_name\n" +
                 "FROM\n" +
                 "\treceipt\n" +
-                "INNER JOIN sl_details ON receipt.recept_applicationId = sl_details.idStreetLine\n" +
-                "INNER JOIN customer ON sl_details.customer_idCustomer = customer.idCustomer\n" +
+                "LEFT JOIN sl_details ON receipt.recept_applicationId = sl_details.idStreetLine\n" +
+                "LEFT JOIN customer ON sl_details.customer_idCustomer = customer.idCustomer\n" +
                 "WHERE\n" +
                 "\treceipt.Application_Catagory_idApplication_Catagory = '3'\n" +
                 "AND receipt.idReceipt = " + text;
@@ -1800,6 +1800,8 @@ public class BarcodePay implements Initializable {
 
                 }
 
+            } else{
+                System.out.println("NO Data");
             }
 
         } catch (Exception e) {
