@@ -6,7 +6,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 
 /**
- * @author Punnajee
+ * @author Ranga Rathnayake
  */
 public class DB {
 
@@ -15,9 +15,9 @@ public class DB {
 
     //       local
     //       local
-//    public static final String DBPATH = "jdbc:mysql://localhost:3306/ultimate2?zeroDateTimeBehavior=convertToNull";
-//    public static final String USER = "root";
-//    public static final String PASS = "root";
+    public static final String DBPATH = "jdbc:mysql://localhost:3306/ultimate2?zeroDateTimeBehavior=convertToNull";
+    public static final String USER = "root";
+    public static final String PASS = "root";
 
 //    public static final String DBPATH = "jdbc:mysql://localhost:3306/ultimate2?zeroDateTimeBehavior=convertToNull";
 //    public static final String USER = "root";
@@ -39,10 +39,10 @@ public class DB {
 //    public static final String PASS = "katu@#321#";
 
     //    ////   UDUBADDAWA
-    public static final String DBPATH = "jdbc:mysql://124.43.7.128:3306/ultimate2?zeroDateTimeBehavior=convertToNull";
-    public static final String USER = "root";
-    public static final String PASS = "UDU@#321$%";
-////    POL
+//    public static final String DBPATH = "jdbc:mysql://124.43.7.128:3306/ultimate2?zeroDateTimeBehavior=convertToNull";
+//    public static final String USER = "root";
+//    public static final String PASS = "UDU@#321$%";
+//////    POL
 //    public static final String DBPATH = "jdbc:mysql://124.43.8.99:3306/ultimate2?zeroDateTimeBehavior=convertToNull";
 //    public static final String USER = "root";
 //    public static final String PASS = "Pol@#522#";

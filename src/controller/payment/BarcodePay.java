@@ -1713,54 +1713,35 @@ public class BarcodePay implements Initializable {
 
 
     public void bopdata(String text) {
-        System.out.println("method call");
+        System.out.println("method call BOP");
+
+
         String query = "SELECT\n" +
-                "\treceipt.idReceipt,\n" +
-                "\treceipt.Application_Catagory_idApplication_Catagory,\n" +
-                "\treceipt.recept_applicationId,\n" +
-                "\treceipt.receipt_print_no,\n" +
-                "\treceipt.cheack,\n" +
-                "\treceipt.cesh,\n" +
-                "\treceipt.receipt_total,\n" +
-                "\treceipt.receipt_day,\n" +
-                "\treceipt.receipt_status,\n" +
-                "\treceipt.receipt_syn,\n" +
-                "\treceipt.chque_no,\n" +
-                "\treceipt.chque_date,\n" +
-                "\treceipt.chque_bank,\n" +
-                "\treceipt.oder,\n" +
-                "\treceipt.office_idOffice,\n" +
-                "\tsl_details.idStreetLine,\n" +
-                "\tsl_details.ass_id,\n" +
-                "\tsl_details.slDate,\n" +
-                "\tsl_details.sllotNo,\n" +
-                "\tsl_details.slPlanNo,\n" +
-                "\tsl_details.slDescription,\n" +
-                "\tsl_details.slDeposit,\n" +
-                "\tsl_details.slAmount,\n" +
-                "\tsl_details.slVat,\n" +
-                "\tsl_details.slNbt,\n" +
-                "\tsl_details.slStamp,\n" +
-                "\tsl_details.slOther1,\n" +
-                "\tsl_details.slOther2,\n" +
-                "\tsl_details.slApproveToPay,\n" +
-                "\tsl_details.slServayOfficer,\n" +
-                "\tsl_details.slServayDate,\n" +
-                "\tsl_details.slPersonTitle,\n" +
-                "\tsl_details.slYesNo_id,\n" +
-                "\tsl_details.slStatus,\n" +
-                "\tsl_details.office_idOffice,\n" +
-                "\tsl_details.customer_idCustomer,\n" +
-                "\tsl_details.sl_reference_no,\n" +
-                "\tsl_details.slApproveDescription,\n" +
-                "\tcustomer.cus_name\n" +
+                "receipt.receipt_total,\n" +
+                "`user`.user_full_name,\n" +
+                "receipt.receipt_print_no,\n" +
+                "receipt.receipt_day,\n" +
+                "receipt.cheack,\n" +
+                "receipt.cesh,\n" +
+                "receipt.idReceipt,\n" +
+                "receipt.recept_applicationId,\n" +
+                "customer.cus_name_sinhala,\n" +
+                "receipt.receipt_status,\n" +
+                "application_catagory.idApplication_Catagory, customer.cus_name\n" +
                 "FROM\n" +
-                "\treceipt\n" +
-                "LEFT JOIN sl_details ON receipt.recept_applicationId = sl_details.idStreetLine\n" +
-                "LEFT JOIN customer ON sl_details.customer_idCustomer = customer.idCustomer\n" +
+                "receipt\n" +
+                "INNER JOIN bop ON receipt.recept_applicationId = bop.idBOP\n" +
+                "INNER JOIN `user` ON bop.BOP_user_id = `user`.idUser\n" +
+                "INNER JOIN bop_has_assessment ON bop.idBOP = bop_has_assessment.BOP_idBOP\n" +
+                "INNER JOIN customer ON bop_has_assessment.bop_cus_id = customer.idCustomer\n" +
+                "INNER JOIN application_catagory ON receipt.Application_Catagory_idApplication_Catagory = application_catagory.idApplication_Catagory\n" +
                 "WHERE\n" +
-                "\treceipt.Application_Catagory_idApplication_Catagory = '3'\n" +
-                "AND receipt.idReceipt = " + text;
+                "receipt.Application_Catagory_idApplication_Catagory = '3' AND\n" +
+                "bop_has_assessment.bop_main_cus = '1' AND\n" +
+                "receipt.idReceipt = '"+text+"'\n" +
+                "GROUP BY\n" +
+                "bop.idBOP\n";
+
         try {
             ResultSet data = DB.getData(query);
 
@@ -1770,7 +1751,7 @@ public class BarcodePay implements Initializable {
 
                 int receipt_status = data.getInt("receipt_status");
                 if (receipt_status == 0) {
-                    catid = data.getInt("Application_Catagory_idApplication_Catagory");
+                    catid = data.getInt("idApplication_Catagory");
                     appid = data.getInt("recept_applicationId");
                     double fullTot = data.getDouble("receipt_total");
                     idRecipt = data.getInt("idReceipt");
